@@ -2,6 +2,7 @@ const LoginPage = require('../clases/LoginPage');
 const PrincipalPage = require('../clases/PrincipalPage');
 const PostPage = require('../clases/PostPage');
 
+//"create_post.js": ["post_basico", "post_sin_titulo", "post_image", "schedule_post"],
 async function post_basico(page) {
     //Page Object
     const formPage = new LoginPage(page);

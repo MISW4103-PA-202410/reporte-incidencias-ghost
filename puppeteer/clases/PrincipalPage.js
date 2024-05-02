@@ -18,6 +18,17 @@ class PrincipalPage {
         // Espera a que la navegación se complete
         await this.page.waitForNavigation();
     }
+
+    async navigateToPages() {
+        // Espera a que el elemento con la clase "gh-viewport" esté disponible en la página
+        await this.page.waitForSelector('a[data-test-nav="pages"]');
+
+        // Navega a la sección de "Posts" haciendo clic en el enlace correspondiente
+        await this.page.click('a[data-test-nav="pages"]');
+
+        // Espera a que la navegación se complete
+        await this.page.waitForNavigation();
+    }
 }
 
 module.exports = PrincipalPage;
