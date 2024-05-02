@@ -4,10 +4,20 @@ class LoginPage {
     }
 
     async login(username, password) {
-    await this.page.type('#username', username);
-    await this.page.type('#password', password);
-    await this.page.click('#loginButton');
-    await this.page.waitForNavigation();
+        await this.page.waitForSelector('input[name="identification"]');
+        await this.page.type('input[name="identification"]', username);
+        await this.page.type('input[name="password"]', password);
+        await this.page.click('[data-test-button="sign-in"]');
+        await this.page.waitForNavigation();
+    }
+
+    async isSignInPage() {
+        try {
+            await this.page.waitForSelector('[data-test-button="sign-in"]', { timeout: 10000 });
+            return true;
+        } catch (error) {
+            return false;
+        }
     }
 }
 
