@@ -9,6 +9,7 @@ async function post_basico(page) {
     const principalPage = new PrincipalPage(page);
     const postPage = new PostPage(page);
 
+    //GIVEN
     //Ingresar
     if(await formPage.isSignInPage()){
         await formPage.login('equipo20@misw4103.com', 'PRUEBAS12345');
@@ -16,10 +17,10 @@ async function post_basico(page) {
     else{
         await principalPage.navigateToSite();
     }
-
     //Navegar a la sección de Posts
     await principalPage.navigateToPosts();
 
+    //WHEN
     //Crear un nuevo post
     await postPage.newPost();
     const title = "Post de prueba";
@@ -30,6 +31,7 @@ async function post_basico(page) {
     await postPage.submitPost();
     //await page.screenshot({path: './pagina.png'})
 
+    //THEN
     //Prueba finalizada
     console.log("\t - Post Basico publicado exitosamente");
 }
