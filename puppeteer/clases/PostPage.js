@@ -38,6 +38,7 @@ class PostPage {
         await this.page.waitForSelector('button[data-test-button="confirm-publish"]');
         // Publica el post haciendo clic en el botón "Publish post, right now"
         await this.page.click('button[data-test-button="confirm-publish"]');
+        await new Promise(r => setTimeout(r, 1000));
         //Esperar a que el post se publique
         await this.page.waitForSelector('a[data-test-complete-bookmark=""]');
         //Completa la publicación haciendo clic en el botón "Done"
@@ -116,11 +117,25 @@ class PostPage {
 
     async firstPost(){
         //Screen shot
-        await this.page.screenshot({path: 'screenshot.png'});
         await this.page.waitForSelector('h3.gh-content-entry-title');
         const h3Title = await this.page.$('h3.gh-content-entry-title');
         const title = await this.page.evaluate(h3Title => h3Title.innerText, h3Title);
         return title;
+    }
+
+    async postLook(postTitle) {
+        // Espera a que se carguen todos los elementos h3 con la clase especificada
+        await this.page.waitForSelector('h3.gh-content-entry-title');
+        // Obtiene todos los elementos h3 con la clase especificada
+        const h3Titles = await this.page.$$('h3.gh-content-entry-title');
+        // Itera sobre los elementos y verifica si alguno coincide con el título proporcionado
+        for (const h3Title of h3Titles) {
+            const title = await this.page.evaluate(h3 => h3.innerText, h3Title);
+            if (title === postTitle) {
+                return true; // Retorna true si encuentra el título
+            }
+        }
+        return false; // Retorna false si no encuentra el título
     }
 
     async eschedulePosts(){

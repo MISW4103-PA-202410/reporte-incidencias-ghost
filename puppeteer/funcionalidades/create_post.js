@@ -32,9 +32,10 @@ async function post_basico(page) {
 
     //THEN
     await principalPage.navigateToPosts();
-    const firstPost = await postPage.firstPost();
-    if(firstPost !== title){
+    const postExist = await postPage.postLook(title);
+    if(!postExist ){
         console.log("\t x El post no fue publicado exitosamente");
+        return;
     }
     //Prueba finalizada con éxito
     console.log("\t - Post Basico publicado exitosamente");
@@ -70,10 +71,10 @@ async function post_sin_titulo(page) {
 
     //THEN
     await principalPage.navigateToPosts();
-    const untitledPost = await postPage.firstPost();
-    const expected = "(Untitled)";
-    if(untitledPost !== expected){
+    const postExist = await postPage.postLook("(Untitled)");
+    if(!postExist){
         console.log("\t x El post sin título no fue publicado exitosamente");
+        return;
     }
     //Prueba finalizada
     console.log("\t - Post sin título publicado exitosamente");
@@ -115,9 +116,10 @@ async function post_image(page){
         return;
     }
     await principalPage.navigateToPosts();
-    const firstPost = await postPage.firstPost();
-    if(firstPost !== title){
+    const postExist = await postPage.postLook(title);
+    if(!postExist ){
         console.log("\t x El post con imagen no fue publicado exitosamente");
+        return;
     }
 
     //Prueba finalizada
@@ -155,7 +157,11 @@ async function schedule_post(page){
     //THEN
     await principalPage.navigateToPosts();
     postPage.eschedulePosts();
-    const firstPost = await postPage.firstPost();
+    const postExist = await postPage.postLook(title);
+    if(!postExist ){
+        console.log("\t x El post programado no fue publicado exitosamente");
+        return;
+    }
 
     //Prueba finalizada
     console.log("\t - Post programado exitosamente");
