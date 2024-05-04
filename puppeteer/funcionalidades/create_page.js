@@ -9,6 +9,7 @@ async function create_page_audio(page) {
     const principalPage = new PrincipalPage(page);
     const pagesPage = new PagesPage(page);
 
+    //GIVEN
     //Ingresar
     if(await formPage.isSignInPage()){
         await formPage.login('equipo20@misw4103.com', 'PRUEBAS12345');
@@ -20,6 +21,7 @@ async function create_page_audio(page) {
     //Navegar a la sección de Pages
     await principalPage.navigateToPages();
 
+    //WHEN
     //Crear una nueva página
     await pagesPage.newPage();
     const title = "Página de prueba";
@@ -28,14 +30,15 @@ async function create_page_audio(page) {
 
     //Subir un audio
     const uploaded = await pagesPage.uploadAudio('../docs/audio.mp3');
-    if(!uploaded){
-        console.log("No se pudo subir el audio");
-        return;
-    }
 
     //Publicar la página
     await pagesPage.submitPost();
 
+    //THEN
+    if(!uploaded){
+        console.log("No se pudo subir el audio");
+        return;
+    }
     //Prueba finalizada
     console.log("\t - Página con audio publicada exitosamente");
 

@@ -1,4 +1,4 @@
 {
-    "create_post.js": ["post_basico", "post_sin_titulo", "post_image", "schedule_post"],
+    "create_post.js": ["post_basico", "post_sin_titulo", "post_image","schedule_post"],
     "create_page.js": ["create_page_audio"]
 }

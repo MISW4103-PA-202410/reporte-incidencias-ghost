@@ -28,8 +28,6 @@ class PagesPage {
         //Esperar a que el botón "Add feature image" esté disponible en la página
         await this.page.waitForSelector('button[aria-label="Add a card"]');
         await this.page.click('button[aria-label="Add a card"]');
-        const html = await this.page.content();
-        console.log(html);
         //selector de file input
         await this.page.waitForSelector('button[data-kg-card-menu-item="Audio"]');
         const [fileChooser] =  await Promise.all([
@@ -40,7 +38,7 @@ class PagesPage {
 
         //Esperar a que la imagen se cargue
         try{
-            await this.page.waitForSelector('.gh-editor-feature-image-container');
+            await this.page.waitForSelector('div[data-testid="audio-card-populated"]');
             return true;
         }
         catch{

@@ -20,6 +20,7 @@ class PostPage {
         // Ingresa el título del post
         await this.page.type('textarea[placeholder="Post title"]', title);
         // Ingresa el contenido del post
+        await new Promise(r => setTimeout(r, 1000));
         await this.page.type('[data-lexical-editor="true"]', content);
     }
 
@@ -106,9 +107,26 @@ class PostPage {
 
         //dashboard
         await this.page.goto('http://34.170.53.250/ghost/#/dashboard');
+
+        //Screen shot
+        await this.page.screenshot({path: 'screenshot.png'});
         // Espera a que la publicación se complete
         await new Promise(r => setTimeout(r, 500));
+    }
 
+    async firstPost(){
+        //Screen shot
+        await this.page.screenshot({path: 'screenshot.png'});
+        await this.page.waitForSelector('h3.gh-content-entry-title');
+        const h3Title = await this.page.$('h3.gh-content-entry-title');
+        const title = await this.page.evaluate(h3Title => h3Title.innerText, h3Title);
+        return title;
+    }
+
+    async eschedulePosts(){
+        await this.page.waitForSelector('a[title="Scheduled"]');
+        await this.page.click('a[title="Scheduled"]');
+        await new Promise(r => setTimeout(r, 500));
     }
 
 }

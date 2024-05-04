@@ -29,10 +29,14 @@ async function post_basico(page) {
 
     //Publicar el post
     await postPage.submitPost();
-    //await page.screenshot({path: './pagina.png'})
 
     //THEN
-    //Prueba finalizada
+    await principalPage.navigateToPosts();
+    const firstPost = await postPage.firstPost();
+    if(firstPost !== title){
+        console.log("\t x El post no fue publicado exitosamente");
+    }
+    //Prueba finalizada con éxito
     console.log("\t - Post Basico publicado exitosamente");
 }
 
@@ -42,6 +46,7 @@ async function post_sin_titulo(page) {
     const principalPage = new PrincipalPage(page);
     const postPage = new PostPage(page);
 
+    //GIVEN
     //Ingresar
     if(await formPage.isSignInPage()){
         await formPage.login('equipo20@misw4103.com', 'PRUEBAS12345');
@@ -53,6 +58,7 @@ async function post_sin_titulo(page) {
     //Navegar a la sección de Posts
     await principalPage.navigateToPosts();
 
+    //WHEN
     //Crear un nuevo post
     await postPage.newPost();
     const title = "";
@@ -61,7 +67,14 @@ async function post_sin_titulo(page) {
 
     //Publicar el post
     await postPage.submitPost();
-    //await page.screenshot({path: './pagina.png'})
+
+    //THEN
+    await principalPage.navigateToPosts();
+    const untitledPost = await postPage.firstPost();
+    const expected = "(Untitled)";
+    if(untitledPost !== expected){
+        console.log("\t x El post sin título no fue publicado exitosamente");
+    }
     //Prueba finalizada
     console.log("\t - Post sin título publicado exitosamente");
 }
@@ -73,6 +86,7 @@ async function post_image(page){
     const principalPage = new PrincipalPage(page);
     const postPage = new PostPage(page);
 
+    //GIVEN
     //Ingresar
     if(await formPage.isSignInPage()){
         await formPage.login('equipo20@misw4103.com', 'PRUEBAS12345');
@@ -84,6 +98,7 @@ async function post_image(page){
     //Navegar a la sección de Posts
     await principalPage.navigateToPosts();
 
+    //WHEN
     //Crear un nuevo post
     await postPage.newPost();
     const title = "Post de prueba con imagen";
@@ -91,13 +106,19 @@ async function post_image(page){
     await postPage.fillPostData(title, content);
     //Subir imagen
     const uploaded = await postPage.uploadImage('../docs/image_feature.jpeg');
-    if(!uploaded){
-        console.log("No se pudo subir la imagen");
-        return;
-    }
     //Publicar el post
     await postPage.submitPost();
-    //await page.screenshot({path: './pagina.png'})
+
+    //THEN
+    if(!uploaded){
+        console.log("\t x No se pudo subir la imagen");
+        return;
+    }
+    await principalPage.navigateToPosts();
+    const firstPost = await postPage.firstPost();
+    if(firstPost !== title){
+        console.log("\t x El post con imagen no fue publicado exitosamente");
+    }
 
     //Prueba finalizada
     console.log("\t - Post con imagen publicado exitosamente");
@@ -109,6 +130,7 @@ async function schedule_post(page){
     const principalPage = new PrincipalPage(page);
     const postPage = new PostPage(page);
 
+    //GIVEN
     //Ingresar
     if(await formPage.isSignInPage()){
         await formPage.login('equipo20@misw4103.com', 'PRUEBAS12345');
@@ -120,6 +142,7 @@ async function schedule_post(page){
     //Navegar a la sección de Posts
     await principalPage.navigateToPosts();
 
+    //WHEN
     //Crear un nuevo post
     await postPage.newPost();
     const title = "Post de prueba programado";
@@ -128,6 +151,11 @@ async function schedule_post(page){
 
     //Programar el post
     await postPage.scheduleLater();
+
+    //THEN
+    await principalPage.navigateToPosts();
+    postPage.eschedulePosts();
+    const firstPost = await postPage.firstPost();
 
     //Prueba finalizada
     console.log("\t - Post programado exitosamente");
