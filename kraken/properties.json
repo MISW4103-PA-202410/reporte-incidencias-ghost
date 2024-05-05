@@ -2,5 +2,6 @@
   "EMAIL": "jaime@example.com",
   "PASSWORD": "EgVLGq2!L5fXLt$",
   "FULL_NAME": "Jaime Larson",
-  "BLOG_TITLE": "Kraken tests E2E"
+  "BLOG_TITLE": "Kraken tests E2E",
+  "SETUP_VALUES": "Kraken tests E2E;Jaime Larson;jaime@example.com;EgVLGq2!L5fXLt$"
 }

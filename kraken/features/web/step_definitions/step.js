@@ -24,3 +24,25 @@ When("I click create account and start publishing button", async function () {
   let element = await this.driver.$("#ember4");
   return await element.click();
 });
+
+When("I enter to the setup page {kraken-string}", async function (values) {
+  let button = await this.driver.$("#ember5");
+  const setupValues = values.split(";");
+  if (button === undefined) {
+    button = await this.driver.$("#ember4");
+    let blogTitle = await this.driver.$("#blog-title");
+    await blogTitle.setValue(setupValues[0]);
+    let fullName = await this.driver.$("#name");
+    await fullName.setValue(setupValues[1]);
+    let email = await this.driver.$("#email");
+    await email.setValue(setupValues[2]);
+    let password = await this.driver.$("#password");
+    await password.setValue(setupValues[3]);
+  } else {
+    let email = await this.driver.$("#identification");
+    await email.setValue(setupValues[2]);
+    let password = await this.driver.$("#password");
+    await password.setValue(setupValues[3]);
+  }
+  return await button.click();
+});
