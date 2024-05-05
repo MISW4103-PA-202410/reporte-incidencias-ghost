@@ -1,30 +1,5 @@
 const { Given, When, Then } = require("@cucumber/cucumber");
 
-When("I enter blog title {kraken-string}", async function (title) {
-  let element = await this.driver.$("#blog-title");
-  return await element.setValue(title);
-});
-
-When("I enter full name {kraken-string}", async function (name) {
-  let element = await this.driver.$("#name");
-  return await element.setValue(name);
-});
-
-When("I enter email address {kraken-string}", async function (email) {
-  let element = await this.driver.$("#email");
-  return await element.setValue(email);
-});
-
-When("I enter password {kraken-string}", async function (password) {
-  let element = await this.driver.$("#password");
-  return await element.setValue(password);
-});
-
-When("I click create account and start publishing button", async function () {
-  let element = await this.driver.$("#ember4");
-  return await element.click();
-});
-
 When("I enter to the setup page {kraken-string}", async function (values) {
   let button = await this.driver.$("#ember5");
   const setupValues = values.split(";");
@@ -45,4 +20,46 @@ When("I enter to the setup page {kraken-string}", async function (values) {
     await password.setValue(setupValues[3]);
   }
   return await button.click();
+});
+
+When("I click in the add post button", async function () {
+  let element = await this.driver.$("#ember20");
+  return await element.click();
+});
+
+When("I enter a title for the post {kraken-string}", async function (title) {
+  let element = await this.driver.$("#ember49");
+  return await element.setValue(title);
+});
+
+When(
+  "I enter a description for the post {kraken-string}",
+  async function (description) {
+    let element = await this.driver.$(".kg-prose > p");
+    await element.scrollIntoView();
+    await element.click();
+    return await element.keys(description);
+  }
+);
+
+When("I click publish post button", async function () {
+  let element = await this.driver.$(
+    ".gh-editor-publish-buttons > button:nth-child(2)"
+  );
+  return await element.click();
+});
+
+When("I click final review post button", async function () {
+  let element = await this.driver.$(".gh-publish-cta > button");
+  return await element.click();
+});
+
+When("I click publish post right now button", async function () {
+  let element = await this.driver.$('[data-test-button="confirm-publish"]');
+  return await element.click();
+});
+
+When("I go back to dashboard", async function () {
+  let element = await this.driver.$(".ember-view.gh-back-to-editor");
+  return await element.click();
 });
