@@ -1,0 +1,49 @@
+[
+  {
+    "description": "",
+    "elements": [
+      {
+        "description": "",
+        "id": "my-feature;my-scenario-2",
+        "keyword": "Scenario",
+        "line": 7,
+        "name": "My scenario 2",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 540000000
+            }
+          },
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 1004000000
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@user2",
+            "line": 6
+          },
+          {
+            "name": "@web",
+            "line": 6
+          }
+        ],
+        "type": "scenario"
+      }
+    ],
+    "id": "my-feature",
+    "line": 1,
+    "keyword": "Feature",
+    "name": "My feature",
+    "tags": [],
+    "uri": "features/my_first.feature"
+  }
+]

@@ -1,0 +1,76 @@
+[
+  {
+    "description": "",
+    "elements": [
+      {
+        "description": "",
+        "id": "my-feature;my-scenario-1",
+        "keyword": "Scenario",
+        "line": 4,
+        "name": "My scenario 1",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 6548000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 5,
+            "name": "I wait",
+            "match": {
+              "location": "node_modules/kraken-node/lib/steps/both.js:61"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 5004000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 6,
+            "name": "I send a signal to user 2 containing \"hi\"",
+            "match": {
+              "location": "node_modules/kraken-node/lib/steps/both.js:85"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "failed",
+              "duration": 6012000000,
+              "error_message": "Error: no current window handle registered\n    at DevToolsDriver.getPageHandle (/Users/andres/university/pruebas_automatizadas/reporte-incidencias-ghost/kraken/node_modules/devtools/build/devtoolsdriver.js:192:19)\n    at DevToolsDriver.checkPendingNavigations (/Users/andres/university/pruebas_automatizadas/reporte-incidencias-ghost/kraken/node_modules/devtools/build/devtoolsdriver.js:205:25)\n    at Browser.wrappedCommand (/Users/andres/university/pruebas_automatizadas/reporte-incidencias-ghost/kraken/node_modules/devtools/build/devtoolsdriver.js:123:24)\n    at Browser.wrapCommandFn (/Users/andres/university/pruebas_automatizadas/reporte-incidencias-ghost/kraken/node_modules/@wdio/utils/build/shim.js:136:38)\n    at Browser.<anonymous> (/Users/andres/university/pruebas_automatizadas/reporte-incidencias-ghost/kraken/node_modules/@wdio/utils/build/shim.js:275:24)\n    at WebClient.<anonymous> (/Users/andres/university/pruebas_automatizadas/reporte-incidencias-ghost/kraken/node_modules/kraken-node/lib/clients/WebClient.js:109:59)\n    at step (/Users/andres/university/pruebas_automatizadas/reporte-incidencias-ghost/kraken/node_modules/kraken-node/lib/clients/WebClient.js:59:23)\n    at Object.next (/Users/andres/university/pruebas_automatizadas/reporte-incidencias-ghost/kraken/node_modules/kraken-node/lib/clients/WebClient.js:40:53)\n    at /Users/andres/university/pruebas_automatizadas/reporte-incidencias-ghost/kraken/node_modules/kraken-node/lib/clients/WebClient.js:34:71\n    at new Promise (<anonymous>)\n    at __awaiter (/Users/andres/university/pruebas_automatizadas/reporte-incidencias-ghost/kraken/node_modules/kraken-node/lib/clients/WebClient.js:30:12)\n    at WebClient.stop (/Users/andres/university/pruebas_automatizadas/reporte-incidencias-ghost/kraken/node_modules/kraken-node/lib/clients/WebClient.js:104:16)\n    at WebClient.<anonymous> (/Users/andres/university/pruebas_automatizadas/reporte-incidencias-ghost/kraken/node_modules/kraken-node/lib/clients/Client.js:109:51)\n    at step (/Users/andres/university/pruebas_automatizadas/reporte-incidencias-ghost/kraken/node_modules/kraken-node/lib/clients/Client.js:67:23)\n    at Object.next (/Users/andres/university/pruebas_automatizadas/reporte-incidencias-ghost/kraken/node_modules/kraken-node/lib/clients/Client.js:48:53)\n    at fulfilled (/Users/andres/university/pruebas_automatizadas/reporte-incidencias-ghost/kraken/node_modules/kraken-node/lib/clients/Client.js:39:58)"
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@user1",
+            "line": 3
+          },
+          {
+            "name": "@web",
+            "line": 3
+          }
+        ],
+        "type": "scenario"
+      }
+    ],
+    "id": "my-feature",
+    "line": 1,
+    "keyword": "Feature",
+    "name": "My feature",
+    "tags": [],
+    "uri": "features/my_first.feature"
+  }
+]
