@@ -140,3 +140,87 @@ When("I click in the continue publish page button", async function () {
   let element = await this.driver.$('button[data-test-button="continue"]');
   return await element.click();
 });
+
+When("I click youtube embeds", async function () {
+  let element = await this.driver.$('button[data-kg-card-menu-item="YouTube"]');
+  return await element.click();
+});
+
+When("I insert the youtube url", async function () {
+  let element = await this.driver.$('input[data-testid="embed-url"]');
+  await element.setValue("https://www.youtube.com/watch?v=edVYLVDDgh0");
+  return await element.keys(["Enter"]);
+});
+
+When("I click side options menu", async function () {
+  let element = await this.driver.$(".settings-menu-toggle");
+  return await element.click();
+});
+
+When("I set the page url {kraken-string}", async function (url) {
+  let element = await this.driver.$("#url");
+  return await element.setValue(url);
+});
+
+When("I click in the preview page button", async function () {
+  let element = await this.driver.$(
+    'button[data-test-button="publish-preview"]'
+  );
+  return await element.click();
+});
+
+When("I click the back button", async function () {
+  let element = await this.driver.$(".gh-editor-back-button");
+  return await element.click();
+});
+
+When("I click the editor back button", async function () {
+  let element = await this.driver.$(".gh-editor-back-button");
+  return await element.click();
+});
+
+When("I click the description field", async function () {
+  let element = await this.driver.$(".kg-prose > p");
+  await element.scrollIntoView();
+});
+
+/**
+ *
+ * TAGS
+ *
+ */
+
+When("I click in the tags menu button", async function () {
+  let element = await this.driver.$('a[href="#/pages/"]');
+  return await element.click();
+});
+
+When("I click in the new tag button", async function () {
+  let element = await this.driver.$('a[href="#/tags/new/"]');
+  return await element.click();
+});
+
+When("I enter the tag name", async function (name) {
+  let element = await this.driver.$("#tag-name");
+  return await element.setValue(name);
+});
+
+When("I click the save tag button", async function () {
+  let element = await this.driver.$('button[data-test-button="save"]');
+  return await element.click();
+});
+
+When("I see the tag has been saved", async function () {
+  let element = await this.driver.$(
+    'span[data-test-task-button-state="success"]'
+  );
+  if (element !== undefined) return;
+  throw new Error();
+});
+
+When("I check the slug has been changed", async function () {
+  let element = await this.driver.$("#tag-slug");
+  const values = element.getValue().split("-2");
+  if (values[1] !== "2") return;
+  throw new Error();
+});

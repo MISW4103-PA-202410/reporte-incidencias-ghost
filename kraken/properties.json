@@ -6,5 +6,8 @@
   "SETUP_VALUES": "Kraken tests E2E;Jaime Larson;jaime@example.com;EgVLGq2!L5fXLt$",
   "POST_TITLE": "Kraken post tests E2E",
   "POST_DESCRIPTION": "This is a description for kraken's post tests E2E",
-  "PAGE_TITLE": "Kraken page tests E2E"
+  "PAGE_TITLE": "Kraken page tests E2E",
+  "PAGE_URL": "static-url-page-e2e",
+  "PAGE_TITLE_DRAFT": "DRAFT: Kraken page tests E2E",
+  "TAG_NAME": "tag-name-test-e2e"
 }
