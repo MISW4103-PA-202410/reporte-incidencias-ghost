@@ -1,11 +1,14 @@
 const { Given, When, Then } = require("@cucumber/cucumber");
 const path = require("path");
+const { assert, expect } = require("chai");
 
 When("I enter to the setup page {kraken-string}", async function (values) {
-  let button = await this.driver.$("#ember5");
   const setupValues = values.split(";");
-  if (button === undefined) {
-    button = await this.driver.$("#ember4");
+  let button = await this.driver.$('button[data-test-button="sign-in"]');
+
+  const buttonExists = await button.isExisting();
+
+  if (!buttonExists) {
     let blogTitle = await this.driver.$("#blog-title");
     await blogTitle.setValue(setupValues[0]);
     let fullName = await this.driver.$("#name");
@@ -14,14 +17,27 @@ When("I enter to the setup page {kraken-string}", async function (values) {
     await email.setValue(setupValues[2]);
     let password = await this.driver.$("#password");
     await password.setValue(setupValues[3]);
+    let button = await this.driver.$("#setup > button");
+    return await button.click();
   } else {
     let email = await this.driver.$("#identification");
     await email.setValue(setupValues[2]);
     let password = await this.driver.$("#password");
     await password.setValue(setupValues[3]);
+    return await button.click();
   }
+});
+
+When ("I sign in with email {kraken-string}", async function (values) {
+  const setupValues = values.split(";");
+  let email = await this.driver.$("#identification");
+  await email.setValue(setupValues[0]);
+  let password = await this.driver.$("#password");
+  await password.setValue(setupValues[1]);
+  let button = await this.driver.$('button.login.gh-btn.gh-btn-login');
   return await button.click();
 });
+
 
 /**
  *
@@ -31,6 +47,11 @@ When("I enter to the setup page {kraken-string}", async function (values) {
 
 When("I click in the add post button", async function () {
   let element = await this.driver.$("#ember20");
+  return await element.click();
+});
+
+When("I click Posts", async function () {
+  let element = await this.driver.$('a[href="#/posts/"].ember-view');
   return await element.click();
 });
 
@@ -89,7 +110,7 @@ When("I click on publish settings button", async function () {
 
 When("I click on schedule for later button", async function () {
   let element = await this.driver.$(".gh-publish-schedule > div:nth-child(2)");
-  return await radioelementButton.click();
+  return await element.click();
 });
 
 /**
@@ -191,19 +212,33 @@ When("I click the description field", async function () {
  */
 
 When("I click in the tags menu button", async function () {
-  let element = await this.driver.$('a[href="#/pages/"]');
+  let element = await this.driver.$('a[href="#/tags/"].ember-view');
   return await element.click();
 });
 
 When("I click in the new tag button", async function () {
-  let element = await this.driver.$('a[href="#/tags/new/"]');
+  let element = await this.driver.$(
+    'a[href="#/tags/new/"].ember-view.gh-btn.gh-btn-primary'
+  );
   return await element.click();
 });
 
-When("I enter the tag name", async function (name) {
-  let element = await this.driver.$("#tag-name");
-  return await element.setValue(name);
+When("I fill the tag name {kraken-string}", async function (values) {
+  let element = await this.driver.$("#tag-name ");
+  return await element.setValue(values);
 });
+
+When(
+  "I verify the tag name created is {kraken-string}",
+  async function (values) {
+    let element = await this.driver.$(
+      "section.view-container.content-list > ol.tags-list.gh-list > li:nth-child(4) > a.ember-view.gh-list-data.gh-tag-list-title.gh-list-cellwidth-70"
+    );
+    let string = await element.getText();
+    assert.equal(string, values);
+    return await element.click();
+  }
+);
 
 When("I click the save tag button", async function () {
   let element = await this.driver.$('button[data-test-button="save"]');
@@ -223,4 +258,259 @@ When("I check the slug has been changed", async function () {
   const values = element.getValue().split("-2");
   if (values[1] !== "2") return;
   throw new Error();
+});
+
+When("I click in the add image to tag", async function () {
+  let element = await this.driver.$(
+    "span.x-file-input > label > div.gh-btn.gh-btn-white"
+  );
+  return await element.click();
+});
+
+When("I fill the meta data {kraken-string}", async function (values) {
+  const setupValues = values.split(";");
+
+  element = await this.driver.$("#meta-title");
+  await element.setValue(setupValues[0]);
+  element = await this.driver.$("#meta-description");
+  await element.setValue(setupValues[1]);
+  element = await this.driver.$("#canonical-url");
+  await element.setValue(setupValues[2]);
+
+  return await element.click();
+});
+
+When("I click in the expand meta data button", async function () {
+  let element = await this.driver.$("button.gh-btn.gh-btn-expand > span");
+  return await element.click();
+});
+
+/**
+ *
+ * View
+ *
+ */
+When("I click dropdown visibility", async function () {
+  let element = await this.driver.$(
+    "div.gh-contentfilter-menu.gh-contentfilter-visibility"
+  );
+  return await element.click();
+});
+
+When("I click Public", async function () {
+  let element = await this.driver.$(
+    "ul.ember-power-select-options > li:nth-child(2)"
+  );
+  return await element.click();
+});
+
+When("I select orange color", async function () {
+  let element = await this.driver.$(
+    "div.flex.justify-between.mt3.nl1 > div:nth-child(8)"
+  );
+  return await element.click();
+});
+
+When("I click Paid members only", async function () {
+  let element = await this.driver.$(
+    "ul.ember-power-select-options > li:nth-child(4)"
+  );
+  return await element.click();
+});
+
+When("I click new view", async function () {
+  let element = await this.driver.$(
+    "div.dropdown.gh-contentfilter-menu.gh-contentfilter-actions > button.gh-contentfilter-menu-trigger.gh-contentfilter-button.gh-btn-save-view"
+  );
+  return await element.click();
+});
+
+When("I enter view name {kraken-string}", async function (values) {
+  let element = await this.driver.$(
+    "input.ember-text-field.gh-input.ember-view"
+  );
+  return await element.setValue(values);
+});
+
+When("I click Save view", async function () {
+  let element = await this.driver.$(
+    "div.modal-footer > button.gh-btn.gh-btn-black.gh-btn-icon.ember-view"
+  );
+  return await element.click();
+});
+
+When("I check the created view {kraken-string}", async function (values) {
+  let element = await this.driver.$(
+    "a[title=" + values + "] > span.gh-nav-viewname"
+  );
+  assert.equal(await element.getText(), values);
+  return await element.click();
+});
+
+Then("I should delete the view", async function () {
+  let element = await this.driver.$(
+    "div.modal-footer > button.gh-btn.gh-btn-red.gh-btn-icon"
+  );
+  return await element.click();
+});
+
+When("I click the dropdown tags", async function () {
+  let element = await this.driver.$(
+    "div.gh-contentfilter-menu.gh-contentfilter-tag"
+  );
+  return await element.click();
+});
+
+When("I select news Tag", async function () {
+  let element = await this.driver.$(
+    "ul.ember-power-select-options > li:nth-child(3)"
+  );
+  return await element.click();
+});
+
+/**
+ *
+ * Profile
+ *
+ */
+
+When("I click the profile button", async function () {
+  let element = await this.driver.$("div.gh-user-avatar.relative");
+  return await element.click();
+});
+
+When("I click the configure button", async function () {
+  let element = await this.driver.$('a[data-test-nav="user-profile"]');
+  return await element.click();
+});
+
+When("I click the password change button", async function () {
+  // Seleccionando el botón por algunas clases clave
+  let buttonSelector =
+    'div.relative.flex-col.gap-6.rounded-xl > button[type="button"]';
+  let buttons = await this.driver.$$(buttonSelector);
+
+  // Iterar sobre los botones encontrados y hacer clic en el que tiene el texto correcto
+  for (let button of buttons) {
+    if ((await button.getText()) === "Change password") {
+      return await button.click();
+    }
+  }
+
+  throw new Error("Password change button not found");
+});
+
+When("I fill the password fields {kraken-string}", async function (values) {
+  const setupValues = values.split(";");
+  let passwordInputs = await this.driver.$$(
+    'div.flex > div.relative > input[type="password"]'
+  );
+  await passwordInputs[0].setValue(setupValues[0]);
+  await passwordInputs[1].setValue(setupValues[1]);
+  await passwordInputs[2].setValue(setupValues[2]);
+});
+
+When("I click the change password button", async function () {
+  let passwordInputs = await this.driver.$$(
+    "div.relative.flex-col.gap-6 > button"
+  );
+  for (let button of passwordInputs) {
+    if ((await button.getText()) === "Change password") {
+      return await button.click();
+    }
+  }
+});
+
+When("I click the save profile button", async function () {
+  let element = await this.driver.$$(
+    "button.cursor-pointer.bg-black.text-white"
+  );
+  for (let button of element) {
+    if ((await button.getText()) === "Save & close") {
+      return await button.click();
+    }
+  }
+  return await element.click();
+});
+
+When("I click the quit button", async function () {
+  return await this.driver.$("#done-button").click();
+});
+
+When("I click the sign out button", async function () {
+  return await this.driver.$('a[href="#/signout/"]').click();
+});
+
+When("I click the cover image button", async function () {
+  return await this.driver
+    .$("div.flex.items-end.gap-4.justify-end.flex-nowrap")
+    .click();
+});
+
+When("I clear values", async function () {
+  const userSections = await this.driver.$$(
+    "div.relative.flex-col.gap-6.rounded-xl.transition-all"
+  );
+
+  // Recorrer cada sección para encontrar la que contiene 'Full name'
+  for (let section of userSections) {
+    const labelText = await section.getText();
+    if (labelText.includes("Full name")) {
+      // Asumiendo que hay exactamente dos inputs en la sección donde se encuentra 'Full name'
+      const inputs = await section.$$('input[type="text"]');
+      await inputs[0].clearValue();
+      await inputs[1].clearValue();
+    }
+  }
+
+
+});
+
+When("I change info profile {kraken-string}", async function (values) {
+  const setupValues = values.split(";");
+});
+
+
+When("I change info profile socialMedia {kraken-string}", async function (values) {
+  const setupValues = values.split(";");
+  // Obtener todos los contenedores que podrían contener los campos de entrada
+  const userSections = await this.driver.$$(
+    "div.relative.flex-col.gap-6.rounded-xl.transition-all"
+  );
+
+  for (let section of userSections) {
+    const labelText = await section.getText();
+    if (labelText.includes("Location")) {
+      const inputs = await section.$$('input[type="text"]');
+      await inputs[2].setValue(setupValues[0]);
+      await inputs[3].setValue(setupValues[1]);
+    }
+  }
+});
+
+When ("I click the dot points", async function () {
+  const dotPoints = await this.driver.$$("button.flex.h-8.cursor-pointer.items-center.justify-center");
+  for (let dotPoint of dotPoints) {
+    if ((await dotPoint.getText()).includes("Actions")) {
+      return await dotPoint.click();
+    }
+  }
+
+});
+
+
+When ("I click the userActivityButton", async function () {
+  const userActivityButton = await this.driver.$("button.cursor-pointer.px-4.text-left.text-sm");
+  return await userActivityButton.click();
+});
+
+
+When ("I verify history", async function () {
+  const Activity = await this.driver.$$('div.flex.grow.items-center.gap-3.undefined');
+
+  const count = Activity.length;
+
+  assert.isAtLeast(count, 1);
+
+
 });
