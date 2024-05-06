@@ -61,6 +61,7 @@ Scenario: Como usuario me registro y creo un post programado
   And I click publish post button
   And I wait for 1 seconds
   And I click on publish settings button
+  And I wait for 1 seconds
   And I click on schedule for later button
   And I click final review post button
   And I click publish confirm button
