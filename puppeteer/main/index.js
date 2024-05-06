@@ -27,4 +27,7 @@ const fs = require('fs');
             }
         }
     }
+
+    await browser.close();
+    
 })();

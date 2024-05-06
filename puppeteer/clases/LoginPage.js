@@ -19,6 +19,10 @@ class LoginPage {
             return false;
         }
     }
+
+    async signOut() {
+        await this.page.goto('http://34.170.53.250/ghost/#/signout');
+    }
 }
 
 module.exports = LoginPage;

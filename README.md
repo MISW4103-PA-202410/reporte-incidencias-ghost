@@ -159,3 +159,11 @@ npx kraken-node run
 
 
 NOTA IMPORTANTE: Tener en cuenta que tenemos una carpeta que se llama TESTS que contiene los escenarios para editar perfil que se ejecutan individualmente cada uno y los demás escenarios que sí están agrupados, por defecto se ejecuta el escenario create_post.
+## Instrucciones
+
+1. Clonar el repositorio.
+2. Posicionarse en el directorio puppeteer. Ej: cd puppeteer
+3. Instalar módulos de node con npm install.
+4. Acceder al directorio puppeteer/main. Ej: cd main
+5. Ejecutar la suite de pruebas con el comando: node index.js.
+6. Se empezará a ejecutar las pruebas y en la consola aparecen los resultados.

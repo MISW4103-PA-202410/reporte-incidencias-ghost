@@ -144,6 +144,84 @@ class PostPage {
         await new Promise(r => setTimeout(r, 500));
     }
 
+    async filterByUser() {
+        //Open filter
+        let authorsFilter = "div.gh-contentfilter-author>div[role='button']";
+        await this.page.waitForSelector(authorsFilter);
+        await this.page.click(authorsFilter);
+
+        //Select user
+        let user = 'ul[role="listbox"]>li[data-option-index="1"]';
+        await this.page.waitForSelector(user);
+        await this.page.click(user);
+        await new Promise(r => setTimeout(r, 500));
+
+    }
+
+    async filterByStatus() {
+        //Open filter
+        let statusFilter = "div.gh-contentfilter-type>div[role='button']";
+        await this.page.waitForSelector(statusFilter);
+        await this.page.click(statusFilter);
+
+        //Select status
+        let status = 'ul[role="listbox"]>li[data-option-index="2"]';
+        await this.page.waitForSelector(status);
+        await this.page.click(status);
+        await new Promise(r => setTimeout(r, 500));
+    }
+
+    async filterByTag() {
+        //Open filter
+        let tagsFilter = "div.gh-contentfilter-tag>div[role='button']";
+        await this.page.waitForSelector(tagsFilter);
+        await this.page.click(tagsFilter);
+
+        //Select tag
+        let tag = 'ul[role="listbox"]>li[data-option-index="1"]';
+        await this.page.waitForSelector(tag);
+        await this.page.click(tag);
+        await new Promise(r => setTimeout(r, 500));
+    }
+
+    async saveView(name) {
+        // Open dialog to save view
+        let btnSelector = "button.gh-btn-save-view";
+        await this.page.waitForSelector(btnSelector);
+        await this.page.click(btnSelector);
+
+        // Fill name
+        let inputSelector = "input#view-name";
+        await this.page.waitForSelector(inputSelector);
+        //Clear input
+        await this.page.evaluate(() => {
+            document.querySelector("input#view-name").value = "";
+        });
+        await this.page.type(inputSelector, name);
+
+        // Save view
+        btnSelector = "button[data-test-button='save-custom-view']";
+        await this.page.waitForSelector(btnSelector);
+        await this.page.click(btnSelector);
+        await new Promise(r => setTimeout(r, 500));
+
+    }
+
+    async getViews() {
+        let viewListSelector = "ul.gh-nav-view-list";
+        await this.page.waitForSelector(viewListSelector);
+        const views = await this.page.evaluate(() => {
+            const views = [];
+            const viewElements = document.querySelectorAll('ul.gh-nav-view-list>li');
+            for (const viewElement of viewElements) {
+                views.push(viewElement.querySelector('a>span.gh-nav-viewname').innerText);
+            }
+            return views;
+        });
+
+        return views;
+    }
+
 }
 
 
