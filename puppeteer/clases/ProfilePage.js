@@ -55,12 +55,16 @@ class ProfilePage {
     async imageExist(filePath) {
         //Esperar a que la imagen se cargue
         try{
-            const backgroundImage = await this.page.evaluate(() => { return document.querySelector('img#cover-image').src;});
+            const imgElement = await this.page.$('div.bg-cover');
+            if(imgElement == null){
+                console.log("No se encontró la imagen");
+                return false;
+            }
+            const backgroundImage = await imgElement.evaluate((el) => el.style.backgroundImage);
             return backgroundImage.includes(filePath.split(".")[0]);
         }
         catch (error){
             console.log("Error al cargar la imagen");
-            console.log(error);
             return false;
         }
     }
@@ -72,53 +76,64 @@ class ProfilePage {
         await new Promise(r => setTimeout(r, 500));
     }
 
-    async changeName(name) {
+    async clearInput(input) {
+        await input.click({ clickCount: 3 });
+        await this.page.keyboard.press('Backspace');
+    }
 
-        await this.page.evaluate((name) => {
-            document.querySelector('input.peer').value = name;
-        }, name);
+    async changeName(name) {
+        let inputs = await this.page.$$('input.peer');
+        // Name is the first input
+        let input = inputs[0];
+        await this.clearInput(input);
+        await input.type(name);
     }
 
     async changeEmail(email) {
-        await this.page.evaluate((email) => {
-            document.querySelectorAll('input.peer')[1].value = email;
-        }, email);
+        let inputs = await this.page.$$('input.peer');
+        // Email is the second input
+        let input = inputs[1];
+        await this.clearInput(input);
+        await input.type(email);
     }
 
     async getProfileName() {
-        return await this.page.evaluate(() => {
-            return document.querySelector('input.peer').value;
-        });
+        let nameInput = (await this.page.$$('input.peer'))[0];
+        
+        return await nameInput.evaluate((el) => el.value);
     }
 
     async getProfileEmail() {
-        return await this.page.evaluate(() => {
-            return document.querySelectorAll('input.peer')[1].value;
-        });
+        let emailInput = (await this.page.$$('input.peer'))[1];
+        
+        return await emailInput.evaluate((el) => el.value);
     }
 
     async changeFacebook(facebook) {
-        await this.page.evaluate((facebook) => {
-            document.querySelectorAll('input.peer')[5].value = facebook;
-        }, facebook);
+        let inputs = await this.page.$$('input.peer');
+        // Facebook is the sixth input
+        let input = inputs[5];
+        await this.clearInput(input);
+        await input.type(facebook);
     }
 
     async changeTwitter(twitter) {
-        await this.page.evaluate((twitter) => {
-            document.querySelectorAll('input.peer')[6].value = twitter;
-        }, twitter);
+        let inputs = await this.page.$$('input.peer');
+        // Twitter is the seventh input
+        let input = inputs[6];
+        await this.clearInput(input);
+        await input.type(twitter);
+        await (await this.page.$$('input.peer'))[4].click();
     }
 
     async getFacebook() {
-        return await this.page.evaluate(() => {
-            return document.querySelectorAll('input.peer')[5].value;
-        });
+        let fbInput = (await this.page.$$('input.peer'))[5];
+        return await fbInput.evaluate((el) => el.value);
     }
 
     async getTwitter() {
-        return await this.page.evaluate(() => {
-            return document.querySelectorAll('input.peer')[6].value;
-        });
+        let twInput = (await this.page.$$('input.peer'))[6];
+        return await twInput.evaluate((el) => el.value);
     }
 }
 

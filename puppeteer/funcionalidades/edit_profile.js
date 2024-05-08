@@ -68,7 +68,7 @@ async function change_password(page) {
     console.log("\t - Cambio de contraseña exitoso");
 };
 
-async function cover_profile_image(page) {
+async function cover_8k_image(page) {
         //Page Object
         const formPage = new LoginPage(page);
         const principalPage = new PrincipalPage(page);
@@ -86,7 +86,7 @@ async function cover_profile_image(page) {
         await principalPage.navigateToProfile();
 
         //Upload cover image
-        await profilePage.addImage('../docs/image_feature.jpeg');
+        await profilePage.addImage('../docs/cover-8k.jpg');
         await profilePage.saveProfile();
 
         //THEN
@@ -97,9 +97,11 @@ async function cover_profile_image(page) {
         ]);
         await Promise.all([
             page.waitForNavigation(),
-            await principalPage.navigateToProfile()
+            principalPage.navigateToProfile()
         ]);
-        if(!await profilePage.imageExist('image_feature.jpeg')){
+
+        await new Promise(r => setTimeout(r, 1000));
+        if(!await profilePage.imageExist('cover-8k.jpg')){
             console.log("\t x La imagen no fue cargada exitosamente");
             return;
         }
@@ -135,6 +137,7 @@ async function change_name_and_email(page) {
     const email = "equipo2024@misw4103.com";
     await profilePage.changeName(name);
     await profilePage.changeEmail(email);
+    
     await profilePage.saveProfile();
     await new Promise(r => setTimeout(r, 1000));
     
@@ -148,8 +151,8 @@ async function change_name_and_email(page) {
         principalPage.navigateToProfile()
     ]);
     
-    const nameValue = profilePage.getProfileName();
-    const emailValue = profilePage.getProfileEmail();
+    const nameValue = await profilePage.getProfileName();
+    const emailValue = await profilePage.getProfileEmail();
     
     if(nameValue !== name || emailValue !== email){
         console.log("\t x El nombre o el correo no fueron cambiados exitosamente");
@@ -191,6 +194,7 @@ async function add_social_networks(page) {
     const twitter = "https://twitter.com/Equipo20";
     await profilePage.changeFacebook(facebook);
     await profilePage.changeTwitter(twitter);
+
     await profilePage.saveProfile();
     await new Promise(r => setTimeout(r, 1000));
     
@@ -204,8 +208,8 @@ async function add_social_networks(page) {
         principalPage.navigateToProfile()
     ]);
     
-    const facebookValue = profilePage.getFacebook();
-    const twitterValue = profilePage.getTwitter();
+    const facebookValue = await profilePage.getFacebook();
+    const twitterValue = await profilePage.getTwitter();
     
     if(facebookValue !== facebook || twitterValue !== twitter){
         console.log("\t x Facebook o Twitter no fueron cambiados exitosamente");
@@ -222,4 +226,4 @@ async function add_social_networks(page) {
     console.log("\t - Cambio de redes sociales exitoso");
 }
 
-module.exports = { change_password, cover_profile_image, change_name_and_email, add_social_networks };
+module.exports = { change_password, cover_8k_image, change_name_and_email, add_social_networks };

@@ -56,8 +56,7 @@ class PrincipalPage {
         
         await Promise.all([
             this.page.waitForNavigation(),
-            this.page.click(profileSelector),
-            this.page.screenshot({path: 'screenshot12345667.png'})
+            this.page.click(profileSelector)
         ]);
         // Espera a que se abra el perfil
         await new Promise(r => setTimeout(r, 5000));
