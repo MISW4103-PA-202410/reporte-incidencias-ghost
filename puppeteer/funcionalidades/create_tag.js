@@ -103,7 +103,7 @@ async function tag_duplicado(page) {
     const slug = await tagPage.getSlug();
 
     if(slug === originalSlug){
-        console.log("\t x El tag no fue creado exitosamente");
+        console.log("\t x El tag no fue creado exitosamente porque el slug es igual al original");
         return;
     }
 

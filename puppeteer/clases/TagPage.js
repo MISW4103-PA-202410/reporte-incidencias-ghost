@@ -10,7 +10,7 @@ class TagPage {
         // Guarda el tag haciendo clic en el botón "Save"
         await this.page.click(selector);
         // Espera a que el tag se guarde
-        await new Promise(r => setTimeout(r, 500));
+        await new Promise(r => setTimeout(r, 800));
 
         let success = await this.page.evaluate((selector) => {
             return document.querySelector(selector).querySelector('span').attributes['data-test-task-button-state'].value;
