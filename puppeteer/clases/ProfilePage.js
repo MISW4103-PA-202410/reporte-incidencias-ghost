@@ -135,6 +135,18 @@ class ProfilePage {
         let twInput = (await this.page.$$('input.peer'))[6];
         return await twInput.evaluate((el) => el.value);
     }
+
+    async openActions() {
+        await this.page.evaluate(() => {
+            [...document.querySelectorAll('span')].find(span => span.innerText === "Actions").click();
+        });
+    }
+
+    async openUserActivity() {
+        await this.page.evaluate(() => {
+            [...document.querySelectorAll('button')].find(btn => btn.innerText === "View user activity").click();
+        });
+    }
 }
 
 module.exports = ProfilePage;

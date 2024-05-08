@@ -1,6 +1,7 @@
 const LoginPage = require('../clases/LoginPage');
 const PrincipalPage = require('../clases/PrincipalPage');
 const ProfilePage = require('../clases/ProfilePage');
+const UserHistoryPage = require('../clases/UserHistoryPage');
 
 //"edit_profile.js": ["change_password", "8k_cover_image", "change_name_and_email", "add_social_networks", "user_activity"]
 
@@ -226,4 +227,56 @@ async function add_social_networks(page) {
     console.log("\t - Cambio de redes sociales exitoso");
 }
 
-module.exports = { change_password, cover_8k_image, change_name_and_email, add_social_networks };
+async function user_activity(page) {
+    //Page Object
+    const formPage = new LoginPage(page);
+    const principalPage = new PrincipalPage(page);
+    const profilePage = new ProfilePage(page);
+    const userHistory = new UserHistoryPage(page);
+
+    //GIVEN
+    //Ingresar
+    if(await formPage.isSignInPage()){
+        await formPage.login('equipo20@misw4103.com', 'PRUEBAS12345');
+    }
+    else{
+        await principalPage.navigateToSite();
+    }
+    //Navegar al perfil
+    await principalPage.navigateToProfile();
+    const name = await profilePage.getProfileName();
+    
+    //WHEN
+    // Quiero ver la actividad del usuario
+    await profilePage.openActions();
+    await profilePage.openUserActivity();
+    await new Promise(r => setTimeout(r, 300));
+    
+    //THEN
+    // Verificar que el modal de actividad del usuario se abrió y que se muestra la actividad del usuario
+
+    if(!await userHistory.isOpen()){
+        console.log("\t x No se abrió el modal de actividad del usuario");
+        return;
+    }
+
+    const activities = await userHistory.getActivities();
+
+    if(activities.length === 0){
+        console.log("\t x No se muestra la actividad del usuario");
+        return;
+    }
+
+    // Debe haber por lo menos una actividad realizada por el usuario
+    const activity = activities[0];
+    if(activity.user_name !== name){
+        console.log("\t x No se muestra la actividad del usuario");
+        return;
+    }
+
+    //Prueba finalizada con éxito
+    console.log("\t - Visualización de actividad del usuario exitosa");
+
+}
+
+module.exports = { change_password, cover_8k_image, change_name_and_email, add_social_networks, user_activity };
