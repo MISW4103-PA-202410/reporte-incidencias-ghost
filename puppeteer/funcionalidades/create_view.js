@@ -44,6 +44,10 @@ async function view_admin(page) {
         return;
     }
 
+    // Delete the view
+    await postPage.navigateToView(viewName);
+    await postPage.deleteView();
+
     //Prueba finalizada con éxito
     console.log("\t - Vista Admin guardada exitosamente");
 }
@@ -90,6 +94,10 @@ async function view_user_visibility(page) {
         return;
     }
 
+    // Delete the view
+    await postPage.navigateToView(viewName);
+    await postPage.deleteView();
+
     //Prueba finalizada con éxito
     console.log("\t - Vista filtrada por usuario y visibilidad guardada exitosamente");
 }
@@ -133,6 +141,10 @@ async function view_tags(page) {
         console.log("\t x La vista no fue guardada exitosamente");
         return;
     }
+
+    // Delete the view
+    await postPage.navigateToView(viewName);
+    await postPage.deleteView();
 
     //Prueba finalizada con éxito
     console.log("\t - Vista por tag guardada exitosamente");

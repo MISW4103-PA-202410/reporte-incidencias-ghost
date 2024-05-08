@@ -109,8 +109,6 @@ class PostPage {
         //dashboard
         await this.page.goto('http://34.170.53.250/ghost/#/dashboard');
 
-        //Screen shot
-        await this.page.screenshot({path: 'screenshot.png'});
         // Espera a que la publicación se complete
         await new Promise(r => setTimeout(r, 500));
     }
@@ -221,6 +219,37 @@ class PostPage {
 
         return views;
     }
+
+    async navigateToView(name) {
+        let viewListSelector = "ul.gh-nav-view-list";
+        await this.page.waitForSelector(viewListSelector);
+        const viewElements = await this.page.$$('ul.gh-nav-view-list>li');
+        for (const viewElement of viewElements) {
+            const viewName = await viewElement.$eval('a>span.gh-nav-viewname', el => el.innerText);
+            if (viewName === name) {
+                await viewElement.click();
+                break;
+            }
+        }
+        await new Promise(r => setTimeout(r, 500));
+    }
+
+    async deleteView() {
+        try {
+            let btnSelector = "button[data-test-button='edit-view']";
+            await this.page.waitForSelector(btnSelector);
+            await this.page.click(btnSelector);
+            await new Promise(r => setTimeout(r, 500));
+            btnSelector = "button[data-test-button='delete-custom-view']";
+            await this.page.waitForSelector(btnSelector);
+            await this.page.click(btnSelector);
+            await new Promise(r => setTimeout(r, 500));
+        } catch (error) {
+            console.error('No se logró eliminar la vista.');
+        }
+
+    }
+
 
 }
 

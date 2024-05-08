@@ -17,10 +17,11 @@ class PrincipalPage {
         await this.page.waitForSelector('a[data-test-nav="posts"]');
 
         // Navega a la sección de "Posts" haciendo clic en el enlace correspondiente
-        await this.page.click('a[data-test-nav="posts"]');
 
-        // Espera a que la navegación se complete
-        await this.page.waitForNavigation();
+        await Promise.all([
+            this.page.waitForNavigation(),
+            this.page.click('a[data-test-nav="posts"]')
+        ]);
     }
 
     async navigateToPages() {
@@ -72,6 +73,17 @@ class PrincipalPage {
                 [...document.querySelector('div[data-testid="owner-user"]').querySelectorAll('button')].find(btn => btn.textContent === "View profile").click();
             });
         }
+    }
+
+    async navigateToSettings() {
+        // Espera a que el elemento con la clase "gh-viewport" esté disponible en la página
+        await this.page.waitForSelector('a[data-test-nav="settings"]');
+
+        // Navega a la sección de "Settings" haciendo clic en el enlace correspondiente
+        await Promise.all([
+            this.page.waitForNavigation(),
+            this.page.click('a[data-test-nav="settings"]')
+        ]);
     }
 }
 
