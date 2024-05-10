@@ -77,12 +77,12 @@ BeforeAll(async () => {
   }
 
   // clear output/screenshots directory if it exists or create output/screenshots directory
-  if(fse.pathExistsSync('output/screenshots')) {
+  const version = constants.reportConfig.metadata["App Version"]
+  if(fse.pathExistsSync(`output/screenshots/${version}`)) {
     console.log('Clear screenshots directory ...')
-    fse.removeSync('output/screenshots/')
+    fse.removeSync(`output/screenshots/${version}`)
     // recreate directory
     fse.ensureDirSync('output/screenshots')
-    const version = constants.reportConfig.metadata["App Version"]
     fse.ensureDirSync(`output/screenshots/${version}`)
   } else {
     fse.ensureDirSync(`output/screenshots/${version}`)
