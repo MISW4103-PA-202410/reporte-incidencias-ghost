@@ -45,6 +45,8 @@ When('publico la página', async () => {
 });
 
 When('ingreso a la previsualización', async () => {
+    await scope.pages.pages.openSettings();
+
     scope.variables.previewSuccess = await scope.pages.pages.previewPage();
 });
 
@@ -76,9 +78,10 @@ Then('puedo previsualizar correctamente la página', async () => {
 
 Then('salgo de la previsualización', async () => {
     await scope.pages.pages.closePreview();
+    await scope.pages.pages.closeSettings();
 });
 
 Then('la página debe tener el estado {string}', async (estado) => {
     const pageStatus = await scope.pages.pages.statusPage(scope.variables.pageTitle);
-    chai.assert.equal(pageStatus, estado, 'La página no tiene el estado correcto');
+    chai.assert.equal(pageStatus, estado.toUpperCase(), 'La página no tiene el estado correcto');
 });

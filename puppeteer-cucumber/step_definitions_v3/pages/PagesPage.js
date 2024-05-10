@@ -1,4 +1,5 @@
 const constants = require("../support/constants");
+const scope = require("../support/scope");
 
 class PagesPage {
     constructor(page) {
@@ -150,12 +151,15 @@ class PagesPage {
     }
 
     async previewPage() {
-        await this.page.waitForSelector('button[data-test-button="publish-preview"]');
-        await this.page.click('button[data-test-button="publish-preview"]');
-        await new Promise(r => setTimeout(r, 500));
+        await this.page.waitForSelector('a.post-view-link');
+        await this.page.click('a.post-view-link');
+
+        const previewTarget = await scope.browser.waitForTarget(target => target.url().includes('/p/'), { timeout: 5000 });
+
+        scope.variables.previewPage = await previewTarget.page();
 
         try{
-            await this.page.waitForSelector('iframe.gh-pe-iframe');
+            await scope.variables.previewPage.waitForSelector('h1.post-full-title');
             return true;
         }
         catch{
@@ -165,14 +169,15 @@ class PagesPage {
 
 
     async closePreview() {
-        await this.page.waitForSelector('button.gh-btn.gh-btn-editor.gh-editor-preview-trigger.active');
-        await this.page.click('button.gh-btn.gh-btn-editor.gh-editor-preview-trigger.active');
-        await new Promise(r => setTimeout(r, 1000));
+        if (scope.variables.previewPage) {
+            await scope.variables.previewPage.close();
+        }
     }
 
     async saveDraft() {
-        await this.page.waitForSelector('a[data-test-breadcrumb=""]');
-        await this.page.click('a[data-test-breadcrumb=""]');
+        await new Promise(r => setTimeout(r, 1000));
+        await this.page.waitForSelector('a[href="#/pages/"]');
+        await this.page.click('a[href="#/pages/"]');
     }
 
     async draftPages(){
@@ -182,18 +187,19 @@ class PagesPage {
     }
 
     async statusPage(pageTitle) {
-        await this.page.waitForSelector('h3.gh-content-entry-title');
-        const h3Titles = await this.page.$$('h3.gh-content-entry-title');
-        for (const h3Title of h3Titles) {
-            const title = await h3Title.evaluate(node => node.innerText);
+        await this.page.waitForSelector('li.gh-posts-list-item');
+        const itemRows = await this.page.$$('li.gh-posts-list-item');
+        for (const item of itemRows) {
+            const title = await item.evaluate(node => node.querySelector('h3.gh-content-entry-title').innerText);
             if (title === pageTitle) {
-                const status = await h3Title.evaluate((node) => {
-                    let nextElement = node.nextElementSibling;
-                    while (nextElement) {
-                        if (nextElement.tagName === 'P' && nextElement.classList.contains('gh-content-entry-status')) {
-                            return nextElement.innerText;
+                const status = await item.evaluate((node) => {
+                    const spans = node.querySelectorAll('span');
+                    for (const span of spans) {
+                        for (const spanClass of span.classList) {
+                            if (spanClass.includes('gh-content-status')) {
+                                return span.innerText;
+                            }
                         }
-                        nextElement = nextElement.nextElementSibling;
                     }
                     return null;
                 });
