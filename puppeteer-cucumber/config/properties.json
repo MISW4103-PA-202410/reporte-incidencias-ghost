@@ -1,0 +1,28 @@
+{
+    "default": {
+      "baseUrl": "http://34.170.53.250",
+      "pageTimeout": "20000",
+      "headlessMode": false,
+      "reportConfig": {
+        "theme": "bootstrap",
+        "jsonFile": "output/results.json",
+        "output": "output/report/tests-report.html",
+        "screenshotsDirectory": "output/screenshots/",
+        "reportSuiteAsScenarios": false,
+        "launchReport": false,
+        "storeScreenshots": true,
+        "metadata": {
+            "App Version":"5.82.2",
+            "Test Environment": "Test Environment",
+            "Browser": "Browser Version",
+            "Platform": "Platform"
+        }
+      }
+    },
+    "headless": {
+      "headlessMode": true
+    },
+    "chrome": {
+      "chromiumPath": "<path to chromium>"
+    }
+  }
