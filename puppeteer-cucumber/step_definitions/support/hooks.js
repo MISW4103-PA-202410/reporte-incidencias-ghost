@@ -17,7 +17,7 @@ const TagListPage = require('../../pages/TagListPage')
 const TagPage = require('../../pages/TagPage')
 const UserHistoryPage = require('../../pages/UserHistoryPage')
 
-setDefaultTimeout(60 * 1000);
+setDefaultTimeout(constants.pageTimeout * 1000);
 
 BeforeAll(async () => {
   // reset counter
