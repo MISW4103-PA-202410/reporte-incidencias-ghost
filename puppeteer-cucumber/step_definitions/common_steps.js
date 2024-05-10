@@ -1,4 +1,4 @@
-const { Given, When, Then } = require('cucumber')
+const { Given, When, Then } = require('@cucumber/cucumber');
 const scope = require('./support/scope')
 const constants = require('./support/constants')
 const _ = require('lodash')
@@ -14,7 +14,7 @@ const should = chai.should()
 // Dar click
 // Cerrar sesión
 
-Given('inicio la aplicación', async () => {
+Given('inicio la aplicación', {timeout: 60000}, async () => {
     let url = constants.baseUrl + '/ghost';
     await scope.page.goto(url, { waitUntil: 'networkidle0' });
 });

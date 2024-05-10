@@ -9,6 +9,7 @@ module.exports = {
     pages: undefined,
     principal: undefined,
     profile: undefined,
+    settings: undefined,
     tagList: undefined,
     tag: undefined,
     userHistory: undefined

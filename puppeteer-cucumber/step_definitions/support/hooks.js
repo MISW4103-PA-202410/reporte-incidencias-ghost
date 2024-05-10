@@ -1,4 +1,5 @@
-const { BeforeAll, AfterAll, Before, After, setDefaultTimeout, Status} = require('cucumber')
+// const { BeforeAll, AfterAll, Before, After, setDefaultTimeout, Status} = require('cucumber')
+const {BeforeAll, AfterAll, Before, After, AfterStep, setDefaultTimeout, Status} = require('@cucumber/cucumber');
 const scope = require('./scope')
 const constants = require('./constants')
 const fse = require('fs-extra')
@@ -11,14 +12,17 @@ const PrincipalPage = require('../../pages/PrincipalPage')
 const PostPage = require('../../pages/PostPage')
 const PagesPage = require('../../pages/PagesPage')
 const ProfilePage = require('../../pages/ProfilePage')
+const SettingsPage = require('../../pages/SettingsPage')
 const TagListPage = require('../../pages/TagListPage')
 const TagPage = require('../../pages/TagPage')
 const UserHistoryPage = require('../../pages/UserHistoryPage')
 
+setDefaultTimeout(60 * 1000);
 
 BeforeAll(async () => {
   // reset counter
   counter = 0
+  scenarioCounter = 1
 
   const puppeteer = require('puppeteer');
   scope.driver = puppeteer;
@@ -46,10 +50,10 @@ BeforeAll(async () => {
      launchProperties.executablePath = constants.chromiumPath
    }
 
+  
   scope.browser = await scope.driver.launch(launchProperties)
 
    // set default timeout to config value
-  setDefaultTimeout(constants.pageTimeout * 1000) 
 
 
   // *************************************** \\
@@ -78,8 +82,10 @@ BeforeAll(async () => {
     fse.removeSync('output/screenshots/')
     // recreate directory
     fse.ensureDirSync('output/screenshots')
+    const version = constants.reportConfig.metadata["App Version"]
+    fse.ensureDirSync(`output/screenshots/${version}`)
   } else {
-    fse.ensureDirSync('output/screenshots')
+    fse.ensureDirSync(`output/screenshots/${version}`)
   }  
 
   // *************************************** \\
@@ -114,25 +120,32 @@ BeforeAll(async () => {
 })
 
 Before(async () => {
+
+  stepCounter = 1;
+
   // create new page between scenarios
   scope.page = await scope.browser.newPage();
-  scope.pages.labs = new LabsPage(scope.page);
-  scope.pages.login = new LoginPage(scope.page);
-  scope.pages.principal = new PrincipalPage(scope.page);
-  scope.pages.posts = new PostPage(scope.page);
-  scope.pages.pages = new PagesPage(scope.page);
-  scope.pages.profile = new ProfilePage(scope.page);
-  scope.pages.tagList = new TagListPage(scope.page);
-  scope.pages.tag = new TagPage(scope.page);
-  scope.pages.userHistory = new UserHistoryPage(scope.page);
+  createPageObjects(scope.page)
 
+  
   // add in accept language header - this is required when running in headless mode
   await scope.page.setExtraHTTPHeaders({
     'Accept-Language': 'en-US,en;q=0.8,zh-TW;q=0.6'
   });
-
+  
   // Clean variables
   scope.variables = {};
+  scope.variables.screenshotPath = `./output/screenshots/${constants.reportConfig.metadata["App Version"]}/`;
+})
+
+AfterStep(async function({pickle, pickleStep, gherkinDocument, result, testCaseStartedId, testStepId}) {
+  const screenshotPath = scope.variables.screenshotPath;
+  const featureName = gherkinDocument.feature.name.replace(/ /g, '-').toLowerCase();
+  const stepNumber = stepCounter++;
+  // screenshots/<version>/<nombre-feature>_escenario_<escenario>_paso_<paso>.png
+  const screenshotName = `${featureName}_escenario_${scenarioCounter}_paso_${stepNumber}.png`;
+  const screenshot = await scope.page.screenshot({path: `${screenshotPath}${screenshotName}`, fullPage: true});
+  
 })
 
 After(async function (scenario) {
@@ -143,6 +156,8 @@ After(async function (scenario) {
 
   let name = scenario.pickle.name.replace(/ /g, '-')
   let result = scenario.result.status
+
+  scenarioCounter++;
 
   if(Status.FAILED) {
 
@@ -165,8 +180,42 @@ After(async function (scenario) {
 })
 
 AfterAll(async () => {
+  await deleteContent();
   if (scope.browser) {
     // close the browser at end of run
     await scope.browser.close()
   }
 })
+
+async function createPageObjects(page) {
+  scope.pages = {
+    login: new LoginPage(page),
+    principal: new PrincipalPage(page),
+    posts: new PostPage(page),
+    pages: new PagesPage(page),
+    profile: new ProfilePage(page),
+    settings: new SettingsPage(page),
+    tagList: new TagListPage(page),
+    tag: new TagPage(page),
+    userHistory: new UserHistoryPage(page),
+    labs: new LabsPage(page)
+  }
+}
+
+async function deleteContent() {
+  console.log("Eliminando contenido...");
+
+    scope.page = await scope.browser.newPage();
+    createPageObjects(scope.page);
+    await Promise.all([
+      scope.page.waitForNavigation({ waitUntil: 'networkidle0'}),
+      scope.pages.principal.navigateToSite()
+    ]);
+    await scope.pages.principal.navigateToSettings();
+    await scope.pages.settings.gotToLabs();
+    await scope.pages.labs.deleteAllContent();
+
+    await scope.page.close();
+
+    console.log("Contenido eliminado");
+  }

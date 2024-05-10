@@ -42,7 +42,7 @@ Feature: Crear page
         And la página debe existir en la lista
         And puedo navegar a la URL con el slug asignado
 
-    @run @pages
+    @run @pages @debug
     Scenario: Crear una page básica, previsualizarla y dejarla en borrador
         Given inicio la aplicación
         And inicio sesión si es necesario
@@ -54,6 +54,5 @@ Feature: Crear page
         Then puedo previsualizar correctamente la página
         And salgo de la previsualización
         When guardo el borrador de la página
-        Then abro la sección de "Pages"
-        And la página debe existir en la lista
+        Then la página debe existir en la lista
         And la página debe tener el estado "Draft"
