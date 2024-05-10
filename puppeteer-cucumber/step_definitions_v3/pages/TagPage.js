@@ -93,7 +93,7 @@ class TagPage {
     async fillMetadata(title, description) {
         // Expand the all expandable sections by clicking on the "Expand" button
         await this.page.evaluate(() => {
-            const expandButtons = document.querySelectorAll('button.gh-btn-expand');
+            const expandButtons = [...document.querySelectorAll('button.gh-btn')].filter(button => button.innerText === 'Expand');
             expandButtons.forEach(button => button.click());
         });
 
@@ -112,7 +112,7 @@ class TagPage {
     async getMetadata() {
         // Expand the all expandable sections by clicking on the "Expand" button
         await this.page.evaluate(() => {
-            const expandButtons = document.querySelectorAll('button.gh-btn-expand');
+            const expandButtons = [...document.querySelectorAll('button.gh-btn')].filter(button => button.innerText === 'Expand');
             expandButtons.forEach(button => button.click());
         });
         
