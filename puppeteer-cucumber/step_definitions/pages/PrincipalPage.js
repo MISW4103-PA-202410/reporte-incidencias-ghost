@@ -1,27 +1,37 @@
+const constants = require("../support/constants");
+
 class PrincipalPage {
     constructor(page) {
         this.page = page;
+        // Bind the methods to the class context
+        this.navigateToSite = this.navigateToSite.bind(this);
+        this.navigateToPosts = this.navigateToPosts.bind(this);
+        this.navigateToPages = this.navigateToPages.bind(this);
+        this.navigateToTags = this.navigateToTags.bind(this);
+        this.navigateToProfile = this.navigateToProfile.bind(this);
+        this.navigateToSettings = this.navigateToSettings.bind(this);
     }
 
     async isHomePage() {
+        //Print the current URL
+        await new Promise(r => setTimeout(r, 500));
         return this.page.url().includes('ghost/#/dashboard');
     }
 
     async navigateToSite() {
         // Navega a la página de Ghost
-        await this.page.goto('http://34.170.53.250/ghost/#/dashboard');
+        await this.page.goto(`${constants.baseUrl}/ghost/`);
     }
 
     async navigateToPosts() {
         // Espera a que el elemento con la clase "gh-viewport" esté disponible en la página
         await this.page.waitForSelector('a[data-test-nav="posts"]');
 
-        // Navega a la sección de "Posts" haciendo clic en el enlace correspondiente
+        // Wait 500ms
+        await new Promise(r => setTimeout(r, 500));
 
-        await Promise.all([
-            this.page.waitForNavigation(),
-            this.page.click('a[data-test-nav="posts"]')
-        ]);
+        // Navega a la sección de "Posts" haciendo clic en el enlace correspondiente
+        await this.page.click('a[data-test-nav="posts"]');
     }
 
     async navigateToPages() {
@@ -49,7 +59,8 @@ class PrincipalPage {
     async navigateToProfile() {
         let menuSelector = 'div.pe-all>div[role="button"]';
         let profileSelector = 'a[data-test-nav="user-profile"]';
-
+        await new Promise(r => setTimeout(r, 1000));
+        
         await this.page.waitForSelector(menuSelector);
         await this.page.click(menuSelector);
         
@@ -67,6 +78,8 @@ class PrincipalPage {
         const profileOpen = await this.page.evaluate(() => {
             return document.querySelector('section[datat-testid="user-detail-modal"]');
         });
+
+        await this.page.waitForSelector('div[data-testid="owner-user"]');
 
         if (!profileOpen) {
             await this.page.evaluate(() => {

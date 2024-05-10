@@ -3,5 +3,6 @@
     "create_page.js": ["create_page_audio", "create_page_link_youtube", "publicar_page_slug", "draft_page_preview"],
     "create_tag.js": ["tag_basico", "tag_duplicado", "tag_image", "tag_metadata"],
     "create_view.js": ["view_admin", "view_user_visibility", "view_tags"],
-    "edit_profile.js": ["change_password", "cover_8k_image", "change_name_and_email", "add_social_networks"]
+    "edit_profile.js": ["change_password", "cover_8k_image", "change_name_and_email", "add_social_networks", "user_activity"],
+    "delete_content.js": ["delete_content"]
 }

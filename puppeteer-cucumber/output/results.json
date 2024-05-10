@@ -1,0 +1,172 @@
+[
+  {
+    "keyword": "Feature",
+    "name": "Crear post",
+    "line": 1,
+    "id": "crear-post",
+    "tags": [],
+    "uri": "features\\crear-post.feature",
+    "elements": [
+      {
+        "id": "crear-post;crear-un-post-básico-con-título-y-un-párrafo-de-cuerpo-y-publicar",
+        "keyword": "Scenario",
+        "line": 4,
+        "name": "Crear un post básico con título y un párrafo de cuerpo y publicar",
+        "tags": [
+          {
+            "name": "@run",
+            "line": 3
+          },
+          {
+            "name": "@posts",
+            "line": 3
+          },
+          {
+            "name": "@debug",
+            "line": 3
+          }
+        ],
+        "type": "scenario",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "match": {
+              "location": "step_definitions\\support\\hooks.js:116"
+            },
+            "result": {
+              "status": "failed",
+              "duration": 80000000,
+              "error_message": "ReferenceError: reportConfig is not defined\n    at World.<anonymous> (C:\\Users\\javos\\Documents\\University\\MISO\\2024-12\\Pruebas automatizadas\\reporte-incidencias-ghost\\puppeteer-cucumber\\step_definitions\\support\\hooks.js:137:60)"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 5,
+            "name": "inicio la aplicación",
+            "match": {
+              "location": "step_definitions\\common_steps.js:17"
+            },
+            "result": {
+              "status": "skipped"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 6,
+            "name": "inicio sesión si es necesario",
+            "match": {
+              "location": "step_definitions\\common_steps.js:22"
+            },
+            "result": {
+              "status": "skipped"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 7,
+            "name": "abro la sección de \"Posts\"",
+            "match": {
+              "location": "step_definitions\\common_steps.js:49"
+            },
+            "result": {
+              "status": "skipped"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 8,
+            "name": "doy click en \"New post\"",
+            "match": {
+              "location": "step_definitions\\common_steps.js:81"
+            },
+            "result": {
+              "status": "skipped"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 9,
+            "name": "ingreso \"Post de prueba\" como nombre del post",
+            "match": {
+              "location": "step_definitions\\post_steps.js:11"
+            },
+            "result": {
+              "status": "skipped"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 10,
+            "name": "ingreso \"Contenido de post de prueba\" como contenido",
+            "match": {
+              "location": "step_definitions\\post_steps.js:16"
+            },
+            "result": {
+              "status": "skipped"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 11,
+            "name": "publico el post",
+            "match": {
+              "location": "step_definitions\\post_steps.js:25"
+            },
+            "result": {
+              "status": "skipped"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 12,
+            "name": "abro la sección de \"Posts\"",
+            "match": {
+              "location": "step_definitions\\common_steps.js:49"
+            },
+            "result": {
+              "status": "skipped"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 13,
+            "name": "el post debe existir en la lista",
+            "match": {
+              "location": "step_definitions\\post_steps.js:33"
+            },
+            "result": {
+              "status": "skipped"
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "match": {
+              "location": "step_definitions\\support\\hooks.js:165"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 123000000
+            },
+            "embeddings": [
+              {
+                "data": "iVBORw0KGgoAAAANSUhEUgAAA6EAAAPFCAYAAACUPu5mAAAAAXNSR0IArs4c6QAAFcpJREFUeJzt1zEBACAMwDDAv+fhohwkCvp2z8wsAAAACJzXAQAAAPzDhAIAAJAxoQAAAGRMKAAAABkTCgAAQMaEAgAAkDGhAAAAZEwoAAAAGRMKAABAxoQCAACQMaEAAABkTCgAAAAZEwoAAEDGhAIAAJAxoQAAAGRMKAAAABkTCgAAQMaEAgAAkDGhAAAAZEwoAAAAGRMKAABAxoQCAACQMaEAAABkTCgAAAAZEwoAAEDGhAIAAJAxoQAAAGRMKAAAABkTCgAAQMaEAgAAkDGhAAAAZEwoAAAAGRMKAABAxoQCAACQMaEAAABkTCgAAAAZEwoAAEDGhAIAAJAxoQAAAGRMKAAAABkTCgAAQMaEAgAAkDGhAAAAZEwoAAAAGRMKAABAxoQCAACQMaEAAABkTCgAAAAZEwoAAEDGhAIAAJAxoQAAAGRMKAAAABkTCgAAQMaEAgAAkDGhAAAAZEwoAAAAGRMKAABAxoQCAACQMaEAAABkTCgAAAAZEwoAAEDGhAIAAJAxoQAAAGRMKAAAABkTCgAAQMaEAgAAkDGhAAAAZEwoAAAAGRMKAABAxoQCAACQMaEAAABkTCgAAAAZEwoAAEDGhAIAAJAxoQAAAGRMKAAAABkTCgAAQMaEAgAAkDGhAAAAZEwoAAAAGRMKAABAxoQCAACQMaEAAABkTCgAAAAZEwoAAEDGhAIAAJAxoQAAAGRMKAAAABkTCgAAQMaEAgAAkDGhAAAAZEwoAAAAGRMKAABAxoQCAACQMaEAAABkTCgAAAAZEwoAAEDGhAIAAJAxoQAAAGRMKAAAABkTCgAAQMaEAgAAkDGhAAAAZEwoAAAAGRMKAABAxoQCAACQMaEAAABkTCgAAAAZEwoAAEDGhAIAAJAxoQAAAGRMKAAAABkTCgAAQMaEAgAAkDGhAAAAZEwoAAAAGRMKAABAxoQCAACQMaEAAABkTCgAAAAZEwoAAEDGhAIAAJAxoQAAAGRMKAAAABkTCgAAQMaEAgAAkDGhAAAAZEwoAAAAGRMKAABAxoQCAACQMaEAAABkTCgAAAAZEwoAAEDGhAIAAJAxoQAAAGRMKAAAABkTCgAAQMaEAgAAkDGhAAAAZEwoAAAAGRMKAABAxoQCAACQMaEAAABkTCgAAAAZEwoAAEDGhAIAAJAxoQAAAGRMKAAAABkTCgAAQMaEAgAAkDGhAAAAZEwoAAAAGRMKAABAxoQCAACQMaEAAABkTCgAAAAZEwoAAEDGhAIAAJAxoQAAAGRMKAAAABkTCgAAQMaEAgAAkDGhAAAAZEwoAAAAGRMKAABAxoQCAACQMaEAAABkTCgAAAAZEwoAAEDGhAIAAJAxoQAAAGRMKAAAABkTCgAAQMaEAgAAkDGhAAAAZEwoAAAAGRMKAABAxoQCAACQMaEAAABkTCgAAAAZEwoAAEDGhAIAAJAxoQAAAGRMKAAAABkTCgAAQMaEAgAAkDGhAAAAZEwoAAAAGRMKAABAxoQCAACQMaEAAABkTCgAAAAZEwoAAEDGhAIAAJAxoQAAAGRMKAAAABkTCgAAQMaEAgAAkDGhAAAAZEwoAAAAGRMKAABAxoQCAACQMaEAAABkTCgAAAAZEwoAAEDGhAIAAJAxoQAAAGRMKAAAABkTCgAAQMaEAgAAkDGhAAAAZEwoAAAAGRMKAABAxoQCAACQMaEAAABkTCgAAAAZEwoAAEDGhAIAAJAxoQAAAGRMKAAAABkTCgAAQMaEAgAAkDGhAAAAZEwoAAAAGRMKAABAxoQCAACQMaEAAABkTCgAAAAZEwoAAEDGhAIAAJAxoQAAAGRMKAAAABkTCgAAQMaEAgAAkDGhAAAAZEwoAAAAGRMKAABAxoQCAACQMaEAAABkTCgAAAAZEwoAAEDGhAIAAJAxoQAAAGRMKAAAABkTCgAAQMaEAgAAkDGhAAAAZEwoAAAAGRMKAABAxoQCAACQMaEAAABkTCgAAAAZEwoAAEDGhAIAAJAxoQAAAGRMKAAAABkTCgAAQMaEAgAAkDGhAAAAZEwoAAAAGRMKAABAxoQCAACQMaEAAABkTCgAAAAZEwoAAEDGhAIAAJAxoQAAAGRMKAAAABkTCgAAQMaEAgAAkDGhAAAAZEwoAAAAGRMKAABAxoQCAACQMaEAAABkTCgAAAAZEwoAAEDGhAIAAJAxoQAAAGRMKAAAABkTCgAAQMaEAgAAkDGhAAAAZEwoAAAAGRMKAABAxoQCAACQMaEAAABkTCgAAAAZEwoAAEDGhAIAAJAxoQAAAGRMKAAAABkTCgAAQMaEAgAAkDGhAAAAZEwoAAAAGRMKAABAxoQCAACQMaEAAABkTCgAAAAZEwoAAEDGhAIAAJAxoQAAAGRMKAAAABkTCgAAQMaEAgAAkDGhAAAAZEwoAAAAGRMKAABAxoQCAACQMaEAAABkTCgAAAAZEwoAAEDGhAIAAJAxoQAAAGRMKAAAABkTCgAAQMaEAgAAkDGhAAAAZEwoAAAAGRMKAABAxoQCAACQMaEAAABkTCgAAAAZEwoAAEDGhAIAAJAxoQAAAGRMKAAAABkTCgAAQMaEAgAAkDGhAAAAZEwoAAAAGRMKAABAxoQCAACQMaEAAABkTCgAAAAZEwoAAEDGhAIAAJAxoQAAAGRMKAAAABkTCgAAQMaEAgAAkDGhAAAAZEwoAAAAGRMKAABAxoQCAACQMaEAAABkTCgAAAAZEwoAAEDGhAIAAJAxoQAAAGRMKAAAABkTCgAAQMaEAgAAkDGhAAAAZEwoAAAAGRMKAABAxoQCAACQMaEAAABkTCgAAAAZEwoAAEDGhAIAAJAxoQAAAGRMKAAAABkTCgAAQMaEAgAAkDGhAAAAZEwoAAAAGRMKAABAxoQCAACQMaEAAABkTCgAAAAZEwoAAEDGhAIAAJAxoQAAAGRMKAAAABkTCgAAQMaEAgAAkDGhAAAAZEwoAAAAGRMKAABAxoQCAACQMaEAAABkTCgAAAAZEwoAAEDGhAIAAJAxoQAAAGRMKAAAABkTCgAAQMaEAgAAkDGhAAAAZEwoAAAAGRMKAABAxoQCAACQMaEAAABkTCgAAAAZEwoAAEDGhAIAAJAxoQAAAGRMKAAAABkTCgAAQMaEAgAAkDGhAAAAZEwoAAAAGRMKAABAxoQCAACQMaEAAABkTCgAAAAZEwoAAEDGhAIAAJAxoQAAAGRMKAAAABkTCgAAQMaEAgAAkDGhAAAAZEwoAAAAGRMKAABAxoQCAACQMaEAAABkTCgAAAAZEwoAAEDGhAIAAJAxoQAAAGRMKAAAABkTCgAAQMaEAgAAkDGhAAAAZEwoAAAAGRMKAABAxoQCAACQMaEAAABkTCgAAAAZEwoAAEDGhAIAAJAxoQAAAGRMKAAAABkTCgAAQMaEAgAAkDGhAAAAZEwoAAAAGRMKAABAxoQCAACQMaEAAABkTCgAAAAZEwoAAEDGhAIAAJAxoQAAAGRMKAAAABkTCgAAQMaEAgAAkDGhAAAAZEwoAAAAGRMKAABAxoQCAACQMaEAAABkTCgAAAAZEwoAAEDGhAIAAJAxoQAAAGRMKAAAABkTCgAAQMaEAgAAkDGhAAAAZEwoAAAAGRMKAABAxoQCAACQMaEAAABkTCgAAAAZEwoAAEDGhAIAAJAxoQAAAGRMKAAAABkTCgAAQMaEAgAAkDGhAAAAZEwoAAAAGRMKAABAxoQCAACQMaEAAABkTCgAAAAZEwoAAEDGhAIAAJAxoQAAAGRMKAAAABkTCgAAQMaEAgAAkDGhAAAAZEwoAAAAGRMKAABAxoQCAACQMaEAAABkTCgAAAAZEwoAAEDGhAIAAJAxoQAAAGRMKAAAABkTCgAAQMaEAgAAkDGhAAAAZEwoAAAAGRMKAABAxoQCAACQMaEAAABkTCgAAAAZEwoAAEDGhAIAAJAxoQAAAGRMKAAAABkTCgAAQMaEAgAAkDGhAAAAZEwoAAAAGRMKAABAxoQCAACQMaEAAABkTCgAAAAZEwoAAEDGhAIAAJAxoQAAAGRMKAAAABkTCgAAQMaEAgAAkDGhAAAAZEwoAAAAGRMKAABAxoQCAACQMaEAAABkTCgAAAAZEwoAAEDGhAIAAJAxoQAAAGRMKAAAABkTCgAAQMaEAgAAkDGhAAAAZEwoAAAAGRMKAABAxoQCAACQMaEAAABkTCgAAAAZEwoAAEDGhAIAAJAxoQAAAGRMKAAAABkTCgAAQMaEAgAAkDGhAAAAZEwoAAAAGRMKAABAxoQCAACQMaEAAABkTCgAAAAZEwoAAEDGhAIAAJAxoQAAAGRMKAAAABkTCgAAQMaEAgAAkDGhAAAAZEwoAAAAGRMKAABAxoQCAACQMaEAAABkTCgAAAAZEwoAAEDGhAIAAJAxoQAAAGRMKAAAABkTCgAAQMaEAgAAkDGhAAAAZEwoAAAAGRMKAABAxoQCAACQMaEAAABkTCgAAAAZEwoAAEDGhAIAAJAxoQAAAGRMKAAAABkTCgAAQMaEAgAAkDGhAAAAZEwoAAAAGRMKAABAxoQCAACQMaEAAABkTCgAAAAZEwoAAEDGhAIAAJAxoQAAAGRMKAAAABkTCgAAQMaEAgAAkDGhAAAAZEwoAAAAGRMKAABAxoQCAACQMaEAAABkTCgAAAAZEwoAAEDGhAIAAJAxoQAAAGRMKAAAABkTCgAAQMaEAgAAkDGhAAAAZEwoAAAAGRMKAABAxoQCAACQMaEAAABkTCgAAAAZEwoAAEDGhAIAAJAxoQAAAGRMKAAAABkTCgAAQMaEAgAAkDGhAAAAZEwoAAAAGRMKAABAxoQCAACQMaEAAABkTCgAAAAZEwoAAEDGhAIAAJAxoQAAAGRMKAAAABkTCgAAQMaEAgAAkDGhAAAAZEwoAAAAGRMKAABAxoQCAACQMaEAAABkTCgAAAAZEwoAAEDGhAIAAJAxoQAAAGRMKAAAABkTCgAAQMaEAgAAkDGhAAAAZEwoAAAAGRMKAABAxoQCAACQMaEAAABkTCgAAAAZEwoAAEDGhAIAAJAxoQAAAGRMKAAAABkTCgAAQMaEAgAAkDGhAAAAZEwoAAAAGRMKAABAxoQCAACQMaEAAABkTCgAAAAZEwoAAEDGhAIAAJAxoQAAAGRMKAAAABkTCgAAQMaEAgAAkDGhAAAAZEwoAAAAGRMKAABAxoQCAACQMaEAAABkTCgAAAAZEwoAAEDGhAIAAJAxoQAAAGRMKAAAABkTCgAAQMaEAgAAkDGhAAAAZEwoAAAAGRMKAABAxoQCAACQMaEAAABkTCgAAAAZEwoAAEDGhAIAAJAxoQAAAGRMKAAAABkTCgAAQMaEAgAAkDGhAAAAZEwoAAAAGRMKAABAxoQCAACQMaEAAABkTCgAAAAZEwoAAEDGhAIAAJAxoQAAAGRMKAAAABkTCgAAQMaEAgAAkDGhAAAAZEwoAAAAGRMKAABAxoQCAACQMaEAAABkTCgAAAAZEwoAAEDGhAIAAJAxoQAAAGRMKAAAABkTCgAAQMaEAgAAkDGhAAAAZEwoAAAAGRMKAABAxoQCAACQMaEAAABkTCgAAAAZEwoAAEDGhAIAAJAxoQAAAGRMKAAAABkTCgAAQMaEAgAAkDGhAAAAZEwoAAAAGRMKAABAxoQCAACQMaEAAABkTCgAAAAZEwoAAEDGhAIAAJAxoQAAAGRMKAAAABkTCgAAQMaEAgAAkDGhAAAAZEwoAAAAGRMKAABAxoQCAACQMaEAAABkTCgAAAAZEwoAAEDGhAIAAJAxoQAAAGRMKAAAABkTCgAAQMaEAgAAkDGhAAAAZEwoAAAAGRMKAABAxoQCAACQMaEAAABkTCgAAAAZEwoAAEDGhAIAAJAxoQAAAGRMKAAAABkTCgAAQMaEAgAAkDGhAAAAZEwoAAAAGRMKAABAxoQCAACQMaEAAABkTCgAAAAZEwoAAEDGhAIAAJAxoQAAAGRMKAAAABkTCgAAQMaEAgAAkDGhAAAAZEwoAAAAGRMKAABAxoQCAACQMaEAAABkTCgAAAAZEwoAAEDGhAIAAJAxoQAAAGRMKAAAABkTCgAAQMaEAgAAkDGhAAAAZEwoAAAAGRMKAABAxoQCAACQMaEAAABkTCgAAAAZEwoAAEDGhAIAAJAxoQAAAGRMKAAAABkTCgAAQMaEAgAAkDGhAAAAZEwoAAAAGRMKAABAxoQCAACQMaEAAABkTCgAAAAZEwoAAEDGhAIAAJAxoQAAAGRMKAAAABkTCgAAQMaEAgAAkDGhAAAAZEwoAAAAGRMKAABAxoQCAACQMaEAAABkTCgAAAAZEwoAAEDGhAIAAJAxoQAAAGRMKAAAABkTCgAAQMaEAgAAkDGhAAAAZEwoAAAAGRMKAABAxoQCAACQMaEAAABkTCgAAAAZEwoAAEDGhAIAAJAxoQAAAGRMKAAAABkTCgAAQMaEAgAAkDGhAAAAZEwoAAAAGRMKAABAxoQCAACQMaEAAABkTCgAAAAZEwoAAEDGhAIAAJAxoQAAAGRMKAAAABkTCgAAQMaEAgAAkDGhAAAAZEwoAAAAGRMKAABAxoQCAACQMaEAAABkTCgAAAAZEwoAAEDGhAIAAJAxoQAAAGRMKAAAABkTCgAAQMaEAgAAkDGhAAAAZEwoAAAAGRMKAABAxoQCAACQMaEAAABkTCgAAAAZEwoAAEDGhAIAAJAxoQAAAGRMKAAAABkTCgAAQMaEAgAAkDGhAAAAZEwoAAAAGRMKAABAxoQCAACQMaEAAABkTCgAAAAZEwoAAEDGhAIAAJAxoQAAAGRMKAAAABkTCgAAQMaEAgAAkDGhAAAAZEwoAAAAGRMKAABAxoQCAACQMaEAAABkTCgAAAAZEwoAAEDGhAIAAJAxoQAAAGRMKAAAABkTCgAAQMaEAgAAkDGhAAAAZEwoAAAAGRMKAABAxoQCAACQMaEAAABkTCgAAAAZEwoAAEDGhAIAAJAxoQAAAGRMKAAAABkTCgAAQMaEAgAAkDGhAAAAZEwoAAAAGRMKAABAxoQCAACQMaEAAABkTCgAAAAZEwoAAEDGhAIAAJAxoQAAAGRMKAAAABkTCgAAQMaEAgAAkDGhAAAAZEwoAAAAGRMKAABAxoQCAACQMaEAAABkTCgAAAAZEwoAAEDGhAIAAJAxoQAAAGRMKAAAABkTCgAAQMaEAgAAkDGhAAAAZEwoAAAAGRMKAABAxoQCAACQMaEAAABkTCgAAAAZEwoAAEDGhAIAAJAxoQAAAGRMKAAAABkTCgAAQMaEAgAAkDGhAAAAZEwoAAAAGRMKAABAxoQCAACQMaEAAABkTCgAAAAZEwoAAEDGhAIAAJAxoQAAAGRMKAAAABkTCgAAQMaEAgAAkDGhAAAAZEwoAAAAGRMKAABAxoQCAACQMaEAAABkTCgAAAAZEwoAAEDGhAIAAJAxoQAAAGRMKAAAAJkLQOoLhsjr3pcAAAAASUVORK5CYII=",
+                "mime_type": "image/png"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]

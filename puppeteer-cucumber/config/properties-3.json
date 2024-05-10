@@ -1,0 +1,22 @@
+{
+    "default": {
+      "baseUrl": "http://34.68.28.121",
+      "pageTimeout": "60",
+      "headlessMode": false,
+      "reportConfig": {
+        "theme": "bootstrap",
+        "jsonFile": "output/results.json",
+        "output": "output/report/tests-report.html",
+        "screenshotsDirectory": "output/screenshots/",
+        "reportSuiteAsScenarios": false,
+        "launchReport": false,
+        "storeScreenshots": true,
+        "metadata": {
+            "App Version":"3.42.0",
+            "Test Environment": "Test Environment",
+            "Browser": "Browser Version",
+            "Platform": "Platform"
+        }
+      }
+    }
+  }

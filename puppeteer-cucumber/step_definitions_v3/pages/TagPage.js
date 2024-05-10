@@ -4,19 +4,18 @@ class TagPage {
     }
 
     async saveTag() {
-        let selector = 'button[data-test-button="save"]';
-        // Espera a que el botón "Save" esté disponible en la página
-        await this.page.waitForSelector(selector);
-        // Guarda el tag haciendo clic en el botón "Save"
-        await this.page.click(selector);
+        await this.page.evaluate(() => {
+            [...document.querySelectorAll('button')].find(span => span.innerText.includes("Save")).click();
+            
+        });
         // Espera a que el tag se guarde
-        await new Promise(r => setTimeout(r, 800));
+        await new Promise(r => setTimeout(r, 500));
 
-        let success = await this.page.evaluate((selector) => {
-            return document.querySelector(selector).querySelector('span').attributes['data-test-task-button-state'].value;
-        }, selector);
+        let savedButton = await this.page.evaluate(() => {
+            return [...document.querySelectorAll('button')].find(span => span.innerText.includes("Saved"));
+        });
 
-        return success === 'success';
+        return savedButton !== undefined;
     }
 
     async fillTagName(tagName) {
@@ -94,7 +93,7 @@ class TagPage {
     async fillMetadata(title, description) {
         // Expand the all expandable sections by clicking on the "Expand" button
         await this.page.evaluate(() => {
-            const expandButtons = document.querySelectorAll('button.gh-btn-expand');
+            const expandButtons = [...document.querySelectorAll('button.gh-btn')].filter(button => button.innerText === 'Expand');
             expandButtons.forEach(button => button.click());
         });
 
@@ -113,7 +112,7 @@ class TagPage {
     async getMetadata() {
         // Expand the all expandable sections by clicking on the "Expand" button
         await this.page.evaluate(() => {
-            const expandButtons = document.querySelectorAll('button.gh-btn-expand');
+            const expandButtons = [...document.querySelectorAll('button.gh-btn')].filter(button => button.innerText === 'Expand');
             expandButtons.forEach(button => button.click());
         });
         

@@ -1,6 +1,7 @@
 const LoginPage = require('../clases/LoginPage');
 const PrincipalPage = require('../clases/PrincipalPage');
 const ProfilePage = require('../clases/ProfilePage');
+const UserHistoryPage = require('../clases/UserHistoryPage');
 
 //"edit_profile.js": ["change_password", "8k_cover_image", "change_name_and_email", "add_social_networks", "user_activity"]
 
@@ -68,7 +69,7 @@ async function change_password(page) {
     console.log("\t - Cambio de contraseña exitoso");
 };
 
-async function cover_profile_image(page) {
+async function cover_8k_image(page) {
         //Page Object
         const formPage = new LoginPage(page);
         const principalPage = new PrincipalPage(page);
@@ -86,7 +87,7 @@ async function cover_profile_image(page) {
         await principalPage.navigateToProfile();
 
         //Upload cover image
-        await profilePage.addImage('../docs/image_feature.jpeg');
+        await profilePage.addImage('../docs/cover-8k.jpg');
         await profilePage.saveProfile();
 
         //THEN
@@ -97,9 +98,11 @@ async function cover_profile_image(page) {
         ]);
         await Promise.all([
             page.waitForNavigation(),
-            await principalPage.navigateToProfile()
+            principalPage.navigateToProfile()
         ]);
-        if(!await profilePage.imageExist('image_feature.jpeg')){
+
+        await new Promise(r => setTimeout(r, 1000));
+        if(!await profilePage.imageExist('cover-8k.jpg')){
             console.log("\t x La imagen no fue cargada exitosamente");
             return;
         }
@@ -135,6 +138,7 @@ async function change_name_and_email(page) {
     const email = "equipo2024@misw4103.com";
     await profilePage.changeName(name);
     await profilePage.changeEmail(email);
+    
     await profilePage.saveProfile();
     await new Promise(r => setTimeout(r, 1000));
     
@@ -148,8 +152,8 @@ async function change_name_and_email(page) {
         principalPage.navigateToProfile()
     ]);
     
-    const nameValue = profilePage.getProfileName();
-    const emailValue = profilePage.getProfileEmail();
+    const nameValue = await profilePage.getProfileName();
+    const emailValue = await profilePage.getProfileEmail();
     
     if(nameValue !== name || emailValue !== email){
         console.log("\t x El nombre o el correo no fueron cambiados exitosamente");
@@ -191,6 +195,7 @@ async function add_social_networks(page) {
     const twitter = "https://twitter.com/Equipo20";
     await profilePage.changeFacebook(facebook);
     await profilePage.changeTwitter(twitter);
+
     await profilePage.saveProfile();
     await new Promise(r => setTimeout(r, 1000));
     
@@ -204,8 +209,8 @@ async function add_social_networks(page) {
         principalPage.navigateToProfile()
     ]);
     
-    const facebookValue = profilePage.getFacebook();
-    const twitterValue = profilePage.getTwitter();
+    const facebookValue = await profilePage.getFacebook();
+    const twitterValue = await profilePage.getTwitter();
     
     if(facebookValue !== facebook || twitterValue !== twitter){
         console.log("\t x Facebook o Twitter no fueron cambiados exitosamente");
@@ -222,4 +227,56 @@ async function add_social_networks(page) {
     console.log("\t - Cambio de redes sociales exitoso");
 }
 
-module.exports = { change_password, cover_profile_image, change_name_and_email, add_social_networks };
+async function user_activity(page) {
+    //Page Object
+    const formPage = new LoginPage(page);
+    const principalPage = new PrincipalPage(page);
+    const profilePage = new ProfilePage(page);
+    const userHistory = new UserHistoryPage(page);
+
+    //GIVEN
+    //Ingresar
+    if(await formPage.isSignInPage()){
+        await formPage.login('equipo20@misw4103.com', 'PRUEBAS12345');
+    }
+    else{
+        await principalPage.navigateToSite();
+    }
+    //Navegar al perfil
+    await principalPage.navigateToProfile();
+    const name = await profilePage.getProfileName();
+    
+    //WHEN
+    // Quiero ver la actividad del usuario
+    await profilePage.openActions();
+    await profilePage.openUserActivity();
+    await new Promise(r => setTimeout(r, 300));
+    
+    //THEN
+    // Verificar que el modal de actividad del usuario se abrió y que se muestra la actividad del usuario
+
+    if(!await userHistory.isOpen()){
+        console.log("\t x No se abrió el modal de actividad del usuario");
+        return;
+    }
+
+    const activities = await userHistory.getActivities();
+
+    if(activities.length === 0){
+        console.log("\t x No se muestra la actividad del usuario");
+        return;
+    }
+
+    // Debe haber por lo menos una actividad realizada por el usuario
+    const activity = activities[0];
+    if(activity.user_name !== name){
+        console.log("\t x No se muestra la actividad del usuario");
+        return;
+    }
+
+    //Prueba finalizada con éxito
+    console.log("\t - Visualización de actividad del usuario exitosa");
+
+}
+
+module.exports = { change_password, cover_8k_image, change_name_and_email, add_social_networks, user_activity };

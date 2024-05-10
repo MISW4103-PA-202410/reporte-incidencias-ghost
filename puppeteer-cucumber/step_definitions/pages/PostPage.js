@@ -1,3 +1,5 @@
+const constants = require("../support/constants");
+
 class PostPage {
     constructor(page) {
     this.page = page;
@@ -20,7 +22,6 @@ class PostPage {
         // Ingresa el título del post
         await this.page.type('textarea[placeholder="Post title"]', title);
         // Ingresa el contenido del post
-        await new Promise(r => setTimeout(r, 1000));
         await this.page.type('[data-lexical-editor="true"]', content);
     }
 
@@ -34,6 +35,7 @@ class PostPage {
         await this.page.waitForSelector('button[data-test-button="continue"]');
         // Continúa con la publicación haciendo clic en el botón "Continue"
         await this.page.click('button[data-test-button="continue"]');
+        await new Promise(r => setTimeout(r, 500));
         // Espera aa que el botón "Publish post, right now" esté disponible en la página
         await this.page.waitForSelector('button[data-test-button="confirm-publish"]');
         // Publica el post haciendo clic en el botón "Publish post, right now"
@@ -67,7 +69,7 @@ class PostPage {
     }
 
     async scheduleLater(){
-        await new Promise(r => setTimeout(r, 3000));
+        await new Promise(r => setTimeout(r, 2000));
         // Espera a que el botón "Publish" esté disponible en la página
         await this.page.waitForSelector('button[data-test-button="publish-flow"]');
         // Publica el post haciendo clic en el botón "Publish"
@@ -106,8 +108,10 @@ class PostPage {
         // Publica el post haciendo clic en el botón "Publish post, right now"
         await this.page.click('button[data-test-button="confirm-publish"]');
 
+        await new Promise(r => setTimeout(r, 1000));
+
         //dashboard
-        await this.page.goto('http://34.170.53.250/ghost/#/dashboard');
+        await this.page.goto(`${constants.baseUrl}/ghost/#/dashboard`);
 
         // Espera a que la publicación se complete
         await new Promise(r => setTimeout(r, 500));
@@ -136,7 +140,7 @@ class PostPage {
         return false; // Retorna false si no encuentra el título
     }
 
-    async eschedulePosts(){
+    async showScheduledPosts(){
         await this.page.waitForSelector('a[title="Scheduled"]');
         await this.page.click('a[title="Scheduled"]');
         await new Promise(r => setTimeout(r, 500));
