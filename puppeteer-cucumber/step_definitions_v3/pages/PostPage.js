@@ -1,4 +1,4 @@
-const constants = require('../step_definitions/support/constants')
+const constants = require("../support/constants");
 
 class PostPage {
     constructor(page) {
@@ -7,9 +7,9 @@ class PostPage {
 
     async newPost() {
         // Espera a que el botón "New post" esté disponible en la página
-        await this.page.waitForSelector('a[data-test-new-post-button=""]');
+        await this.page.waitForSelector('a[href="#/editor/post/"]');
         // Navega a la página de creación de un nuevo post haciendo clic en el botón "New post"
-        await this.page.click('a[data-test-new-post-button=""]');
+        await this.page.click('a[href="#/editor/post/"]');
         // Espera a que la navegación se complete
         await new Promise(r => setTimeout(r, 500));
     }
@@ -18,35 +18,27 @@ class PostPage {
         const html = await this.page.content();
         //console.log(html);
         // Espera a que el campo de título esté disponible en la página
-        await this.page.waitForSelector('textarea[placeholder="Post title"]');
+        await this.page.waitForSelector('textarea[placeholder="Post Title"]');
         // Ingresa el título del post
-        await this.page.type('textarea[placeholder="Post title"]', title);
+        await this.page.type('textarea[placeholder="Post Title"]', title);
         // Ingresa el contenido del post
-        await this.page.type('[data-lexical-editor="true"]', content);
+        await this.page.type('[data-placeholder="Begin writing your post..."]', content);
     }
 
     async submitPost() {
         await new Promise(r => setTimeout(r, 3000));
         // Espera a que el botón "Publish" esté disponible en la página
-        await this.page.waitForSelector('button[data-test-button="publish-flow"]');
+        await this.page.evaluate(() => {
+            [...document.querySelectorAll('span')].find(span => span.textContent.includes("Publish")).click();
+            
+        });
+        await new Promise(r => setTimeout(r, 500));
         // Publica el post haciendo clic en el botón "Publish"
-        await this.page.click('button[data-test-button="publish-flow"]');
-        // Espear a que el botón "Continue" esté disponible en la página
-        await this.page.waitForSelector('button[data-test-button="continue"]');
-        // Continúa con la publicación haciendo clic en el botón "Continue"
-        await this.page.click('button[data-test-button="continue"]');
-        await new Promise(r => setTimeout(r, 500));
-        // Espera aa que el botón "Publish post, right now" esté disponible en la página
-        await this.page.waitForSelector('button[data-test-button="confirm-publish"]');
-        // Publica el post haciendo clic en el botón "Publish post, right now"
-        await this.page.click('button[data-test-button="confirm-publish"]');
+        await this.page.evaluate(() => {
+            [...document.querySelectorAll('button')].find(span => span.innerText.includes("Publish")).click();
+            
+        });
         await new Promise(r => setTimeout(r, 1000));
-        //Esperar a que el post se publique
-        await this.page.waitForSelector('a[data-test-complete-bookmark=""]');
-        //Completa la publicación haciendo clic en el botón "Done"
-        await this.page.click('a.ember-view.gh-back-to-editor');
-        // Espera a que la publicación se complete
-        await new Promise(r => setTimeout(r, 500));
     }
 
     async uploadImage(filePath) {

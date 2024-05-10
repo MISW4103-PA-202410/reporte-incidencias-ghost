@@ -1,4 +1,4 @@
-const constants = require("../step_definitions/support/constants");
+const constants = require("../support/constants");
 
 class LoginPage {
     constructor(page) {
@@ -9,13 +9,13 @@ class LoginPage {
         await this.page.waitForSelector('input[name="identification"]');
         await this.page.type('input[name="identification"]', username);
         await this.page.type('input[name="password"]', password);
-        await this.page.click('[data-test-button="sign-in"]');
+        await this.page.click('button.login[type="submit"]');
         await this.page.waitForNavigation({ waitUntil: 'networkidle0'});
     }
 
     async isSignInPage() {
         try {
-            const selector = '[data-test-button="sign-in"]';
+            const selector = 'button.login[type="submit"]';
             await this.page.waitForSelector(selector, { waitUntil: 'networkidle0', timeout: 2000});
             const btnExists = await this.page.evaluate((selector) => {
                 return document.querySelector(selector) !== null;

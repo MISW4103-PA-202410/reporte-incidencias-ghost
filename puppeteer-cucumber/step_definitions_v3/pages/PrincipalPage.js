@@ -1,4 +1,4 @@
-const constants = require('../step_definitions/support/constants')
+const constants = require("../support/constants");
 
 class PrincipalPage {
     constructor(page) {
@@ -13,31 +13,33 @@ class PrincipalPage {
     }
 
     async isHomePage() {
-        return this.page.url().includes('ghost/#/dashboard');
+        //Print the current URL
+        await new Promise(r => setTimeout(r, 500));
+        return this.page.url().includes('ghost/#/site');
     }
 
     async navigateToSite() {
         // Navega a la página de Ghost
-        await this.page.goto(`${constants.baseUrl}/ghost/#/dashboard`);
+        await this.page.goto(`${constants.baseUrl}/ghost/`);
     }
 
     async navigateToPosts() {
         // Espera a que el elemento con la clase "gh-viewport" esté disponible en la página
-        await this.page.waitForSelector('a[data-test-nav="posts"]');
+        await this.page.waitForSelector('a[href="#/posts/"]');
 
         // Wait 500ms
         await new Promise(r => setTimeout(r, 500));
 
         // Navega a la sección de "Posts" haciendo clic en el enlace correspondiente
-        await this.page.click('a[data-test-nav="posts"]');
+        await this.page.click('a[href="#/posts/"]');
     }
 
     async navigateToPages() {
         // Espera a que el elemento con la clase "gh-viewport" esté disponible en la página
-        await this.page.waitForSelector('a[data-test-nav="pages"]');
+        await this.page.waitForSelector('a[href="#/pages/"]');
 
         // Navega a la sección de "Posts" haciendo clic en el enlace correspondiente
-        await this.page.click('a[data-test-nav="pages"]');
+        await this.page.click('a[href="#/pages/"]');
 
         // Espera a que la navegación se complete
         await this.page.waitForNavigation();
@@ -45,12 +47,12 @@ class PrincipalPage {
 
     async navigateToTags() {
         // Espera a que el elemento con la clase "gh-viewport" esté disponible en la página
-        await this.page.waitForSelector('a[data-test-nav="tags"]');
+        await this.page.waitForSelector('a[href="#/tags/"]');
 
         // Navega a la sección de "Tags" haciendo clic en el enlace correspondiente
         await Promise.all([
             this.page.waitForNavigation(),
-            this.page.click('a[data-test-nav="tags"]')
+            this.page.click('a[href="#/tags/"]')
         ]);
     }
 

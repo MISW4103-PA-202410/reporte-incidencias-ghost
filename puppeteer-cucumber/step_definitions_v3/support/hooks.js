@@ -180,7 +180,7 @@ After(async function (scenario) {
 })
 
 AfterAll(async () => {
-  await deleteContent();
+  // await deleteContent();
   if (scope.browser) {
     // close the browser at end of run
     await scope.browser.close()

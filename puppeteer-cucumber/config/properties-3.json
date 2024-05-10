@@ -1,8 +1,8 @@
 {
     "default": {
-      "baseUrl": "http://34.170.53.250",
+      "baseUrl": "http://34.68.28.121",
       "pageTimeout": "60",
-      "headlessMode": true,
+      "headlessMode": false,
       "reportConfig": {
         "theme": "bootstrap",
         "jsonFile": "output/results.json",
@@ -12,7 +12,7 @@
         "launchReport": false,
         "storeScreenshots": true,
         "metadata": {
-            "App Version":"5.82.2",
+            "App Version":"3.42.0",
             "Test Environment": "Test Environment",
             "Browser": "Browser Version",
             "Platform": "Platform"

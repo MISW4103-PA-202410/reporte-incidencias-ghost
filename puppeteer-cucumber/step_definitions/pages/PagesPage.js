@@ -1,4 +1,4 @@
-const constants = require("../step_definitions/support/constants");
+const constants = require("../support/constants");
 
 class PagesPage {
     constructor(page) {
