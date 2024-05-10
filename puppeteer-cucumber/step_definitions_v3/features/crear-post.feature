@@ -1,6 +1,6 @@
 Feature: Crear post
 
-    @run @posts @debug
+    @run @posts @v3
     Scenario: Crear un post básico con título y un párrafo de cuerpo y publicar
         Given inicio la aplicación
         And inicio sesión si es necesario

@@ -180,7 +180,7 @@ After(async function (scenario) {
 })
 
 AfterAll(async () => {
-  // await deleteContent();
+  await deleteContent();
   if (scope.browser) {
     // close the browser at end of run
     await scope.browser.close()
@@ -211,7 +211,6 @@ async function deleteContent() {
       scope.page.waitForNavigation({ waitUntil: 'networkidle0'}),
       scope.pages.principal.navigateToSite()
     ]);
-    await scope.pages.principal.navigateToSettings();
     await scope.pages.settings.gotToLabs();
     await scope.pages.labs.deleteAllContent();
 

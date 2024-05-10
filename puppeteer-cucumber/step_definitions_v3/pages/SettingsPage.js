@@ -4,10 +4,10 @@ class SettingsPage {
     }
 
     async gotToLabs() {
-        await this.page.waitForSelector('a#labs');
+        await this.page.waitForSelector('a[href="#/settings/labs/"]');
         await Promise.all([
             this.page.waitForNavigation(),
-            this.page.click('a#labs')
+            this.page.click('a[href="#/settings/labs/"]')
         ]);
     }
 }
