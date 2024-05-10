@@ -41,7 +41,7 @@ Given('cierro las configuraciones de la página', async () => {
 });
 
 When('publico la página', async () => {
-    await scope.pages.pages.submitPost();
+    await scope.pages.pages.submitPage();
 });
 
 When('ingreso a la previsualización', async () => {
