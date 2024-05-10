@@ -1,6 +1,15 @@
-const LoginPage = require('../clases/LoginPage');
-const PrincipalPage = require('../clases/PrincipalPage');
-const PostPage = require('../clases/PostPage');
+let LoginPage;
+let PrincipalPage;
+let PostPage;
+let feature = 'create-post'
+let path = `./screenshots/v5.8/${feature}/`;
+
+//Pages
+function loadPages(version){
+    LoginPage = require(`../clases/${version}/LoginPage`);
+    PrincipalPage = require(`../clases/${version}/PrincipalPage`);
+    PostPage = require(`../clases/${version}/PostPage`);
+}
 
 //"create_post.js": ["post_basico", "post_sin_titulo", "post_image", "schedule_post"],
 async function post_basico(page) {
@@ -12,11 +21,16 @@ async function post_basico(page) {
     //GIVEN
     //Ingresar
     if(await formPage.isSignInPage()){
+        //Screenshot log in
+        await page.screenshot({path: `${path}_log_in.png`});
         await formPage.login('equipo20@misw4103.com', 'PRUEBAS12345');
     }
     else{
         await principalPage.navigateToSite();
     }
+    //Screenshot principal
+    await page.screenshot({path: `${path}_principal.png`});
+
     //Navegar a la sección de Posts
     await principalPage.navigateToPosts();
 
@@ -168,4 +182,4 @@ async function schedule_post(page){
 
 }
 
-module.exports = { post_basico, post_sin_titulo, post_image, schedule_post};
+module.exports = { post_basico, post_sin_titulo, post_image, schedule_post,loadPages};
