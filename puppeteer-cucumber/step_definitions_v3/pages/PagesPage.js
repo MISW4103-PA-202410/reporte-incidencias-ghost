@@ -118,14 +118,14 @@ class PagesPage {
     }
 
     async openSettings(){
-        await this.page.waitForSelector('button[data-test-psm-trigger=""]');
-        await this.page.click('button[data-test-psm-trigger=""]');
+        await this.page.waitForSelector('button.post-settings');
+        await this.page.click('button.post-settings');
         await new Promise(r => setTimeout(r, 200));
     }
 
     async closeSettings(){
-        await this.page.waitForSelector('button[data-test-psm-trigger=""]');
-        await this.page.click('button[data-test-psm-trigger=""]');
+        await this.page.waitForSelector('button.close.settings-menu-header-action');
+        await this.page.click('button.close.settings-menu-header-action');
         await new Promise(r => setTimeout(r, 2000));
 
     }
@@ -135,13 +135,14 @@ class PagesPage {
         //Borrar slug estandar
         await this.page.click('input[name="post-setting-slug"]', {clickCount: 3});
         await this.page.type('input[name="post-setting-slug"]', slug);
+        await new Promise(r => setTimeout(r, 1000));
     }
 
     async navigateToPage(slug) {
         const url = `${constants.baseUrl}/${slug}/`;
         try {
             await this.page.goto(url);
-            await this.page.waitForSelector('h1.gh-article-title.is-title', { timeout: 5000 });
+            await this.page.waitForSelector('h1.post-full-title', { timeout: 5000 });
             return true;
         } catch (error) {
             return false;
