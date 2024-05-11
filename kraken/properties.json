@@ -18,5 +18,6 @@
   "PROFILE_VALUES": "Jaime Larson;jaime@example.com",
   "SETUP_VALUES_NEW_EMAIL": "jaime@example.com;EgVLGq2!L5fXLt$",
   "OLD_PROFILE_VALUES": "Jaime Larson;jaime@example.com",
-  "SOCIAL_MEDIA": "https://facebook.com/zuck;https://twitter.com/elonmusk"
+  "SOCIAL_MEDIA": "https://facebook.com/zuck;https://twitter.com/elonmusk",
+  "VERSION": "v5.82"
 }

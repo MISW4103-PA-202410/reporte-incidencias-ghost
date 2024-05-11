@@ -2,6 +2,7 @@ const { Given, When, Then } = require("@cucumber/cucumber");
 const path = require("path");
 const fs = require('fs');
 const { assert, expect } = require("chai");
+const { Console } = require("console");
 
 When("I enter to the setup page {kraken-string}", async function (values) {
   const setupValues = values.split(";");
@@ -212,8 +213,9 @@ When("I click the description field", async function () {
  *
  */
 
-When("I click in the tags menu button and take a screenshot for version {string} feature {string} scenario {string} step {string}", async function (version, feature, scenario, step) {
+When("I click in the tags menu button and take a screenshot for version {kraken-string} feature {string} scenario {string} step {string}", async function (version, feature, scenario, step) {
   let element = await this.driver.$('a[href="#/tags/"].ember-view');
+
   await element.click();
 
   const screenshot = await this.driver.takeScreenshot();
@@ -228,7 +230,7 @@ When("I click in the tags menu button and take a screenshot for version {string}
   fs.writeFileSync(screenshotPath, screenshot, 'base64');
 });
 
-When("I click in the new tag button and take a screenshot for version {string} feature {string} scenario {string} step {string}", async function (version, feature, scenario, step) {
+When("I click in the new tag button and take a screenshot for version {kraken-string} feature {string} scenario {string} step {string}", async function (version, feature, scenario, step) {
   let element = await this.driver.$('a[href="#/tags/new/"].ember-view.gh-btn.gh-btn-primary');
   await element.click();
 
@@ -246,7 +248,7 @@ When("I click in the new tag button and take a screenshot for version {string} f
   console.log(screenshotPath);
 });
 
-When("I fill the tag name {kraken-string} and take a screenshot for version {string} feature {string} scenario {string} step {string}", async function (values, version, feature, scenario, step) {
+When("I fill the tag name {kraken-string} and take a screenshot for version {kraken-string} feature {string} scenario {string} step {string}", async function (values, version, feature, scenario, step) {
   let element = await this.driver.$("#tag-name ");
   await element.setValue(values); 
 
@@ -264,7 +266,7 @@ When("I fill the tag name {kraken-string} and take a screenshot for version {str
   console.log(screenshotPath);
 });
 
-When("I verify the tag name created is {kraken-string} and take a screenshot for version {string} feature {string} scenario {string} step {string}", async function (values, version, feature, scenario, step) {
+When("I verify the tag name created is {kraken-string} and take a screenshot for version {kraken-string} feature {string} scenario {string} step {string}", async function (values, version, feature, scenario, step) {
   let element = await this.driver.$(
     "section.view-container.content-list > ol.tags-list.gh-list > li:nth-child(4) > a.ember-view.gh-list-data.gh-tag-list-title.gh-list-cellwidth-70"
   );
@@ -282,7 +284,7 @@ When("I verify the tag name created is {kraken-string} and take a screenshot for
   return await element.click();
 });
 
-When("I click the save tag button and take a screenshot for version {string} feature {string} scenario {string} step {string}", async function (version, feature, scenario, step) {
+When("I click the save tag button and take a screenshot for version {kraken-string} feature {string} scenario {string} step {string}", async function (version, feature, scenario, step) {
   let element = await this.driver.$('button[data-test-button="save"]');
   await element.click();
 
@@ -311,7 +313,7 @@ When("I check the slug has been changed", async function () {
 });
 
 
-When("I click in the add image to tag and take a screenshot for version {string} feature {string} scenario {string} step {string}", async function (version, feature, scenario, step) {
+When("I click in the add image to tag and take a screenshot for version {kraken-string} feature {string} scenario {string} step {string}", async function (version, feature, scenario, step) {
   let element = await this.driver.$("span.x-file-input > label > div.gh-btn.gh-btn-white");
   await element.click();
 
@@ -324,7 +326,7 @@ When("I click in the add image to tag and take a screenshot for version {string}
   fs.writeFileSync(screenshotPath, screenshot, 'base64');
 });
 
-When("I fill the meta data {kraken-string} and take a screenshot for version {string} feature {string} scenario {string} step {string}", async function (values, version, feature, scenario, step) {
+When("I fill the meta data {kraken-string} and take a screenshot for version {kraken-string} feature {string} scenario {string} step {string}", async function (values, version, feature, scenario, step) {
   const setupValues = values.split(";");
 
   let element = await this.driver.$("#meta-title");
@@ -345,7 +347,7 @@ When("I fill the meta data {kraken-string} and take a screenshot for version {st
   return await element.click();  // assuming you want to click the last element set
 });
 
-When("I click in the expand meta data button and take a screenshot for version {string} feature {string} scenario {string} step {string}", async function (version, feature, scenario, step) {
+When("I click in the expand meta data button and take a screenshot for version {kraken-string} feature {string} scenario {string} step {string}", async function (version, feature, scenario, step) {
   let element = await this.driver.$("button.gh-btn.gh-btn-expand > span");
   await element.click();
 
