@@ -26,7 +26,7 @@ Feature: Crear page
         And la página debe existir en la lista
         And el video se agregó correctamente
 
-    @run @pages @v3 @debug
+    @run @pages @v3
     Scenario: Crear una page básica con una URL definida (slug)
         Given inicio la aplicación
         And inicio sesión si es necesario

@@ -15,7 +15,8 @@ const ProfilePage = require('../pages/ProfilePage')
 const SettingsPage = require('../pages/SettingsPage')
 const TagListPage = require('../pages/TagListPage')
 const TagPage = require('../pages/TagPage')
-const UserHistoryPage = require('../pages/UserHistoryPage')
+const UserHistoryPage = require('../pages/UserHistoryPage');
+const { create } = require('domain');
 
 setDefaultTimeout(constants.pageTimeout * 1000);
 
@@ -65,7 +66,7 @@ BeforeAll(async () => {
   if(fse.pathExistsSync('output/report')) {
     console.log('Clear report directory ...')
     // remove any .html files in the report directory > to ensure only latest reports are in the folder
-    fs.readdirSync('output/report').forEach(file => {      
+    fs.readdirSync('output/report').forEach(file => {
       if(file.match(/.*\.html/) != null) {
         console.log(`removing file: output/report/${file}`)
         fse.removeSync(`output/report/${file}`)
@@ -86,7 +87,35 @@ BeforeAll(async () => {
     fse.ensureDirSync(`output/screenshots/${version}`)
   } else {
     fse.ensureDirSync(`output/screenshots/${version}`)
-  }  
+  }
+
+  //Feature paths
+  crear_page = `../../../screenshots/puppeteer/${version}/crear_page`;
+  crear_post = `../../../screenshots/puppeteer/${version}/crear_post`;
+  crear_tag = `../../../screenshots/puppeteer/${version}/crear_tag`;
+  crear_vista = `../../../screenshots/puppeteer/${version}/crear_vista`;
+  editar_perfil = `../../../screenshots/puppeteer/${version}/editar_perfil`;
+
+  //verificar que carpetas compartidas existan
+  if(fse.pathExistsSync(`../../../screenshots/puppeteer/${version}`)) {
+    //Features paths
+    fse.removeSync(crear_page);
+    fse.removeSync(crear_post);
+    fse.removeSync(crear_tag);
+    fse.removeSync(crear_vista);
+    fse.removeSync(editar_perfil);
+    // recreate directory
+    fse.ensureDirSync(`../../../screenshots/puppeteer/${version}`);
+    fse.ensureDirSync(crear_page);
+    fse.ensureDirSync(crear_post);
+    fse.ensureDirSync(crear_tag);
+    fse.ensureDirSync(crear_vista);
+    fse.ensureDirSync(editar_perfil);
+  }
+
+  else {
+    console.log("No existe la carpeta compartida");
+  }
 
   // *************************************** \\
   // collect information about the run

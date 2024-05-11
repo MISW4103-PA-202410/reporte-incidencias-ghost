@@ -23,6 +23,7 @@ BeforeAll(async () => {
   // reset counter
   counter = 0
   scenarioCounter = 1
+  oldFeatureName = ''
 
   const puppeteer = require('puppeteer');
   scope.driver = puppeteer;
@@ -86,7 +87,33 @@ BeforeAll(async () => {
     fse.ensureDirSync(`output/screenshots/${version}`)
   } else {
     fse.ensureDirSync(`output/screenshots/${version}`)
-  }  
+  }
+
+    //Feature paths
+    crear_page = `../../../screenshots/puppeteer/${version}/crear_page`;
+    crear_post = `../../../screenshots/puppeteer/${version}/crear_post`;
+    crear_tag = `../../../screenshots/puppeteer/${version}/crear_tag`;
+    crear_vista = `../../../screenshots/puppeteer/${version}/crear_vista`;
+    editar_perfil = `../../../screenshots/puppeteer/${version}/editar_perfil`;
+
+    //verificar que carpetas compartidas existan
+    if(fse.pathExistsSync(`../../../screenshots/puppeteer/${version}`)) {
+      //Features paths
+      fse.removeSync(crear_page);
+      fse.removeSync(crear_post);
+      fse.removeSync(crear_tag);
+      fse.removeSync(crear_vista);
+      fse.removeSync(editar_perfil);
+      // recreate directory
+      fse.ensureDirSync(`../../../screenshots/puppeteer/${version}`);
+      fse.ensureDirSync(crear_page);
+      fse.ensureDirSync(crear_post);
+      fse.ensureDirSync(crear_tag);
+      fse.ensureDirSync(crear_vista);
+    }
+    else {
+      console.log("No existe la carpeta compartida");
+    }
 
   // *************************************** \\
   // collect information about the run
@@ -139,13 +166,19 @@ Before(async () => {
 })
 
 AfterStep(async function({pickle, pickleStep, gherkinDocument, result, testCaseStartedId, testStepId}) {
-  const screenshotPath = scope.variables.screenshotPath;
+  //Scneario counter
   const featureName = gherkinDocument.feature.name.replace(/ /g, '-').toLowerCase();
+  if (oldFeatureName !== featureName) {
+    scenarioCounter = 1;
+    oldFeatureName = featureName;
+  }
   const stepNumber = stepCounter++;
-  // screenshots/<version>/<nombre-feature>_escenario_<escenario>_paso_<paso>.png
-  const screenshotName = `${featureName}_escenario_${scenarioCounter}_paso_${stepNumber}.png`;
+  //Paths
+  const version = constants.reportConfig.metadata["App Version"];
+  const screenshotPath = `../../../screenshots/puppeteer/${version}/`;
+  const screenshotName = `${featureName}/escenario_${scenarioCounter}/paso_${stepNumber}.png`;
   const screenshot = await scope.page.screenshot({path: `${screenshotPath}${screenshotName}`, fullPage: true});
-  
+
 })
 
 After(async function (scenario) {
@@ -180,7 +213,7 @@ After(async function (scenario) {
 })
 
 AfterAll(async () => {
-  await deleteContent();
+  //await deleteContent();
   if (scope.browser) {
     // close the browser at end of run
     await scope.browser.close()
