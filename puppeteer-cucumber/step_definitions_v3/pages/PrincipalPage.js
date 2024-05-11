@@ -37,12 +37,9 @@ class PrincipalPage {
     async navigateToPages() {
         // Espera a que el elemento con la clase "gh-viewport" esté disponible en la página
         await this.page.waitForSelector('a[href="#/pages/"]');
-
         // Navega a la sección de "Posts" haciendo clic en el enlace correspondiente
         await this.page.click('a[href="#/pages/"]');
-
-        // Espera a que la navegación se complete
-        await this.page.waitForNavigation();
+        await new Promise(r => setTimeout(r, 1000));
     }
 
     async navigateToTags() {

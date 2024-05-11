@@ -55,15 +55,19 @@ class PagesPage {
         // Espera a que el botón "Publish" esté disponible en la página
         await this.page.evaluate(() => {
             [...document.querySelectorAll('span')].find(span => span.textContent.includes("Publish")).click();
-            
         });
         await new Promise(r => setTimeout(r, 500));
         // Publica el post haciendo clic en el botón "Publish"
         await this.page.evaluate(() => {
             [...document.querySelectorAll('button')].find(span => span.innerText.includes("Publish")).click();
-            
         });
         await new Promise(r => setTimeout(r, 1000));
+        //Pagina de pages
+        await this.page.evaluate(() => {
+            [...document.querySelectorAll('a')].find(span => span.innerText.includes("Pages")).click();
+        });
+        // Espera a que la publicación se complete
+        await new Promise(r => setTimeout(r, 500));
     }
 
     async embededYotubeVideo(url){

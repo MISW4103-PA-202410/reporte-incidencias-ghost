@@ -1,6 +1,6 @@
 Feature: Crear page
 
-    @run @pages @v3
+    @run @pages
     Scenario: Crear una page con un título y un audio
         Given inicio la aplicación
         And inicio sesión si es necesario
@@ -9,11 +9,10 @@ Feature: Crear page
         And ingreso "Page de prueba" como nombre de la página
         And agrego un audio a la página
         When publico la página
-        Then abro la sección de "Pages"
-        And la página debe existir en la lista
+        Then la página debe existir en la lista
         And el audio se agregó correctamente
 
-    @run @pages @v3
+    @run @pages @v3 @debug
     Scenario: Crear una page con un título, un párrafo y un video embebido de YouTube
         Given inicio la aplicación
         And inicio sesión si es necesario
@@ -26,8 +25,8 @@ Feature: Crear page
         Then abro la sección de "Pages"
         And la página debe existir en la lista
         And el video se agregó correctamente
-       
-    @run @pages @v3
+
+    @run @pages @v3 @debug
     Scenario: Crear una page básica con una URL definida (slug)
         Given inicio la aplicación
         And inicio sesión si es necesario

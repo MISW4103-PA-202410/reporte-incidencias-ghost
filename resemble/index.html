@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comparación de Imágenes</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="/node_modules/resemblejs/resemble.js"></script>
+    <style>
+        #imageContainer {
+            display: flex;
+            justify-content: space-between;
+        }
+        .imageWrapper {
+            flex: 1;
+            text-align: center;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        $(document).ready(function() {
+            var image1Path = './crear-page_escenario_1_paso_1 copy.png';
+            var image2Path = './crear-page_escenario_1_paso_1.png';
+
+
+            // Llamada a la función en index.js para comparar las imágenes
+            resemble(image1Path)
+                .compareTo(image2Path)
+                .onComplete(function(data) {
+                    console.log(data);
+                    $('#results').html('Porcentaje de diferencia: ' + data.rawMisMatchPercentage);
+                    $('#diffImage').attr('src', data.getImageDataUrl());
+                });
+
+            $('#image1').attr('src', image1Path);
+            $('#image2').attr('src', image2Path);
+        });
+    </script>
+    <h1>Comparación de Imágenes</h1>
+    <div id="imageContainer">
+        <div class="imageWrapper">
+            <h2>Imagen 1</h2>
+            <img id="image1" src="" alt="Imagen 1">
+        </div>
+        <div class="imageWrapper">
+            <h2>Imagen 2</h2>
+            <img id="image2" src="" alt="Imagen 2">
+        </div>
+        <div class="imageWrapper">
+            <h2>Diferencia</h2>
+            <img id="diffImage" src="" alt="Diferencia">
+        </div>
+    </div>
+    <div id="results"></div>
+</body>
+</html>

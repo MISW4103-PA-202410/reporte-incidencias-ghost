@@ -1,6 +1,6 @@
 Feature: Crear Tag
 
-    @run @tags
+    @run @tags @v5
     Scenario: Crear una tag básico
         Given inicio la aplicación
         And inicio sesión si es necesario
@@ -33,7 +33,7 @@ Feature: Crear Tag
         And existen dos tags con nombre "Tag de prueba duplicado"
         And los dos tags tienen slug diferente
 
-    @run @tags
+    @run @tags 
     Scenario: Crear tag con una imagen
         Given inicio la aplicación
         And inicio sesión si es necesario
@@ -49,8 +49,7 @@ Feature: Crear Tag
         And abro la página del tag
         And el tag debe tener la imagen
 
-
-    @run @tags
+    @run @tags @v5
     Scenario: Crear tag con Meta Data
         Given inicio la aplicación
         And inicio sesión si es necesario

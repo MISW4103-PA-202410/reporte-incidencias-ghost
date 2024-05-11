@@ -1,6 +1,6 @@
 Feature: Crear post
 
-    @run @posts @v3
+    @run @posts
     Scenario: Crear un post básico con título y un párrafo de cuerpo y publicar
         Given inicio la aplicación
         And inicio sesión si es necesario
@@ -23,7 +23,7 @@ Feature: Crear post
         When publico el post
         Then abro la sección de "Posts"
         And el post "(Untitled)" debe existir en la lista
-       
+
     @run @posts
     Scenario: Crear un post básico con feature image y publicar
         Given inicio la aplicación

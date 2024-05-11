@@ -48,7 +48,6 @@ Given("navego a Home", async () => {
 
 Given('abro la sección de {string}', async (section) => {
     let navigateToPage;
-
     switch (section) {
         case 'Home':
             navigateToPage = scope.pages.principal.navigateToSite;
@@ -73,7 +72,7 @@ Given('abro la sección de {string}', async (section) => {
     }
 
     await Promise.all([
-        scope.page.waitForNavigation({ waitUntil: 'networkidle0'}),
+        //scope.page.waitForNavigation({ waitUntil: 'networkidle0'}),
         navigateToPage()
     ]);
 });

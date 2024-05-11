@@ -13,7 +13,7 @@ Feature: Crear page
         And la página debe existir en la lista
         And el audio se agregó correctamente
 
-    @run @pages
+    @run @pages @v5
     Scenario: Crear una page con un título, un párrafo y un video embebido de YouTube
         Given inicio la aplicación
         And inicio sesión si es necesario
@@ -26,8 +26,8 @@ Feature: Crear page
         Then abro la sección de "Pages"
         And la página debe existir en la lista
         And el video se agregó correctamente
-       
-    @run @pages
+
+    @run @pages @v5
     Scenario: Crear una page básica con una URL definida (slug)
         Given inicio la aplicación
         And inicio sesión si es necesario
@@ -42,7 +42,7 @@ Feature: Crear page
         And la página debe existir en la lista
         And puedo navegar a la URL con el slug asignado
 
-    @run @pages @debug
+    @run @pages @debug @v5
     Scenario: Crear una page básica, previsualizarla y dejarla en borrador
         Given inicio la aplicación
         And inicio sesión si es necesario

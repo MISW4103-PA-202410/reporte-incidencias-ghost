@@ -18,7 +18,6 @@ Given('ingreso {string} como contenido de la página', async (contenido) => {
 
 Given('agrego un audio a la página', async () => {
     const uploaded = await scope.pages.pages.uploadAudio('./assets/audio.mp3');
-    
     scope.variables.audioUploaded = uploaded;
 });
 
