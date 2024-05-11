@@ -40,6 +40,26 @@ When ("I sign in with email {kraken-string}", async function (values) {
   return await button.click();
 });
 
+async function actionAndScreenshot(elementSelector, action, driver, screenshotDetails) {
+  let element = await driver.$(elementSelector);
+  if (action === 'click') {
+    await element.click();
+  } else if (action === 'setValue') {
+    await element.setValue(screenshotDetails.value);
+  } else if (action === 'keys') {
+    await element.scrollIntoView();
+    await element.click();
+    await element.keys(screenshotDetails.value);
+  }
+
+  const screenshot = await driver.takeScreenshot();
+  const screenshotsBasePath = path.resolve(__dirname, `../../../../screenshots/${screenshotDetails.version}/${screenshotDetails.feature}/escenario_${screenshotDetails.scenario}`);
+  fs.mkdirSync(screenshotsBasePath, { recursive: true });
+  const screenshotFilename = `kraken_paso_${screenshotDetails.step}.png`;
+  const screenshotPath = path.join(screenshotsBasePath, screenshotFilename);
+  fs.writeFileSync(screenshotPath, screenshot, 'base64');
+}
+
 
 /**
  *
@@ -52,9 +72,8 @@ When("I click in the add post button", async function () {
   return await element.click();
 });
 
-When("I click Posts", async function () {
-  let element = await this.driver.$('a[href="#/posts/"].ember-view');
-  return await element.click();
+When("I click Posts and take a screenshot for version {kraken-string} feature {string} scenario {string} step {string}", async function (version, feature, scenario, step) {
+  await actionAndScreenshot('a[href="#/posts/"].ember-view', 'click', this.driver, {version, feature, scenario, step});
 });
 
 When("I enter a title for the post {kraken-string}", async function (title) {
@@ -365,82 +384,50 @@ When("I click in the expand meta data button and take a screenshot for version {
  * View
  *
  */
-When("I click dropdown visibility", async function () {
-  let element = await this.driver.$(
-    "div.gh-contentfilter-menu.gh-contentfilter-visibility"
-  );
-  return await element.click();
+When("I click dropdown visibility and take a screenshot for version {kraken-string} feature {string} scenario {string} step {string}", async function (version, feature, scenario, step) {
+  await actionAndScreenshot("div.gh-contentfilter-menu.gh-contentfilter-visibility", 'click', this.driver, {version, feature, scenario, step});
 });
 
-When("I click Public", async function () {
-  let element = await this.driver.$(
-    "ul.ember-power-select-options > li:nth-child(2)"
-  );
-  return await element.click();
+When("I click Public and take a screenshot for version {kraken-string} feature {string} scenario {string} step {string}", async function (version, feature, scenario, step) {
+  await actionAndScreenshot("ul.ember-power-select-options > li:nth-child(2)", 'click', this.driver, {version, feature, scenario, step});
 });
 
-When("I select orange color", async function () {
-  let element = await this.driver.$(
-    "div.flex.justify-between.mt3.nl1 > div:nth-child(8)"
-  );
-  return await element.click();
+When("I select orange color and take a screenshot for version {kraken-string} feature {string} scenario {string} step {string}", async function (version, feature, scenario, step) {
+  await actionAndScreenshot("div.flex.justify-between.mt3.nl1 > div:nth-child(8)", 'click', this.driver, {version, feature, scenario, step});
 });
 
-When("I click Paid members only", async function () {
-  let element = await this.driver.$(
-    "ul.ember-power-select-options > li:nth-child(4)"
-  );
-  return await element.click();
+When("I click Paid members only and take a screenshot for version {kraken-string} feature {string} scenario {string} step {string}", async function (version, feature, scenario, step) {
+  await actionAndScreenshot("ul.ember-power-select-options > li:nth-child(4)", 'click', this.driver, {version, feature, scenario, step});
 });
 
-When("I click new view", async function () {
-  let element = await this.driver.$(
-    "div.dropdown.gh-contentfilter-menu.gh-contentfilter-actions > button.gh-contentfilter-menu-trigger.gh-contentfilter-button.gh-btn-save-view"
-  );
-  return await element.click();
+When("I click new view and take a screenshot for version {kraken-string} feature {string} scenario {string} step {string}", async function (version, feature, scenario, step) {
+  await actionAndScreenshot("div.dropdown.gh-contentfilter-menu.gh-contentfilter-actions > button.gh-contentfilter-menu-trigger.gh-contentfilter-button.gh-btn-save-view", 'click', this.driver, {version, feature, scenario, step});
 });
 
-When("I enter view name {kraken-string}", async function (values) {
-  let element = await this.driver.$(
-    "input.ember-text-field.gh-input.ember-view"
-  );
-  return await element.setValue(values);
+When("I enter view name {kraken-string} and take a screenshot for version {kraken-string} feature {string} scenario {string} step {string}", async function (values, version, feature, scenario, step) {
+  await actionAndScreenshot("input.ember-text-field.gh-input.ember-view", 'setValue', this.driver, {value: values, version, feature, scenario, step});
 });
 
-When("I click Save view", async function () {
-  let element = await this.driver.$(
-    "div.modal-footer > button.gh-btn.gh-btn-black.gh-btn-icon.ember-view"
-  );
-  return await element.click();
+When("I click Save view and take a screenshot for version {kraken-string} feature {string} scenario {string} step {string}", async function (version, feature, scenario, step) {
+  await actionAndScreenshot("div.modal-footer > button.gh-btn.gh-btn-black.gh-btn-icon.ember-view", 'click', this.driver, {version, feature, scenario, step});
 });
 
-When("I check the created view {kraken-string}", async function (values) {
-  let element = await this.driver.$(
-    "a[title=" + values + "] > span.gh-nav-viewname"
-  );
+When("I check the created view {kraken-string} and take a screenshot for version {kraken-string} feature {string} scenario {string} step {string}", async function (values, version, feature, scenario, step) {
+  let element = await this.driver.$(`a[title="${values}"] > span.gh-nav-viewname`);
   assert.equal(await element.getText(), values);
-  return await element.click();
+  await actionAndScreenshot(`a[title="${values}"] > span.gh-nav-viewname`, 'click', this.driver, {value: values, version, feature, scenario, step});
 });
 
-Then("I should delete the view", async function () {
-  let element = await this.driver.$(
-    "div.modal-footer > button.gh-btn.gh-btn-red.gh-btn-icon"
-  );
-  return await element.click();
+Then("I should delete the view and take a screenshot for version {kraken-string} feature {string} scenario {string} step {string}", async function (version, feature, scenario, step) {
+  await actionAndScreenshot("div.modal-footer > button.gh-btn.gh-btn-red.gh-btn-icon", 'click', this.driver, {version, feature, scenario, step});
 });
 
-When("I click the dropdown tags", async function () {
-  let element = await this.driver.$(
-    "div.gh-contentfilter-menu.gh-contentfilter-tag"
-  );
-  return await element.click();
+When("I click the dropdown tags and take a screenshot for version {kraken-string} feature {string} scenario {string} step {string}", async function (version, feature, scenario, step) {
+  await actionAndScreenshot("div.gh-contentfilter-menu.gh-contentfilter-tag", 'click', this.driver, {version, feature, scenario, step});
 });
 
-When("I select news Tag", async function () {
-  let element = await this.driver.$(
-    "ul.ember-power-select-options > li:nth-child(3)"
-  );
-  return await element.click();
+When("I select news Tag and take a screenshot for version {kraken-string} feature {string} scenario {string} step {string}", async function (version, feature, scenario, step) {
+  await actionAndScreenshot("ul.ember-power-select-options > li:nth-child(3)", 'click', this.driver, {version, feature, scenario, step});
 });
 
 /**

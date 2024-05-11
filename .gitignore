@@ -1,4 +1,6 @@
 node_modules
 kraken/reports
 puppeteer-cucumber/output
+screenshots
+
 **/.DS_Store
