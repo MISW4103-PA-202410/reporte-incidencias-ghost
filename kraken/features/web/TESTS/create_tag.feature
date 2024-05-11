@@ -1,6 +1,7 @@
 Feature: Crear page
 
 
+
 @user1 @web
 Scenario: Como usuario me registro y creo un nuevo tag
   Given I navigate to page "http://localhost:2368/ghost/#/setup"
@@ -28,6 +29,7 @@ Scenario: Como usuario me registro y creo un nuevo tag con nombre repetido
   And I click in the tags menu button
   And I verify the tag name created is "<TAG_NAME>"
 
+  
 @user3 @web
 Scenario: Como usuario me registro y creo un nuevo tag con una imagen
   Given I navigate to page "http://localhost:2368/ghost/#/setup"
