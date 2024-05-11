@@ -60,19 +60,27 @@ When("I enter to the setup page {kraken-string} and take a screenshot for versio
   const screenshot = await this.driver.takeScreenshot();
   const screenshotsBasePath = path.resolve(__dirname, `../../../../screenshots/kraken/${version}/${feature}/escenario_${scenario}`);
   fs.mkdirSync(screenshotsBasePath, { recursive: true });
-  const screenshotFilename = `kraken_paso_${step}.png`;
+  const screenshotFilename = `paso_${step}.png`;
   const screenshotPath = path.join(screenshotsBasePath, screenshotFilename);
   fs.writeFileSync(screenshotPath, screenshot, 'base64');
   return ;
 });
 
-When ("I sign in with email {kraken-string}", async function (values) {
+When ("I sign in with email {kraken-string} and take a screenshot for version {kraken-string} feature {string} scenario {string} step {string}", async function (values, version, feature, scenario, step) {
   const setupValues = values.split(";");
   let email = await this.driver.$("#identification");
   await email.setValue(setupValues[0]);
   let password = await this.driver.$("#password");
   await password.setValue(setupValues[1]);
   let button = await this.driver.$('button.login.gh-btn.gh-btn-login');
+
+  const screenshot = await this.driver.takeScreenshot();
+  const screenshotsBasePath = path.resolve(__dirname, `../../../../screenshots/kraken/${version}/${feature}/escenario_${scenario}`);
+  fs.mkdirSync(screenshotsBasePath, { recursive: true });
+  const screenshotFilename = `paso_${step}.png`;
+  const screenshotPath = path.join(screenshotsBasePath, screenshotFilename);
+  fs.writeFileSync(screenshotPath, screenshot, 'base64');
+
   return await button.click();
 });
 
@@ -103,7 +111,7 @@ async function actionAndScreenshot(elementSelector, action, driver, screenshotDe
   const screenshot = await driver.takeScreenshot();
   const screenshotsBasePath = path.resolve(__dirname, `../../../../screenshots/kraken/${screenshotDetails.version}/${screenshotDetails.feature}/escenario_${screenshotDetails.scenario}`);
   fs.mkdirSync(screenshotsBasePath, { recursive: true });
-  const screenshotFilename = `kraken_paso_${screenshotDetails.step}.png`;
+  const screenshotFilename = `paso_${screenshotDetails.step}.png`;
   const screenshotPath = path.join(screenshotsBasePath, screenshotFilename);
   fs.writeFileSync(screenshotPath, screenshot, 'base64');
 }
@@ -291,7 +299,7 @@ When("I click in the tags menu button and take a screenshot for version {kraken-
 
   fs.mkdirSync(screenshotsBasePath, { recursive: true });
 
-  const screenshotFilename = `kraken_paso_${step}.png`;
+  const screenshotFilename = `paso_${step}.png`;
   const screenshotPath = path.join(screenshotsBasePath, screenshotFilename);
 
   fs.writeFileSync(screenshotPath, screenshot, 'base64');
@@ -307,7 +315,7 @@ When("I click in the new tag button and take a screenshot for version {kraken-st
 
   fs.mkdirSync(screenshotsBasePath, { recursive: true });
 
-  const screenshotFilename = `kraken_paso_${step}.png`;
+  const screenshotFilename = `paso_${step}.png`;
   const screenshotPath = path.join(screenshotsBasePath, screenshotFilename);
 
   fs.writeFileSync(screenshotPath, screenshot, 'base64');
@@ -325,7 +333,7 @@ When("I fill the tag name {kraken-string} and take a screenshot for version {kra
 
   fs.mkdirSync(screenshotsBasePath, { recursive: true });
 
-  const screenshotFilename = `kraken_paso_${step}.png`;
+  const screenshotFilename = `paso_${step}.png`;
   const screenshotPath = path.join(screenshotsBasePath, screenshotFilename);
 
   fs.writeFileSync(screenshotPath, screenshot, 'base64');
@@ -344,7 +352,7 @@ When("I verify the tag name created is {kraken-string} and take a screenshot for
   const screenshotsBasePath = path.resolve(__dirname, `../../../../screenshots/kraken/${version}/${feature}/escenario_${scenario}`);
   fs.mkdirSync(screenshotsBasePath, { recursive: true });
 
-  const screenshotFilename = `kraken_paso_${step}.png`;
+  const screenshotFilename = `paso_${step}.png`;
   const screenshotPath = path.join(screenshotsBasePath, screenshotFilename);
   fs.writeFileSync(screenshotPath, screenshot, 'base64');
 
@@ -359,7 +367,7 @@ When("I click the save tag button and take a screenshot for version {kraken-stri
   const screenshotsBasePath = path.resolve(__dirname, `../../../../screenshots/kraken/${version}/${feature}/escenario_${scenario}`);
   fs.mkdirSync(screenshotsBasePath, { recursive: true });
 
-  const screenshotFilename = `kraken_paso_${step}.png`;
+  const screenshotFilename = `paso_${step}.png`;
   const screenshotPath = path.join(screenshotsBasePath, screenshotFilename);
   fs.writeFileSync(screenshotPath, screenshot, 'base64');
 });
@@ -388,7 +396,7 @@ When("I click in the add image to tag and take a screenshot for version {kraken-
   const screenshotsBasePath = path.resolve(__dirname, `../../../../screenshots/kraken/${version}/${feature}/escenario_${scenario}`);
   fs.mkdirSync(screenshotsBasePath, { recursive: true });
 
-  const screenshotFilename = `kraken_paso_${step}.png`;
+  const screenshotFilename = `paso_${step}.png`;
   const screenshotPath = path.join(screenshotsBasePath, screenshotFilename);
   fs.writeFileSync(screenshotPath, screenshot, 'base64');
 });
@@ -407,7 +415,7 @@ When("I fill the meta data {kraken-string} and take a screenshot for version {kr
   const screenshotsBasePath = path.resolve(__dirname, `../../../../screenshots/kraken/${version}/${feature}/escenario_${scenario}`);
   fs.mkdirSync(screenshotsBasePath, { recursive: true });
 
-  const screenshotFilename = `kraken_paso_${step}.png`;
+  const screenshotFilename = `paso_${step}.png`;
   const screenshotPath = path.join(screenshotsBasePath, screenshotFilename);
   fs.writeFileSync(screenshotPath, screenshot, 'base64');
 
@@ -422,7 +430,7 @@ When("I click in the expand meta data button and take a screenshot for version {
   const screenshotsBasePath = path.resolve(__dirname, `../../../../screenshots/kraken/${version}/${feature}/escenario_${scenario}`);
   fs.mkdirSync(screenshotsBasePath, { recursive: true });
 
-  const screenshotFilename = `kraken_paso_${step}.png`;
+  const screenshotFilename = `paso_${step}.png`;
   const screenshotPath = path.join(screenshotsBasePath, screenshotFilename);
   fs.writeFileSync(screenshotPath, screenshot, 'base64');
 });
@@ -505,7 +513,7 @@ When("I click the password change button and take a screenshot for version {krak
       const screenshot = await this.driver.takeScreenshot();
       const screenshotsBasePath = path.resolve(__dirname, `../../../../screenshots/kraken/${version}/${feature}/escenario_${scenario}`);
       fs.mkdirSync(screenshotsBasePath, { recursive: true });
-      const screenshotFilename = `kraken_paso_${step}.png`;
+      const screenshotFilename = `paso_${step}.png`;
       const screenshotPath = path.join(screenshotsBasePath, screenshotFilename);
       fs.writeFileSync(screenshotPath, screenshot, 'base64');
       return ;
@@ -527,7 +535,7 @@ When("I fill the password fields {kraken-string} and take a screenshot for versi
   const screenshot = await this.driver.takeScreenshot();
   const screenshotsBasePath = path.resolve(__dirname, `../../../../screenshots/kraken/${version}/${feature}/escenario_${scenario}`);
   fs.mkdirSync(screenshotsBasePath, { recursive: true });
-  const screenshotFilename = `kraken_paso_${step}.png`;
+  const screenshotFilename = `paso_${step}.png`;
   const screenshotPath = path.join(screenshotsBasePath, screenshotFilename);
   fs.writeFileSync(screenshotPath, screenshot, 'base64');
   return ;
@@ -544,7 +552,7 @@ When("I click the change password button and take a screenshot for version {krak
       const screenshot = await this.driver.takeScreenshot();
       const screenshotsBasePath = path.resolve(__dirname, `../../../../screenshots/kraken/${version}/${feature}/escenario_${scenario}`);
       fs.mkdirSync(screenshotsBasePath, { recursive: true });
-      const screenshotFilename = `kraken_paso_${step}.png`;
+      const screenshotFilename = `paso_${step}.png`;
       const screenshotPath = path.join(screenshotsBasePath, screenshotFilename);
       fs.writeFileSync(screenshotPath, screenshot, 'base64');
       return ;
@@ -562,7 +570,7 @@ When("I click the save profile button and take a screenshot for version {kraken-
       const screenshot = await this.driver.takeScreenshot();
       const screenshotsBasePath = path.resolve(__dirname, `../../../../screenshots/kraken/${version}/${feature}/escenario_${scenario}`);
       fs.mkdirSync(screenshotsBasePath, { recursive: true });
-      const screenshotFilename = `kraken_paso_${step}.png`;
+      const screenshotFilename = `paso_${step}.png`;
       const screenshotPath = path.join(screenshotsBasePath, screenshotFilename);
       fs.writeFileSync(screenshotPath, screenshot, 'base64');
       return ;
@@ -636,7 +644,7 @@ When("I change info profile socialMedia {kraken-string} and take a screenshot fo
 
 });
 
-When ("I click the dot points and take a screenshot for version {kraken-string} feature {string} scenario {string} step {string}", async function (version, feature, scenario, step) {
+When ("I click the dot points button and take a screenshot for version {kraken-string} feature {string} scenario {string} step {string}", async function (version, feature, scenario, step) {
   const dotPoints = await this.driver.$$("button.flex.h-8.cursor-pointer.items-center.justify-center");
   for (let dotPoint of dotPoints) {
     if ((await dotPoint.getText()).includes("Actions")) {
@@ -644,7 +652,7 @@ When ("I click the dot points and take a screenshot for version {kraken-string} 
       const screenshot = await this.driver.takeScreenshot();
       const screenshotsBasePath = path.resolve(__dirname, `../../../../screenshots/kraken/${version}/${feature}/escenario_${scenario}`);
       fs.mkdirSync(screenshotsBasePath, { recursive: true });
-      const screenshotFilename = `kraken_paso_${step}.png`;
+      const screenshotFilename = `paso_${step}.png`;
       const screenshotPath = path.join(screenshotsBasePath, screenshotFilename);
       fs.writeFileSync(screenshotPath, screenshot, 'base64');
       return ;
@@ -655,7 +663,7 @@ When ("I click the dot points and take a screenshot for version {kraken-string} 
 });
 
 
-When ("I click the userActivityButton and take a screenshot for version {kraken-string} feature {string} scenario {string} step {string}", async function (version, feature, scenario, step) {
+When ("I click the userActivityButton button and take a screenshot for version {kraken-string} feature {string} scenario {string} step {string}", async function (version, feature, scenario, step) {
   return await actionAndScreenshot("button.cursor-pointer.px-4.text-left.text-sm", 'click', this.driver, {version, feature, scenario, step});
 });
 
@@ -670,7 +678,7 @@ When ("I verify history and take a screenshot for version {kraken-string} featur
   const screenshot = await this.driver.takeScreenshot();
   const screenshotsBasePath = path.resolve(__dirname, `../../../../screenshots/kraken/${version}/${feature}/escenario_${scenario}`);
   fs.mkdirSync(screenshotsBasePath, { recursive: true });
-  const screenshotFilename = `kraken_paso_${step}.png`;
+  const screenshotFilename = `paso_${step}.png`;
   const screenshotPath = path.join(screenshotsBasePath, screenshotFilename);
   fs.writeFileSync(screenshotPath, screenshot, 'base64');
   return ;
