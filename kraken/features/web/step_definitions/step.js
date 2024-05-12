@@ -210,90 +210,124 @@ When("I click on schedule for later button and take a screenshot for version {kr
  *
  */
 
-When("I click in the pages menu button", async function () {
-  let element = await this.driver.$('a[href="#/pages/"]');
-  return await element.click();
+When("I click in the pages menu button and take a screenshot for version {kraken-string} feature {string} scenario {string} step {string}",  async function (version, feature, scenario, step) {
+  await actionAndScreenshot('a[href="#/pages/"]', 'click', this.driver, {version, feature, scenario, step});
 });
 
-When("I click in the new page", async function () {
-  let element = await this.driver.$('a[href="#/editor/page/"]');
-  return await element.click();
+When("I click in the new page and take a screenshot for version {kraken-string} feature {string} scenario {string} step {string}",  async function (version, feature, scenario, step) {
+  await actionAndScreenshot('a[href="#/editor/page/"]', 'click', this.driver, {version, feature, scenario, step});
 });
 
-When("I enter the page title {kraken-string}", async function (title) {
+When("I enter the page title {kraken-string} and take a screenshot for version {kraken-string} feature {string} scenario {string} step {string}",  async function (title, version, feature, scenario, step) {
   let element = await this.driver.$('textarea[placeholder="Page title"]');
-  return await element.setValue(title);
+  await element.setValue(title);
+  const screenshot = await this.driver.takeScreenshot();
+
+  const screenshotsBasePath = path.resolve(__dirname, `../../../../screenshots/kraken/${version}/${feature}/escenario_${scenario}`);
+
+  fs.mkdirSync(screenshotsBasePath, { recursive: true });
+
+  const screenshotFilename = `paso_${step}.png`;
+  const screenshotPath = path.join(screenshotsBasePath, screenshotFilename);
+
+  fs.writeFileSync(screenshotPath, screenshot, 'base64');
 });
 
-When("I click button to add a card", async function () {
+When("I click button to add a card and take a screenshot for version {kraken-string} feature {string} scenario {string} step {string}",  async function (version, feature, scenario, step) {
   let element = await this.driver.$(".kg-prose > p");
   await element.scrollIntoView();
   await element.click();
   let button = await this.driver.$('div[data-kg-plus-button="true"] > button');
-  return await button.click();
+  await button.click();
+  const screenshot = await this.driver.takeScreenshot();
+
+  const screenshotsBasePath = path.resolve(__dirname, `../../../../screenshots/kraken/${version}/${feature}/escenario_${scenario}`);
+
+  fs.mkdirSync(screenshotsBasePath, { recursive: true });
+
+  const screenshotFilename = `paso_${step}.png`;
+  const screenshotPath = path.join(screenshotsBasePath, screenshotFilename);
+  fs.writeFileSync(screenshotPath, screenshot, 'base64');
 });
 
-When("I click button to add an audio element", async function () {
+When("I click button to add an audio element and take a screenshot for version {kraken-string} feature {string} scenario {string} step {string}",  async function (version, feature, scenario, step) {
   let element = await this.driver.$('button[data-kg-card-menu-item="Audio"]');
   await element.click();
   let fileInput = await this.driver.$('input[name="audio-input"]');
   // Set the file path to the file input element
-  return await fileInput.setValue(
+  await fileInput.setValue(
     path.resolve("../kraken/features/web/resources/audio.mp3")
   );
+  const screenshot = await this.driver.takeScreenshot();
+
+  const screenshotsBasePath = path.resolve(__dirname, `../../../../screenshots/kraken/${version}/${feature}/escenario_${scenario}`);
+
+  fs.mkdirSync(screenshotsBasePath, { recursive: true });
+
+  const screenshotFilename = `paso_${step}.png`;
+  const screenshotPath = path.join(screenshotsBasePath, screenshotFilename);
+  fs.writeFileSync(screenshotPath, screenshot, 'base64');
 });
 
-When("I click in the publish page button", async function () {
-  let element = await this.driver.$('button[data-test-button="publish-flow"]');
-  return await element.click();
+When("I click in the publish page button and take a screenshot for version {kraken-string} feature {string} scenario {string} step {string}",  async function (version, feature, scenario, step) {
+  await actionAndScreenshot('button[data-test-button="publish-flow"]', 'click', this.driver, {version, feature, scenario, step});
 });
 
-When("I click in the continue publish page button", async function () {
-  let element = await this.driver.$('button[data-test-button="continue"]');
-  return await element.click();
+When("I click in the continue publish page button and take a screenshot for version {kraken-string} feature {string} scenario {string} step {string}",  async function (version, feature, scenario, step) {
+  await actionAndScreenshot('button[data-test-button="continue"]', 'click', this.driver, {version, feature, scenario, step});
 });
 
-When("I click youtube embeds", async function () {
-  let element = await this.driver.$('button[data-kg-card-menu-item="YouTube"]');
-  return await element.click();
+When("I click youtube embeds and take a screenshot for version {kraken-string} feature {string} scenario {string} step {string}",  async function (version, feature, scenario, step) {
+  await actionAndScreenshot('button[data-kg-card-menu-item="YouTube"]', 'click', this.driver, {version, feature, scenario, step});
 });
 
-When("I insert the youtube url", async function () {
+When("I insert the youtube url and take a screenshot for version {kraken-string} feature {string} scenario {string} step {string}",  async function (version, feature, scenario, step) {
   let element = await this.driver.$('input[data-testid="embed-url"]');
   await element.setValue("https://www.youtube.com/watch?v=edVYLVDDgh0");
-  return await element.keys(["Enter"]);
+  await element.keys(["Enter"]);
+  const screenshot = await this.driver.takeScreenshot();
+
+  const screenshotsBasePath = path.resolve(__dirname, `../../../../screenshots/kraken/${version}/${feature}/escenario_${scenario}`);
+
+  fs.mkdirSync(screenshotsBasePath, { recursive: true });
+
+  const screenshotFilename = `paso_${step}.png`;
+  const screenshotPath = path.join(screenshotsBasePath, screenshotFilename);
+  fs.writeFileSync(screenshotPath, screenshot, 'base64');
 });
 
-When("I click side options menu", async function () {
-  let element = await this.driver.$(".settings-menu-toggle");
-  return await element.click();
+When("I click side options menu and take a screenshot for version {kraken-string} feature {string} scenario {string} step {string}",  async function (version, feature, scenario, step) {
+  await actionAndScreenshot('.settings-menu-toggle', 'click', this.driver, {version, feature, scenario, step});
 });
 
-When("I set the page url {kraken-string}", async function (url) {
+When("I set the page url {kraken-string} and take a screenshot for version {kraken-string} feature {string} scenario {string} step {string}",  async function (url, version, feature, scenario, step) {
   let element = await this.driver.$("#url");
-  return await element.setValue(url);
+  await element.setValue(url);
+  const screenshot = await this.driver.takeScreenshot();
+
+  const screenshotsBasePath = path.resolve(__dirname, `../../../../screenshots/kraken/${version}/${feature}/escenario_${scenario}`);
+
+  fs.mkdirSync(screenshotsBasePath, { recursive: true });
+
+  const screenshotFilename = `paso_${step}.png`;
+  const screenshotPath = path.join(screenshotsBasePath, screenshotFilename);
+  fs.writeFileSync(screenshotPath, screenshot, 'base64');
 });
 
-When("I click in the preview page button", async function () {
-  let element = await this.driver.$(
-    'button[data-test-button="publish-preview"]'
-  );
-  return await element.click();
+When("I click in the preview page button and take a screenshot for version {kraken-string} feature {string} scenario {string} step {string}",  async function (version, feature, scenario, step) {
+  await actionAndScreenshot('button[data-test-button="publish-preview"]', 'click', this.driver, {version, feature, scenario, step});
 });
 
-When("I click the back button", async function () {
-  let element = await this.driver.$(".gh-editor-back-button");
-  return await element.click();
+When("I click the back button and take a screenshot for version {kraken-string} feature {string} scenario {string} step {string}",  async function (version, feature, scenario, step) {
+  await actionAndScreenshot('.gh-editor-back-button', 'click', this.driver, {version, feature, scenario, step});
 });
 
-When("I click the editor back button", async function () {
-  let element = await this.driver.$(".gh-editor-back-button");
-  return await element.click();
+When("I click the editor back button and take a screenshot for version {kraken-string} feature {string} scenario {string} step {string}",  async function (version, feature, scenario, step) {
+  await actionAndScreenshot('.gh-editor-back-button', 'click', this.driver, {version, feature, scenario, step});
 });
 
-When("I click the description field", async function () {
-  let element = await this.driver.$(".kg-prose > p");
-  await element.scrollIntoView();
+When("I click the description field and take a screenshot for version {kraken-string} feature {string} scenario {string} step {string}",  async function (version, feature, scenario, step) {
+  await actionAndScreenshot('.kg-prose > p', 'click', this.driver, {version, feature, scenario, step});
 });
 
 /**
