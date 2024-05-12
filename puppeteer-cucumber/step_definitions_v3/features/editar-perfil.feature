@@ -1,7 +1,7 @@
 Feature: Editar perfil
 
     @run @profile
-    Scenario: Cambiar contraseña
+    Scenario: escenario_1 - Cambiar contraseña
         Given inicio la aplicación
         And inicio sesión si es necesario
         And abro la sección de "Profile"
@@ -18,7 +18,7 @@ Feature: Editar perfil
         And guardo el cambio de contraseña
 
     @run @profile
-    Scenario: Cambiar imagen de cover a 8K
+    Scenario: escenario_2 - Cambiar imagen de cover a 8K
         Given inicio la aplicación
         And inicio sesión si es necesario
         And abro la sección de "Profile"
@@ -32,7 +32,7 @@ Feature: Editar perfil
 
 
     @run @profile
-    Scenario: Cambiar correo electrónico y nombre
+    Scenario: escenario_3 - Cambiar correo electrónico y nombre
         Given inicio la aplicación
         And inicio sesión si es necesario
         And abro la sección de "Profile"
@@ -47,7 +47,7 @@ Feature: Editar perfil
         And guardo mi perfil
 
     @run @profile
-    Scenario: Anclar los perfiles de redes sociales (facebook y X - twitter)
+    Scenario: escenario_4 - Anclar los perfiles de redes sociales (facebook y X - twitter)
         Given inicio la aplicación
         And inicio sesión si es necesario
         And abro la sección de "Profile"
@@ -63,7 +63,7 @@ Feature: Editar perfil
         And guardo mi perfil
 
     @run @profile
-    Scenario: Ver el historial de actividad del usuario
+    Scenario: escenario_5 - Ver el historial de actividad del usuario
         Given inicio la aplicación
         And inicio sesión si es necesario
         And abro la sección de "Profile"

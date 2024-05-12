@@ -1,7 +1,7 @@
 Feature: Crear Tag
 
     @run @tags @v3
-    Scenario: Crear una tag básico
+    Scenario: escenario_1 - Crear una tag básico
         Given inicio la aplicación
         And inicio sesión si es necesario
         And abro la sección de "Tags"
@@ -14,7 +14,7 @@ Feature: Crear Tag
         And el tag se encuentra en la lista
 
     @done @run @tags
-    Scenario: Crear tag con nombre ya existente
+    Scenario: escenario_2 - Crear tag con nombre ya existente
         Given inicio la aplicación
         And inicio sesión si es necesario
         And abro la sección de "Tags"
@@ -34,7 +34,7 @@ Feature: Crear Tag
         And los dos tags tienen slug diferente
 
     @run @tags
-    Scenario: Crear tag con una imagen
+    Scenario: escenario_3 - Crear tag con una imagen
         Given inicio la aplicación
         And inicio sesión si es necesario
         And abro la sección de "Tags"
@@ -51,7 +51,7 @@ Feature: Crear Tag
 
 
     @run @tags @v3
-    Scenario: Crear tag con Meta Data
+    Scenario: escenario_4 - Crear tag con Meta Data
         Given inicio la aplicación
         And inicio sesión si es necesario
         And abro la sección de "Tags"

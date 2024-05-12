@@ -1,7 +1,7 @@
 Feature: Crear page
 
     @run @pages
-    Scenario: Crear una page con un título y un audio
+    Scenario: escenario_1 - Crear una page con un título y un audio
         Given inicio la aplicación
         And inicio sesión si es necesario
         And abro la sección de "Pages"
@@ -13,7 +13,7 @@ Feature: Crear page
         And el audio se agregó correctamente
 
     @run @pages @v3 @debug
-    Scenario: Crear una page con un título, un párrafo y un video embebido de YouTube
+    Scenario: escenario_2 - Crear una page con un título, un párrafo y un video embebido de YouTube
         Given inicio la aplicación
         And inicio sesión si es necesario
         And abro la sección de "Pages"
@@ -27,7 +27,7 @@ Feature: Crear page
         And el video se agregó correctamente
 
     @run @pages @v3 @debug
-    Scenario: Crear una page básica con una URL definida (slug)
+    Scenario: escenario_3 - Crear una page básica con una URL definida (slug)
         Given inicio la aplicación
         And inicio sesión si es necesario
         And abro la sección de "Pages"
@@ -42,7 +42,7 @@ Feature: Crear page
         And puedo navegar a la URL con el slug asignado
 
     @run @pages @v3
-    Scenario: Crear una page básica, previsualizarla y dejarla en borrador
+    Scenario: escenario_4 - Crear una page básica, previsualizarla y dejarla en borrador
         Given inicio la aplicación
         And inicio sesión si es necesario
         And abro la sección de "Pages"

@@ -1,7 +1,7 @@
 Feature: Crear post
 
     @run @posts @debug
-    Scenario: Crear un post básico con título y un párrafo de cuerpo y publicar
+    Scenario: escenario_1 - Crear un post básico con título y un párrafo de cuerpo y publicar
         Given inicio la aplicación
         And inicio sesión si es necesario
         And abro la sección de "Posts"
@@ -13,7 +13,7 @@ Feature: Crear post
         And el post debe existir en la lista
 
     @done @run @posts
-    Scenario: Crear un post sin título y publicar
+    Scenario: escenario_2 - Crear un post sin título y publicar
         Given inicio la aplicación
         And inicio sesión si es necesario
         And abro la sección de "Posts"
@@ -25,7 +25,7 @@ Feature: Crear post
         And el post "(Untitled)" debe existir en la lista
        
     @run @posts
-    Scenario: Crear un post básico con feature image y publicar
+    Scenario: escenario_3 - Crear un post básico con feature image y publicar
         Given inicio la aplicación
         And inicio sesión si es necesario
         And abro la sección de "Posts"
@@ -38,7 +38,7 @@ Feature: Crear post
         And el post debe existir en la lista
 
     @run @posts
-    Scenario: Crear un post y programar su publicación en el futuro
+    Scenario: escenario_4 - Crear un post y programar su publicación en el futuro
         Given inicio la aplicación
         And inicio sesión si es necesario
         And abro la sección de "Posts"

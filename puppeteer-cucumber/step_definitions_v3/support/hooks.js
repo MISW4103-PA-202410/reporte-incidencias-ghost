@@ -174,10 +174,13 @@ AfterStep(async function({pickle, pickleStep, gherkinDocument, result, testCaseS
     scenarioCounter = 1;
     oldFeatureName = featureName;
   }
+
+  
   const stepNumber = stepCounter++;
   //Paths
   const version = constants.reportConfig.metadata["App Version"];
-  const screenshotPath = `../../../screenshots/puppeteer/${version}/${featureName}/escenario_${scenarioCounter}/`;
+  const scenarioName = pickle.name.split(' - ')[0];
+  const screenshotPath = `../../../screenshots/puppeteer/${version}/${featureName}/${scenarioName}/`;
   const screenshotName = `paso_${stepNumber}.png`;
   const fullPath = path.join(__dirname, `${screenshotPath}${screenshotName}`);
   //Validate if the folder exists

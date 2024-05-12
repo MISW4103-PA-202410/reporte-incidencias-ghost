@@ -1,7 +1,7 @@
 Feature: Crear vista
 
     @run @views
-    Scenario: Crear vista para filtro de usuario
+    Scenario: escenario_1 - Crear vista para filtro de usuario
         Given inicio la aplicación
         And inicio sesión si es necesario
         And abro la sección de "Posts"
@@ -12,7 +12,7 @@ Feature: Crear vista
         And borro la vista con nombre "Admin View"
 
     @done @run @views
-    Scenario: Crear vista con color con fitro de usuario y visibilidad
+    Scenario: escenario_2 - Crear vista con color con fitro de usuario y visibilidad
         Given inicio la aplicación
         And inicio sesión si es necesario
         And abro la sección de "Posts"
@@ -24,7 +24,7 @@ Feature: Crear vista
         And borro la vista con nombre "Publicados admin"
 
     @run @views
-    Scenario: Crear vista con filtro de tags
+    Scenario: escenario_3 - Crear vista con filtro de tags
         Given inicio la aplicación
         And inicio sesión si es necesario
         And abro la sección de "Posts"
