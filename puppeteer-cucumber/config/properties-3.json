@@ -12,7 +12,7 @@
         "launchReport": false,
         "storeScreenshots": true,
         "metadata": {
-            "App Version":"3.42.0",
+            "App Version":"v3.42",
             "Test Environment": "Test Environment",
             "Browser": "Browser Version",
             "Platform": "Platform"

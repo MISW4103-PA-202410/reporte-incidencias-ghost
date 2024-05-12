@@ -9,6 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "fs-extra": "^11.2.0",
     "http-server": "^14.1.1",
     "resemblejs": "^5.0.0"
   }

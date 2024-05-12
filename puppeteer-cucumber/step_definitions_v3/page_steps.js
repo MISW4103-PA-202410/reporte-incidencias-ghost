@@ -45,7 +45,6 @@ When('publico la página', async () => {
 
 When('ingreso a la previsualización', async () => {
     await scope.pages.pages.openSettings();
-
     scope.variables.previewSuccess = await scope.pages.pages.previewPage();
 });
 

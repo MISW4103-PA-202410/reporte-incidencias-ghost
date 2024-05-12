@@ -17,6 +17,7 @@ const TagListPage = require('../pages/TagListPage')
 const TagPage = require('../pages/TagPage')
 const UserHistoryPage = require('../pages/UserHistoryPage');
 const { create } = require('domain');
+const path = require('path');
 
 setDefaultTimeout(constants.pageTimeout * 1000);
 
@@ -24,6 +25,7 @@ BeforeAll(async () => {
   // reset counter
   counter = 0
   scenarioCounter = 1
+  oldFeatureName = ''
 
   const puppeteer = require('puppeteer');
   scope.driver = puppeteer;
@@ -40,7 +42,7 @@ BeforeAll(async () => {
             // '--enable-logging', '--v=1'
         ],
     // set 'devtools: true' => if you want to be able to launch the dev tools console too
-    //  just need to add 'await scope.page.evaluate(() => {debugger})' to the step 
+    //  just need to add 'await scope.page.evaluate(() => {debugger})' to the step
     //  you want to stop at
     devtools: false
    }
@@ -90,14 +92,15 @@ BeforeAll(async () => {
   }
 
   //Feature paths
-  crear_page = `../../../screenshots/puppeteer/${version}/crear_page`;
-  crear_post = `../../../screenshots/puppeteer/${version}/crear_post`;
-  crear_tag = `../../../screenshots/puppeteer/${version}/crear_tag`;
-  crear_vista = `../../../screenshots/puppeteer/${version}/crear_vista`;
-  editar_perfil = `../../../screenshots/puppeteer/${version}/editar_perfil`;
+  crear_page = path.join(__dirname, `../../../screenshots/puppeteer/${version}/crear-page`);
+  crear_post = path.join(__dirname, `../../../screenshots/puppeteer/${version}/crear-post`);
+  crear_tag = path.join(__dirname, `../../../screenshots/puppeteer/${version}/crear-tag`);
+  crear_vista = path.join(__dirname, `../../../screenshots/puppeteer/${version}/crear-vista`);
+  editar_perfil = path.join(__dirname, `../../../screenshots/puppeteer/${version}/editar-perfil`);
 
   //verificar que carpetas compartidas existan
-  if(fse.pathExistsSync(`../../../screenshots/puppeteer/${version}`)) {
+  shared =  path.join(__dirname, `../../../screenshots/puppeteer/${version}`);
+  if(fse.pathExistsSync(shared)) {
     //Features paths
     fse.removeSync(crear_page);
     fse.removeSync(crear_post);
@@ -105,14 +108,12 @@ BeforeAll(async () => {
     fse.removeSync(crear_vista);
     fse.removeSync(editar_perfil);
     // recreate directory
-    fse.ensureDirSync(`../../../screenshots/puppeteer/${version}`);
+    fse.ensureDirSync(shared);
     fse.ensureDirSync(crear_page);
     fse.ensureDirSync(crear_post);
     fse.ensureDirSync(crear_tag);
     fse.ensureDirSync(crear_vista);
-    fse.ensureDirSync(editar_perfil);
   }
-
   else {
     console.log("No existe la carpeta compartida");
   }
@@ -168,13 +169,26 @@ Before(async () => {
 })
 
 AfterStep(async function({pickle, pickleStep, gherkinDocument, result, testCaseStartedId, testStepId}) {
-  const screenshotPath = scope.variables.screenshotPath;
+  //Scneario counter
   const featureName = gherkinDocument.feature.name.replace(/ /g, '-').toLowerCase();
+  if (oldFeatureName !== featureName) {
+    scenarioCounter = 1;
+    oldFeatureName = featureName;
+  }
   const stepNumber = stepCounter++;
-  // screenshots/<version>/<nombre-feature>_escenario_<escenario>_paso_<paso>.png
-  const screenshotName = `${featureName}_escenario_${scenarioCounter}_paso_${stepNumber}.png`;
-  const screenshot = await scope.page.screenshot({path: `${screenshotPath}${screenshotName}`, fullPage: true});
-  
+  //Paths
+  const version = constants.reportConfig.metadata["App Version"];
+  const screenshotPath = `../../../screenshots/puppeteer/${version}/${featureName}/escenario_${scenarioCounter}/`;
+  const screenshotName = `paso_${stepNumber}.png`;
+  const fullPath = path.join(__dirname, `${screenshotPath}${screenshotName}`);
+  //Validate if the folder exists
+  if (!fse.pathExistsSync(path.join(__dirname, `${screenshotPath}`))) {
+    fse.ensureDirSync(path.join(__dirname, `${screenshotPath}`));
+  }
+
+  //Screenshot
+  const screenshot = await scope.page.screenshot({path: fullPath, fullPage: true});
+
 })
 
 After(async function (scenario) {

@@ -22,24 +22,7 @@
     </style>
 </head>
 <body>
-    <script>
-        $(document).ready(function() {
-            var image1Path = './crear-page_escenario_1_paso_1 copy.png';
-            var image2Path = './crear-page_escenario_1_paso_1.png';
-
-
-            // Llamada a la función en index.js para comparar las imágenes
-            resemble(image1Path)
-                .compareTo(image2Path)
-                .onComplete(function(data) {
-                    console.log(data);
-                    $('#results').html('Porcentaje de diferencia: ' + data.rawMisMatchPercentage);
-                    $('#diffImage').attr('src', data.getImageDataUrl());
-                });
-
-            $('#image1').attr('src', image1Path);
-            $('#image2').attr('src', image2Path);
-        });
+    <script src="/resemble/index.js">
     </script>
     <h1>Comparación de Imágenes</h1>
     <div id="imageContainer">

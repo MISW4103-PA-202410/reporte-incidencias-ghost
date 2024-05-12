@@ -1,16 +1,28 @@
-$(document).ready(function() {
-    var image1Path = '../puppeteer-cucumber/output/screenshots/3.42.0/crear-page_escenario_1_paso_1.png';
-    var image2Path = '../puppeteer-cucumber/output/screenshots/5.82.2/crear-page_escenario_1_paso_1.png';
+const compareImages = require("resemblejs/compareImages")
+const fs = require('fs');
+const fse = require('fs-extra');
 
-    // Llamada a la función en index.js para comparar las imágenes
-    resemble(image1Path)
-        .compareTo(image2Path)
-        .onComplete(function(data) {
-            console.log(data);
-            $('#results').html('Porcentaje de diferencia: ' + data.rawMisMatchPercentage);
-            $('#diffImage').attr('src', data.getImageDataUrl());
-        });
+async function executeComparison() {
+    const puppeteer = 'screenshots/puppeteer'
+    const kraken = 'screenshots/kraken'
 
-    $('#image1').attr('src', image1Path);
-    $('#image2').attr('src', image2Path);
-});
+    //directorio de reportes
+    if (!fse.ensureDirSync('./reports')) {
+        console.log('Directory not found')
+    }
+
+    //Lista
+    const tests = ['puppeteer', 'kraken']
+    const versiones = ['v5.82', 'v3.42']
+
+    for (let i = 0; i < tests.length; i++) {
+        for (let j = 0; j < versiones.length; j++) {
+            //Listar lo que hay en el directorio de puppeteer/version
+            const files = fs.readdirSync(`../screenshots/${tests[i]}/${versiones[j]}`)
+            console.log('files')
+            console.log(files)
+        }
+    }
+}
+
+executeComparison()

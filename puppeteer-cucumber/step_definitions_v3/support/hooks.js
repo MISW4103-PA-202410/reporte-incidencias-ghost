@@ -15,7 +15,8 @@ const ProfilePage = require('../pages/ProfilePage')
 const SettingsPage = require('../pages/SettingsPage')
 const TagListPage = require('../pages/TagListPage')
 const TagPage = require('../pages/TagPage')
-const UserHistoryPage = require('../pages/UserHistoryPage')
+const UserHistoryPage = require('../pages/UserHistoryPage');
+const path = require('path');
 
 setDefaultTimeout(constants.pageTimeout * 1000);
 
@@ -89,31 +90,32 @@ BeforeAll(async () => {
     fse.ensureDirSync(`output/screenshots/${version}`)
   }
 
-    //Feature paths
-    crear_page = `../../../screenshots/puppeteer/${version}/crear_page`;
-    crear_post = `../../../screenshots/puppeteer/${version}/crear_post`;
-    crear_tag = `../../../screenshots/puppeteer/${version}/crear_tag`;
-    crear_vista = `../../../screenshots/puppeteer/${version}/crear_vista`;
-    editar_perfil = `../../../screenshots/puppeteer/${version}/editar_perfil`;
+  //Feature paths
+  crear_page = path.join(__dirname, `../../../screenshots/puppeteer/${version}/crear-page`);
+  crear_post = path.join(__dirname, `../../../screenshots/puppeteer/${version}/crear-post`);
+  crear_tag = path.join(__dirname, `../../../screenshots/puppeteer/${version}/crear-tag`);
+  crear_vista = path.join(__dirname, `../../../screenshots/puppeteer/${version}/crear-vista`);
+  editar_perfil = path.join(__dirname, `../../../screenshots/puppeteer/${version}/editar-perfil`);
 
-    //verificar que carpetas compartidas existan
-    if(fse.pathExistsSync(`../../../screenshots/puppeteer/${version}`)) {
-      //Features paths
-      fse.removeSync(crear_page);
-      fse.removeSync(crear_post);
-      fse.removeSync(crear_tag);
-      fse.removeSync(crear_vista);
-      fse.removeSync(editar_perfil);
-      // recreate directory
-      fse.ensureDirSync(`../../../screenshots/puppeteer/${version}`);
-      fse.ensureDirSync(crear_page);
-      fse.ensureDirSync(crear_post);
-      fse.ensureDirSync(crear_tag);
-      fse.ensureDirSync(crear_vista);
-    }
-    else {
-      console.log("No existe la carpeta compartida");
-    }
+  //verificar que carpetas compartidas existan
+  shared =  path.join(__dirname, `../../../screenshots/puppeteer/${version}`);
+  if(fse.pathExistsSync(shared)) {
+    //Features paths
+    fse.removeSync(crear_page);
+    fse.removeSync(crear_post);
+    fse.removeSync(crear_tag);
+    fse.removeSync(crear_vista);
+    fse.removeSync(editar_perfil);
+    // recreate directory
+    fse.ensureDirSync(shared);
+    fse.ensureDirSync(crear_page);
+    fse.ensureDirSync(crear_post);
+    fse.ensureDirSync(crear_tag);
+    fse.ensureDirSync(crear_vista);
+  }
+  else {
+    console.log("No existe la carpeta compartida");
+  }
 
   // *************************************** \\
   // collect information about the run
@@ -175,9 +177,16 @@ AfterStep(async function({pickle, pickleStep, gherkinDocument, result, testCaseS
   const stepNumber = stepCounter++;
   //Paths
   const version = constants.reportConfig.metadata["App Version"];
-  const screenshotPath = `../../../screenshots/puppeteer/${version}/`;
-  const screenshotName = `${featureName}/escenario_${scenarioCounter}/paso_${stepNumber}.png`;
-  const screenshot = await scope.page.screenshot({path: `${screenshotPath}${screenshotName}`, fullPage: true});
+  const screenshotPath = `../../../screenshots/puppeteer/${version}/${featureName}/escenario_${scenarioCounter}/`;
+  const screenshotName = `paso_${stepNumber}.png`;
+  const fullPath = path.join(__dirname, `${screenshotPath}${screenshotName}`);
+  //Validate if the folder exists
+  if (!fse.pathExistsSync(path.join(__dirname, `${screenshotPath}`))) {
+    fse.ensureDirSync(path.join(__dirname, `${screenshotPath}`));
+  }
+
+  //Screenshot
+  const screenshot = await scope.page.screenshot({path: fullPath, fullPage: true});
 
 })
 
@@ -213,7 +222,7 @@ After(async function (scenario) {
 })
 
 AfterAll(async () => {
-  //await deleteContent();
+  await deleteContent();
   if (scope.browser) {
     // close the browser at end of run
     await scope.browser.close()

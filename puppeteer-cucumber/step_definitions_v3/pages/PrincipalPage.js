@@ -14,13 +14,14 @@ class PrincipalPage {
 
     async isHomePage() {
         //Print the current URL
-        await new Promise(r => setTimeout(r, 500));
+        await new Promise(r => setTimeout(r, 1000));
         return this.page.url().includes('ghost/#/site');
     }
 
     async navigateToSite() {
         // Navega a la página de Ghost
         await this.page.goto(`${constants.baseUrl}/ghost/`);
+        await new Promise(r => setTimeout(r, 1000));
     }
 
     async navigateToPosts() {
