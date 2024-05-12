@@ -459,7 +459,17 @@ When("I click new view and take a screenshot for version {kraken-string} feature
 });
 
 When("I enter view name {kraken-string} and take a screenshot for version {kraken-string} feature {string} scenario {string} step {string}", async function (values, version, feature, scenario, step) {
-  await actionAndScreenshot("input.ember-text-field.gh-input.ember-view", 'setValue', this.driver, {value: values, version, feature, scenario, step});
+  let element = await this.driver.$(
+    "input.ember-text-field.gh-input.ember-view"
+  );
+  await element.setValue(values);
+  const screenshot = await this.driver.takeScreenshot();
+  const screenshotsBasePath = path.resolve(__dirname, `../../../../screenshots/kraken/${version}/${feature}/escenario_${scenario}`);
+  fs.mkdirSync(screenshotsBasePath, { recursive: true });
+  const screenshotFilename = `paso_${step}.png`;
+  const screenshotPath = path.join(screenshotsBasePath, screenshotFilename);
+  fs.writeFileSync(screenshotPath, screenshot, 'base64');
+  return ;
 });
 
 When("I click Save view and take a screenshot for version {kraken-string} feature {string} scenario {string} step {string}", async function (version, feature, scenario, step) {
