@@ -22,8 +22,6 @@ Scenario: Como usuario me registro y creo una página con un embed de youtube
   And I wait for 2 seconds
 
 
-
-
 @user2 @web
 Scenario: Como usuario me registro y creo una página con url definida
   Given I navigate to page "http://localhost:2369/ghost/#/setup"
