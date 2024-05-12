@@ -45,9 +45,13 @@ async function executeComparison() {
                 stepsv1.sort((a, b) => {
                     return a.match(/\d+/) - b.match(/\d+/)
                 })
+                stepsv2.sort((a, b) => {
+                    return a.match(/\d+/) - b.match(/\d+/)
+                })
                 for(let l = 0; l < stepsv1.length; l++){
                     const stepPathv1 = `../screenshots/${tests[i]}/${versiones[0]}/${features[k]}/${escenarios[z]}/${stepsv1[l]}`
                     const stepPathv2 = `../screenshots/${tests[i]}/${versiones[1]}/${features[k]}/${escenarios[z]}/${stepsv2[l]}`
+
                     const data = await compareImages(
                         fs.readFileSync(stepPathv1),
                         fs.readFileSync(stepPathv2)
@@ -70,9 +74,6 @@ async function executeComparison() {
                     }
                     //Generar HTML
                     html += htmlReportCard(info)
-                    if(l>1){
-                        break;
-                    }
                 }
             }
         }
