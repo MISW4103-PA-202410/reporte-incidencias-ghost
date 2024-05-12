@@ -157,12 +157,11 @@ Before(async () => {
   scope.page = await scope.browser.newPage();
   createPageObjects(scope.page)
 
-  
   // add in accept language header - this is required when running in headless mode
   await scope.page.setExtraHTTPHeaders({
     'Accept-Language': 'en-US,en;q=0.8,zh-TW;q=0.6'
   });
-  
+
   // Clean variables
   scope.variables = {};
   scope.variables.screenshotPath = `./output/screenshots/${constants.reportConfig.metadata["App Version"]}/`;
