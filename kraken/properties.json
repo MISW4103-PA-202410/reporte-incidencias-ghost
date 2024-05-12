@@ -4,6 +4,7 @@
   "FULL_NAME": "Jaime Larson",
   "BLOG_TITLE": "Kraken tests E2E",
   "SETUP_VALUES": "Kraken tests E2E;Jaime Larson;jaime@example.com;EgVLGq2!L5fXLt$",
+  "SETUP_VALUES_REMOTE": "Kraken tests E2E;Jaime Larson;equipo20@misw4103.com;PRUEBAS12345",
   "POST_TITLE": "Kraken post tests E2E",
   "POST_DESCRIPTION": "This is a description for kraken's post tests E2E",
   "PAGE_TITLE": "Kraken page tests E2E",

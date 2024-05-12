@@ -3,6 +3,7 @@ const path = require("path");
 const fs = require('fs');
 const { assert, expect } = require("chai");
 const { Console } = require("console");
+const { version } = require("os");
 
 When("I enter to the setup page {kraken-string}", async function (values) {
   const setupValues = values.split(";");
@@ -123,53 +124,68 @@ async function actionAndScreenshot(elementSelector, action, driver, screenshotDe
  *
  */
 
-When("I click in the add post button", async function () {
-  let element = await this.driver.$("#ember20");
-  return await element.click();
+When("I click in the add post button and take a screenshot for version {kraken-string} feature {string} scenario {string} step {string}", async function (version, feature, scenario, step) {
+  await actionAndScreenshot("#ember20", 'click', this.driver, {version, feature, scenario, step});
 });
 
 When("I click Posts and take a screenshot for version {kraken-string} feature {string} scenario {string} step {string}", async function (version, feature, scenario, step) {
   await actionAndScreenshot('a[href="#/posts/"].ember-view', 'click', this.driver, {version, feature, scenario, step});
 });
 
-When("I enter a title for the post {kraken-string}", async function (title) {
+When("I enter a title for the post {kraken-string} and take a screenshot for version {kraken-string} feature {string} scenario {string} step {string}", async function (title, version, feature, scenario, step) {
   let element = await this.driver.$("#ember49");
-  return await element.setValue(title);
+
+  await element.setValue(title);
+
+  const screenshot = await this.driver.takeScreenshot();
+
+  const screenshotsBasePath = path.resolve(__dirname, `../../../../screenshots/kraken/${version}/${feature}/escenario_${scenario}`);
+
+  fs.mkdirSync(screenshotsBasePath, { recursive: true });
+
+  const screenshotFilename = `paso_${step}.png`;
+  const screenshotPath = path.join(screenshotsBasePath, screenshotFilename);
+
+  fs.writeFileSync(screenshotPath, screenshot, 'base64');
 });
 
 When(
-  "I enter a description for the post {kraken-string}",
-  async function (description) {
+  "I enter a description for the post {kraken-string} and take a screenshot for version {kraken-string} feature {string} scenario {string} step {string}", async function (description, version, feature, scenario, step) {
     let element = await this.driver.$(".kg-prose > p");
     await element.scrollIntoView();
     await element.click();
-    return await element.keys(description);
+    await element.keys(description);
+
+    const screenshot = await this.driver.takeScreenshot();
+
+    const screenshotsBasePath = path.resolve(__dirname, `../../../../screenshots/kraken/${version}/${feature}/escenario_${scenario}`);
+
+    fs.mkdirSync(screenshotsBasePath, { recursive: true });
+
+    const screenshotFilename = `paso_${step}.png`;
+    const screenshotPath = path.join(screenshotsBasePath, screenshotFilename);
+
+    fs.writeFileSync(screenshotPath, screenshot, 'base64');
   }
 );
 
-When("I click publish post button", async function () {
-  let element = await this.driver.$(
-    ".gh-editor-publish-buttons > button:nth-child(2)"
-  );
-  return await element.click();
+When("I click publish post button and take a screenshot for version {kraken-string} feature {string} scenario {string} step {string}", async function (version, feature, scenario, step) {
+  await actionAndScreenshot('.gh-editor-publish-buttons > button:nth-child(2)', 'click', this.driver, {version, feature, scenario, step});
 });
 
-When("I click final review post button", async function () {
-  let element = await this.driver.$(".gh-publish-cta > button");
-  return await element.click();
+When("I click final review post button and take a screenshot for version {kraken-string} feature {string} scenario {string} step {string}", async function (version, feature, scenario, step) {
+  await actionAndScreenshot('.gh-publish-cta > button', 'click', this.driver, {version, feature, scenario, step});
 });
 
-When("I click publish confirm button", async function () {
-  let element = await this.driver.$('[data-test-button="confirm-publish"]');
-  return await element.click();
+When("I click publish confirm button and take a screenshot for version {kraken-string} feature {string} scenario {string} step {string}", async function (version, feature, scenario, step) {
+  await actionAndScreenshot('[data-test-button="confirm-publish"]', 'click', this.driver, {version, feature, scenario, step});
 });
 
-When("I go back to dashboard", async function () {
-  let element = await this.driver.$(".ember-view.gh-back-to-editor");
-  return await element.click();
+When("I go back to dashboard and take a screenshot for version {kraken-string} feature {string} scenario {string} step {string}", async function (version, feature, scenario, step) {
+  await actionAndScreenshot('.epm-modal-container > div > div > div > p > a', 'click', this.driver, {version, feature, scenario, step});
 });
 
-When("I attach an image to a post", async function () {
+When("I attach an image to a post and take a screenshot for version {kraken-string} feature {string} scenario {string} step {string}",  async function (version, feature, scenario, step) {
   let element = await this.driver.$(".gh-editor-feature-image-add-button");
   await element.click();
   let fileInput = await this.driver.$('input[type="file"]');
@@ -180,14 +196,12 @@ When("I attach an image to a post", async function () {
   );
 });
 
-When("I click on publish settings button", async function () {
-  let element = await this.driver.$(".gh-publish-setting.last ");
-  return await element.click();
+When("I click on publish settings button and take a screenshot for version {kraken-string} feature {string} scenario {string} step {string}",  async function (version, feature, scenario, step) {
+  await actionAndScreenshot('.gh-publish-setting.last', 'click', this.driver, {version, feature, scenario, step});
 });
 
-When("I click on schedule for later button", async function () {
-  let element = await this.driver.$(".gh-publish-schedule > div:nth-child(2)");
-  return await element.click();
+When("I click on schedule for later button and take a screenshot for version {kraken-string} feature {string} scenario {string} step {string}",  async function (version, feature, scenario, step) {
+  await actionAndScreenshot('.gh-publish-schedule > div:nth-child(2)', 'click', this.driver, {version, feature, scenario, step});
 });
 
 /**
