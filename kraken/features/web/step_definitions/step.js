@@ -389,7 +389,7 @@ When("I fill the tag name {kraken-string} and take a screenshot for version {kra
 
 When("I verify the tag name created is {kraken-string} and take a screenshot for version {kraken-string} feature {string} scenario {string} step {string}", async function (values, version, feature, scenario, step) {
   let element = await this.driver.$(
-    "section.view-container.content-list > ol.tags-list.gh-list > li:nth-child(4) > a.ember-view.gh-list-data.gh-tag-list-title.gh-list-cellwidth-70"
+    '.view-container.content-list > ol > li:last-of-type > a:first-of-type'
   );
   let tagName = await element.getText();
   assert.equal(tagName, values);
