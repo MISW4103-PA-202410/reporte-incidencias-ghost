@@ -4,6 +4,7 @@ Feature: Create View
 Scenario: Como usuario me registro y cambio el nombre y el correo de mi perfil
   Given I navigate to page "http://localhost:2368/ghost/#/setup"
   When I enter to the setup page "<SETUP_VALUES>"
+  And I wait for 2 seconds
   And I click the profile button and take a screenshot for version "<VERSION>" feature "editar-perfil" scenario "3" step "1"
   And I click the configure button and take a screenshot for version "<VERSION>" feature "editar-perfil" scenario "3" step "2"
   And I change info profile "<PROFILE_VALUES>" and take a screenshot for version "<VERSION>" feature "editar-perfil" scenario "3" step "3"

@@ -15,8 +15,8 @@
   "NEW_PASSWORD_FIELDS": "EgVLGq2!L5fXLt$;EgVLGq2!L5fXLt$b;EgVLGq2!L5fXLt$b",
   "SETUP_VALUES_NEW": "Kraken tests E2E;Jaime Larson;jaime@example.com;EgVLGq2!L5fXLt$b",
   "OLD_PASSWORD_FIELDS": "EgVLGq2!L5fXLt$b;EgVLGq2!L5fXLt$;EgVLGq2!L5fXLt$",
-  "PROFILE_VALUES": "Jaime Larson;jaime@example.com",
-  "SETUP_VALUES_NEW_EMAIL": "jaime@example.com;EgVLGq2!L5fXLt$",
+  "PROFILE_VALUES": "Jaime Larson 2;jaime@example2.com",
+  "SETUP_VALUES_NEW_EMAIL": "jaime@example2.com;EgVLGq2!L5fXLt$",
   "OLD_PROFILE_VALUES": "Jaime Larson;jaime@example.com",
   "SOCIAL_MEDIA": "https://facebook.com/zuck;https://twitter.com/elonmusk",
   "VERSION": "v5.82"

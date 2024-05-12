@@ -320,7 +320,6 @@ When("I click in the new tag button and take a screenshot for version {kraken-st
 
   fs.writeFileSync(screenshotPath, screenshot, 'base64');
 
-  console.log(screenshotPath);
 });
 
 When("I fill the tag name {kraken-string} and take a screenshot for version {kraken-string} feature {string} scenario {string} step {string}", async function (values, version, feature, scenario, step) {
@@ -338,7 +337,6 @@ When("I fill the tag name {kraken-string} and take a screenshot for version {kra
 
   fs.writeFileSync(screenshotPath, screenshot, 'base64');
 
-  console.log(screenshotPath);
 });
 
 When("I verify the tag name created is {kraken-string} and take a screenshot for version {kraken-string} feature {string} scenario {string} step {string}", async function (values, version, feature, scenario, step) {
@@ -505,6 +503,7 @@ When("I click the password change button and take a screenshot for version {krak
   let buttonSelector =
     'div.relative.flex-col.gap-6.rounded-xl > button[type="button"]';
   let buttons = await this.driver.$$(buttonSelector);
+  
 
   // Iterar sobre los botones encontrados y hacer clic en el que tiene el texto correcto
   for (let button of buttons) {
@@ -621,7 +620,41 @@ When("I clear values and take a screenshot for version {kraken-string} feature {
 
 When("I change info profile {kraken-string} and take a screenshot for version {kraken-string} feature {string} scenario {string} step {string}", async function (values, version, feature, scenario, step) {
   const setupValues = values.split(";");
-});
+  const columnas = await this.driver.$$("div.relative.flex-col.gap-6.rounded-xl.transition-all > div.flex.flex-col.gap-x-5.gap-y-7.undefined > div.flex.flex-col");
+  for (let columna of columnas) {
+    const labelText = await columna.getText();
+    if (labelText.includes("Full name")) {
+      const input = await columna.$('div.relative.order-2.flex > input');
+      await input.click();
+      await input.keys(['Control', 'a']); 
+      await input.keys('Delete'); 
+      await input.setValue(setupValues[0]);
+    }
+    if (labelText.includes("Email")) {
+      const input = await columna.$('div.relative.order-2.flex > input');
+      await input.click();
+      await input.keys(['Control', 'a']); 
+      await input.keys('Delete'); 
+      await input.setValue(setupValues[1]);
+    }
+  }
+  const screenshot = await this.driver.takeScreenshot();
+  const screenshotsBasePath = path.resolve(__dirname, `../../../../screenshots/kraken/${version}/${feature}/escenario_${scenario}`);
+  fs.mkdirSync(screenshotsBasePath, { recursive: true });
+  const screenshotFilename = `paso_${step}.png`;
+  const screenshotPath = path.join(screenshotsBasePath, screenshotFilename);
+  fs.writeFileSync(screenshotPath, screenshot, 'base64');
+  return ;
+}
+
+
+
+
+
+);
+
+
+
 
 
 When("I change info profile socialMedia {kraken-string} and take a screenshot for version {kraken-string} feature {string} scenario {string} step {string}", async function (values, version, feature, scenario, step) {
@@ -639,8 +672,12 @@ When("I change info profile socialMedia {kraken-string} and take a screenshot fo
       await inputs[3].setValue(setupValues[1]);
     }
   }
-
-  
+  const screenshot = await this.driver.takeScreenshot();
+  const screenshotsBasePath = path.resolve(__dirname, `../../../../screenshots/kraken/${version}/${feature}/escenario_${scenario}`);
+  fs.mkdirSync(screenshotsBasePath, { recursive: true });
+  const screenshotFilename = `paso_${step}.png`;
+  const screenshotPath = path.join(screenshotsBasePath, screenshotFilename);
+  fs.writeFileSync(screenshotPath, screenshot, 'base64');
 
 });
 
