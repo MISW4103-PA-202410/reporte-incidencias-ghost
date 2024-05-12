@@ -47,7 +47,7 @@ npx kraken-node run
 
 ### Instrucciones backstop
 
-Por favor antes de comenzar las pruebas de backstop debe cambiar a otra versión de node `nvm use v18.17.0`
+Por favor antes de comenzar las pruebas de backstop debe cambiar a otra versión de node `nvm use v18.17.0` y ubicarse en la carpeta kraken también como con la ejecución de las pruebas de kraken.
 
 1. Es necesario que haya ejecutado cada una de las pruebas de kraken, puede verificar ya que el resultado de estas pruebas deja las capturas en la carpeta screenshots en la raíz de nuestro proyecto donde posterior a la ejecución de las pruebas quedarán las capturas de cada uno de los pasos para ambas versiones /screenshots/kraken/v3.42 y /screenshots/kraken/v5.82.
 
