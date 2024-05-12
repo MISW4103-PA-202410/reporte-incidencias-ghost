@@ -4,7 +4,7 @@ report({
     {
       "pair": {
         "reference": "..\\bitmaps_reference\\backstop_default_crear-tag_escenario_1_Paso_1_0_document_0_default.png",
-        "test": "..\\bitmaps_test\\20240512-125221\\backstop_default_crear-tag_escenario_1_Paso_1_0_document_0_default.png",
+        "test": "..\\bitmaps_test\\20240512-131123\\backstop_default_crear-tag_escenario_1_Paso_1_0_document_0_default.png",
         "selector": "document",
         "fileName": "backstop_default_crear-tag_escenario_1_Paso_1_0_document_0_default.png",
         "label": "crear-tag_escenario_1_Paso_1",
@@ -21,7 +21,7 @@ report({
           },
           "rawMisMatchPercentage": 1.4814057372741192,
           "misMatchPercentage": "1.48",
-          "analysisTime": 68
+          "analysisTime": 77
         }
       },
       "status": "pass"
@@ -29,7 +29,7 @@ report({
     {
       "pair": {
         "reference": "..\\bitmaps_reference\\backstop_default_crear-tag_escenario_1_Paso_2_0_document_0_default.png",
-        "test": "..\\bitmaps_test\\20240512-125221\\backstop_default_crear-tag_escenario_1_Paso_2_0_document_0_default.png",
+        "test": "..\\bitmaps_test\\20240512-131123\\backstop_default_crear-tag_escenario_1_Paso_2_0_document_0_default.png",
         "selector": "document",
         "fileName": "backstop_default_crear-tag_escenario_1_Paso_2_0_document_0_default.png",
         "label": "crear-tag_escenario_1_Paso_2",
@@ -46,7 +46,7 @@ report({
           },
           "rawMisMatchPercentage": 3.9289394330514296,
           "misMatchPercentage": "3.93",
-          "analysisTime": 89
+          "analysisTime": 84
         }
       },
       "status": "pass"
@@ -54,7 +54,7 @@ report({
     {
       "pair": {
         "reference": "..\\bitmaps_reference\\backstop_default_crear-tag_escenario_1_Paso_3_0_document_0_default.png",
-        "test": "..\\bitmaps_test\\20240512-125221\\backstop_default_crear-tag_escenario_1_Paso_3_0_document_0_default.png",
+        "test": "..\\bitmaps_test\\20240512-131123\\backstop_default_crear-tag_escenario_1_Paso_3_0_document_0_default.png",
         "selector": "document",
         "fileName": "backstop_default_crear-tag_escenario_1_Paso_3_0_document_0_default.png",
         "label": "crear-tag_escenario_1_Paso_3",
@@ -79,7 +79,7 @@ report({
     {
       "pair": {
         "reference": "..\\bitmaps_reference\\backstop_default_crear-tag_escenario_1_Paso_4_0_document_0_default.png",
-        "test": "..\\bitmaps_test\\20240512-125221\\backstop_default_crear-tag_escenario_1_Paso_4_0_document_0_default.png",
+        "test": "..\\bitmaps_test\\20240512-131123\\backstop_default_crear-tag_escenario_1_Paso_4_0_document_0_default.png",
         "selector": "document",
         "fileName": "backstop_default_crear-tag_escenario_1_Paso_4_0_document_0_default.png",
         "label": "crear-tag_escenario_1_Paso_4",
@@ -96,7 +96,7 @@ report({
           },
           "rawMisMatchPercentage": 4.326731590045972,
           "misMatchPercentage": "4.33",
-          "analysisTime": 87
+          "analysisTime": 83
         }
       },
       "status": "pass"
@@ -104,7 +104,7 @@ report({
     {
       "pair": {
         "reference": "..\\bitmaps_reference\\backstop_default_crear-tag_escenario_1_Paso_5_0_document_0_default.png",
-        "test": "..\\bitmaps_test\\20240512-125221\\backstop_default_crear-tag_escenario_1_Paso_5_0_document_0_default.png",
+        "test": "..\\bitmaps_test\\20240512-131123\\backstop_default_crear-tag_escenario_1_Paso_5_0_document_0_default.png",
         "selector": "document",
         "fileName": "backstop_default_crear-tag_escenario_1_Paso_5_0_document_0_default.png",
         "label": "crear-tag_escenario_1_Paso_5",
@@ -121,7 +121,7 @@ report({
           },
           "rawMisMatchPercentage": 4.506857141631312,
           "misMatchPercentage": "4.51",
-          "analysisTime": 99
+          "analysisTime": 59
         }
       },
       "status": "pass"
@@ -129,7 +129,7 @@ report({
     {
       "pair": {
         "reference": "..\\bitmaps_reference\\backstop_default_crear-tag_escenario_1_Paso_6_0_document_0_default.png",
-        "test": "..\\bitmaps_test\\20240512-125221\\backstop_default_crear-tag_escenario_1_Paso_6_0_document_0_default.png",
+        "test": "..\\bitmaps_test\\20240512-131123\\backstop_default_crear-tag_escenario_1_Paso_6_0_document_0_default.png",
         "selector": "document",
         "fileName": "backstop_default_crear-tag_escenario_1_Paso_6_0_document_0_default.png",
         "label": "crear-tag_escenario_1_Paso_6",
@@ -146,7 +146,7 @@ report({
           },
           "rawMisMatchPercentage": 4.729886754729637,
           "misMatchPercentage": "4.73",
-          "analysisTime": 65
+          "analysisTime": 61
         }
       },
       "status": "pass"
@@ -154,7 +154,7 @@ report({
     {
       "pair": {
         "reference": "..\\bitmaps_reference\\backstop_default_crear-tag_escenario_1_Paso_7_0_document_0_default.png",
-        "test": "..\\bitmaps_test\\20240512-125221\\backstop_default_crear-tag_escenario_1_Paso_7_0_document_0_default.png",
+        "test": "..\\bitmaps_test\\20240512-131123\\backstop_default_crear-tag_escenario_1_Paso_7_0_document_0_default.png",
         "selector": "document",
         "fileName": "backstop_default_crear-tag_escenario_1_Paso_7_0_document_0_default.png",
         "label": "crear-tag_escenario_1_Paso_7",
@@ -171,7 +171,7 @@ report({
           },
           "rawMisMatchPercentage": 5.950721825081572,
           "misMatchPercentage": "5.95",
-          "analysisTime": 90
+          "analysisTime": 63
         }
       },
       "status": "pass"
@@ -179,7 +179,7 @@ report({
     {
       "pair": {
         "reference": "..\\bitmaps_reference\\backstop_default_crear-tag_escenario_2_Paso_1_0_document_0_default.png",
-        "test": "..\\bitmaps_test\\20240512-125221\\backstop_default_crear-tag_escenario_2_Paso_1_0_document_0_default.png",
+        "test": "..\\bitmaps_test\\20240512-131123\\backstop_default_crear-tag_escenario_2_Paso_1_0_document_0_default.png",
         "selector": "document",
         "fileName": "backstop_default_crear-tag_escenario_2_Paso_1_0_document_0_default.png",
         "label": "crear-tag_escenario_2_Paso_1",
@@ -194,9 +194,9 @@ report({
             "width": 383,
             "height": 243
           },
-          "rawMisMatchPercentage": 2.807427265102051,
+          "rawMisMatchPercentage": 2.8094294546393237,
           "misMatchPercentage": "2.81",
-          "analysisTime": 106
+          "analysisTime": 94
         }
       },
       "status": "pass"
@@ -204,7 +204,7 @@ report({
     {
       "pair": {
         "reference": "..\\bitmaps_reference\\backstop_default_crear-tag_escenario_2_Paso_2_0_document_0_default.png",
-        "test": "..\\bitmaps_test\\20240512-125221\\backstop_default_crear-tag_escenario_2_Paso_2_0_document_0_default.png",
+        "test": "..\\bitmaps_test\\20240512-131123\\backstop_default_crear-tag_escenario_2_Paso_2_0_document_0_default.png",
         "selector": "document",
         "fileName": "backstop_default_crear-tag_escenario_2_Paso_2_0_document_0_default.png",
         "label": "crear-tag_escenario_2_Paso_2",
@@ -221,7 +221,7 @@ report({
           },
           "rawMisMatchPercentage": 3.483595274546665,
           "misMatchPercentage": "3.48",
-          "analysisTime": 95
+          "analysisTime": 98
         }
       },
       "status": "pass"
@@ -229,7 +229,7 @@ report({
     {
       "pair": {
         "reference": "..\\bitmaps_reference\\backstop_default_crear-tag_escenario_2_Paso_3_0_document_0_default.png",
-        "test": "..\\bitmaps_test\\20240512-125221\\backstop_default_crear-tag_escenario_2_Paso_3_0_document_0_default.png",
+        "test": "..\\bitmaps_test\\20240512-131123\\backstop_default_crear-tag_escenario_2_Paso_3_0_document_0_default.png",
         "selector": "document",
         "fileName": "backstop_default_crear-tag_escenario_2_Paso_3_0_document_0_default.png",
         "label": "crear-tag_escenario_2_Paso_3",
@@ -246,7 +246,7 @@ report({
           },
           "rawMisMatchPercentage": 3.9202871139796445,
           "misMatchPercentage": "3.92",
-          "analysisTime": 78
+          "analysisTime": 89
         }
       },
       "status": "pass"
@@ -254,7 +254,7 @@ report({
     {
       "pair": {
         "reference": "..\\bitmaps_reference\\backstop_default_crear-tag_escenario_2_Paso_4_0_document_0_default.png",
-        "test": "..\\bitmaps_test\\20240512-125221\\backstop_default_crear-tag_escenario_2_Paso_4_0_document_0_default.png",
+        "test": "..\\bitmaps_test\\20240512-131123\\backstop_default_crear-tag_escenario_2_Paso_4_0_document_0_default.png",
         "selector": "document",
         "fileName": "backstop_default_crear-tag_escenario_2_Paso_4_0_document_0_default.png",
         "label": "crear-tag_escenario_2_Paso_4",
@@ -271,7 +271,7 @@ report({
           },
           "rawMisMatchPercentage": 3.792790544516897,
           "misMatchPercentage": "3.79",
-          "analysisTime": 94
+          "analysisTime": 77
         }
       },
       "status": "pass"
@@ -279,7 +279,7 @@ report({
     {
       "pair": {
         "reference": "..\\bitmaps_reference\\backstop_default_crear-tag_escenario_2_Paso_5_0_document_0_default.png",
-        "test": "..\\bitmaps_test\\20240512-125221\\backstop_default_crear-tag_escenario_2_Paso_5_0_document_0_default.png",
+        "test": "..\\bitmaps_test\\20240512-131123\\backstop_default_crear-tag_escenario_2_Paso_5_0_document_0_default.png",
         "selector": "document",
         "fileName": "backstop_default_crear-tag_escenario_2_Paso_5_0_document_0_default.png",
         "label": "crear-tag_escenario_2_Paso_5",
@@ -294,9 +294,9 @@ report({
             "width": 383,
             "height": 243
           },
-          "rawMisMatchPercentage": 4.523875752698129,
+          "rawMisMatchPercentage": 4.524376300082447,
           "misMatchPercentage": "4.52",
-          "analysisTime": 101
+          "analysisTime": 71
         }
       },
       "status": "pass"
@@ -304,7 +304,7 @@ report({
     {
       "pair": {
         "reference": "..\\bitmaps_reference\\backstop_default_crear-tag_escenario_2_Paso_6_0_document_0_default.png",
-        "test": "..\\bitmaps_test\\20240512-125221\\backstop_default_crear-tag_escenario_2_Paso_6_0_document_0_default.png",
+        "test": "..\\bitmaps_test\\20240512-131123\\backstop_default_crear-tag_escenario_2_Paso_6_0_document_0_default.png",
         "selector": "document",
         "fileName": "backstop_default_crear-tag_escenario_2_Paso_6_0_document_0_default.png",
         "label": "crear-tag_escenario_2_Paso_6",
@@ -319,7 +319,7 @@ report({
             "width": 383,
             "height": 243
           },
-          "rawMisMatchPercentage": 5.491576860123463,
+          "rawMisMatchPercentage": 5.486499879511094,
           "misMatchPercentage": "5.49",
           "analysisTime": 73
         }
@@ -329,7 +329,7 @@ report({
     {
       "pair": {
         "reference": "..\\bitmaps_reference\\backstop_default_crear-tag_escenario_2_Paso_7_0_document_0_default.png",
-        "test": "..\\bitmaps_test\\20240512-125221\\backstop_default_crear-tag_escenario_2_Paso_7_0_document_0_default.png",
+        "test": "..\\bitmaps_test\\20240512-131123\\backstop_default_crear-tag_escenario_2_Paso_7_0_document_0_default.png",
         "selector": "document",
         "fileName": "backstop_default_crear-tag_escenario_2_Paso_7_0_document_0_default.png",
         "label": "crear-tag_escenario_2_Paso_7",
@@ -344,9 +344,9 @@ report({
             "width": 383,
             "height": 243
           },
-          "rawMisMatchPercentage": 5.491576860123463,
+          "rawMisMatchPercentage": 5.486499879511094,
           "misMatchPercentage": "5.49",
-          "analysisTime": 68
+          "analysisTime": 64
         }
       },
       "status": "pass"
@@ -354,7 +354,7 @@ report({
     {
       "pair": {
         "reference": "..\\bitmaps_reference\\backstop_default_crear-tag_escenario_3_Paso_1_0_document_0_default.png",
-        "test": "..\\bitmaps_test\\20240512-125221\\backstop_default_crear-tag_escenario_3_Paso_1_0_document_0_default.png",
+        "test": "..\\bitmaps_test\\20240512-131123\\backstop_default_crear-tag_escenario_3_Paso_1_0_document_0_default.png",
         "selector": "document",
         "fileName": "backstop_default_crear-tag_escenario_3_Paso_1_0_document_0_default.png",
         "label": "crear-tag_escenario_3_Paso_1",
@@ -369,9 +369,9 @@ report({
             "width": 383,
             "height": 243
           },
-          "rawMisMatchPercentage": 2.807427265102051,
+          "rawMisMatchPercentage": 2.8094294546393237,
           "misMatchPercentage": "2.81",
-          "analysisTime": 89
+          "analysisTime": 129
         }
       },
       "status": "pass"
@@ -379,7 +379,7 @@ report({
     {
       "pair": {
         "reference": "..\\bitmaps_reference\\backstop_default_crear-tag_escenario_3_Paso_2_0_document_0_default.png",
-        "test": "..\\bitmaps_test\\20240512-125221\\backstop_default_crear-tag_escenario_3_Paso_2_0_document_0_default.png",
+        "test": "..\\bitmaps_test\\20240512-131123\\backstop_default_crear-tag_escenario_3_Paso_2_0_document_0_default.png",
         "selector": "document",
         "fileName": "backstop_default_crear-tag_escenario_3_Paso_2_0_document_0_default.png",
         "label": "crear-tag_escenario_3_Paso_2",
@@ -391,12 +391,12 @@ report({
         "diff": {
           "isSameDimensions": false,
           "dimensionDifference": {
-            "width": 383,
-            "height": 243
+            "width": -383,
+            "height": -243
           },
           "rawMisMatchPercentage": 3.483595274546665,
           "misMatchPercentage": "3.48",
-          "analysisTime": 80
+          "analysisTime": 112
         }
       },
       "status": "pass"
@@ -404,7 +404,7 @@ report({
     {
       "pair": {
         "reference": "..\\bitmaps_reference\\backstop_default_crear-tag_escenario_3_Paso_3_0_document_0_default.png",
-        "test": "..\\bitmaps_test\\20240512-125221\\backstop_default_crear-tag_escenario_3_Paso_3_0_document_0_default.png",
+        "test": "..\\bitmaps_test\\20240512-131123\\backstop_default_crear-tag_escenario_3_Paso_3_0_document_0_default.png",
         "selector": "document",
         "fileName": "backstop_default_crear-tag_escenario_3_Paso_3_0_document_0_default.png",
         "label": "crear-tag_escenario_3_Paso_3",
@@ -421,7 +421,7 @@ report({
           },
           "rawMisMatchPercentage": 3.9202871139796445,
           "misMatchPercentage": "3.92",
-          "analysisTime": 109
+          "analysisTime": 77
         }
       },
       "status": "pass"
@@ -429,7 +429,7 @@ report({
     {
       "pair": {
         "reference": "..\\bitmaps_reference\\backstop_default_crear-tag_escenario_3_Paso_4_0_document_0_default.png",
-        "test": "..\\bitmaps_test\\20240512-125221\\backstop_default_crear-tag_escenario_3_Paso_4_0_document_0_default.png",
+        "test": "..\\bitmaps_test\\20240512-131123\\backstop_default_crear-tag_escenario_3_Paso_4_0_document_0_default.png",
         "selector": "document",
         "fileName": "backstop_default_crear-tag_escenario_3_Paso_4_0_document_0_default.png",
         "label": "crear-tag_escenario_3_Paso_4",
@@ -444,9 +444,9 @@ report({
             "width": 383,
             "height": 243
           },
-          "rawMisMatchPercentage": 3.8024439583573177,
+          "rawMisMatchPercentage": 3.802729985434071,
           "misMatchPercentage": "3.80",
-          "analysisTime": 83
+          "analysisTime": 70
         }
       },
       "status": "pass"
@@ -454,7 +454,7 @@ report({
     {
       "pair": {
         "reference": "..\\bitmaps_reference\\backstop_default_crear-tag_escenario_3_Paso_5_0_document_0_default.png",
-        "test": "..\\bitmaps_test\\20240512-125221\\backstop_default_crear-tag_escenario_3_Paso_5_0_document_0_default.png",
+        "test": "..\\bitmaps_test\\20240512-131123\\backstop_default_crear-tag_escenario_3_Paso_5_0_document_0_default.png",
         "selector": "document",
         "fileName": "backstop_default_crear-tag_escenario_3_Paso_5_0_document_0_default.png",
         "label": "crear-tag_escenario_3_Paso_5",
@@ -471,7 +471,7 @@ report({
           },
           "rawMisMatchPercentage": 4.417688200453496,
           "misMatchPercentage": "4.42",
-          "analysisTime": 113
+          "analysisTime": 126
         }
       },
       "status": "pass"
@@ -479,7 +479,7 @@ report({
     {
       "pair": {
         "reference": "..\\bitmaps_reference\\backstop_default_crear-tag_escenario_3_Paso_6_0_document_0_default.png",
-        "test": "..\\bitmaps_test\\20240512-125221\\backstop_default_crear-tag_escenario_3_Paso_6_0_document_0_default.png",
+        "test": "..\\bitmaps_test\\20240512-131123\\backstop_default_crear-tag_escenario_3_Paso_6_0_document_0_default.png",
         "selector": "document",
         "fileName": "backstop_default_crear-tag_escenario_3_Paso_6_0_document_0_default.png",
         "label": "crear-tag_escenario_3_Paso_6",
@@ -494,9 +494,9 @@ report({
             "width": 383,
             "height": 243
           },
-          "rawMisMatchPercentage": 4.711008967663924,
+          "rawMisMatchPercentage": 4.709149791665028,
           "misMatchPercentage": "4.71",
-          "analysisTime": 89
+          "analysisTime": 120
         }
       },
       "status": "pass"
@@ -504,7 +504,7 @@ report({
     {
       "pair": {
         "reference": "..\\bitmaps_reference\\backstop_default_crear-tag_escenario_3_Paso_7_0_document_0_default.png",
-        "test": "..\\bitmaps_test\\20240512-125221\\backstop_default_crear-tag_escenario_3_Paso_7_0_document_0_default.png",
+        "test": "..\\bitmaps_test\\20240512-131123\\backstop_default_crear-tag_escenario_3_Paso_7_0_document_0_default.png",
         "selector": "document",
         "fileName": "backstop_default_crear-tag_escenario_3_Paso_7_0_document_0_default.png",
         "label": "crear-tag_escenario_3_Paso_7",
@@ -519,9 +519,9 @@ report({
             "width": 383,
             "height": 243
           },
-          "rawMisMatchPercentage": 5.493579049660736,
+          "rawMisMatchPercentage": 5.486785906587848,
           "misMatchPercentage": "5.49",
-          "analysisTime": 62
+          "analysisTime": 95
         }
       },
       "status": "pass"
@@ -529,7 +529,7 @@ report({
     {
       "pair": {
         "reference": "..\\bitmaps_reference\\backstop_default_crear-tag_escenario_3_Paso_8_0_document_0_default.png",
-        "test": "..\\bitmaps_test\\20240512-125221\\backstop_default_crear-tag_escenario_3_Paso_8_0_document_0_default.png",
+        "test": "..\\bitmaps_test\\20240512-131123\\backstop_default_crear-tag_escenario_3_Paso_8_0_document_0_default.png",
         "selector": "document",
         "fileName": "backstop_default_crear-tag_escenario_3_Paso_8_0_document_0_default.png",
         "label": "crear-tag_escenario_3_Paso_8",
@@ -544,9 +544,9 @@ report({
             "width": 383,
             "height": 243
           },
-          "rawMisMatchPercentage": 5.493579049660736,
+          "rawMisMatchPercentage": 5.486785906587848,
           "misMatchPercentage": "5.49",
-          "analysisTime": 71
+          "analysisTime": 87
         }
       },
       "status": "pass"
@@ -554,7 +554,7 @@ report({
     {
       "pair": {
         "reference": "..\\bitmaps_reference\\backstop_default_crear-page_escenario_1_Paso_1_0_document_0_default.png",
-        "test": "..\\bitmaps_test\\20240512-125221\\backstop_default_crear-page_escenario_1_Paso_1_0_document_0_default.png",
+        "test": "..\\bitmaps_test\\20240512-131123\\backstop_default_crear-page_escenario_1_Paso_1_0_document_0_default.png",
         "selector": "document",
         "fileName": "backstop_default_crear-page_escenario_1_Paso_1_0_document_0_default.png",
         "label": "crear-page_escenario_1_Paso_1",
@@ -571,7 +571,7 @@ report({
           },
           "rawMisMatchPercentage": 6.259130520590732,
           "misMatchPercentage": "6.26",
-          "analysisTime": 114
+          "analysisTime": 64
         }
       },
       "status": "pass"
@@ -579,7 +579,7 @@ report({
     {
       "pair": {
         "reference": "..\\bitmaps_reference\\backstop_default_crear-page_escenario_1_Paso_2_0_document_0_default.png",
-        "test": "..\\bitmaps_test\\20240512-125221\\backstop_default_crear-page_escenario_1_Paso_2_0_document_0_default.png",
+        "test": "..\\bitmaps_test\\20240512-131123\\backstop_default_crear-page_escenario_1_Paso_2_0_document_0_default.png",
         "selector": "document",
         "fileName": "backstop_default_crear-page_escenario_1_Paso_2_0_document_0_default.png",
         "label": "crear-page_escenario_1_Paso_2",
@@ -596,16 +596,16 @@ report({
           },
           "rawMisMatchPercentage": 11.008169214826047,
           "misMatchPercentage": "11.01",
-          "analysisTime": 123
+          "analysisTime": 132
         },
-        "diffImage": "..\\bitmaps_test\\20240512-125221\\failed_diff_backstop_default_crear-page_escenario_1_Paso_2_0_document_0_default.png"
+        "diffImage": "..\\bitmaps_test\\20240512-131123\\failed_diff_backstop_default_crear-page_escenario_1_Paso_2_0_document_0_default.png"
       },
       "status": "fail"
     },
     {
       "pair": {
         "reference": "..\\bitmaps_reference\\backstop_default_crear-page_escenario_1_Paso_3_0_document_0_default.png",
-        "test": "..\\bitmaps_test\\20240512-125221\\backstop_default_crear-page_escenario_1_Paso_3_0_document_0_default.png",
+        "test": "..\\bitmaps_test\\20240512-131123\\backstop_default_crear-page_escenario_1_Paso_3_0_document_0_default.png",
         "selector": "document",
         "fileName": "backstop_default_crear-page_escenario_1_Paso_3_0_document_0_default.png",
         "label": "crear-page_escenario_1_Paso_3",
@@ -622,16 +622,16 @@ report({
           },
           "rawMisMatchPercentage": 11.391037727827063,
           "misMatchPercentage": "11.39",
-          "analysisTime": 136
+          "analysisTime": 108
         },
-        "diffImage": "..\\bitmaps_test\\20240512-125221\\failed_diff_backstop_default_crear-page_escenario_1_Paso_3_0_document_0_default.png"
+        "diffImage": "..\\bitmaps_test\\20240512-131123\\failed_diff_backstop_default_crear-page_escenario_1_Paso_3_0_document_0_default.png"
       },
       "status": "fail"
     },
     {
       "pair": {
         "reference": "..\\bitmaps_reference\\backstop_default_crear-page_escenario_1_Paso_4_0_document_0_default.png",
-        "test": "..\\bitmaps_test\\20240512-125221\\backstop_default_crear-page_escenario_1_Paso_4_0_document_0_default.png",
+        "test": "..\\bitmaps_test\\20240512-131123\\backstop_default_crear-page_escenario_1_Paso_4_0_document_0_default.png",
         "selector": "document",
         "fileName": "backstop_default_crear-page_escenario_1_Paso_4_0_document_0_default.png",
         "label": "crear-page_escenario_1_Paso_4",
@@ -648,16 +648,16 @@ report({
           },
           "rawMisMatchPercentage": 11.185696440513293,
           "misMatchPercentage": "11.19",
-          "analysisTime": 154
+          "analysisTime": 119
         },
-        "diffImage": "..\\bitmaps_test\\20240512-125221\\failed_diff_backstop_default_crear-page_escenario_1_Paso_4_0_document_0_default.png"
+        "diffImage": "..\\bitmaps_test\\20240512-131123\\failed_diff_backstop_default_crear-page_escenario_1_Paso_4_0_document_0_default.png"
       },
       "status": "fail"
     },
     {
       "pair": {
         "reference": "..\\bitmaps_reference\\backstop_default_crear-page_escenario_1_Paso_5_0_document_0_default.png",
-        "test": "..\\bitmaps_test\\20240512-125221\\backstop_default_crear-page_escenario_1_Paso_5_0_document_0_default.png",
+        "test": "..\\bitmaps_test\\20240512-131123\\backstop_default_crear-page_escenario_1_Paso_5_0_document_0_default.png",
         "selector": "document",
         "fileName": "backstop_default_crear-page_escenario_1_Paso_5_0_document_0_default.png",
         "label": "crear-page_escenario_1_Paso_5",
@@ -674,16 +674,16 @@ report({
           },
           "rawMisMatchPercentage": 11.118931720593213,
           "misMatchPercentage": "11.12",
-          "analysisTime": 107
+          "analysisTime": 158
         },
-        "diffImage": "..\\bitmaps_test\\20240512-125221\\failed_diff_backstop_default_crear-page_escenario_1_Paso_5_0_document_0_default.png"
+        "diffImage": "..\\bitmaps_test\\20240512-131123\\failed_diff_backstop_default_crear-page_escenario_1_Paso_5_0_document_0_default.png"
       },
       "status": "fail"
     },
     {
       "pair": {
         "reference": "..\\bitmaps_reference\\backstop_default_crear-page_escenario_1_Paso_6_0_document_0_default.png",
-        "test": "..\\bitmaps_test\\20240512-125221\\backstop_default_crear-page_escenario_1_Paso_6_0_document_0_default.png",
+        "test": "..\\bitmaps_test\\20240512-131123\\backstop_default_crear-page_escenario_1_Paso_6_0_document_0_default.png",
         "selector": "document",
         "fileName": "backstop_default_crear-page_escenario_1_Paso_6_0_document_0_default.png",
         "label": "crear-page_escenario_1_Paso_6",
@@ -700,16 +700,16 @@ report({
           },
           "rawMisMatchPercentage": 11.553368710771613,
           "misMatchPercentage": "11.55",
-          "analysisTime": 101
+          "analysisTime": 157
         },
-        "diffImage": "..\\bitmaps_test\\20240512-125221\\failed_diff_backstop_default_crear-page_escenario_1_Paso_6_0_document_0_default.png"
+        "diffImage": "..\\bitmaps_test\\20240512-131123\\failed_diff_backstop_default_crear-page_escenario_1_Paso_6_0_document_0_default.png"
       },
       "status": "fail"
     },
     {
       "pair": {
         "reference": "..\\bitmaps_reference\\backstop_default_crear-page_escenario_1_Paso_7_0_document_0_default.png",
-        "test": "..\\bitmaps_test\\20240512-125221\\backstop_default_crear-page_escenario_1_Paso_7_0_document_0_default.png",
+        "test": "..\\bitmaps_test\\20240512-131123\\backstop_default_crear-page_escenario_1_Paso_7_0_document_0_default.png",
         "selector": "document",
         "fileName": "backstop_default_crear-page_escenario_1_Paso_7_0_document_0_default.png",
         "label": "crear-page_escenario_1_Paso_7",
@@ -726,16 +726,16 @@ report({
           },
           "rawMisMatchPercentage": 19.208873728000423,
           "misMatchPercentage": "19.21",
-          "analysisTime": 82
+          "analysisTime": 88
         },
-        "diffImage": "..\\bitmaps_test\\20240512-125221\\failed_diff_backstop_default_crear-page_escenario_1_Paso_7_0_document_0_default.png"
+        "diffImage": "..\\bitmaps_test\\20240512-131123\\failed_diff_backstop_default_crear-page_escenario_1_Paso_7_0_document_0_default.png"
       },
       "status": "fail"
     },
     {
       "pair": {
         "reference": "..\\bitmaps_reference\\backstop_default_crear-page_escenario_1_Paso_8_0_document_0_default.png",
-        "test": "..\\bitmaps_test\\20240512-125221\\backstop_default_crear-page_escenario_1_Paso_8_0_document_0_default.png",
+        "test": "..\\bitmaps_test\\20240512-131123\\backstop_default_crear-page_escenario_1_Paso_8_0_document_0_default.png",
         "selector": "document",
         "fileName": "backstop_default_crear-page_escenario_1_Paso_8_0_document_0_default.png",
         "label": "crear-page_escenario_1_Paso_8",
@@ -752,16 +752,16 @@ report({
           },
           "rawMisMatchPercentage": 19.00095401682778,
           "misMatchPercentage": "19.00",
-          "analysisTime": 69
+          "analysisTime": 87
         },
-        "diffImage": "..\\bitmaps_test\\20240512-125221\\failed_diff_backstop_default_crear-page_escenario_1_Paso_8_0_document_0_default.png"
+        "diffImage": "..\\bitmaps_test\\20240512-131123\\failed_diff_backstop_default_crear-page_escenario_1_Paso_8_0_document_0_default.png"
       },
       "status": "fail"
     },
     {
       "pair": {
         "reference": "..\\bitmaps_reference\\backstop_default_crear-page_escenario_1_Paso_9_0_document_0_default.png",
-        "test": "..\\bitmaps_test\\20240512-125221\\backstop_default_crear-page_escenario_1_Paso_9_0_document_0_default.png",
+        "test": "..\\bitmaps_test\\20240512-131123\\backstop_default_crear-page_escenario_1_Paso_9_0_document_0_default.png",
         "selector": "document",
         "fileName": "backstop_default_crear-page_escenario_1_Paso_9_0_document_0_default.png",
         "label": "crear-page_escenario_1_Paso_9",
@@ -778,16 +778,16 @@ report({
           },
           "rawMisMatchPercentage": 19.012255193741122,
           "misMatchPercentage": "19.01",
-          "analysisTime": 77
+          "analysisTime": 79
         },
-        "diffImage": "..\\bitmaps_test\\20240512-125221\\failed_diff_backstop_default_crear-page_escenario_1_Paso_9_0_document_0_default.png"
+        "diffImage": "..\\bitmaps_test\\20240512-131123\\failed_diff_backstop_default_crear-page_escenario_1_Paso_9_0_document_0_default.png"
       },
       "status": "fail"
     },
     {
       "pair": {
         "reference": "..\\bitmaps_reference\\backstop_default_crear-page_escenario_2_Paso_1_0_document_0_default.png",
-        "test": "..\\bitmaps_test\\20240512-125221\\backstop_default_crear-page_escenario_2_Paso_1_0_document_0_default.png",
+        "test": "..\\bitmaps_test\\20240512-131123\\backstop_default_crear-page_escenario_2_Paso_1_0_document_0_default.png",
         "selector": "document",
         "fileName": "backstop_default_crear-page_escenario_2_Paso_1_0_document_0_default.png",
         "label": "crear-page_escenario_2_Paso_1",
@@ -804,7 +804,7 @@ report({
           },
           "rawMisMatchPercentage": 6.259130520590732,
           "misMatchPercentage": "6.26",
-          "analysisTime": 87
+          "analysisTime": 106
         }
       },
       "status": "pass"
@@ -812,7 +812,7 @@ report({
     {
       "pair": {
         "reference": "..\\bitmaps_reference\\backstop_default_crear-page_escenario_2_Paso_2_0_document_0_default.png",
-        "test": "..\\bitmaps_test\\20240512-125221\\backstop_default_crear-page_escenario_2_Paso_2_0_document_0_default.png",
+        "test": "..\\bitmaps_test\\20240512-131123\\backstop_default_crear-page_escenario_2_Paso_2_0_document_0_default.png",
         "selector": "document",
         "fileName": "backstop_default_crear-page_escenario_2_Paso_2_0_document_0_default.png",
         "label": "crear-page_escenario_2_Paso_2",
@@ -829,16 +829,16 @@ report({
           },
           "rawMisMatchPercentage": 11.008169214826047,
           "misMatchPercentage": "11.01",
-          "analysisTime": 100
+          "analysisTime": 199
         },
-        "diffImage": "..\\bitmaps_test\\20240512-125221\\failed_diff_backstop_default_crear-page_escenario_2_Paso_2_0_document_0_default.png"
+        "diffImage": "..\\bitmaps_test\\20240512-131123\\failed_diff_backstop_default_crear-page_escenario_2_Paso_2_0_document_0_default.png"
       },
       "status": "fail"
     },
     {
       "pair": {
         "reference": "..\\bitmaps_reference\\backstop_default_crear-page_escenario_2_Paso_3_0_document_0_default.png",
-        "test": "..\\bitmaps_test\\20240512-125221\\backstop_default_crear-page_escenario_2_Paso_3_0_document_0_default.png",
+        "test": "..\\bitmaps_test\\20240512-131123\\backstop_default_crear-page_escenario_2_Paso_3_0_document_0_default.png",
         "selector": "document",
         "fileName": "backstop_default_crear-page_escenario_2_Paso_3_0_document_0_default.png",
         "label": "crear-page_escenario_2_Paso_3",
@@ -855,16 +855,16 @@ report({
           },
           "rawMisMatchPercentage": 11.504927258274135,
           "misMatchPercentage": "11.50",
-          "analysisTime": 135
+          "analysisTime": 141
         },
-        "diffImage": "..\\bitmaps_test\\20240512-125221\\failed_diff_backstop_default_crear-page_escenario_2_Paso_3_0_document_0_default.png"
+        "diffImage": "..\\bitmaps_test\\20240512-131123\\failed_diff_backstop_default_crear-page_escenario_2_Paso_3_0_document_0_default.png"
       },
       "status": "fail"
     },
     {
       "pair": {
         "reference": "..\\bitmaps_reference\\backstop_default_crear-page_escenario_2_Paso_4_0_document_0_default.png",
-        "test": "..\\bitmaps_test\\20240512-125221\\backstop_default_crear-page_escenario_2_Paso_4_0_document_0_default.png",
+        "test": "..\\bitmaps_test\\20240512-131123\\backstop_default_crear-page_escenario_2_Paso_4_0_document_0_default.png",
         "selector": "document",
         "fileName": "backstop_default_crear-page_escenario_2_Paso_4_0_document_0_default.png",
         "label": "crear-page_escenario_2_Paso_4",
@@ -881,16 +881,16 @@ report({
           },
           "rawMisMatchPercentage": 11.497740587518564,
           "misMatchPercentage": "11.50",
-          "analysisTime": 134
+          "analysisTime": 147
         },
-        "diffImage": "..\\bitmaps_test\\20240512-125221\\failed_diff_backstop_default_crear-page_escenario_2_Paso_4_0_document_0_default.png"
+        "diffImage": "..\\bitmaps_test\\20240512-131123\\failed_diff_backstop_default_crear-page_escenario_2_Paso_4_0_document_0_default.png"
       },
       "status": "fail"
     },
     {
       "pair": {
         "reference": "..\\bitmaps_reference\\backstop_default_crear-page_escenario_2_Paso_5_0_document_0_default.png",
-        "test": "..\\bitmaps_test\\20240512-125221\\backstop_default_crear-page_escenario_2_Paso_5_0_document_0_default.png",
+        "test": "..\\bitmaps_test\\20240512-131123\\backstop_default_crear-page_escenario_2_Paso_5_0_document_0_default.png",
         "selector": "document",
         "fileName": "backstop_default_crear-page_escenario_2_Paso_5_0_document_0_default.png",
         "label": "crear-page_escenario_2_Paso_5",
@@ -907,16 +907,16 @@ report({
           },
           "rawMisMatchPercentage": 12.105088356704606,
           "misMatchPercentage": "12.11",
-          "analysisTime": 142
+          "analysisTime": 107
         },
-        "diffImage": "..\\bitmaps_test\\20240512-125221\\failed_diff_backstop_default_crear-page_escenario_2_Paso_5_0_document_0_default.png"
+        "diffImage": "..\\bitmaps_test\\20240512-131123\\failed_diff_backstop_default_crear-page_escenario_2_Paso_5_0_document_0_default.png"
       },
       "status": "fail"
     },
     {
       "pair": {
         "reference": "..\\bitmaps_reference\\backstop_default_crear-page_escenario_2_Paso_6_0_document_0_default.png",
-        "test": "..\\bitmaps_test\\20240512-125221\\backstop_default_crear-page_escenario_2_Paso_6_0_document_0_default.png",
+        "test": "..\\bitmaps_test\\20240512-131123\\backstop_default_crear-page_escenario_2_Paso_6_0_document_0_default.png",
         "selector": "document",
         "fileName": "backstop_default_crear-page_escenario_2_Paso_6_0_document_0_default.png",
         "label": "crear-page_escenario_2_Paso_6",
@@ -933,7 +933,7 @@ report({
           },
           "rawMisMatchPercentage": 4.19037854248362,
           "misMatchPercentage": "4.19",
-          "analysisTime": 97
+          "analysisTime": 88
         }
       },
       "status": "pass"
@@ -941,7 +941,7 @@ report({
     {
       "pair": {
         "reference": "..\\bitmaps_reference\\backstop_default_crear-page_escenario_2_Paso_7_0_document_0_default.png",
-        "test": "..\\bitmaps_test\\20240512-125221\\backstop_default_crear-page_escenario_2_Paso_7_0_document_0_default.png",
+        "test": "..\\bitmaps_test\\20240512-131123\\backstop_default_crear-page_escenario_2_Paso_7_0_document_0_default.png",
         "selector": "document",
         "fileName": "backstop_default_crear-page_escenario_2_Paso_7_0_document_0_default.png",
         "label": "crear-page_escenario_2_Paso_7",
@@ -958,16 +958,16 @@ report({
           },
           "rawMisMatchPercentage": 12.10259397029654,
           "misMatchPercentage": "12.10",
-          "analysisTime": 90
+          "analysisTime": 91
         },
-        "diffImage": "..\\bitmaps_test\\20240512-125221\\failed_diff_backstop_default_crear-page_escenario_2_Paso_7_0_document_0_default.png"
+        "diffImage": "..\\bitmaps_test\\20240512-131123\\failed_diff_backstop_default_crear-page_escenario_2_Paso_7_0_document_0_default.png"
       },
       "status": "fail"
     },
     {
       "pair": {
         "reference": "..\\bitmaps_reference\\backstop_default_crear-page_escenario_2_Paso_8_0_document_0_default.png",
-        "test": "..\\bitmaps_test\\20240512-125221\\backstop_default_crear-page_escenario_2_Paso_8_0_document_0_default.png",
+        "test": "..\\bitmaps_test\\20240512-131123\\backstop_default_crear-page_escenario_2_Paso_8_0_document_0_default.png",
         "selector": "document",
         "fileName": "backstop_default_crear-page_escenario_2_Paso_8_0_document_0_default.png",
         "label": "crear-page_escenario_2_Paso_8",
@@ -984,16 +984,16 @@ report({
           },
           "rawMisMatchPercentage": 12.154031749723917,
           "misMatchPercentage": "12.15",
-          "analysisTime": 92
+          "analysisTime": 186
         },
-        "diffImage": "..\\bitmaps_test\\20240512-125221\\failed_diff_backstop_default_crear-page_escenario_2_Paso_8_0_document_0_default.png"
+        "diffImage": "..\\bitmaps_test\\20240512-131123\\failed_diff_backstop_default_crear-page_escenario_2_Paso_8_0_document_0_default.png"
       },
       "status": "fail"
     },
     {
       "pair": {
         "reference": "..\\bitmaps_reference\\backstop_default_crear-page_escenario_2_Paso_9_0_document_0_default.png",
-        "test": "..\\bitmaps_test\\20240512-125221\\backstop_default_crear-page_escenario_2_Paso_9_0_document_0_default.png",
+        "test": "..\\bitmaps_test\\20240512-131123\\backstop_default_crear-page_escenario_2_Paso_9_0_document_0_default.png",
         "selector": "document",
         "fileName": "backstop_default_crear-page_escenario_2_Paso_9_0_document_0_default.png",
         "label": "crear-page_escenario_2_Paso_9",
@@ -1010,9 +1010,9 @@ report({
           },
           "rawMisMatchPercentage": 12.112118646996766,
           "misMatchPercentage": "12.11",
-          "analysisTime": 114
+          "analysisTime": 122
         },
-        "diffImage": "..\\bitmaps_test\\20240512-125221\\failed_diff_backstop_default_crear-page_escenario_2_Paso_9_0_document_0_default.png"
+        "diffImage": "..\\bitmaps_test\\20240512-131123\\failed_diff_backstop_default_crear-page_escenario_2_Paso_9_0_document_0_default.png"
       },
       "status": "fail"
     }
