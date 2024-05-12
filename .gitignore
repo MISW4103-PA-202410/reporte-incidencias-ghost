@@ -1,6 +1,5 @@
 node_modules
 kraken/reports
 puppeteer-cucumber/output
-screenshots/kraken/v5.82/*
-screenshots/kraken/v3.42/*
+bitmaps_test
 **/.DS_Store
