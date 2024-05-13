@@ -112,6 +112,7 @@ BeforeAll(async () => {
     fse.ensureDirSync(crear_post);
     fse.ensureDirSync(crear_tag);
     fse.ensureDirSync(crear_vista);
+    fse.ensureDirSync(editar_perfil);
   }
   else {
     console.log("No existe la carpeta compartida");
