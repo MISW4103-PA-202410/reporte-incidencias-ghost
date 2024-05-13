@@ -1,4 +1,4 @@
-### Integrangtes
+### Integrantes
 
 - Juan Avelino: ja.avelino@uniandes.edu.co
 - Andrés Arévalo: a.arevalof@uniandes.edu.co
@@ -55,11 +55,10 @@ Por favor antes de comenzar las pruebas de backstop debe cambiar a otra versión
 
 
 
-## Instrucciones Puppeteer
+## Instrucciones pruebas E2E Puppeteer - Cucumber
 
-1. Clonar el repositorio.
-2. Posicionarse en el directorio puppeteer. Ej: cd puppeteer
-3. Instalar módulos de node con npm install.
-4. Acceder al directorio puppeteer/main. Ej: cd main
-5. Ejecutar la suite de pruebas con el comando: node index.js.
-6. Se empezará a ejecutar las pruebas y en la consola aparecen los resultados.
+Leer README en [puppeteer-cucumber](https://github.com/MISW4103-PA-202410/reporte-incidencias-ghost/tree/main/puppeteer-cucumber)
+
+## Instrucciones pruebas de regresión visual Resemble
+
+Leer README en [resemble](https://github.com/MISW4103-PA-202410/reporte-incidencias-ghost/tree/main/resemble)
