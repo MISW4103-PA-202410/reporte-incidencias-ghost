@@ -8,12 +8,15 @@ Este proyecto utiliza CucumberJS para la definición de escenarios de prueba a t
 ## Instrucciones de instalación
 
 1. Clone el repositorio.
+
 `git clone https://github.com/MISW4103-PA-202410/reporte-incidencias-ghost.git`
 
 2. Diríjase a la carpeta "puppeteer-cucumber".
+
 `cd puppeteer-cucumber`
 
 3. Instale las dependencias del sistema de pruebas.
+
 `npm install`
 
 ## Ejecución de las pruebas
@@ -21,6 +24,7 @@ Este proyecto utiliza CucumberJS para la definición de escenarios de prueba a t
 ### 20 escenarios en la versión 5.82 de Ghost
 
 Ejecute el siguiente comando para hacer las pruebas E2E de los 20 escenarios descritos en la wiki en la versión 5.82 de Ghost.
+
 `npx cucumber-js --config config/cucumber.json -p ghost-5 --tags=@run`
 
 ### Escenarios escogidos y adaptados con puppeteer para comparación entre versiones
@@ -34,10 +38,12 @@ Ejecute el siguiente comando para hacer las pruebas E2E de los 20 escenarios des
 
 ### Escenarios escogidos en la versión 3.42 de Ghost
 Ejecute el siguiente comando para hacer las pruebas E2E de los 20 escenarios descritos en la wiki en la versión 3.42 de Ghost.
+
 `npx cucumber-js --config config/cucumber.json -p ghost-3 --tags=@v3`
 
 ### Escenarios escogidos en la versión 5.82 de Ghost
 Ejecute el siguiente comando para hacer las pruebas E2E de los 20 escenarios descritos en la wiki en la versión 5.82 de Ghost.
+
 `npx cucumber-js --config config/cucumber.json -p ghost-5 --tags=@v5`
 
 ## Toma de capturas de pantalla
