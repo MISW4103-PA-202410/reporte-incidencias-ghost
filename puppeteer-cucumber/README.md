@@ -44,6 +44,6 @@ Ejecute el siguiente comando para hacer las pruebas E2E de los 20 escenarios des
 
 Por cada paso ejecutado en las pruebas se toma una captura de pantalla que se almacena en la siguiente ruta:
 
-./screenshots/puppeteer/<versión_ghost>/<nombre-feature>/escenario_<número>/paso_<número>.png
+`./screenshots/puppeteer/<versión_ghost>/<nombre-feature>/escenario_<número>/paso_<número>.png`
 
 *Nota:* La carpeta `screenshots` es la que se ubica en la raíz del repositorio reporte-incidencias-ghost.
