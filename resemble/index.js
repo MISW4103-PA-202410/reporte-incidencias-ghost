@@ -35,7 +35,7 @@ async function executeComparison() {
             const featurePathv2 = `../screenshots/${tests[i]}/${versiones[1]}/${features[k]}`
             //Revisar que existan las carpetas
             if (!fs.existsSync(featurePathv1) || !fs.existsSync(featurePathv2)) {
-                console.log('Directory not found: ' + features[k])
+                console.log(tests[i] + ' Directory not found ' + features[k])
                 continue
             }
             //Revisar que existan escenarios
@@ -44,15 +44,15 @@ async function executeComparison() {
                 const escenarioPathv1 = `../screenshots/${tests[i]}/${versiones[0]}/${features[k]}/${escenarios[z]}`
                 const escenarioPathv2 = `../screenshots/${tests[i]}/${versiones[1]}/${features[k]}/${escenarios[z]}`
                 if (!fs.existsSync(escenarioPathv1) || !fs.existsSync(escenarioPathv2)) {
-                    console.log('Directory not found ' + escenarios[z] + ' in ' + features[k])
+                    console.log(tests[i] + ' Directory not found ' + features[k] + ' in ' + escenarios[z])
                     continue
                 }
                 const stepsv1 = fs.readdirSync(escenarioPathv1)
                 const stepsv2 = fs.readdirSync(escenarioPathv2)
-                if(stepsv1.length != stepsv2.length){
+                /*if(stepsv1.length != stepsv2.length){
                     console.log('Different steps')
                     continue
-                }
+                } */
                 //Ordenar los pasos, el numero esta al final
                 stepsv1.sort((a, b) => {
                     return a.match(/\d+/) - b.match(/\d+/)
@@ -60,10 +60,15 @@ async function executeComparison() {
                 stepsv2.sort((a, b) => {
                     return a.match(/\d+/) - b.match(/\d+/)
                 })
-                for(let l = 0; l < stepsv1.length; l++){
+                mx_length = Math.max(stepsv1.length, stepsv2.length)
+                for(let l = 0; l < mx_length; l++){
+                    //Verificar que el paso exista en los dos escenarios
+                    if(stepsv1[l] === undefined || stepsv2[l] === undefined){
+                        continue
+                    }
+                    //Comparar imagenes
                     const stepPathv1 = `../screenshots/${tests[i]}/${versiones[0]}/${features[k]}/${escenarios[z]}/${stepsv1[l]}`
                     const stepPathv2 = `../screenshots/${tests[i]}/${versiones[1]}/${features[k]}/${escenarios[z]}/${stepsv2[l]}`
-
                     const data = await compareImages(
                         fs.readFileSync(stepPathv1),
                         fs.readFileSync(stepPathv2)

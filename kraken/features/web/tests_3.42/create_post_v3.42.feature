@@ -27,13 +27,13 @@ Scenario: Como usuario me registro y creo un post sin titulo
   And I wait for 1 seconds
   And I click in the add post button v and take a screenshot for version "v3.42" feature "crear-post" scenario "2" step "2"
   And I wait for 1 seconds
-  And I enter a description for the post "<POST_DESCRIPTION>" v and take a screenshot for version "v3.42" feature "crear-post" scenario "2" step "4"
+  And I enter a description for the post "<POST_DESCRIPTION>" v and take a screenshot for version "v3.42" feature "crear-post" scenario "2" step "3"
   And I wait for 1 seconds
-  And I click publish post button v and take a screenshot for version "v3.42" feature "crear-post" scenario "2" step "5"
+  And I click publish post button v and take a screenshot for version "v3.42" feature "crear-post" scenario "2" step "4"
   And I wait for 1 seconds
-  And I click publish post confirm button v and take a screenshot for version "v3.42" feature "crear-post" scenario "2" step "6"
+  And I click publish post confirm button v and take a screenshot for version "v3.42" feature "crear-post" scenario "2" step "5"
   And I wait for 1 seconds
-  And I go back to dashboard v and take a screenshot for version "v3.42" feature "crear-post" scenario "2" step "7"
+  And I go back to dashboard v and take a screenshot for version "v3.42" feature "crear-post" scenario "2" step "6"
   And I wait for 2 seconds
 
 @user3 @web
@@ -52,9 +52,9 @@ Scenario: Como usuario me registro y creo un post con una imagen
   And I wait for 1 seconds
   And I click publish post button v and take a screenshot for version "v3.42" feature "crear-post" scenario "3" step "6"
   And I wait for 1 seconds
-  And I click publish post confirm button v and take a screenshot for version "v3.42" feature "crear-post" scenario "3" step "8"
+  And I click publish post confirm button v and take a screenshot for version "v3.42" feature "crear-post" scenario "3" step "7"
   And I wait for 1 seconds
-  And I go back to dashboard v and take a screenshot for version "v3.42" feature "crear-post" scenario "4" step "9"
+  And I go back to dashboard v and take a screenshot for version "v3.42" feature "crear-post" scenario "3" step "8"
   And I wait for 2 seconds
 
 @user4 @web
@@ -75,5 +75,5 @@ Scenario: Como usuario me registro y creo un post programado
   And I wait for 1 seconds
   And I click publish post confirm button v and take a screenshot for version "v3.42" feature "crear-post" scenario "4" step "7"
   And I wait for 1 seconds
-  And I navigate to page "http://34.68.28.121/ghost/#/dashboard"
+  And I navigate to page "http://34.68.28.121/ghost/#/posts"
   And I wait for 1 seconds

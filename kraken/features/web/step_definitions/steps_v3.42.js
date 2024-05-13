@@ -311,9 +311,19 @@ When("I attach an image to a post v and take a screenshot for version {kraken-st
   let fileInput = await this.driver.$('div[style="display:none"] > span.x-file-input.ember-view > input[type="file"]');
 
   // Set the file path to the file input element
-  return await fileInput.setValue(
+  await fileInput.setValue(
     path.resolve("../kraken/features/web/resources/image_feature.jpeg")
   );
+  const screenshot = await this.driver.takeScreenshot();
+
+  const screenshotsBasePath = path.resolve(__dirname, `../../../../screenshots/kraken/${version}/${feature}/escenario_${scenario}`);
+
+  fs.mkdirSync(screenshotsBasePath, { recursive: true });
+
+  const screenshotFilename = `paso_${step}.png`;
+  const screenshotPath = path.join(screenshotsBasePath, screenshotFilename);
+
+  fs.writeFileSync(screenshotPath, screenshot, 'base64');
 });
 
 When("I click on schedule for later button v and take a screenshot for version {kraken-string} feature {string} scenario {string} step {string}",  async function (version, feature, scenario, step) {

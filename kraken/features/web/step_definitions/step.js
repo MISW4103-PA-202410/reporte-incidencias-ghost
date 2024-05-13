@@ -652,8 +652,13 @@ When("I click the sign out button and take a screenshot for version {kraken-stri
 });
 
 When("I click the cover image button and take a screenshot for version {kraken-string} feature {string} scenario {string} step {string}", async function (version, feature, scenario, step) {
+  let fileInput = await this.driver.$('#cover-image');
 
-  return await actionAndScreenshot("div.flex.items-end.gap-4.justify-end.flex-nowrap", 'click', this.driver, {version, feature, scenario, step});
+  // Set the file path to the file input element
+  await fileInput.setValue(
+    path.resolve("../kraken/features/web/resources/pexels-iriser-1379636.jpg")
+  );
+  await actionAndScreenshot("div.flex.items-end.gap-4.justify-end.flex-nowrap", 'click', this.driver, {version, feature, scenario, step});
 });
 
 When("I clear values and take a screenshot for version {kraken-string} feature {string} scenario {string} step {string}", async function (version, feature, scenario, step) {
