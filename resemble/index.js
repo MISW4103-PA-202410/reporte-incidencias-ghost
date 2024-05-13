@@ -86,7 +86,6 @@ async function executeComparison() {
                     }
                     //Generar HTML
                     html += htmlReportCard(info)
-
                     //Metricas
                     contador++
                     if(data.isSameDimensions){
