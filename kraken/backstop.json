@@ -1,0 +1,246 @@
+{
+  "id": "backstop_default",
+  "viewports": [
+    {
+      "label": "default",
+      "width": 1100,
+      "height": 700
+    }
+  ],
+  "scenarios": [
+    {
+      "label": "kraken_crear-post_escenario_1_Paso_1",
+      "url": "../screenshots/kraken/v5.82/crear-post/escenario_1/paso_1.png",
+      "delay": 0,
+      "hideSelectors": [],
+      "removeSelectors": [],
+      "hoverSelector": "",
+      "clickSelector": "",
+      "postInteractionWait": 0,
+      "selectors": [],
+      "selectorExpansion": true,
+      "expect": 0,
+      "misMatchThreshold": 8,
+      "requireSameDimensions": false
+    },
+    {
+      "label": "kraken_crear-post_escenario_1_Paso_2",
+      "url": "../screenshots/kraken/v5.82/crear-post/escenario_1/paso_2.png",
+      "delay": 0,
+      "hideSelectors": [],
+      "removeSelectors": [],
+      "hoverSelector": "",
+      "clickSelector": "",
+      "postInteractionWait": 0,
+      "selectors": [],
+      "selectorExpansion": true,
+      "expect": 0,
+      "misMatchThreshold": 8,
+      "requireSameDimensions": false
+    },
+    {
+      "label": "kraken_crear-post_escenario_1_Paso_3",
+      "url": "../screenshots/kraken/v5.82/crear-post/escenario_1/paso_3.png",
+      "delay": 0,
+      "hideSelectors": [],
+      "removeSelectors": [],
+      "hoverSelector": "",
+      "clickSelector": "",
+      "postInteractionWait": 0,
+      "selectors": [],
+      "selectorExpansion": true,
+      "expect": 0,
+      "misMatchThreshold": 8,
+      "requireSameDimensions": false
+    },
+    {
+      "label": "kraken_crear-post_escenario_1_Paso_4",
+      "url": "../screenshots/kraken/v5.82/crear-post/escenario_1/paso_4.png",
+      "delay": 0,
+      "hideSelectors": [],
+      "removeSelectors": [],
+      "hoverSelector": "",
+      "clickSelector": "",
+      "postInteractionWait": 0,
+      "selectors": [],
+      "selectorExpansion": true,
+      "expect": 0,
+      "misMatchThreshold": 8,
+      "requireSameDimensions": false
+    },
+    {
+      "label": "kraken_crear-post_escenario_1_Paso_5",
+      "url": "../screenshots/kraken/v5.82/crear-post/escenario_1/paso_5.png",
+      "delay": 0,
+      "hideSelectors": [],
+      "removeSelectors": [],
+      "hoverSelector": "",
+      "clickSelector": "",
+      "postInteractionWait": 0,
+      "selectors": [],
+      "selectorExpansion": true,
+      "expect": 0,
+      "misMatchThreshold": 8,
+      "requireSameDimensions": false
+    },
+    {
+      "label": "kraken_crear-post_escenario_1_Paso_6",
+      "url": "../screenshots/kraken/v5.82/crear-post/escenario_1/paso_6.png",
+      "delay": 0,
+      "hideSelectors": [],
+      "removeSelectors": [],
+      "hoverSelector": "",
+      "clickSelector": "",
+      "postInteractionWait": 0,
+      "selectors": [],
+      "selectorExpansion": true,
+      "expect": 0,
+      "misMatchThreshold": 8,
+      "requireSameDimensions": false
+    },
+    {
+      "label": "kraken_crear-post_escenario_1_Paso_7",
+      "url": "../screenshots/kraken/v5.82/crear-post/escenario_1/paso_7.png",
+      "delay": 0,
+      "hideSelectors": [],
+      "removeSelectors": [],
+      "hoverSelector": "",
+      "clickSelector": "",
+      "postInteractionWait": 0,
+      "selectors": [],
+      "selectorExpansion": true,
+      "expect": 0,
+      "misMatchThreshold": 8,
+      "requireSameDimensions": false
+    },
+    {
+      "label": "kraken_crear-post_escenario_2_Paso_1",
+      "url": "../screenshots/kraken/v5.82/crear-post/escenario_2/paso_1.png",
+      "delay": 0,
+      "hideSelectors": [],
+      "removeSelectors": [],
+      "hoverSelector": "",
+      "clickSelector": "",
+      "postInteractionWait": 0,
+      "selectors": [],
+      "selectorExpansion": true,
+      "expect": 0,
+      "misMatchThreshold": 8,
+      "requireSameDimensions": false
+    },
+    {
+      "label": "kraken_crear-post_escenario_2_Paso_2",
+      "url": "../screenshots/kraken/v5.82/crear-post/escenario_2/paso_2.png",
+      "delay": 0,
+      "hideSelectors": [],
+      "removeSelectors": [],
+      "hoverSelector": "",
+      "clickSelector": "",
+      "postInteractionWait": 0,
+      "selectors": [],
+      "selectorExpansion": true,
+      "expect": 0,
+      "misMatchThreshold": 8,
+      "requireSameDimensions": false
+    },
+    {
+      "label": "kraken_crear-post_escenario_2_Paso_3",
+      "url": "../screenshots/kraken/v5.82/crear-post/escenario_2/paso_3.png",
+      "delay": 0,
+      "hideSelectors": [],
+      "removeSelectors": [],
+      "hoverSelector": "",
+      "clickSelector": "",
+      "postInteractionWait": 0,
+      "selectors": [],
+      "selectorExpansion": true,
+      "expect": 0,
+      "misMatchThreshold": 8,
+      "requireSameDimensions": false
+    },
+    {
+      "label": "kraken_crear-post_escenario_2_Paso_4",
+      "url": "../screenshots/kraken/v5.82/crear-post/escenario_2/paso_4.png",
+      "delay": 0,
+      "hideSelectors": [],
+      "removeSelectors": [],
+      "hoverSelector": "",
+      "clickSelector": "",
+      "postInteractionWait": 0,
+      "selectors": [],
+      "selectorExpansion": true,
+      "expect": 0,
+      "misMatchThreshold": 8,
+      "requireSameDimensions": false
+    },
+    {
+      "label": "kraken_crear-post_escenario_2_Paso_5",
+      "url": "../screenshots/kraken/v5.82/crear-post/escenario_2/paso_5.png",
+      "delay": 0,
+      "hideSelectors": [],
+      "removeSelectors": [],
+      "hoverSelector": "",
+      "clickSelector": "",
+      "postInteractionWait": 0,
+      "selectors": [],
+      "selectorExpansion": true,
+      "expect": 0,
+      "misMatchThreshold": 8,
+      "requireSameDimensions": false
+    },
+    {
+      "label": "kraken_crear-post_escenario_2_Paso_6",
+      "url": "../screenshots/kraken/v5.82/crear-post/escenario_2/paso_6.png",
+      "delay": 0,
+      "hideSelectors": [],
+      "removeSelectors": [],
+      "hoverSelector": "",
+      "clickSelector": "",
+      "postInteractionWait": 0,
+      "selectors": [],
+      "selectorExpansion": true,
+      "expect": 0,
+      "misMatchThreshold": 8,
+      "requireSameDimensions": false
+    },
+    {
+      "label": "kraken_crear-post_escenario_2_Paso_7",
+      "url": "../screenshots/kraken/v5.82/crear-post/escenario_2/paso_7.png",
+      "delay": 0,
+      "hideSelectors": [],
+      "removeSelectors": [],
+      "hoverSelector": "",
+      "clickSelector": "",
+      "postInteractionWait": 0,
+      "selectors": [],
+      "selectorExpansion": true,
+      "expect": 0,
+      "misMatchThreshold": 8,
+      "requireSameDimensions": false
+    }
+
+
+
+
+  ],
+  "paths": {
+    "bitmaps_reference": "backstop_data/bitmaps_reference",
+    "bitmaps_test": "backstop_data/bitmaps_test",
+    "engine_scripts": "./backstop_data/engine_scripts",
+    "html_report": "backstop_data/html_report",
+    "ci_report": "backstop_data/ci_report"
+  },
+  "report": [
+    "browser"
+  ],
+  "engine": "puppeteer",
+  "engineOptions": {
+    "args": [
+      "--no-sandbox"
+    ]
+  },
+  "asyncCaptureLimit": 5,
+  "asyncCompareLimit": 50,
+  "debug": false,
+  "debugWindow": false
+}

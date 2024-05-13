@@ -1,0 +1,14 @@
+{
+  "name": "reporte-incidencias-ghost",
+  "version": "1.0.0",
+  "description": "- Juan Avelino: ja.avelino@uniandes.edu.co - Andrés Arévalo: a.arevalof@uniandes.edu.co - Brian Rivera: b.riverah@uniandes.edu.co - Andrés Peña: ca.penad@uniandes.edu.co",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "http-server": "^14.1.1"
+  }
+}
