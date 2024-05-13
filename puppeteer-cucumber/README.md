@@ -1,45 +1,55 @@
-# Simple Cucumber/Puppeteer Example
-This project is a simple example of using cucumberJS with puppeteer 
+# Pruebas E2E de Ghost versiones 3.42 y 5.82
 
-The test scenarios created tests the [create task list web app](https://mrbenhowl.github.io/auto-gen-boilerplate-code-babel-macro-codegen/) created by [mrbenhowl](https://github.com/mrbenhowl) 
+Este proyecto utiliza CucumberJS para la definición de escenarios de prueba a través del patrón Given-When-Then y el lenguaje Gherkin. También utiliza Puppeteer para la interacción con la aplicación bajo pruebas y es acá donde se utiliza el patrón Page Object.
 
-## Getting started
+## Prerrequisitos
+- Tener instalado NodeJS en la versión v18.17.0.
 
-`cd e2e`
+## Instrucciones de instalación
 
-`npm install` or `yarn`
+1. Clone el repositorio.
 
+`git clone https://github.com/MISW4103-PA-202410/reporte-incidencias-ghost.git`
 
-## Run something 
+2. Diríjase a la carpeta "puppeteer-cucumber".
 
-### Running Tests
+`cd puppeteer-cucumber`
 
-`npm run puppeteer` or `yarn puppeteer`
+3. Instale las dependencias del sistema de pruebas.
 
-### Generate Report
+`npm install`
 
-`npm run report:html` or  `yarn report:html`
+## Ejecución de las pruebas
 
-cucumber html report will be generated in `output/report` folder
+### 20 escenarios en la versión 5.82 de Ghost
 
-## Folder structure
+Ejecute el siguiente comando para hacer las pruebas E2E de los 20 escenarios descritos en la wiki en la versión 5.82 de Ghost.
 
-```
-.
-├── README.md
-└── e2e
-    ├── config
-    │   └── properties.json
-    ├── features
-    │   └── simple.feature
-    ├── output
-    │   ├── report
-    │   └── screenshots
-    ├── package.json
-    └── step_definitions
-        ├── launch_steps.js
-        └── support
-            ├── constants.js
-            ├── hooks.js
-            └── scope.js
-```
+`npx cucumber-js --config config/cucumber.json -p ghost-5 --tags=@run`
+
+### Escenarios escogidos y adaptados con puppeteer para comparación entre versiones
+1. Crear página
+    - Página con título, contenido y video embebido de YouTube.
+    - Página básica con slug definidio.
+    - Previsualizar una página y dejarla en borrador.
+2. Crear Tag
+    - Tag básico con nombre y descripción.
+    - Tag con metadata.
+
+### Escenarios escogidos en la versión 3.42 de Ghost
+Ejecute el siguiente comando para hacer las pruebas E2E de los 20 escenarios descritos en la wiki en la versión 3.42 de Ghost.
+
+`npx cucumber-js --config config/cucumber.json -p ghost-3 --tags=@v3`
+
+### Escenarios escogidos en la versión 5.82 de Ghost
+Ejecute el siguiente comando para hacer las pruebas E2E de los 20 escenarios descritos en la wiki en la versión 5.82 de Ghost.
+
+`npx cucumber-js --config config/cucumber.json -p ghost-5 --tags=@v5`
+
+## Toma de capturas de pantalla
+
+Por cada paso ejecutado en las pruebas se toma una captura de pantalla que se almacena en la siguiente ruta:
+
+`./screenshots/puppeteer/<versión_ghost>/<nombre-feature>/escenario_<número>/paso_<número>.png`
+
+*Nota:* La carpeta `screenshots` es la que se ubica en la raíz del repositorio reporte-incidencias-ghost.
