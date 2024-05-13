@@ -201,15 +201,15 @@ function metricsGeneral( contador, dimsTrue, dimsFalse, average, highThan70, hig
                 <p class="card-text">${lessThan50}</p>
             </div>
             <div class="col">
-                <p class="card-title" style="font-weight: bold;">Diferencias mayores al 70%</p>
+                <p class="card-title" style="font-weight: bold;">Diferencias menores al 70%</p>
                 <p class="card-text">${highThan70}</p>
             </div>
             <div class="col">
-                <p class="card-title" style="font-weight: bold;">Diferencias mayores al 90%</p>
+                <p class="card-title" style="font-weight: bold;">Diferencias menores al 90%</p>
                 <p class="card-text">${highThan90}</p>
             </div>
             <div class="col">
-                <p class="card-title" style="font-weight: bold;">Diferencias mayores al 100%</p>
+                <p class="card-title" style="font-weight: bold;">Diferencias menores al 100%</p>
                 <p class="card-text">${highThan100}</p>
             </div>
         </div>
