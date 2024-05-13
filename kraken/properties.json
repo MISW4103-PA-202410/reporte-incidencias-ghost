@@ -4,6 +4,7 @@
   "FULL_NAME": "Jaime Larson",
   "BLOG_TITLE": "Kraken tests E2E",
   "SETUP_VALUES": "Kraken tests E2E;Jaime Larson;jaime@example.com;EgVLGq2!L5fXLt$",
+  "SETUP_VALUES_REMOTE": "Kraken tests E2E;Jaime Larson;equipo20@misw4103.com;PRUEBAS12345",
   "POST_TITLE": "Kraken post tests E2E",
   "POST_DESCRIPTION": "This is a description for kraken's post tests E2E",
   "PAGE_TITLE": "Kraken page tests E2E",
@@ -15,8 +16,8 @@
   "NEW_PASSWORD_FIELDS": "EgVLGq2!L5fXLt$;EgVLGq2!L5fXLt$b;EgVLGq2!L5fXLt$b",
   "SETUP_VALUES_NEW": "Kraken tests E2E;Jaime Larson;jaime@example.com;EgVLGq2!L5fXLt$b",
   "OLD_PASSWORD_FIELDS": "EgVLGq2!L5fXLt$b;EgVLGq2!L5fXLt$;EgVLGq2!L5fXLt$",
-  "PROFILE_VALUES": "Jaime Larson;jaime@example.com",
-  "SETUP_VALUES_NEW_EMAIL": "jaime@example.com;EgVLGq2!L5fXLt$",
+  "PROFILE_VALUES": "Jaime Larson 2;jaime@example2.com",
+  "SETUP_VALUES_NEW_EMAIL": "jaime@example2.com;EgVLGq2!L5fXLt$",
   "OLD_PROFILE_VALUES": "Jaime Larson;jaime@example.com",
   "SOCIAL_MEDIA": "https://facebook.com/zuck;https://twitter.com/elonmusk",
   "VERSION": "v5.82"

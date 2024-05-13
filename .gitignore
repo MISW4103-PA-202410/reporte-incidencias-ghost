@@ -1,4 +1,5 @@
 node_modules
 kraken/reports
 puppeteer-cucumber/output
+bitmaps_test
 **/.DS_Store
