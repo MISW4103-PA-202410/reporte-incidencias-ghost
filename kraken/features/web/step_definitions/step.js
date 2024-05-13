@@ -705,15 +705,29 @@ When("I change info profile {kraken-string} and take a screenshot for version {k
     if (labelText.includes("Full name")) {
       const input = await columna.$('div.relative.order-2.flex > input');
       await input.click();
-      await input.keys(['Control', 'a']); 
-      await input.keys('Delete'); 
+      await input.keys(['Control', 'a']);
+      await input.keys(['Delete']); 
+      const value = await input.getValue();
+      if(value.length > 0){
+        await input.keys(['Meta', 'a']);
+        for (let i = 0; i < value.length; i++) {
+          await input.keys('Backspace'); // Press backspace for each character
+        }
+      }
       await input.setValue(setupValues[0]);
     }
     if (labelText.includes("Email")) {
       const input = await columna.$('div.relative.order-2.flex > input');
       await input.click();
-      await input.keys(['Control', 'a']); 
-      await input.keys('Delete'); 
+      await input.keys(['Control', 'a']);
+      await input.keys(['Delete']); 
+      const value = await input.getValue();
+      if(value.length > 0){
+        await input.keys(['Meta', 'a']);
+        for (let i = 0; i < value.length; i++) {
+          await input.keys('Backspace'); // Press backspace for each character
+        }
+      }
       await input.setValue(setupValues[1]);
     }
   }
