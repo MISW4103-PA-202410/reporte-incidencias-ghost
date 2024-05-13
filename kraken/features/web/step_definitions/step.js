@@ -437,6 +437,12 @@ When("I check the slug has been changed", async function () {
 When("I click in the add image to tag and take a screenshot for version {kraken-string} feature {string} scenario {string} step {string}", async function (version, feature, scenario, step) {
   let element = await this.driver.$("span.x-file-input > label > div.gh-btn.gh-btn-white");
   await element.click();
+  let fileInput = await this.driver.$('input[type="file"]');
+
+  // Set the file path to the file input element
+  await fileInput.setValue(
+    path.resolve("../kraken/features/web/resources/image_feature.jpeg")
+  );
 
   const screenshot = await this.driver.takeScreenshot();
   const screenshotsBasePath = path.resolve(__dirname, `../../../../screenshots/kraken/${version}/${feature}/escenario_${scenario}`);
