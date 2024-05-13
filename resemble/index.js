@@ -3,9 +3,21 @@ const fs = require('fs');
 const fse = require('fs-extra');
 
 async function executeComparison() {
-    const puppeteer = 'screenshots/puppeteer'
-    const kraken = 'screenshots/kraken'
+    //Reporte
     let html = '';
+    let htmlFileVar = '';
+    //Metricas
+    let contador = 0
+    let dimsTrue = 0
+    let dimsFalse = 0
+    let average = 0
+    let sum = 0
+    let highThan70 = 0
+    let highThan90 = 0
+    let highThan100 = 0
+    let lessThan50 = 0
+    let lessThan30 = 0
+    let lessThan10 = 0
 
     //directorio de reportes
     if (!fse.ensureDirSync('./reports')) {
@@ -74,12 +86,40 @@ async function executeComparison() {
                     }
                     //Generar HTML
                     html += htmlReportCard(info)
+
+                    //Metricas
+                    contador++
+                    if(data.isSameDimensions){
+                        dimsTrue++
+                    } else {
+                        dimsFalse++
+                    }
+                    //Promedio, tipar a integer valor de data
+                    sum += parseInt(data.misMatchPercentage)
+                    average = sum / contador
+                    average = average.toFixed(2)
+                    if(data.misMatchPercentage < 10){
+                        lessThan10++
+                    } else if(data.misMatchPercentage < 30){
+                        lessThan30++
+                    } else if(data.misMatchPercentage < 50){
+                        lessThan50++
+                    } else if(data.misMatchPercentage < 70){
+                        highThan70++
+                    } else if(data.misMatchPercentage < 90){
+                        highThan90++
+                    }else{
+                        highThan100++
+                    }
                 }
             }
         }
     }
+    //Metricas Generales al principio
+    htmlFileVar = `<h1>Reporte de comparación</h1>` +  metricsGeneral(contador, dimsTrue, dimsFalse, average, highThan70, highThan90, highThan100, lessThan50, lessThan30, lessThan10) + html    
+    htmlFileVar += html;
     //Generar archivo HTML
-    fs.writeFileSync('./reports/index.html', htmlFile(html))
+    fs.writeFileSync('./reports/index.html', htmlFile(htmlFileVar))
 }
 
 function htmlReportCard(info) {
@@ -109,6 +149,71 @@ function htmlReportCard(info) {
     </div>
     `
 }
+
+function metricsGeneral( contador, dimsTrue, dimsFalse, average, highThan70, highThan90, highThan100, lessThan50, lessThan30, lessThan10){
+    return `
+    <div class="card">
+    <div class="card-header">
+        <p class="display-5">Metricas Generales</p>
+    </div>
+    <div class="card-body">
+        <div class="row">
+            <div class="col">
+                <p class="card-title" style="font-weight: bold;">Total de comparaciones</p>
+                <p class="card-text">${contador}</p>
+            </div>
+            <div class="col">
+                <p class="card-title" style="font-weight: bold;">Dimensiones Iguales</p>
+                <p class="card-text">${dimsTrue}</p>
+            </div>
+            <div class="col">
+                <p class="card-title" style="font-weight: bold;">Dimensiones Diferentes</p>
+                <p class="card-text">${dimsFalse}</p>
+            </div>
+            <div class="col">
+                <p class="card-title" style="font-weight: bold;">Promedio de Diferencia</p>
+                <p class="card-text">${average}%</p>
+            </div>
+            <div class="col">
+            </div>
+            <div class="col">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col" style="height: 20px;">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <p class="card-title" style="font-weight: bold;">Diferencias menores al 10%</p>
+                <p class="card-text">${lessThan10}</p>
+            </div>
+            <div class="col">
+                <p class="card-title" style="font-weight: bold;">Diferencias menores al 30%</p>
+                <p class="card-text">${lessThan30}</p>
+            </div>
+            <div class="col">
+                <p class="card-title" style="font-weight: bold;">Diferencias menores al 50%</p>
+                <p class="card-text">${lessThan50}</p>
+            </div>
+            <div class="col">
+                <p class="card-title" style="font-weight: bold;">Diferencias mayores al 70%</p>
+                <p class="card-text">${highThan70}</p>
+            </div>
+            <div class="col">
+                <p class="card-title" style="font-weight: bold;">Diferencias mayores al 90%</p>
+                <p class="card-text">${highThan90}</p>
+            </div>
+            <div class="col">
+                <p class="card-title" style="font-weight: bold;">Diferencias mayores al 100%</p>
+                <p class="card-text">${highThan100}</p>
+            </div>
+        </div>
+    </div>
+</div> `
+}
+
+
 
 function htmlFile(html) {
     return `
