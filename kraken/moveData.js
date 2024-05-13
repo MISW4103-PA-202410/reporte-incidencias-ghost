@@ -1,14 +1,24 @@
-// script.js
 const fs = require('fs');
 const path = require('path');
 
-// Define las características y sus escenarios
+// Define las características y sus escenarios para Kraken y Puppeteer
 let features = {
-  "crear-tag": ["escenario_1","escenario_2","escenario_3"],
-  "crear-page": ["escenario_1","escenario_2"],
+  "kraken": {
+    "crear-tag": ["escenario_2"],
+    "crear-post": ["escenario_1", "escenario_2", "escenario_3", "escenario_4"]
+  },
+  "puppeteer": {
+    "crear-tag": ["escenario_1","escenario_4"],
+    "crear-page": ["escenario_2", "escenario_3", "escenario_4"]
+  }
 };
 
-const sourceDirectoryBase = '../screenshots/kraken/v3.42/';
+// Directores base para Kraken y Puppeteer
+const directoriesBase = {
+  "kraken": '../screenshots/kraken/v3.42/',
+  "puppeteer": '../screenshots/puppeteer/v3.42/'
+};
+
 const targetDirectory = path.join(__dirname, 'backstop_data/bitmaps_reference');
 
 // Asegúrate de que el directorio objetivo existe
@@ -17,7 +27,8 @@ if (!fs.existsSync(targetDirectory)) {
 }
 
 // Función para copiar imágenes para cada paso en cada escenario
-function copyImagesForSteps(feature, scenario) {
+function copyImagesForSteps(tool, feature, scenario) {
+  const sourceDirectoryBase = directoriesBase[tool];
   const scenarioDirectory = path.join(sourceDirectoryBase, feature, scenario);
   fs.readdir(scenarioDirectory, (err, files) => {
     if (err) {
@@ -29,7 +40,7 @@ function copyImagesForSteps(feature, scenario) {
     files.filter(file => file.endsWith('.png')).forEach((file, index) => {
       const originalImagePath = path.join(scenarioDirectory, file);
       const pasoNumber = index + 1; // Calcula el número de paso basado en el índice
-      const targetFileName = `backstop_default_${feature}_${scenario}_Paso_${pasoNumber}_0_document_0_default.png`;
+      const targetFileName = `backstop_default_${tool}_${feature}_${scenario}_Paso_${pasoNumber}_0_document_0_default.png`;
       const targetImagePath = path.join(targetDirectory, targetFileName);
 
       fs.copyFile(originalImagePath, targetImagePath, err => {
@@ -43,9 +54,11 @@ function copyImagesForSteps(feature, scenario) {
   });
 }
 
-// Itera sobre cada característica y sus escenarios
-Object.entries(features).forEach(([feature, scenarios]) => {
-  scenarios.forEach(scenario => {
-    copyImagesForSteps(feature, scenario);
+// Itera sobre cada herramienta, cada característica y sus escenarios
+Object.entries(features).forEach(([tool, featuresByTool]) => {
+  Object.entries(featuresByTool).forEach(([feature, scenarios]) => {
+    scenarios.forEach(scenario => {
+      copyImagesForSteps(tool, feature, scenario);
+    });
   });
 });
