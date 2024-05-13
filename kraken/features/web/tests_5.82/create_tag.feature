@@ -5,9 +5,9 @@ Feature: Crear page
 @user1 @web
 Scenario: Como usuario me registro y creo un nuevo tag
  Given I navigate to page "http://34.170.53.250/ghost/#/setup"
-  And I wait for 1 seconds
+  And I wait for 2 seconds
   When I enter to the setup page "<SETUP_VALUES_REMOTE>" and take a screenshot for version "v5.82" feature "crear-tag" scenario "1" step "1"
-  And I wait for 1 seconds
+  And I wait for 3 seconds
   And I click in the tags menu button and take a screenshot for version "v5.82" feature "crear-tag" scenario "1" step "2"
   And I wait for 1 seconds
   And I click in the new tag button and take a screenshot for version "v5.82" feature "crear-tag" scenario "1" step "3"
@@ -23,9 +23,9 @@ Scenario: Como usuario me registro y creo un nuevo tag
 @user2 @web
 Scenario: Como usuario me registro y creo un nuevo tag con nombre repetido
   Given I navigate to page "http://34.170.53.250/ghost/#/setup"
-  And I wait for 1 seconds
+  And I wait for 2 seconds
   When I enter to the setup page "<SETUP_VALUES_REMOTE>" and take a screenshot for version "v5.82" feature "crear-tag" scenario "2" step "1"
-  And I wait for 1 seconds
+  And I wait for 3 seconds
   And I click in the tags menu button and take a screenshot for version "v5.82" feature "crear-tag" scenario "2" step "2"
   And I wait for 1 seconds
   And I click in the new tag button and take a screenshot for version "v5.82" feature "crear-tag" scenario "2" step "3"
@@ -41,9 +41,9 @@ Scenario: Como usuario me registro y creo un nuevo tag con nombre repetido
 @user3 @web
 Scenario: Como usuario me registro y creo un nuevo tag con una imagen
  Given I navigate to page "http://34.170.53.250/ghost/#/setup"
-  And I wait for 1 seconds
+  And I wait for 2 seconds
   When I enter to the setup page "<SETUP_VALUES_REMOTE>" and take a screenshot for version "v5.82" feature "crear-tag" scenario "3" step "1"
-  And I wait for 1 seconds
+  And I wait for 3 seconds
   And I click in the tags menu button and take a screenshot for version "v5.82" feature "crear-tag" scenario "3" step "1"
   And I wait for 1 seconds
   And I click in the new tag button and take a screenshot for version "v5.82" feature "crear-tag" scenario "3" step "2"
@@ -61,9 +61,9 @@ Scenario: Como usuario me registro y creo un nuevo tag con una imagen
 @user4 @web
 Scenario: Como usuario me registro y creo un tag con Meta data completa
   Given I navigate to page "http://34.170.53.250/ghost/#/setup"
-  And I wait for 1 seconds
+  And I wait for 2 seconds
   When I enter to the setup page "<SETUP_VALUES_REMOTE>" and take a screenshot for version "v5.82" feature "crear-tag" scenario "4" step "1"
-  And I wait for 1 seconds
+  And I wait for 3 seconds
   And I click in the tags menu button and take a screenshot for version "v5.82" feature "crear-tag" scenario "4" step "1"
   And I wait for 1 seconds
   And I click in the new tag button and take a screenshot for version "v5.82" feature "crear-tag" scenario "4" step "2"
