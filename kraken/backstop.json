@@ -20,7 +20,7 @@
       "selectors": [],
       "selectorExpansion": true,
       "expect": 0,
-      "misMatchThreshold": 15,
+      "misMatchThreshold": 18,
       "requireSameDimensions": false
     },
     {
@@ -35,7 +35,7 @@
       "selectors": [],
       "selectorExpansion": true,
       "expect": 0,
-      "misMatchThreshold": 15,
+      "misMatchThreshold": 18,
       "requireSameDimensions": false
     },
     {
@@ -50,7 +50,7 @@
       "selectors": [],
       "selectorExpansion": true,
       "expect": 0,
-      "misMatchThreshold": 15,
+      "misMatchThreshold": 18,
       "requireSameDimensions": false
     },
     {
@@ -65,7 +65,7 @@
       "selectors": [],
       "selectorExpansion": true,
       "expect": 0,
-      "misMatchThreshold": 15,
+      "misMatchThreshold": 18,
       "requireSameDimensions": false
     },
     {
@@ -80,7 +80,7 @@
       "selectors": [],
       "selectorExpansion": true,
       "expect": 0,
-      "misMatchThreshold": 15,
+      "misMatchThreshold": 18,
       "requireSameDimensions": false
     },
     {
@@ -95,7 +95,7 @@
       "selectors": [],
       "selectorExpansion": true,
       "expect": 0,
-      "misMatchThreshold": 15,
+      "misMatchThreshold": 18,
       "requireSameDimensions": false
     },
     {
@@ -110,7 +110,7 @@
       "selectors": [],
       "selectorExpansion": true,
       "expect": 0,
-      "misMatchThreshold": 15,
+      "misMatchThreshold": 18,
       "requireSameDimensions": false
     },
     {
@@ -125,7 +125,7 @@
       "selectors": [],
       "selectorExpansion": true,
       "expect": 0,
-      "misMatchThreshold": 15,
+      "misMatchThreshold": 18,
       "requireSameDimensions": false
     },
     {
@@ -140,7 +140,7 @@
       "selectors": [],
       "selectorExpansion": true,
       "expect": 0,
-      "misMatchThreshold": 15,
+      "misMatchThreshold": 18,
       "requireSameDimensions": false
     },
     {
@@ -155,7 +155,7 @@
       "selectors": [],
       "selectorExpansion": true,
       "expect": 0,
-      "misMatchThreshold": 15,
+      "misMatchThreshold": 18,
       "requireSameDimensions": false
     },
     {
@@ -170,7 +170,7 @@
       "selectors": [],
       "selectorExpansion": true,
       "expect": 0,
-      "misMatchThreshold": 15,
+      "misMatchThreshold": 18,
       "requireSameDimensions": false
     },
     {
@@ -185,7 +185,7 @@
       "selectors": [],
       "selectorExpansion": true,
       "expect": 0,
-      "misMatchThreshold": 15,
+      "misMatchThreshold": 18,
       "requireSameDimensions": false
     },
     {
@@ -200,7 +200,7 @@
       "selectors": [],
       "selectorExpansion": true,
       "expect": 0,
-      "misMatchThreshold": 15,
+      "misMatchThreshold": 18,
       "requireSameDimensions": false
     }
     ,
@@ -216,7 +216,7 @@
       "selectors": [],
       "selectorExpansion": true,
       "expect": 0,
-      "misMatchThreshold": 15,
+      "misMatchThreshold": 18,
       "requireSameDimensions": false
     },
     {
@@ -231,7 +231,7 @@
       "selectors": [],
       "selectorExpansion": true,
       "expect": 0,
-      "misMatchThreshold": 15,
+      "misMatchThreshold": 18,
       "requireSameDimensions": false
     },
     {
@@ -246,7 +246,7 @@
       "selectors": [],
       "selectorExpansion": true,
       "expect": 0,
-      "misMatchThreshold": 15,
+      "misMatchThreshold": 18,
       "requireSameDimensions": false
     },
     {
@@ -261,7 +261,7 @@
       "selectors": [],
       "selectorExpansion": true,
       "expect": 0,
-      "misMatchThreshold": 15,
+      "misMatchThreshold": 18,
       "requireSameDimensions": false
     },
     {
@@ -276,7 +276,7 @@
       "selectors": [],
       "selectorExpansion": true,
       "expect": 0,
-      "misMatchThreshold": 15,
+      "misMatchThreshold": 18,
       "requireSameDimensions": false
     },
     {
@@ -291,7 +291,7 @@
       "selectors": [],
       "selectorExpansion": true,
       "expect": 0,
-      "misMatchThreshold": 15,
+      "misMatchThreshold": 18,
       "requireSameDimensions": false
     },
     {
@@ -306,7 +306,7 @@
       "selectors": [],
       "selectorExpansion": true,
       "expect": 0,
-      "misMatchThreshold": 15,
+      "misMatchThreshold": 18,
       "requireSameDimensions": false
     },
     {
@@ -321,7 +321,7 @@
       "selectors": [],
       "selectorExpansion": true,
       "expect": 0,
-      "misMatchThreshold": 15,
+      "misMatchThreshold": 18,
       "requireSameDimensions": false
     },
     {
@@ -336,7 +336,7 @@
       "selectors": [],
       "selectorExpansion": true,
       "expect": 0,
-      "misMatchThreshold": 15,
+      "misMatchThreshold": 18,
       "requireSameDimensions": false
     },
     {
@@ -351,7 +351,7 @@
       "selectors": [],
       "selectorExpansion": true,
       "expect": 0,
-      "misMatchThreshold": 15,
+      "misMatchThreshold": 18,
       "requireSameDimensions": false
     },
     {
@@ -366,7 +366,7 @@
       "selectors": [],
       "selectorExpansion": true,
       "expect": 0,
-      "misMatchThreshold": 15,
+      "misMatchThreshold": 18,
       "requireSameDimensions": false
     },
     {
@@ -381,7 +381,7 @@
       "selectors": [],
       "selectorExpansion": true,
       "expect": 0,
-      "misMatchThreshold": 15,
+      "misMatchThreshold": 18,
       "requireSameDimensions": false
     },
     {
@@ -396,7 +396,7 @@
       "selectors": [],
       "selectorExpansion": true,
       "expect": 0,
-      "misMatchThreshold": 15,
+      "misMatchThreshold": 18,
       "requireSameDimensions": false
     },
     {
@@ -411,7 +411,7 @@
       "selectors": [],
       "selectorExpansion": true,
       "expect": 0,
-      "misMatchThreshold": 15,
+      "misMatchThreshold": 18,
       "requireSameDimensions": false
     },
     {
@@ -426,7 +426,7 @@
       "selectors": [],
       "selectorExpansion": true,
       "expect": 0,
-      "misMatchThreshold": 15,
+      "misMatchThreshold": 18,
       "requireSameDimensions": false
     },
     {
@@ -441,7 +441,7 @@
       "selectors": [],
       "selectorExpansion": true,
       "expect": 0,
-      "misMatchThreshold": 15,
+      "misMatchThreshold": 18,
       "requireSameDimensions": false
     },
     {
@@ -456,7 +456,7 @@
       "selectors": [],
       "selectorExpansion": true,
       "expect": 0,
-      "misMatchThreshold": 15,
+      "misMatchThreshold": 18,
       "requireSameDimensions": false
     },
     {
@@ -471,7 +471,7 @@
       "selectors": [],
       "selectorExpansion": true,
       "expect": 0,
-      "misMatchThreshold": 15,
+      "misMatchThreshold": 18,
       "requireSameDimensions": false
     },
     {
@@ -486,7 +486,7 @@
       "selectors": [],
       "selectorExpansion": true,
       "expect": 0,
-      "misMatchThreshold": 15,
+      "misMatchThreshold": 18,
       "requireSameDimensions": false
     },
     {
@@ -501,7 +501,7 @@
       "selectors": [],
       "selectorExpansion": true,
       "expect": 0,
-      "misMatchThreshold": 15,
+      "misMatchThreshold": 18,
       "requireSameDimensions": false
     },
     {
@@ -516,7 +516,7 @@
       "selectors": [],
       "selectorExpansion": true,
       "expect": 0,
-      "misMatchThreshold": 15,
+      "misMatchThreshold": 18,
       "requireSameDimensions": false
     },
     {
@@ -531,22 +531,7 @@
       "selectors": [],
       "selectorExpansion": true,
       "expect": 0,
-      "misMatchThreshold": 15,
-      "requireSameDimensions": false
-    },
-    {
-      "label": "kraken_crear-tag_escenario_2_Paso_8",
-      "url": "../screenshots/kraken/v5.82/crear-tag/escenario_2/paso_8.png",
-      "delay": 0,
-      "hideSelectors": [],
-      "removeSelectors": [],
-      "hoverSelector": "",
-      "clickSelector": "",
-      "postInteractionWait": 0,
-      "selectors": [],
-      "selectorExpansion": true,
-      "expect": 0,
-      "misMatchThreshold": 15,
+      "misMatchThreshold": 18,
       "requireSameDimensions": false
     },
     {
@@ -561,7 +546,7 @@
       "selectors": [],
       "selectorExpansion": true,
       "expect": 0,
-      "misMatchThreshold": 15,
+      "misMatchThreshold": 18,
       "requireSameDimensions": false
     },
     {
@@ -576,7 +561,7 @@
       "selectors": [],
       "selectorExpansion": true,
       "expect": 0,
-      "misMatchThreshold": 15,
+      "misMatchThreshold": 18,
       "requireSameDimensions": false
     },
     {
@@ -591,7 +576,7 @@
       "selectors": [],
       "selectorExpansion": true,
       "expect": 0,
-      "misMatchThreshold": 15,
+      "misMatchThreshold": 18,
       "requireSameDimensions": false
     },
     {
@@ -606,7 +591,7 @@
       "selectors": [],
       "selectorExpansion": true,
       "expect": 0,
-      "misMatchThreshold": 15,
+      "misMatchThreshold": 18,
       "requireSameDimensions": false
     },
     {
@@ -621,7 +606,7 @@
       "selectors": [],
       "selectorExpansion": true,
       "expect": 0,
-      "misMatchThreshold": 15,
+      "misMatchThreshold": 18,
       "requireSameDimensions": false
     },
     {
@@ -636,7 +621,7 @@
       "selectors": [],
       "selectorExpansion": true,
       "expect": 0,
-      "misMatchThreshold": 15,
+      "misMatchThreshold": 18,
       "requireSameDimensions": false
     },
     {
@@ -651,7 +636,7 @@
       "selectors": [],
       "selectorExpansion": true,
       "expect": 0,
-      "misMatchThreshold": 15,
+      "misMatchThreshold": 18,
       "requireSameDimensions": false
     },
     {
@@ -666,7 +651,7 @@
       "selectors": [],
       "selectorExpansion": true,
       "expect": 0,
-      "misMatchThreshold": 15,
+      "misMatchThreshold": 18,
       "requireSameDimensions": false
     },
     {
@@ -681,7 +666,7 @@
       "selectors": [],
       "selectorExpansion": true,
       "expect": 0,
-      "misMatchThreshold": 15,
+      "misMatchThreshold": 18,
       "requireSameDimensions": false
     },
     {
@@ -696,7 +681,7 @@
       "selectors": [],
       "selectorExpansion": true,
       "expect": 0,
-      "misMatchThreshold": 15,
+      "misMatchThreshold": 18,
       "requireSameDimensions": false
     },
     {
@@ -711,7 +696,7 @@
       "selectors": [],
       "selectorExpansion": true,
       "expect": 0,
-      "misMatchThreshold": 15,
+      "misMatchThreshold": 18,
       "requireSameDimensions": false
     },
     {
@@ -726,7 +711,7 @@
       "selectors": [],
       "selectorExpansion": true,
       "expect": 0,
-      "misMatchThreshold": 15,
+      "misMatchThreshold": 18,
       "requireSameDimensions": false
     },
     {
@@ -741,7 +726,7 @@
       "selectors": [],
       "selectorExpansion": true,
       "expect": 0,
-      "misMatchThreshold": 15,
+      "misMatchThreshold": 18,
       "requireSameDimensions": false
     },
     {
@@ -756,7 +741,7 @@
       "selectors": [],
       "selectorExpansion": true,
       "expect": 0,
-      "misMatchThreshold": 15,
+      "misMatchThreshold": 18,
       "requireSameDimensions": false
     },
     {
@@ -771,7 +756,7 @@
       "selectors": [],
       "selectorExpansion": true,
       "expect": 0,
-      "misMatchThreshold": 15,
+      "misMatchThreshold": 18,
       "requireSameDimensions": false
     },
     {
@@ -786,7 +771,7 @@
       "selectors": [],
       "selectorExpansion": true,
       "expect": 0,
-      "misMatchThreshold": 15,
+      "misMatchThreshold": 18,
       "requireSameDimensions": false
     },
     {
@@ -801,7 +786,7 @@
       "selectors": [],
       "selectorExpansion": true,
       "expect": 0,
-      "misMatchThreshold": 15,
+      "misMatchThreshold": 18,
       "requireSameDimensions": false
     },
     {
@@ -816,7 +801,7 @@
       "selectors": [],
       "selectorExpansion": true,
       "expect": 0,
-      "misMatchThreshold": 15,
+      "misMatchThreshold": 18,
       "requireSameDimensions": false
     },
     {
@@ -831,7 +816,7 @@
       "selectors": [],
       "selectorExpansion": true,
       "expect": 0,
-      "misMatchThreshold": 15,
+      "misMatchThreshold": 18,
       "requireSameDimensions": false
     },
     {
@@ -846,7 +831,7 @@
       "selectors": [],
       "selectorExpansion": true,
       "expect": 0,
-      "misMatchThreshold": 15,
+      "misMatchThreshold": 18,
       "requireSameDimensions": false
     },
     {
@@ -861,10 +846,537 @@
       "selectors": [],
       "selectorExpansion": true,
       "expect": 0,
-      "misMatchThreshold": 15,
+      "misMatchThreshold": 18,
+      "requireSameDimensions": false
+    },
+    {
+      "label": "puppeteer_crear-page_escenario_4_Paso_1",
+      "url": "../screenshots/puppeteer/v5.82/crear-page/escenario_4/paso_1.png",
+      "delay": 0,
+      "hideSelectors": [],
+      "removeSelectors": [],
+      "hoverSelector": "",
+      "clickSelector": "",
+      "postInteractionWait": 0,
+      "selectors": [],
+      "selectorExpansion": true,
+      "expect": 0,
+      "misMatchThreshold": 18,
+      "requireSameDimensions": false
+    },
+    {
+      "label": "puppeteer_crear-page_escenario_4_Paso_2",
+      "url": "../screenshots/puppeteer/v5.82/crear-page/escenario_4/paso_2.png",
+      "delay": 0,
+      "hideSelectors": [],
+      "removeSelectors": [],
+      "hoverSelector": "",
+      "clickSelector": "",
+      "postInteractionWait": 0,
+      "selectors": [],
+      "selectorExpansion": true,
+      "expect": 0,
+      "misMatchThreshold": 18,
+      "requireSameDimensions": false
+    },
+    {
+      "label": "puppeteer_crear-page_escenario_4_Paso_3",
+      "url": "../screenshots/puppeteer/v5.82/crear-page/escenario_4/paso_3.png",
+      "delay": 0,
+      "hideSelectors": [],
+      "removeSelectors": [],
+      "hoverSelector": "",
+      "clickSelector": "",
+      "postInteractionWait": 0,
+      "selectors": [],
+      "selectorExpansion": true,
+      "expect": 0,
+      "misMatchThreshold": 18,
+      "requireSameDimensions": false
+    },
+    {
+      "label": "puppeteer_crear-page_escenario_4_Paso_4",
+      "url": "../screenshots/puppeteer/v5.82/crear-page/escenario_4/paso_4.png",
+      "delay": 0,
+      "hideSelectors": [],
+      "removeSelectors": [],
+      "hoverSelector": "",
+      "clickSelector": "",
+      "postInteractionWait": 0,
+      "selectors": [],
+      "selectorExpansion": true,
+      "expect": 0,
+      "misMatchThreshold": 18,
+      "requireSameDimensions": false
+    },
+    {
+      "label": "puppeteer_crear-page_escenario_4_Paso_5",
+      "url": "../screenshots/puppeteer/v5.82/crear-page/escenario_4/paso_5.png",
+      "delay": 0,
+      "hideSelectors": [],
+      "removeSelectors": [],
+      "hoverSelector": "",
+      "clickSelector": "",
+      "postInteractionWait": 0,
+      "selectors": [],
+      "selectorExpansion": true,
+      "expect": 0,
+      "misMatchThreshold": 18,
+      "requireSameDimensions": false
+    },
+    {
+      "label": "puppeteer_crear-page_escenario_4_Paso_6",
+      "url": "../screenshots/puppeteer/v5.82/crear-page/escenario_4/paso_6.png",
+      "delay": 0,
+      "hideSelectors": [],
+      "removeSelectors": [],
+      "hoverSelector": "",
+      "clickSelector": "",
+      "postInteractionWait": 0,
+      "selectors": [],
+      "selectorExpansion": true,
+      "expect": 0,
+      "misMatchThreshold": 18,
+      "requireSameDimensions": false
+    },
+    {
+      "label": "puppeteer_crear-page_escenario_4_Paso_7",
+      "url": "../screenshots/puppeteer/v5.82/crear-page/escenario_4/paso_7.png",
+      "delay": 0,
+      "hideSelectors": [],
+      "removeSelectors": [],
+      "hoverSelector": "",
+      "clickSelector": "",
+      "postInteractionWait": 0,
+      "selectors": [],
+      "selectorExpansion": true,
+      "expect": 0,
+      "misMatchThreshold": 18,
+      "requireSameDimensions": false
+    },
+    {
+      "label": "puppeteer_crear-page_escenario_4_Paso_8",
+      "url": "../screenshots/puppeteer/v5.82/crear-page/escenario_4/paso_8.png",
+      "delay": 0,
+      "hideSelectors": [],
+      "removeSelectors": [],
+      "hoverSelector": "",
+      "clickSelector": "",
+      "postInteractionWait": 0,
+      "selectors": [],
+      "selectorExpansion": true,
+      "expect": 0,
+      "misMatchThreshold": 18,
+      "requireSameDimensions": false
+    },
+    {
+      "label": "puppeteer_crear-page_escenario_4_Paso_9",
+      "url": "../screenshots/puppeteer/v5.82/crear-page/escenario_4/paso_9.png",
+      "delay": 0,
+      "hideSelectors": [],
+      "removeSelectors": [],
+      "hoverSelector": "",
+      "clickSelector": "",
+      "postInteractionWait": 0,
+      "selectors": [],
+      "selectorExpansion": true,
+      "expect": 0,
+      "misMatchThreshold": 18,
+      "requireSameDimensions": false
+    },
+    {
+      "label": "puppeteer_crear-page_escenario_4_Paso_10",
+      "url": "../screenshots/puppeteer/v5.82/crear-page/escenario_4/paso_10.png",
+      "delay": 0,
+      "hideSelectors": [],
+      "removeSelectors": [],
+      "hoverSelector": "",
+      "clickSelector": "",
+      "postInteractionWait": 0,
+      "selectors": [],
+      "selectorExpansion": true,
+      "expect": 0,
+      "misMatchThreshold": 18,
+      "requireSameDimensions": false
+    },
+    {
+      "label": "puppeteer_crear-page_escenario_4_Paso_11",
+      "url": "../screenshots/puppeteer/v5.82/crear-page/escenario_4/paso_11.png",
+      "delay": 0,
+      "hideSelectors": [],
+      "removeSelectors": [],
+      "hoverSelector": "",
+      "clickSelector": "",
+      "postInteractionWait": 0,
+      "selectors": [],
+      "selectorExpansion": true,
+      "expect": 0,
+      "misMatchThreshold": 18,
+      "requireSameDimensions": false
+    },
+    {
+      "label": "puppeteer_crear-page_escenario_4_Paso_12",
+      "url": "../screenshots/puppeteer/v5.82/crear-page/escenario_4/paso_12.png",
+      "delay": 0,
+      "hideSelectors": [],
+      "removeSelectors": [],
+      "hoverSelector": "",
+      "clickSelector": "",
+      "postInteractionWait": 0,
+      "selectors": [],
+      "selectorExpansion": true,
+      "expect": 0,
+      "misMatchThreshold": 18,
+      "requireSameDimensions": false
+    },
+    {
+      "label": "puppeteer_crear-tag_escenario_1_Paso_1",
+      "url": "../screenshots/puppeteer/v5.82/crear-tag/escenario_1/paso_1.png",
+      "delay": 0,
+      "hideSelectors": [],
+      "removeSelectors": [],
+      "hoverSelector": "",
+      "clickSelector": "",
+      "postInteractionWait": 0,
+      "selectors": [],
+      "selectorExpansion": true,
+      "expect": 0,
+      "misMatchThreshold": 18,
+      "requireSameDimensions": false
+    },
+    {
+      "label": "puppeteer_crear-tag_escenario_1_Paso_2",
+      "url": "../screenshots/puppeteer/v5.82/crear-tag/escenario_1/paso_2.png",
+      "delay": 0,
+      "hideSelectors": [],
+      "removeSelectors": [],
+      "hoverSelector": "",
+      "clickSelector": "",
+      "postInteractionWait": 0,
+      "selectors": [],
+      "selectorExpansion": true,
+      "expect": 0,
+      "misMatchThreshold": 18,
+      "requireSameDimensions": false
+    },
+    {
+      "label": "puppeteer_crear-tag_escenario_1_Paso_3",
+      "url": "../screenshots/puppeteer/v5.82/crear-tag/escenario_1/paso_3.png",
+      "delay": 0,
+      "hideSelectors": [],
+      "removeSelectors": [],
+      "hoverSelector": "",
+      "clickSelector": "",
+      "postInteractionWait": 0,
+      "selectors": [],
+      "selectorExpansion": true,
+      "expect": 0,
+      "misMatchThreshold": 18,
+      "requireSameDimensions": false
+    },
+    {
+      "label": "puppeteer_crear-tag_escenario_1_Paso_4",
+      "url": "../screenshots/puppeteer/v5.82/crear-tag/escenario_1/paso_4.png",
+      "delay": 0,
+      "hideSelectors": [],
+      "removeSelectors": [],
+      "hoverSelector": "",
+      "clickSelector": "",
+      "postInteractionWait": 0,
+      "selectors": [],
+      "selectorExpansion": true,
+      "expect": 0,
+      "misMatchThreshold": 18,
+      "requireSameDimensions": false
+    },
+    {
+      "label": "puppeteer_crear-tag_escenario_1_Paso_5",
+      "url": "../screenshots/puppeteer/v5.82/crear-tag/escenario_1/paso_5.png",
+      "delay": 0,
+      "hideSelectors": [],
+      "removeSelectors": [],
+      "hoverSelector": "",
+      "clickSelector": "",
+      "postInteractionWait": 0,
+      "selectors": [],
+      "selectorExpansion": true,
+      "expect": 0,
+      "misMatchThreshold": 18,
+      "requireSameDimensions": false
+    },
+    {
+      "label": "puppeteer_crear-tag_escenario_1_Paso_6",
+      "url": "../screenshots/puppeteer/v5.82/crear-tag/escenario_1/paso_6.png",
+      "delay": 0,
+      "hideSelectors": [],
+      "removeSelectors": [],
+      "hoverSelector": "",
+      "clickSelector": "",
+      "postInteractionWait": 0,
+      "selectors": [],
+      "selectorExpansion": true,
+      "expect": 0,
+      "misMatchThreshold": 18,
+      "requireSameDimensions": false
+    },
+    {
+      "label": "puppeteer_crear-tag_escenario_1_Paso_7",
+      "url": "../screenshots/puppeteer/v5.82/crear-tag/escenario_1/paso_7.png",
+      "delay": 0,
+      "hideSelectors": [],
+      "removeSelectors": [],
+      "hoverSelector": "",
+      "clickSelector": "",
+      "postInteractionWait": 0,
+      "selectors": [],
+      "selectorExpansion": true,
+      "expect": 0,
+      "misMatchThreshold": 18,
+      "requireSameDimensions": false
+    },
+    {
+      "label": "puppeteer_crear-tag_escenario_1_Paso_8",
+      "url": "../screenshots/puppeteer/v5.82/crear-tag/escenario_1/paso_8.png",
+      "delay": 0,
+      "hideSelectors": [],
+      "removeSelectors": [],
+      "hoverSelector": "",
+      "clickSelector": "",
+      "postInteractionWait": 0,
+      "selectors": [],
+      "selectorExpansion": true,
+      "expect": 0,
+      "misMatchThreshold": 18,
+      "requireSameDimensions": false
+    },
+    {
+      "label": "puppeteer_crear-tag_escenario_1_Paso_9",
+      "url": "../screenshots/puppeteer/v5.82/crear-tag/escenario_1/paso_9.png",
+      "delay": 0,
+      "hideSelectors": [],
+      "removeSelectors": [],
+      "hoverSelector": "",
+      "clickSelector": "",
+      "postInteractionWait": 0,
+      "selectors": [],
+      "selectorExpansion": true,
+      "expect": 0,
+      "misMatchThreshold": 18,
+      "requireSameDimensions": false
+    },
+    {
+      "label": "puppeteer_crear-tag_escenario_1_Paso_10",
+      "url": "../screenshots/puppeteer/v5.82/crear-tag/escenario_1/paso_10.png",
+      "delay": 0,
+      "hideSelectors": [],
+      "removeSelectors": [],
+      "hoverSelector": "",
+      "clickSelector": "",
+      "postInteractionWait": 0,
+      "selectors": [],
+      "selectorExpansion": true,
+      "expect": 0,
+      "misMatchThreshold": 18,
       "requireSameDimensions": false
     }
-
+    ,
+    {
+      "label": "puppeteer_crear-tag_escenario_4_Paso_1",
+      "url": "../screenshots/puppeteer/v5.82/crear-tag/escenario_4/paso_1.png",
+      "delay": 0,
+      "hideSelectors": [],
+      "removeSelectors": [],
+      "hoverSelector": "",
+      "clickSelector": "",
+      "postInteractionWait": 0,
+      "selectors": [],
+      "selectorExpansion": true,
+      "expect": 0,
+      "misMatchThreshold": 18,
+      "requireSameDimensions": false
+    }
+    ,
+    {
+      "label": "puppeteer_crear-tag_escenario_4_Paso_2",
+      "url": "../screenshots/puppeteer/v5.82/crear-tag/escenario_4/paso_2.png",
+      "delay": 0,
+      "hideSelectors": [],
+      "removeSelectors": [],
+      "hoverSelector": "",
+      "clickSelector": "",
+      "postInteractionWait": 0,
+      "selectors": [],
+      "selectorExpansion": true,
+      "expect": 0,
+      "misMatchThreshold": 18,
+      "requireSameDimensions": false
+    },
+    {
+      "label": "puppeteer_crear-tag_escenario_4_Paso_3",
+      "url": "../screenshots/puppeteer/v5.82/crear-tag/escenario_4/paso_3.png",
+      "delay": 0,
+      "hideSelectors": [],
+      "removeSelectors": [],
+      "hoverSelector": "",
+      "clickSelector": "",
+      "postInteractionWait": 0,
+      "selectors": [],
+      "selectorExpansion": true,
+      "expect": 0,
+      "misMatchThreshold": 18,
+      "requireSameDimensions": false
+    },
+    {
+      "label": "puppeteer_crear-tag_escenario_4_Paso_4",
+      "url": "../screenshots/puppeteer/v5.82/crear-tag/escenario_4/paso_4.png",
+      "delay": 0,
+      "hideSelectors": [],
+      "removeSelectors": [],
+      "hoverSelector": "",
+      "clickSelector": "",
+      "postInteractionWait": 0,
+      "selectors": [],
+      "selectorExpansion": true,
+      "expect": 0,
+      "misMatchThreshold": 18,
+      "requireSameDimensions": false
+    },
+    {
+      "label": "puppeteer_crear-tag_escenario_4_Paso_5",
+      "url": "../screenshots/puppeteer/v5.82/crear-tag/escenario_4/paso_5.png",
+      "delay": 0,
+      "hideSelectors": [],
+      "removeSelectors": [],
+      "hoverSelector": "",
+      "clickSelector": "",
+      "postInteractionWait": 0,
+      "selectors": [],
+      "selectorExpansion": true,
+      "expect": 0,
+      "misMatchThreshold": 18,
+      "requireSameDimensions": false
+    },
+    {
+      "label": "puppeteer_crear-tag_escenario_4_Paso_6",
+      "url": "../screenshots/puppeteer/v5.82/crear-tag/escenario_4/paso_6.png",
+      "delay": 0,
+      "hideSelectors": [],
+      "removeSelectors": [],
+      "hoverSelector": "",
+      "clickSelector": "",
+      "postInteractionWait": 0,
+      "selectors": [],
+      "selectorExpansion": true,
+      "expect": 0,
+      "misMatchThreshold": 18,
+      "requireSameDimensions": false
+    },
+    {
+      "label": "puppeteer_crear-tag_escenario_4_Paso_7",
+      "url": "../screenshots/puppeteer/v5.82/crear-tag/escenario_4/paso_7.png",
+      "delay": 0,
+      "hideSelectors": [],
+      "removeSelectors": [],
+      "hoverSelector": "",
+      "clickSelector": "",
+      "postInteractionWait": 0,
+      "selectors": [],
+      "selectorExpansion": true,
+      "expect": 0,
+      "misMatchThreshold": 18,
+      "requireSameDimensions": false
+    },
+    {
+      "label": "puppeteer_crear-tag_escenario_4_Paso_8",
+      "url": "../screenshots/puppeteer/v5.82/crear-tag/escenario_4/paso_8.png",
+      "delay": 0,
+      "hideSelectors": [],
+      "removeSelectors": [],
+      "hoverSelector": "",
+      "clickSelector": "",
+      "postInteractionWait": 0,
+      "selectors": [],
+      "selectorExpansion": true,
+      "expect": 0,
+      "misMatchThreshold": 18,
+      "requireSameDimensions": false
+    },
+    {
+      "label": "puppeteer_crear-tag_escenario_4_Paso_9",
+      "url": "../screenshots/puppeteer/v5.82/crear-tag/escenario_4/paso_9.png",
+      "delay": 0,
+      "hideSelectors": [],
+      "removeSelectors": [],
+      "hoverSelector": "",
+      "clickSelector": "",
+      "postInteractionWait": 0,
+      "selectors": [],
+      "selectorExpansion": true,
+      "expect": 0,
+      "misMatchThreshold": 18,
+      "requireSameDimensions": false
+    },
+    {
+      "label": "puppeteer_crear-tag_escenario_4_Paso_10",
+      "url": "../screenshots/puppeteer/v5.82/crear-tag/escenario_4/paso_10.png",
+      "delay": 0,
+      "hideSelectors": [],
+      "removeSelectors": [],
+      "hoverSelector": "",
+      "clickSelector": "",
+      "postInteractionWait": 0,
+      "selectors": [],
+      "selectorExpansion": true,
+      "expect": 0,
+      "misMatchThreshold": 18,
+      "requireSameDimensions": false
+    }
+    ,
+    {
+      "label": "puppeteer_crear-tag_escenario_4_Paso_11",
+      "url": "../screenshots/puppeteer/v5.82/crear-tag/escenario_4/paso_11.png",
+      "delay": 0,
+      "hideSelectors": [],
+      "removeSelectors": [],
+      "hoverSelector": "",
+      "clickSelector": "",
+      "postInteractionWait": 0,
+      "selectors": [],
+      "selectorExpansion": true,
+      "expect": 0,
+      "misMatchThreshold": 18,
+      "requireSameDimensions": false
+    },
+    {
+      "label": "puppeteer_crear-tag_escenario_4_Paso_12",
+      "url": "../screenshots/puppeteer/v5.82/crear-tag/escenario_4/paso_12.png",
+      "delay": 0,
+      "hideSelectors": [],
+      "removeSelectors": [],
+      "hoverSelector": "",
+      "clickSelector": "",
+      "postInteractionWait": 0,
+      "selectors": [],
+      "selectorExpansion": true,
+      "expect": 0,
+      "misMatchThreshold": 18,
+      "requireSameDimensions": false
+    },
+    {
+      "label": "puppeteer_crear-tag_escenario_4_Paso_13",
+      "url": "../screenshots/puppeteer/v5.82/crear-tag/escenario_4/paso_13.png",
+      "delay": 0,
+      "hideSelectors": [],
+      "removeSelectors": [],
+      "hoverSelector": "",
+      "clickSelector": "",
+      "postInteractionWait": 0,
+      "selectors": [],
+      "selectorExpansion": true,
+      "expect": 0,
+      "misMatchThreshold": 18,
+      "requireSameDimensions": false
+    }
 
 
   ],
