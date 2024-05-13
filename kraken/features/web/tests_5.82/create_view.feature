@@ -2,7 +2,7 @@ Feature: Create View
 
 @user1 @web
 Scenario: Como usuario me registro y creo una vista color gris
-  Given I navigate to page "http://localhost:2368/ghost/#/setup"
+  Given I navigate to page "http://34.170.53.250/ghost/#/setup"
   And I wait for 1 seconds
   When I enter to the setup page "<SETUP_VALUES>"
   And I wait for 1 seconds
@@ -26,7 +26,7 @@ Scenario: Como usuario me registro y creo una vista color gris
 
 @user2 @web
 Scenario: Como usuario me registro y creo una vista pública de color naranja
-  Given I navigate to page "http://localhost:2368/ghost/#/setup"
+  Given I navigate to page "http://34.170.53.250/ghost/#/setup"
   When I enter to the setup page "<SETUP_VALUES>"
   And I wait for 1 seconds
   And I click Posts and take a screenshot for version "v5.82" feature "crear-view" scenario "2" step "1"
@@ -43,7 +43,7 @@ Scenario: Como usuario me registro y creo una vista pública de color naranja
 
 @user3 @web
 Scenario: Como usuario me registro y creo una vista pública de color naranja asociada a la etiqueta news
-  Given I navigate to page "http://localhost:2368/ghost/#/setup"
+  Given I navigate to page "http://34.170.53.250/ghost/#/setup"
   When I enter to the setup page "<SETUP_VALUES>"
   And I wait for 1 seconds
   And I click Posts and take a screenshot for version "v5.82" feature "crear-view" scenario "3" step "1"
