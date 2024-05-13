@@ -30,3 +30,5 @@ Ejecute el siguiente comando para ejecutar las comparaciones de imágenes captur
 1. Abra el archivo `reports/index.html`. Esto debe abrirse en el navegador de su preferencia.
 2. Podrá visualizar los resultados de la prueba, donde se tienen Métricas generales sobre las diferencias de las comparaciones.
 
+![Ejemplo de reporte](https://github.com/MISW4103-PA-202410/reporte-incidencias-ghost/assets/29685332/bde84179-ec46-4d16-918f-98fe8c31b34b)
+
