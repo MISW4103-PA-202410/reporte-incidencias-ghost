@@ -85,5 +85,5 @@ Scenario: Como usuario me registro y creo un post programado
   And I wait for 1 seconds
   And I click publish confirm button and take a screenshot for version "v5.82" feature "crear-post" scenario "4" step "9"
   And I wait for 1 seconds
-  And I navigate to page "http://34.170.53.250/ghost/#/dashboard"
+  And I navigate to page "http://34.170.53.250/ghost/#/posts"
   And I wait for 2 seconds

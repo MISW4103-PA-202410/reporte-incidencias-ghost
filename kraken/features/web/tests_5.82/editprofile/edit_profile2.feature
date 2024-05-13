@@ -2,7 +2,7 @@ Feature: Create View
 
 @user2 @web
 Scenario: Como usuario me registro y cambio la configuración agregando una imagen de portada
-  Given I navigate to page "http://localhost:2368/ghost/#/setup"
+  Given I navigate to page "http://34.170.53.250/ghost/#/setup"
   When I enter to the setup page "<SETUP_VALUES>"
   And I click the profile button and take a screenshot for version "v5.82" feature "editar-perfil" scenario "2" step "1"
   And I click the configure button and take a screenshot for version "v5.82" feature "editar-perfil" scenario "2" step "2"

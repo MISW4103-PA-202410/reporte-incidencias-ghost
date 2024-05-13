@@ -2,7 +2,7 @@ Feature: Create View
 
 @user3 @web
 Scenario: Como usuario me registro y cambio el nombre y el correo de mi perfil
-  Given I navigate to page "http://localhost:2368/ghost/#/setup"
+  Given I navigate to page "http://34.170.53.250/ghost/#/setup"
   When I enter to the setup page "<SETUP_VALUES>"
   And I wait for 2 seconds
   And I click the profile button and take a screenshot for version "v5.82" feature "editar-perfil" scenario "3" step "1"
