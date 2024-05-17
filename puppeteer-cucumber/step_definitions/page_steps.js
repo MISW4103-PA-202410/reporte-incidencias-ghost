@@ -1,11 +1,18 @@
 // Steps for crear-page.feature
-
 const { Given, When, Then } = require('@cucumber/cucumber');
 const scope = require('./support/scope')
 const constants = require('./support/constants')
 const _ = require('lodash')
 const chai = require('chai')
+var faker = require('faker');
 
+function dataSource(data) {
+    const regex = /\{(?<data_source>data_pool|faker)\((?<attribute>\w*)\)\}/;
+    const  match =  regex.exec(data);
+    const data_pool = match ? match.groups.data_source : 'default';
+    const attribute = match ? match.groups.attribute : '';
+    return [data_pool, attribute];
+}
 Given('ingreso {string} como nombre de la página', async (nombre) => {
     scope.variables.pageTitle = nombre;
     await scope.pages.pages.fillPageData(nombre, '');
@@ -18,12 +25,29 @@ Given('ingreso {string} como contenido de la página', async (contenido) => {
 
 Given('agrego un audio a la página', async () => {
     const uploaded = await scope.pages.pages.uploadAudio('./assets/audio.mp3');
-    
     scope.variables.audioUploaded = uploaded;
 });
 
-Given('agrego un video embebido de YouTube con link {string}', async (url) => {
-    const uploaded = await scope.pages.pages.embededYotubeVideo(url);
+Given('agrego un video embebido de YouTube con link {string}', async (data) => {
+    //Regex to get the data pool and the attribute
+    let data_source = dataSource(data);
+    let data_pool = data_source[0];
+    let attribute = data_source[1];
+    console.log(data_pool);
+    console.log(attribute);
+    //Get the data
+    let url = '';
+    let error;
+    if (data_pool === 'faker') {
+        url = faker.random.alphaNumeric(20);
+        console.log(url);
+        error = true;
+    } else if (data_pool === 'data_pool') {
+        url = scope.dataPool.page[attribute];
+        error = false;
+    }
+    //Upload linkk
+    const uploaded = await scope.pages.pages.embededYotubeVideo(url, error);
     scope.variables.videoUploaded = uploaded;
 });
 
@@ -61,8 +85,13 @@ Then('el audio se agregó correctamente', async () => {
     chai.assert(scope.variables.audioUploaded, 'No se pudo subir el audio');
 });
 
-Then('el video se agregó correctamente', async () => {
-    chai.assert(scope.variables.videoUploaded, 'No se pudo subir el video de youtube');
+Then('el video {string} se agregó correctamente', async (assert) => {
+    if (assert === 'si') {
+        chai.assert(scope.variables.videoUploaded, 'No se pudo subir el video de youtube');
+    }
+    else if (assert === 'no') {
+        chai.assert(!scope.variables.videoUploaded, 'Se subió el video de youtube');
+    }
 });
 
 Then('puedo navegar a la URL con el slug asignado', async () => {

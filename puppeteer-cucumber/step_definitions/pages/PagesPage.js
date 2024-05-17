@@ -73,7 +73,7 @@ class PagesPage {
         await new Promise(r => setTimeout(r, 500));
     }
 
-    async embededYotubeVideo(url){
+    async embededYotubeVideo(url, error){
         //Esperar a que el botón "Add feature image" esté disponible en la página
         await this.page.waitForSelector('button[aria-label="Add a card"]');
         await this.page.click('button[aria-label="Add a card"]');
@@ -87,20 +87,28 @@ class PagesPage {
         await this.page.type('input[placeholder="Paste URL to add embedded content..."]', url);
         await this.page.keyboard.press('Enter');
 
-        // Esperar a que el iframe esté disponible en la página
-        await this.page.waitForSelector('iframe[data-testid="embed-iframe"]');
+        if(!error){
+            // Esperar a que el iframe esté disponible en la página
+            await this.page.waitForSelector('iframe[data-testid="embed-iframe"]');
 
-        // Obtener todos los frames de la página
-        const frames = this.page.frames();
+            // Obtener todos los frames de la página
+            const frames = this.page.frames();
 
-        // Buscar el frame que contiene el iframe de YouTube
-        let youtubeFrame;
-        for (const frame of frames) {
-            const frameHtml = await frame.content();
-            if (frameHtml.includes('www.youtube.com/embed')) {
-                youtubeFrame = frame;
-                break;
+            // Buscar el frame que contiene el iframe de YouTube
+            let youtubeFrame;
+            for (const frame of frames) {
+                const frameHtml = await frame.content();
+                if (frameHtml.includes('www.youtube.com/embed')) {
+                    youtubeFrame = frame;
+                    break;
+                }
             }
+        }
+        else{
+            const html= await this.page.content();
+            console.log(html);
+            await this.page.waitForSelector('data-testid="embed-url-error-container"');
+            youtubeFrame = null;
         }
 
         if (!youtubeFrame) {

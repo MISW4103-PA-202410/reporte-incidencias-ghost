@@ -148,6 +148,20 @@ BeforeAll(async () => {
   fse.writeJsonSync('output/report-config.json', reportConfig)
   // *************************************** \\
 
+  const path_pool = path.join(__dirname, '../../data_pools/data_pool.json');
+  //charging data pools
+  fs.readFile(path_pool, 'utf8', (err, data) => {
+    try {
+        // Parsear el JSON
+        const jsonData = JSON.parse(data);
+        // Guardar los datos en scope.data_pool
+        scope.dataPool.page = jsonData.page;
+    } catch (error) {
+        console.error('Error al parsear el JSON:', error);
+        return;
+    }
+});
+
 })
 
 Before(async () => {
@@ -188,7 +202,7 @@ AfterStep(async function({pickle, pickleStep, gherkinDocument, result, testCaseS
   }
 
   //Screenshot
-  const screenshot = await scope.page.screenshot({path: fullPath, fullPage: true});
+  //const screenshot = await scope.page.screenshot({path: fullPath, fullPage: true});
 
 })
 

@@ -14,5 +14,6 @@ module.exports = {
     tag: undefined,
     userHistory: undefined
   },
-  variables: {}
+  variables: {},
+  dataPool:{}
 };

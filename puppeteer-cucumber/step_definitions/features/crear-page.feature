@@ -14,20 +14,6 @@ Feature: Crear page
         And el audio se agregó correctamente
 
     @run @pages @v5
-    Scenario: escenario_2 - Crear una page con un título, un párrafo y un video embebido de YouTube
-        Given inicio la aplicación
-        And inicio sesión si es necesario
-        And abro la sección de "Pages"
-        And doy click en "New page"
-        And ingreso "Página de prueba YT" como nombre de la página
-        And ingreso "contenido de la página con link a youtube" como contenido de la página
-        And agrego un video embebido de YouTube con link "https://www.youtube.com/watch?v=edVYLVDDgh0"
-        When publico la página
-        Then abro la sección de "Pages"
-        And la página debe existir en la lista
-        And el video se agregó correctamente
-
-    @run @pages @v5
     Scenario: escenario_3 - Crear una page básica con una URL definida (slug)
         Given inicio la aplicación
         And inicio sesión si es necesario
@@ -42,7 +28,7 @@ Feature: Crear page
         And la página debe existir en la lista
         And puedo navegar a la URL con el slug asignado
 
-    @run @pages @debug @v5
+    @run @pages @v5
     Scenario: escenario_4 - Crear una page básica, previsualizarla y dejarla en borrador
         Given inicio la aplicación
         And inicio sesión si es necesario
@@ -56,3 +42,32 @@ Feature: Crear page
         When guardo el borrador de la página
         Then la página debe existir en la lista
         And la página debe tener el estado "Draft"
+
+    @run @pages @v5 @debug
+    Scenario: escenario_5 - Crear una page con un título, un párrafo y un video embebido de YouTube usando una cadena alfanumerica aleatoria
+        Given inicio la aplicación
+        And inicio sesión si es necesario
+        And abro la sección de "Pages"
+        And doy click en "New page"
+        And ingreso "Página de prueba YT" como nombre de la página
+        And ingreso "contenido de la página con link a youtube" como contenido de la página
+        And agrego un video embebido de YouTube con link "{faker()}"
+        When publico la página
+        Then abro la sección de "Pages"
+        And la página debe existir en la lista
+        And el video "no" se agregó correctamente
+
+    @run @pages @v5 
+    Scenario: escenario_2 - Crear una page con un título, un párrafo y un video embebido de YouTube
+        Given inicio la aplicación
+        And inicio sesión si es necesario
+        And abro la sección de "Pages"
+        And doy click en "New page"
+        And ingreso "Página de prueba YT" como nombre de la página
+        And ingreso "contenido de la página con link a youtube" como contenido de la página
+        And agrego un video embebido de YouTube con link "{data_pool(link_yt_valid)}"
+        When publico la página
+        Then abro la sección de "Pages"
+        And la página debe existir en la lista
+        And el video "si" se agregó correctamente
+
