@@ -18,6 +18,7 @@ const TagPage = require('../pages/TagPage')
 const UserHistoryPage = require('../pages/UserHistoryPage');
 const { create } = require('domain');
 const path = require('path');
+const faker = require('faker');
 
 setDefaultTimeout(constants.pageTimeout * 1000);
 
@@ -160,8 +161,13 @@ BeforeAll(async () => {
         console.error('Error al parsear el JSON:', error);
         return;
     }
-});
+  });
 
+  //Generar datos dinamicos
+  generateDinamicDataPool();
+
+  //Datos dinamicos invalidos
+  invalidDinamicDataPool();
 })
 
 Before(async () => {
@@ -277,3 +283,75 @@ async function deleteContent() {
 
     console.log("Contenido eliminado");
   }
+
+function generateDinamicDataPool(){
+  // Ruta al archivo JSON
+  const filePath = path.join(__dirname, '../../data_pools/dinamic_data_pool.json');
+  // Leer el archivo JSON
+  fs.readFile(filePath, 'utf8', (err, data) => {
+      try {
+        // Parsear el JSON
+        const jsonData = JSON.parse(data);
+
+        // Verificar si existen los atributos 'titles' y 'contents'
+        if (jsonData.page.hasOwnProperty('titles')) {
+          // Generar una cantidad aleatoria de títulos
+          jsonData.page.titles = [];
+          const numTitles = faker.random.number({ min: 2, max: 8 });
+          for (let i = 0; i < numTitles; i++) {
+            const sNumber = faker.random.number({ min: 1, max: 10 });
+            jsonData.page.titles.push(faker.lorem.sentence(sNumber));
+          }
+        }
+        if (jsonData.page.hasOwnProperty('contents')) {
+          // Generar una cantidad aleatoria de contenidos
+          jsonData.page.contents = [];
+          const numContents = faker.random.number({ min: 1, max: 5 });
+          for (let i = 0; i < numContents; i++) {
+            const pNumber = faker.random.number({ min: 1, max: 5 });
+            jsonData.page.contents.push(faker.lorem.paragraphs(pNumber, '\n\n'));
+          }
+        }
+        if (jsonData.page.hasOwnProperty('audio_files')) {
+          // Generar una cantidad aleatoria de archivos
+          jsonData.page.audio_files = [];
+          const numFiles = faker.random.number({ min: 1, max: 3});
+          for (let i = 0; i < numFiles; i++) {
+            const fileName = faker.system.fileName();
+            const filePath = `./assets/${fileName}.mp3`;
+            jsonData.page.audio_files.push(filePath);
+          }
+        }
+
+        //Escribir en scope.dinamicDataPool.
+        scope.dinamicDataPool.page = jsonData.page;
+        // Escribir el archivo JSON
+        fs.writeFile(filePath, JSON.stringify(jsonData, null, 2), (err) => {
+          if (err) {
+            console.error('Error al escribir el archivo JSON:', err);
+            return;
+          }
+        });
+      } catch (error) {
+          console.error('Error al parsear el JSON:', error);
+          return;
+      }
+  });
+}
+
+function invalidDinamicDataPool(){
+  // Ruta al archivo JSON
+  const filePath = path.join(__dirname, '../../data_pools/invalid_dinamic_data_pool.json');
+  // Leer el archivo JSON
+  fs.readFile(filePath, 'utf8', (err, data) => {
+      try {
+        // Parsear el JSON
+        const jsonData = JSON.parse(data);
+        //Escribir en scope.invalidDinamicDataPool.
+        scope.invalidDinamicDataPool.page = jsonData.page;
+      } catch (error) {
+          console.error('Error al parsear el JSON:', error);
+          return;
+      }
+  });
+}

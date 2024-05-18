@@ -20,14 +20,13 @@ class PagesPage {
         // Ingresa el título del post
         await this.page.type('textarea[placeholder="Page title"]', title);
         // Ingresa el contenido del post
-        await new Promise(r => setTimeout(r, 500));
+        await new Promise(r => setTimeout(r, 600));
         await this.page.type('[data-lexical-editor="true"]', content);
         // Simula presionar la tecla "Enter" después de ingresar el contenido
         await this.page.keyboard.press('Enter');
     }
 
     async uploadAudio(filePath) {
-
         //Esperar a que el botón "Add feature image" esté disponible en la página
         await this.page.waitForSelector('button[aria-label="Add a card"]');
         await this.page.click('button[aria-label="Add a card"]');
@@ -38,10 +37,9 @@ class PagesPage {
             this.page.click('button[data-kg-card-menu-item="Audio"]')
         ]);
         await fileChooser.accept([filePath]);
-
         //Esperar a que la imagen se cargue
         try{
-            await this.page.waitForSelector('div[data-testid="audio-card-populated"]');
+            await this.page.waitForSelector('div[data-testid="audio-card-populated"]', { timeout: 30000 });
             return true;
         }
         catch{
@@ -50,30 +48,37 @@ class PagesPage {
     }
 
     async submitPost() {
-        await new Promise(r => setTimeout(r, 3000));
-        // Espera a que el botón "Publish" esté disponible en la página
-        await this.page.waitForSelector('button[data-test-button="publish-flow"]');
-        // Publica el post haciendo clic en el botón "Publish"
-        await this.page.click('button[data-test-button="publish-flow"]');
-        // Espear a que el botón "Continue" esté disponible en la página
-        await this.page.waitForSelector('button[data-test-button="continue"]');
-        // Continúa con la publicación haciendo clic en el botón "Continue"
-        await this.page.click('button[data-test-button="continue"]');
-        await new Promise(r => setTimeout(r, 1000));
-        // Espera aa que el botón "Publish post, right now" esté disponible en la página
-        await this.page.waitForSelector('button[data-test-button="confirm-publish"]');
-        // Publica el post haciendo clic en el botón "Publish post, right now"
-        await this.page.click('button[data-test-button="confirm-publish"]');
-        await new Promise(r => setTimeout(r, 1000));
-        //Esperar a que el post se publique
-        await this.page.waitForSelector('a[data-test-complete-bookmark=""]');
-        //Completa la publicación haciendo clic en el botón "Done"
-        await this.page.click('a.ember-view.gh-back-to-editor');
-        // Espera a que la publicación se complete
-        await new Promise(r => setTimeout(r, 500));
+        try{
+            await new Promise(r => setTimeout(r, 3000));
+            // Espera a que el botón "Publish" esté disponible en la página
+            await this.page.waitForSelector('button[data-test-button="publish-flow"]', { timeout: 5000 });
+            // Publica el post haciendo clic en el botón "Publish"
+            await this.page.click('button[data-test-button="publish-flow"]');
+            // Espear a que el botón "Continue" esté disponible en la página
+            await this.page.waitForSelector('button[data-test-button="continue"]', { timeout: 10000 });
+            // Continúa con la publicación haciendo clic en el botón "Continue"
+            await this.page.click('button[data-test-button="continue"]');
+            await new Promise(r => setTimeout(r, 1000));
+            // Espera aa que el botón "Publish post, right now" esté disponible en la página
+            await this.page.waitForSelector('button[data-test-button="confirm-publish"]', { timeout: 1000 });
+            // Publica el post haciendo clic en el botón "Publish post, right now"
+            await this.page.click('button[data-test-button="confirm-publish"]');
+            await new Promise(r => setTimeout(r, 1000));
+            //Esperar a que el post se publique
+            await this.page.waitForSelector('a[data-test-complete-bookmark=""]', { timeout: 5000 });
+            //Completa la publicación haciendo clic en el botón "Done"
+            await this.page.click('a.ember-view.gh-back-to-editor');
+            // Espera a que la publicación se complete
+            await new Promise(r => setTimeout(r, 500));
+            return true;
+        }catch{
+            return false;
+        }
+
     }
 
-    async embededYotubeVideo(url, error){
+    async embededYotubeVideo(url){
+        let youtubeFrame;
         //Esperar a que el botón "Add feature image" esté disponible en la página
         await this.page.waitForSelector('button[aria-label="Add a card"]');
         await this.page.click('button[aria-label="Add a card"]');
@@ -87,15 +92,12 @@ class PagesPage {
         await this.page.type('input[placeholder="Paste URL to add embedded content..."]', url);
         await this.page.keyboard.press('Enter');
 
-        if(!error){
+        try{
             // Esperar a que el iframe esté disponible en la página
-            await this.page.waitForSelector('iframe[data-testid="embed-iframe"]');
-
+            await this.page.waitForSelector('iframe[data-testid="embed-iframe"]', { timeout: 5000 });
             // Obtener todos los frames de la página
             const frames = this.page.frames();
-
             // Buscar el frame que contiene el iframe de YouTube
-            let youtubeFrame;
             for (const frame of frames) {
                 const frameHtml = await frame.content();
                 if (frameHtml.includes('www.youtube.com/embed')) {
@@ -104,13 +106,10 @@ class PagesPage {
                 }
             }
         }
-        else{
-            const html= await this.page.content();
-            console.log(html);
-            await this.page.waitForSelector('data-testid="embed-url-error-container"');
+        catch{
+            await this.page.waitForSelector('div[data-testid="embed-url-error-container"]');
             youtubeFrame = null;
         }
-
         if (!youtubeFrame) {
             return false;
         }else{
