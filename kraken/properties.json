@@ -20,5 +20,6 @@
   "SETUP_VALUES_NEW_EMAIL": "equipo201@misw4103.com;PRUEBAS12345",
   "OLD_PROFILE_VALUES": "Jaime Larson;equipo20@misw4103.com",
   "SOCIAL_MEDIA": "https://facebook.com/zuck;https://twitter.com/elonmusk",
-  "VERSION": "v5.82"
+  "VERSION": "v5.82",
+  "ERROR_NAME_MESSAGE_TAG": "You must specify a name for the tag."
 }

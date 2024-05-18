@@ -2,8 +2,10 @@ const { Given, When, Then } = require("@cucumber/cucumber");
 const path = require("path");
 const fs = require('fs');
 const { assert, expect } = require("chai");
+const { faker } = require('@faker-js/faker');
 const { Console } = require("console");
 const { version } = require("os");
+const axios = require('axios');
 
 When("I enter to the setup page {kraken-string}", async function (values) {
   const setupValues = values.split(";");
@@ -399,8 +401,9 @@ When("I fill the tag name {kraken-string} and take a screenshot for version {kra
 
 When("I verify the tag name created is {kraken-string} and take a screenshot for version {kraken-string} feature {string} scenario {string} step {string}", async function (values, version, feature, scenario, step) {
   let element = await this.driver.$(
-    '.view-container.content-list > ol > li:last-of-type > a:first-of-type'
+    '.view-container.content-list > ol > li:last-of-type > a:first-of-type > h3[class="gh-tag-list-name"]'
   );
+  
   let tagName = await element.getText();
   assert.equal(tagName, values);
 
@@ -414,6 +417,7 @@ When("I verify the tag name created is {kraken-string} and take a screenshot for
 
   return await element.click();
 });
+
 
 When("I click the save tag button and take a screenshot for version {kraken-string} feature {string} scenario {string} step {string}", async function (version, feature, scenario, step) {
   let element = await this.driver.$('button[data-test-button="save"]');
@@ -496,6 +500,255 @@ When("I click in the expand meta data button and take a screenshot for version {
   const screenshotPath = path.join(screenshotsBasePath, screenshotFilename);
   fs.writeFileSync(screenshotPath, screenshot, 'base64');
 });
+
+
+When("I verify the error message {kraken-string}", async function (values) {
+  let element = await this.driver.$("span.error");
+  let message = await element.getText();
+  assert.equal(message, values);
+});
+
+When("I choose a random color for the tag", async function () {
+  const dataPath = path.join(__dirname, '../../web/resources', 'randomColor.json');
+  const randomColor = JSON.parse(fs.readFileSync(dataPath));
+  let element = await this.driver.$('input[data-test-input="accentColor"]');
+  await element.click();
+  await element.setValue(randomColor.color);
+}
+);
+
+When("I click the tag created with the name {kraken-string}", async function (values) {
+  let element = await this.driver.$$(
+    '.view-container.content-list > ol > li > a:first-of-type'
+  );
+  for (let i = 0; i < element.length; i++) {
+    let tagName = await element[i].getText();
+    if (tagName === values) {
+      console.log("clicking");
+      console.log(tagName);
+      return await element[i].click();
+    }
+  }
+});
+
+When("I verify the random color in the tag", async function () {
+  const dataPath = path.join(__dirname, '../../web/resources', 'randomColor.json');
+  const randomColor = JSON.parse(fs.readFileSync(dataPath));
+  let element = await this.driver.$('input[data-test-input="accentColor"]');
+  let color = await element.getValue();
+  assert.equal(color, randomColor.color);
+});
+
+When("I fill with a random name the tag name", async function () {
+  const randomTagName = faker.lorem.word();
+
+  let element = await this.driver.$("#tag-name");
+
+  await element.setValue(randomTagName);
+
+  this.randomTagName = randomTagName;
+});
+
+
+When("I click the random name tag created", async function () {
+  let element = await this.driver.$$(
+    '.view-container.content-list > ol > li > a:first-of-type > h3[class="gh-tag-list-name"]'
+  );
+  for (let i = 0; i < element.length; i++) {
+    let tagName = await element[i].getText();
+    if (tagName === this.randomTagName) {
+      return await element[i].click();
+    }
+  }
+});
+
+
+When("I delete the tag created", async function () {
+  let element = await this.driver.$('button[data-test-button="delete-tag"]');
+  await element.click();
+  let confirmButton = await this.driver.$('button[data-test-button="confirm"]');
+  await confirmButton.click();
+});
+
+When("I verify the tag name created is the same as the random name", async function () {
+  let element = await this.driver.$(
+    'input[data-test-input="tag-name"]'
+  );
+  let tagName = await element.getValue();
+  assert.equal(tagName, this.randomTagName);
+});
+
+When("I click in the add image to tag and select a random image", async function () {
+  let fileInput = await this.driver.$('input[type="file"]');
+ 
+  const randomImageUrl = faker.image.imageUrl();
+  const response = await axios.get(randomImageUrl, { responseType: 'arraybuffer' });
+  const imagePath = path.resolve(__dirname, `../../web/resources/randomImage.jpg`);
+  
+  fs.writeFileSync(imagePath, response.data)
+  await fileInput.setValue(imagePath);
+});
+
+
+
+When("I fill the description with random text", async function () {
+  let element = await this.driver.$('[data-test-input="tag-description"]');
+
+  // Función para generar una cadena con emojis aleatorios
+  function getRandomEmojis(count) {
+    const emojis = '😀😃😄😁😆😅😂🤣😊😇🙂🙃😉😌😍🥰😘😗😙😚😋😛😝😜🤪🤨🧐🤓😎🥳';
+    let result = '';
+    for (let i = 0; i < count; i++) {
+      result += emojis[Math.floor(Math.random() * emojis.length)];
+    }
+    return result;
+  }
+
+  const sentence = faker.lorem.sentence();
+  const paragraph = faker.lorem.paragraph();
+  const words = faker.lorem.words(10);
+  const numbers = faker.datatype.number({ min: 1000, max: 9999 }).toString();
+  const specialChars = '!@#$%^&*()_+-=[]{}|;:,.<>?';
+  const multiLangText = faker.lorem.text() + ' 你好, мир, 안녕하세요';
+  const emojis = getRandomEmojis(20); // Generar 20 emojis aleatorios
+
+  // Concatenar las diferentes partes y limitar a 500 caracteres
+  let randomText = `${sentence} ${paragraph} ${words} ${numbers} ${specialChars} ${multiLangText} ${emojis}`;
+
+  if (randomText.length > 500) {
+    randomText = randomText.substring(0, 500);
+  }
+
+  await element.setValue(randomText);
+});
+
+When("I fill the tag with basic random information", async function () {
+  let input = await this.driver.$('input[data-test-input="tag-slug"]');
+  let descripcion = await this.driver.$('textarea[data-test-input="tag-description"]');
+  let color = await this.driver.$('input[data-test-input="accentColor"]');
+
+  let randomSlug = faker.lorem.slug();
+  let randomDescription = faker.lorem.sentence();
+  let randomColor = faker.internet.color().replace('#', ''); // Remove the '#' from the color
+
+  await input.setValue(randomSlug);
+  await descripcion.setValue(randomDescription);
+  await color.setValue(randomColor);
+});
+
+When("I verify that there is no tag with the name {kraken-string}", async function (values) {
+  let element = await this.driver.$$(
+    '.view-container.content-list > ol > li > a:first-of-type > h3[class="gh-tag-list-name"]'
+  );
+
+  for (let i = 0; i < element.length; i++) {
+    let tagName = await element[i].getText();
+    if (tagName === values) {
+      throw new Error();
+    }
+  }
+
+
+});
+
+When("I cancel the tag creation", async function () {
+  let element = await this.driver.$('button[data-test-leave-button]');
+  await element.click();
+});
+
+
+
+When("I fill the header with random text", async function () {
+  const dataPath = path.join(__dirname, '../../web/resources', 'realisticParagraphsFooterAndHeader.json');
+  const realisticParagraphs = JSON.parse(fs.readFileSync(dataPath));
+
+  let element = await this.driver.$$('div.gh-expandable-block > div.gh-expandable-header');
+  for (let i = 0; i < element.length; i++) {
+    let text = await element[i].$('div > h4.gh-expandable-title');
+    if (await text.getText() === "Code injection") {
+      let button = await element[i].$('button.gh-btn.gh-btn-expand');
+      await button.click();
+      let line = await this.driver.$('pre.CodeMirror-line');
+      await line.click();
+      let textarea = await this.driver.$('span[role="presentation"]');
+
+      let randomText = realisticParagraphs[Math.floor(Math.random() * realisticParagraphs.length)];
+      
+      await textarea.setValue(randomText);
+    }
+  }
+});
+
+When("I fill the footer with random text", async function () {
+  const dataPath = path.join(__dirname, '../../web/resources', 'realisticParagraphsFooterAndHeader.json');
+  const realisticParagraphs = JSON.parse(fs.readFileSync(dataPath));
+
+  let elements = await this.driver.$$('div.gh-expandable-block > div.gh-expandable-header');
+  for (let i = 0; i < elements.length; i++) {
+    let text = await elements[i].$('div > h4.gh-expandable-title');
+    if (await text.getText() === "Code injection") {
+      let button = await elements[i].$('button.gh-btn.gh-btn-expand');
+      await button.click();
+
+      let secondDiv = await this.driver.$('div.gh-main-section > div:nth-child(2)');
+      let line = await secondDiv.$('pre.CodeMirror-line');
+      await line.click();
+      let textarea = await secondDiv.$('span[role="presentation"]');
+
+      let randomText = realisticParagraphs[Math.floor(Math.random() * realisticParagraphs.length)];
+      
+      await textarea.setValue(randomText);
+    }
+  }
+});
+
+When("I fill the facebook title with a random length between {int} and {int} characters", async function (minLength, maxLength) {
+  let elements = await this.driver.$$('div.gh-expandable-block > div.gh-expandable-header');
+  for (let i = 0; i < elements.length; i++) {
+    let text = await elements[i].$('div > h4.gh-expandable-title');
+    if (await text.getText() === "Facebook card") {
+      let button = await elements[i].$('button.gh-btn.gh-btn-expand');
+      await button.click();
+
+      let input = await this.driver.$('#og-title');
+
+      // Generar un título con una longitud aleatoria dentro del rango especificado
+      let randomTitle = generateRandomText(minLength, maxLength);
+      
+      await input.setValue(randomTitle);
+    }
+  }
+});
+
+When("I fill the facebook description with a random length between {int} and {int} characters", async function (minLength, maxLength) {
+  let elements = await this.driver.$$('div.gh-expandable-block > div.gh-expandable-header');
+  for (let i = 0; i < elements.length; i++) {
+    let text = await elements[i].$('div > h4.gh-expandable-title');
+    if (await text.getText() === "Facebook card") {
+      let button = await elements[i].$('button.gh-btn.gh-btn-expand');
+      await button.click();
+
+      let input = await this.driver.$('#og-description');
+
+      // Generar un título con una longitud aleatoria dentro del rango especificado
+      let randomTitle = generateRandomText(minLength, maxLength);
+      
+      await input.setValue(randomTitle);
+    }
+  }
+});
+
+When("I delete the image created", async function () {
+  let element = await this.driver.$('a[title="Delete"]');
+  await element.click();
+});
+
+When("I verify that the image was deleted", async function () {
+  let element = await this.driver.$('div[data-test-file-input-description]');
+  assert.equal(await element.getText(), "Upload tag image");
+});
+  
+
 
 /**
  *
@@ -814,3 +1067,39 @@ When ("I verify history and take a screenshot for version {kraken-string} featur
   return ;
 
 });
+
+
+
+// ****************************************************
+// UTILS
+// ****************************************************
+function generateRandomText(minLength, maxLength) {
+  const length = faker.datatype.number({ min: minLength, max: maxLength });
+  const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+[]{}|;:,.<>?';
+  const japaneseCharacters = 'あいうえおかきくけこさしすせそたちつてと';
+  const emojis = '😀😃😄😁😆😅😂🤣😊😇🙂🙃😉😌😍🥰😘😗😙😚😋😛😝😜🤪🤨🧐🤓😎🥳';
+  const mixedCharacters = characters + japaneseCharacters + emojis;
+
+  let title = '';
+  while (title.length < length) {
+    const randomType = faker.datatype.number({ min: 0, max: 3 });
+    switch (randomType) {
+      case 0:
+        title += faker.lorem.word();
+        break;
+      case 1:
+        title += mixedCharacters.charAt(faker.datatype.number({ min: 0, max: mixedCharacters.length - 1 }));
+        break;
+      case 2:
+        title += faker.string.alphanumeric(faker.datatype.number({ min: 1, max: 10 }));
+        break;
+      case 3:
+        title += faker.lorem.sentence();
+        break;
+    }
+    if (title.length < length) {
+      title += ' ';
+    }
+  }
+  return title.substring(0, length).trim();
+}
