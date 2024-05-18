@@ -15,5 +15,7 @@ module.exports = {
     userHistory: undefined
   },
   variables: {},
-  dataPool:{}
+  dataPool:{},
+  dinamicDataPool:{},
+  invalidDinamicDataPool:{}
 };
