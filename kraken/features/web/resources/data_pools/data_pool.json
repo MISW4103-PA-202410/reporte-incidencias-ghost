@@ -1,0 +1,15 @@
+{
+    "page" :{
+        "link_yt_valid": "https://www.youtube.com/watch?v=5qap5aO4i9A",
+        "link_yt_incomplete": "https://www.youtube.com/watch?v=",
+        "link_yt_mainpage": "https://www.youtube.com/",
+        "link_empty": "",
+        "link_fb_video": "https://fb.watch/s8ma7xx9tf/",
+        "audio_path": "./assets/audio.mp3",
+        "audio_path_wav": "./assets/audio.wav",
+        "audio_path_ogg": "./assets/audio.ogg",
+        "audio_path_acc": "./assets/audio.aac",
+        "csv_path": "./assets/data.csv",
+        "video_path": "./assets/video.mp4"
+    }
+}
