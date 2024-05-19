@@ -76,8 +76,6 @@ Scenario: Como usuario me registro y creo un nuevo tag en x con 75 caracteres en
   And I wait for 1 seconds
 
 
-
-
 @user30 @web
 Scenario: Como usuario me registro y creo un nuevo tag con una URL canónica inválida
  Given I navigate to page "http://localhost:2368/ghost/#/setup"
