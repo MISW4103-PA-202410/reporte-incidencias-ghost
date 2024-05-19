@@ -189,3 +189,18 @@ When("I check that excerpt throws error for more than 300 characters", async fun
   let element = await this.driver.$('[data-test-error="custom-excerpt"]');
   if(element == null) throw new Error('No se arrojó validación de campo superior a 300 caracteres')
 });
+
+When("I click on the feature this post option", async function () {
+  let element = await this.driver.$('[data-test-checkbox="featured"]');
+  await element.click();
+});
+
+When("I add a random number of dividers", async function () {
+ let randomNumber = faker.number.int({min:1, max: 10});
+ for(let i = 0; i < randomNumber; i++){
+  let element = await this.driver.$('[data-kg-card-menu-item="Divider"');
+  await element.click();
+  let addButton = await this.driver.$('button[aria-label="Add a card"]');
+  await addButton.click();
+ }
+});
