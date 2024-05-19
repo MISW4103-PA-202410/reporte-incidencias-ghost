@@ -4,6 +4,31 @@ const { faker } = require('@faker-js/faker');
 const fs = require('fs');
 const path = require('path');
 
+function generateRealisticDescriptionsForX(count) {
+  let descriptions = [];
+  for (let i = 0; i < count; i++) {
+    let description = `
+      ${faker.company.name()} is known for ${faker.company.bsBuzz()}. 
+      They are located at ${faker.location.streetAddress()}, ${faker.location.city()}, ${faker.location.country()}.
+      The company specializes in ${faker.company.bsNoun()} and has a reputation for ${faker.company.catchPhrase()}.
+      Their mission is to ${faker.company.bs()}. Customers can reach out via email at ${faker.internet.email()} or by phone at ${faker.phone.number()}.
+      One of their popular products is the ${faker.commerce.productName()}, which is loved for its ${faker.commerce.productAdjective()} ${faker.commerce.productMaterial()}.
+      Additionally, the company emphasizes ${faker.hacker.ingverb()} and ${faker.hacker.noun()} in their daily operations.
+      Here is an interesting quote from the company: "${faker.hacker.phrase()}".
+      They also provide the following service: ${faker.lorem.sentence()}.
+      Check out their website: ${faker.internet.url()}
+      Follow them on Twitter: @${faker.internet.userName()}
+      Here's a popular tweet from them: "${faker.hacker.phrase()} #${faker.hacker.abbreviation()} ${faker.internet.url()} 😀😃😄😁😆😅😂🤣😊😇🙂🙃😉😌😍🥰😘😗😙😚😋😛😝😜🤪🤨🧐🤓😎🥳"
+      这是一个测试段落。 😊😊😊 #测试
+      Aquí hay una frase en español: "${faker.lorem.sentence()}". 
+      Voici une phrase en français: "${faker.lorem.sentence()}". 
+      Hier ist ein Satz auf Deutsch: "${faker.lorem.sentence()}". 
+    `;
+    descriptions.push(description);
+  }
+  return descriptions;
+}
+
 function generateRealisticParagraphsForFooterAndHeader(count) {
   let paragraphs = [];
   for (let i = 0; i < count; i++) {
@@ -25,6 +50,10 @@ function generateRealisticParagraphsForFooterAndHeader(count) {
         gtag('js', new Date());
         gtag('config', 'UA-${faker.string.alphanumeric(8)}');
       </script>
+      这是一个测试段落。 😊😊😊
+      Aquí hay una frase en español: "${faker.lorem.sentence()}". 
+      Voici une phrase en français: "${faker.lorem.sentence()}". 
+      Hier ist ein Satz auf Deutsch: "${faker.lorem.sentence()}". 
     `;
     paragraphs.push(paragraph);
   }
@@ -32,9 +61,12 @@ function generateRealisticParagraphsForFooterAndHeader(count) {
 }
 
 Before(async function() {
-  // Generar 5 párrafos realistas
+  // Generar 5 párrafos realistas para el pie de página y encabezado
   const realisticParagraphs = generateRealisticParagraphsForFooterAndHeader(5);
   
+  // Generar 5 descripciones realistas para "X"
+  const realisticDescriptions = generateRealisticDescriptionsForX(5);
+
   // Ruta del archivo
   const dataPath = path.join(__dirname, '../../web/resources');
   
@@ -44,9 +76,17 @@ Before(async function() {
   }
 
   // Guardar los párrafos en un archivo JSON
-  const filePath = path.join(dataPath, 'realisticParagraphsFooterAndHeader.json');
+  const paragraphsFilePath = path.join(dataPath, 'realisticParagraphsFooterAndHeader.json');
   try {
-    fs.writeFileSync(filePath, JSON.stringify(realisticParagraphs, null, 2));
+    fs.writeFileSync(paragraphsFilePath, JSON.stringify(realisticParagraphs, null, 2));
+  } catch (err) {
+    console.error("Error writing to file", err);
+  }
+
+  // Guardar las descripciones en un archivo JSON
+  const descriptionsFilePath = path.join(dataPath, 'realisticDescriptionsForX.json');
+  try {
+    fs.writeFileSync(descriptionsFilePath, JSON.stringify(realisticDescriptions, null, 2));
   } catch (err) {
     console.error("Error writing to file", err);
   }

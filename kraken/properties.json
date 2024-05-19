@@ -21,5 +21,8 @@
   "OLD_PROFILE_VALUES": "Jaime Larson;equipo20@misw4103.com",
   "SOCIAL_MEDIA": "https://facebook.com/zuck;https://twitter.com/elonmusk",
   "VERSION": "v5.82",
-  "ERROR_NAME_MESSAGE_TAG": "You must specify a name for the tag."
+  "ERROR_NAME_MESSAGE_TAG": "You must specify a name for the tag.",
+  "ERROR_NAME_MESSAGE_HEX_COLOR": "The colour should be in valid hex format",
+  "BAD_COLOR_HEX": "This is not a valid hex color."
+
 }
