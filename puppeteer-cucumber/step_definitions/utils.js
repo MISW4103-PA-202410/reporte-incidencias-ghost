@@ -1,6 +1,5 @@
 var faker = require('faker');
 
-
 function dataSource(data) {
     const regex = /\{(?<data_source>data_pool|faker|dinamic_data_pool|invalid_dinamic_data_pool)\((?<attribute>\w*)\)\}/;
     const  match =  regex.exec(data);
@@ -17,6 +16,19 @@ function fakerPool(attribute) {
     else if (attribute === 'sentence_255')
     {
         return faker.lorem.sentence(256);
+    }
+    else if (attribute === 'sentence_3')
+    {
+        return faker.lorem.sentence(3);
+    }
+    else if (attribute === 'alphaNumeric_100'){
+        return faker.random.alphaNumeric(100);
+    }
+    else if (attribute === 'alphaNumeric_150'){
+        return faker.random.alphaNumeric(150);
+    }
+    else if (attribute === 'alphaNumeric_256'){
+        return faker.random.alphaNumeric(256);
     }
     else if (attribute === 'url')
     {

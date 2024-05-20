@@ -26,6 +26,14 @@ class PagesPage {
         await this.page.keyboard.press('Enter');
     }
 
+    async reWriteTitle(title){
+        await this.page.waitForSelector('textarea[placeholder="Page title"]');
+        await this.page.click('textarea[placeholder="Page title"]', {clickCount: 3});
+        await this.page.type('textarea[placeholder="Page title"]', title);
+        await this.page.keyboard.press('Enter');
+        await new Promise(r => setTimeout(r, 3000));
+    }
+
     async uploadAudio(filePath) {
         //Esperar a que el botón "Add feature image" esté disponible en la página
         await this.page.waitForSelector('button[aria-label="Add a card"]');
@@ -150,6 +158,18 @@ class PagesPage {
         //Borrar slug estandar
         await this.page.click('input[name="post-setting-slug"]', {clickCount: 3});
         await this.page.type('input[name="post-setting-slug"]', slug);
+        await this.page.keyboard.press('Tab');
+
+        try{
+            //Veriicar si permite ingresar el slug
+            await this.page.waitForSelector('div[class="gh-alert-content"', { timeout: 5000 });
+            //Promesa
+            await new Promise(r => setTimeout(r, 20000));
+            return false;
+        }
+        catch{
+            return true;
+        }
     }
 
     async navigateToPage(slug) {
@@ -175,6 +195,15 @@ class PagesPage {
         catch{
             return false;
         }
+    }
+
+    async previewTitle(){
+        await this.page.waitForSelector('iframe.gh-pe-iframe');
+        const frameHandle = await this.page.$('iframe.gh-pe-iframe');
+        const frame = await frameHandle.contentFrame();
+        await frame.waitForSelector('h1.gh-article-title');
+        const title = await frame.$eval('h1.gh-article-title', el => el.innerText);
+        return title;
     }
 
 

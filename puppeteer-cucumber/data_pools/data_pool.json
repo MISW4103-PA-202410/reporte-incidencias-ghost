@@ -10,6 +10,9 @@
         "audio_path_ogg": "./assets/audio.ogg",
         "audio_path_acc": "./assets/audio.aac",
         "csv_path": "./assets/data.csv",
-        "video_path": "./assets/video.mp4"
+        "video_path": "./assets/video.mp4",
+        "invalid_slug_specials": "!&%=-*¿?)",
+        "invalid_slug_caracters_special": "invalid-slug-!&%=",
+        "invalid_slug_reserved_words": "dashboard"
     }
 }

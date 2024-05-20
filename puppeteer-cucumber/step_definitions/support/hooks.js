@@ -323,6 +323,21 @@ function generateDinamicDataPool(){
           }
         }
 
+        if(jsonData.page.hasOwnProperty('slugs')){
+          // Generar una cantidad aleatoria de slugs
+          jsonData.page.slugs = [];
+          const numSlugs = faker.random.number({ min: 2, max: 3});
+          for (let i = 0; i < numSlugs; i++) {
+            const sNumber = faker.random.number({ min: 1, max: 3 });
+            //Construir slugs con - en cambio de espacios
+            let slug = faker.lorem.sentence(sNumber)
+              .toLowerCase()
+              .replace(/[^\w\s]/g, '')
+              .replace(/\s+/g, '-');
+            jsonData.page.slugs.push(slug);
+          }
+        }
+
         //Escribir en scope.dinamicDataPool.
         scope.dinamicDataPool.page = jsonData.page;
         // Escribir el archivo JSON
