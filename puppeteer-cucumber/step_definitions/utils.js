@@ -1,4 +1,5 @@
 var faker = require('faker');
+const scope = require('./support/scope')
 
 function dataSource(data) {
     const regex = /\{(?<data_source>data_pool|faker|dinamic_data_pool|invalid_dinamic_data_pool)\((?<attribute>\w*)\)\}/;
@@ -34,6 +35,18 @@ function fakerPool(attribute) {
     {
         return faker.internet.url();
     }
+    else if (attribute === 'email')
+    {
+        return faker.internet.email();
+    }
+    else if (attribute === 'name')
+    {
+        return faker.person.fullName();
+    }
+    else if (attribute === 'username')
+    {
+        return faker.internet.displayName();
+    }
 }
 
 function dataGenerator(data) {
@@ -46,7 +59,7 @@ function dataGenerator(data) {
     if (data_pool === 'faker') {
         content = fakerPool(attribute);
     } else if (data_pool === 'data_pool') {
-        content = scope.dataPool.page[attribute];
+        content = scope.dataPool.page[attribute] || scope.dataPool.profile[attribute];
     } else if (data_pool === 'dinamic_data_pool') {
         list_attribute = scope.dinamicDataPool.page[attribute];
         const rand_index = faker.random.number({ min: 0, max: list_attribute.length - 1});

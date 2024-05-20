@@ -157,6 +157,7 @@ BeforeAll(async () => {
         const jsonData = JSON.parse(data);
         // Guardar los datos en scope.data_pool
         scope.dataPool.page = jsonData.page;
+        scope.dataPool.profile = jsonData.profile;
     } catch (error) {
         console.error('Error al parsear el JSON:', error);
         return;
@@ -244,7 +245,11 @@ After(async function (scenario) {
 })
 
 AfterAll(async () => {
-  await deleteContent();
+  try {
+    await deleteContent();
+  } catch (error) {
+    console.error('Error al eliminar contenido:', error);
+  }
   if (scope.browser) {
     // close the browser at end of run
     await scope.browser.close()

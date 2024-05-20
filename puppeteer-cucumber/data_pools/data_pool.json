@@ -14,5 +14,27 @@
         "invalid_slug_specials": "!&%=-*¿?)",
         "invalid_slug_caracters_special": "invalid-slug-!&%=",
         "invalid_slug_reserved_words": "dashboard"
+    },
+    "profile": {
+        "name": "John Doe",
+        "name_invalid": "123239781927389123",
+        "name_invalid_email": "john.doe123@yopmail.com",
+        "name_invalid_special": "%$#$%$#$#",
+        "email": "john.doe123@yopmail.com",
+        "email_invalid_no_dot_end": "john.doe123@yopmail",
+        "email_invalid_no_end": "john.doe123@yopmail.",
+        "email_invalid_no_user": "@yopmail.com",
+        "email_invalid_2_@": "usuario@hola@yopmail.com",
+        "password": "PRUEBAS12345",
+        "password_invalid_too_short": "ABC123",
+        "password_invalid_just_special": "!@#@#$%#$%#$^$%^",
+        "password_invalid_just_numbers": "123456789",
+        "password_invalid_just_letters": "abcdefgh",
+        "password_invalid_too_long": "ABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZ",
+        "social_user": "john_doe",
+        "social_user_invalid": "123@#$%",
+        "social_user_invalid_url": "https://www.google.com",
+        "social_user_invalid_spaces": "john doe",
+        "social_user_invalid_100": "ABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZ"
     }
 }

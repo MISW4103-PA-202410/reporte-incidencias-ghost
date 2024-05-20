@@ -5,6 +5,7 @@ const scope = require('./support/scope')
 const constants = require('./support/constants')
 const _ = require('lodash')
 const chai = require('chai')
+const [ dataGenerator ] = require('./utils');
 
 async function reloadProfilePage() {
     await Promise.all([
@@ -26,6 +27,9 @@ Given('ingreso la contraseña antigua', async () => {
 });
 
 Given('ingreso {string} como contraseña nueva', async (newPassword) => {
+
+    newPassword = newPassword.startsWith("{") ? dataGenerator(newPassword) : newPassword;
+
     scope.variables.newPassword = newPassword;
     console.log("\nProbando contraseña: " + newPassword);
     await scope.pages.profile.fillPassword("", newPassword);
@@ -60,6 +64,9 @@ Then('se muestra error al cambiar la contraseña', async () => {
 });
 
 Given('cambio mi nombre a {string}', async (newName) => {
+
+    newName = newName.startsWith("{") ? dataGenerator(newName) : newName;
+
     scope.variables.newName = newName;
     scope.variables.oldName = await scope.pages.profile.getProfileName();
     console.log("\nProbando nombre: " + newName);
@@ -67,6 +74,9 @@ Given('cambio mi nombre a {string}', async (newName) => {
 });
 
 Given('cambio mi correo a {string}', async (newEmail) => {
+
+    newEmail = newEmail.startsWith("{") ? dataGenerator(newEmail) : newEmail;
+
     scope.variables.newEmail = newEmail;
     scope.variables.oldEmail = await scope.pages.profile.getProfileEmail();
     console.log("\nProbando correo: " + newEmail);
@@ -180,12 +190,18 @@ Then('existe al menos una actividad', async () => {
 });
 
 Given('cambio mi usuario de Facebook a {string}', async (facebook) => {
+
+    facebook = facebook.startsWith("{") ? dataGenerator(facebook) : facebook;
+
     scope.variables.newFacebook = facebook;
     scope.variables.oldFacebook = await scope.pages.profile.getFacebook();
     await scope.pages.profile.changeFacebook(facebook);
 });
 
 Given('cambio mi usuario de Twitter a {string}', async (twitter) => {
+
+    twitter = twitter.startsWith("{") ? dataGenerator(twitter) : twitter;
+
     scope.variables.newTwitter = twitter;
     scope.variables.oldTwitter = await scope.pages.profile.getTwitter();
     await scope.pages.profile.changeTwitter(twitter);

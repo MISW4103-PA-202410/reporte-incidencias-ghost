@@ -1,6 +1,6 @@
 // Steps for crear-page.feature
 const { Given, When, Then } = require('@cucumber/cucumber');
-const { dataGenerator } = require('./utils');
+const [ dataGenerator ] = require('./utils');
 const scope = require('./support/scope')
 const constants = require('./support/constants')
 const _ = require('lodash')
