@@ -23,6 +23,19 @@ function fakerPool(attribute) {
     {
         return faker.lorem.sentence(256);
     }
+    else if (attribute === 'sentence_3')
+    {
+        return faker.lorem.sentence(3);
+    }
+    else if (attribute === 'alphaNumeric_100'){
+        return faker.random.alphaNumeric(100);
+    }
+    else if (attribute === 'alphaNumeric_150'){
+        return faker.random.alphaNumeric(150);
+    }
+    else if (attribute === 'alphaNumeric_256'){
+        return faker.random.alphaNumeric(256);
+    }
     else if (attribute === 'url')
     {
         return faker.internet.url();
@@ -64,6 +77,19 @@ Given('ingreso {string} como nombre de la página', async (data) => {
     await scope.pages.pages.fillPageData(title, '');
 });
 
+Given('reescribo {string} como el nombre de la página', async (data) => {
+    //Separa el data por " - "
+    const escenario = data.split(' - ')[0];
+    data = data.split(' - ')[1];
+    //Get the data
+    const nombre = dataGenerator(data);
+    //Re-write the title
+    const title = escenario + " - " + nombre
+    scope.variables.pageTitle = title;
+    await scope.pages.pages.reWriteTitle(nombre, '');
+});
+
+
 Given('ingreso {string} como contenido de la página', async (data) => {
     //Get the data
     const contenido = dataGenerator(data);
@@ -92,9 +118,13 @@ Given('abro las configuraciones de la página', async () => {
     await scope.pages.pages.openSettings();
 });
 
-Given('cambio el slug de la página por {string}', async (slug) => {
+Given('cambio el slug de la página por {string}', async (data) => {
+    //Get the data
+    const slug = dataGenerator(data);
+    //Upload slug
     scope.variables.pageSlug = slug;
-    await scope.pages.pages.addSlug(slug);
+    const uploadedSlug = await scope.pages.pages.addSlug(slug);
+    scope.variables.slugUploaded = uploadedSlug;
 });
 
 Given('cierro las configuraciones de la página', async () => {
@@ -138,13 +168,35 @@ Then('el video {string} se agregó correctamente', async (assert) => {
     }
 });
 
-Then('puedo navegar a la URL con el slug asignado', async () => {
+Then('el slug {string} se agregó correctamente', async (assert) => {
+    if (assert === 'si') {
+        chai.assert(scope.variables.slugUploaded, 'No se pudo agregar el slug');
+    }
+    else if (assert === 'no') {
+        chai.assert(!scope.variables.slugUploaded, 'Se agregó el slug');
+    }
+});
+
+Then('{string} puedo navegar a la URL con el slug asignado', async (assert) => {
     const pageExists = await scope.pages.pages.navigateToPage(scope.variables.pageSlug);
-    chai.assert(pageExists, 'No se pudo navegar a la página con el slug asignado');
+    if(assert === 'si'){
+        chai.assert(pageExists, 'No se pudo navegar a la página con el slug asignado');
+    }else if(assert === 'no'){
+        chai.assert(!pageExists, 'Se pudo navegar a la página con el slug asignado');
+    }
 });
 
 Then('puedo previsualizar correctamente la página', async () => {
     chai.assert(scope.variables.previewSuccess, 'No se pudo previsualizar la página');
+});
+
+Then('{string} veo el título en la previsualización', async (assert) => {
+    const title = await scope.pages.pages.previewTitle();
+    if (assert === 'si') {
+        chai.assert.equal(title, scope.variables.pageTitle, 'El título no se muestra en la previsualización');
+    } else if (assert === 'no') {
+        chai.assert.notEqual(title, scope.variables.pageTitle, 'El título se muestra en la previsualización');
+    }
 });
 
 Then('salgo de la previsualización', async () => {

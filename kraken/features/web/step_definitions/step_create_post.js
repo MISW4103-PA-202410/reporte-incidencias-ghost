@@ -131,3 +131,76 @@ When("I click in the add file button in posts and attach the .json file", async 
     path.resolve('../kraken/features/web/resources/randomColor.json')
   );
 });
+
+When("I click in the add audio button in posts and attach a .mp3 file", async function () {
+  let element = await this.driver.$('[data-kg-card-menu-item="Audio"]');
+  await element.click();
+  let fileUploader = await this.driver.$('input[name="audio-input"]');
+  await fileUploader.setValue(
+    path.resolve('../kraken/features/web/resources/audio.mp3')
+  );
+});
+
+When("I click in the add audio button in posts and attach a .aac file", async function () {
+  let element = await this.driver.$('[data-kg-card-menu-item="Audio"]');
+  await element.click();
+  let fileUploader = await this.driver.$('input[name="audio-input"]');
+  await fileUploader.setValue(
+    path.resolve('../kraken/features/web/resources/audio.aac')
+  );
+});
+
+When("I click in the add audio button in posts and attach a .ogg file", async function () {
+  let element = await this.driver.$('[data-kg-card-menu-item="Audio"]');
+  await element.click();
+  let fileUploader = await this.driver.$('input[name="audio-input"]');
+  await fileUploader.setValue(
+    path.resolve('../kraken/features/web/resources/audio.ogg')
+  );
+});
+
+When("I click in the add audio button in posts and attach a .wav file", async function () {
+  let element = await this.driver.$('[data-kg-card-menu-item="Audio"]');
+  await element.click();
+  let fileUploader = await this.driver.$('input[name="audio-input"]');
+  await fileUploader.setValue(
+    path.resolve('../kraken/features/web/resources/audio.wav')
+  );
+});
+
+When("I set a random description of more than 500 words for the post", async function () {
+  let element = await this.driver.$(".kg-prose > p");
+  await element.scrollIntoView();
+  await element.click();
+  await element.keys(faker.lorem.words(525));
+});
+
+When("I set an empty lenght void random excerpt", async function () {
+  let element = await this.driver.$('#custom-excerpt');
+  await element.setValue(faker.string.fromCharacters(' ', {min: 1, max: 100}));
+});
+
+When("I set more than 300 characters in excerpt", async function () {
+  let element = await this.driver.$('#custom-excerpt');
+  await element.setValue(faker.string.alphanumeric(301));
+});
+
+When("I check that excerpt throws error for more than 300 characters", async function () {
+  let element = await this.driver.$('[data-test-error="custom-excerpt"]');
+  if(element == null) throw new Error('No se arrojó validación de campo superior a 300 caracteres')
+});
+
+When("I click on the feature this post option", async function () {
+  let element = await this.driver.$('[data-test-checkbox="featured"]');
+  await element.click();
+});
+
+When("I add a random number of dividers", async function () {
+ let randomNumber = faker.number.int({min:1, max: 10});
+ for(let i = 0; i < randomNumber; i++){
+  let element = await this.driver.$('[data-kg-card-menu-item="Divider"');
+  await element.click();
+  let addButton = await this.driver.$('button[aria-label="Add a card"]');
+  await addButton.click();
+ }
+});
