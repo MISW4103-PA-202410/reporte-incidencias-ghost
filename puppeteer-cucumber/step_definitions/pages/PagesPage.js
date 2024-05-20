@@ -14,6 +14,17 @@ class PagesPage {
         await new Promise(r => setTimeout(r, 500));
     }
 
+    async isPageEditorVisible() {
+        try{
+            // Espera a que el campo de título esté disponible en la página
+            await this.page.waitForSelector('button[data-test-button="confirm-publish"]', { timeout: 2000 });
+            return false;
+        }
+        catch{
+            return true;
+        }
+    }
+
     async fillPageData(title, content) {
         // Espera a que el campo de título esté disponible en la página
         await this.page.waitForSelector('textarea[placeholder="Page title"]');
@@ -82,7 +93,24 @@ class PagesPage {
         }catch{
             return false;
         }
+    }
+    async stopPublishFlow(){
+        await new Promise(r => setTimeout(r, 3000));
+        // Espera a que el botón "Publish" esté disponible en la página
+        await this.page.waitForSelector('button[data-test-button="publish-flow"]', { timeout: 5000 });
+        // Publica el post haciendo clic en el botón "Publish"
+        await this.page.click('button[data-test-button="publish-flow"]');
+        // Stop de pusblish flow
+        await this.page.waitForSelector('button[data-test-button="close-publish-flow"]', { timeout: 1500 });
+        // Stop de pusblish flow
+        await this.page.click('button[data-test-button="close-publish-flow"]');
+    }
 
+    async retrySubmitPost() {
+        // Espera a que el botón esté disponible
+        await this.page.waitForSelector('button[data-test-button="confirm-publish"]');
+        // Haz clic en el botón
+        await this.page.click('button[data-test-button="confirm-publish"]');
     }
 
     async embededYotubeVideo(url){
@@ -183,6 +211,13 @@ class PagesPage {
         }
     }
 
+    async selectPostVisibility(optionValue) {
+        // Esperar a que el select esté disponible
+        await this.page.waitForSelector('select[data-test-select="post-visibility"]');
+        // Seleccionar la opción deseada por su valor
+        await this.page.select('select[data-test-select="post-visibility"]', optionValue);
+    }
+
     async previewPage() {
         await this.page.waitForSelector('button[data-test-button="publish-preview"]');
         await this.page.click('button[data-test-button="publish-preview"]');
@@ -216,6 +251,16 @@ class PagesPage {
     async saveDraft() {
         await this.page.waitForSelector('a[data-test-breadcrumb=""]');
         await this.page.click('a[data-test-breadcrumb=""]');
+    }
+
+    async savedPage(page) {
+        // Espera un tiempo razonable para que el modal aparezca
+        try {
+            await this.page.waitForSelector('.modal-content', { visible: true, timeout: 3000 });
+            return true; // El modal está visible
+        } catch (error) {
+            return false; // El modal no está visible
+        }
     }
 
     async draftPages(){

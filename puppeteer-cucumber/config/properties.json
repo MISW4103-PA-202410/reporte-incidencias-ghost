@@ -2,7 +2,7 @@
     "default": {
       "baseUrl": "http://34.170.53.250",
       "pageTimeout": "60",
-      "headlessMode": false,
+      "headlessMode": true,
       "reportConfig": {
         "theme": "bootstrap",
         "jsonFile": "output/results.json",

@@ -131,9 +131,26 @@ Given('cierro las configuraciones de la página', async () => {
     await scope.pages.pages.closeSettings();
 });
 
+Given('selecciono la visibilidad {string}', async (data) => {
+    //Get the data
+    const category = dataGenerator(data);
+    console.log(category);
+    //Upload category
+    await scope.pages.pages.selectPostVisibility(category);
+});
+
+Given('interrupo la publicación de la página', async () => {
+    await scope.pages.pages.stopPublishFlow();
+});
+
 When('publico la página', async () => {
     const published = await scope.pages.pages.submitPost();
     scope.variables.pagePublished = published;
+});
+
+
+When('reintento ingresar al editor de página', async () => {
+    await scope.pages.pages.retrySubmitPost();
 });
 
 When('ingreso a la previsualización', async () => {
@@ -142,6 +159,11 @@ When('ingreso a la previsualización', async () => {
 
 When('guardo el borrador de la página', async () => {
     await scope.pages.pages.saveDraft();
+});
+
+Then('editor de página esta disponible', async () => {
+    const editor = await scope.pages.pages.isPageEditorVisible();
+    chai.assert(editor, 'El editor de página no está disponible');
 });
 
 Then('la página debe existir en la lista', async () => {
@@ -210,4 +232,9 @@ Then('la página debe tener el estado {string}', async (estado) => {
 
 Then('la página no se publico', async () => {
     chai.assert(!scope.variables.pagePublished, 'La página no se publicó');
+});
+
+Then('se guarda la página', async () => {
+    const pageSaved = await scope.pages.pages.savedPage();
+    chai.assert(pageSaved, 'La página no se guardó');
 });
