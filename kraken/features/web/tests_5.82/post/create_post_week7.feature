@@ -200,7 +200,7 @@ Scenario: Como usuario me registro y creo un post con una url númerica
   And I wait for 2 seconds
 
 @user9 @web
-Scenario: Como usuario me registro y creo un post con una url númerica
+Scenario: Como usuario me registro y creo un post con una url alfanúmerica
   Given I navigate to page "http://34.170.53.250/ghost/#/setup"
   And I wait for 2 seconds
   When I enter to the setup page "<SETUP_VALUES_REMOTE>" and take a screenshot for version "v5.82" feature "crear-post" scenario "5" step "1"
@@ -226,7 +226,7 @@ Scenario: Como usuario me registro y creo un post con una url númerica
 
 
 @user10 @web
-Scenario: Como usuario me registro y creo un post con una url númerica
+Scenario: Como usuario me registro y creo un post con caracteres especiales
   Given I navigate to page "http://34.170.53.250/ghost/#/setup"
   And I wait for 2 seconds
   When I enter to the setup page "<SETUP_VALUES_REMOTE>" and take a screenshot for version "v5.82" feature "crear-post" scenario "5" step "1"
@@ -276,7 +276,7 @@ Scenario: Como usuario me registro y creo un post con una url con espacios en bl
   And I wait for 2 seconds
 
 @user12 @web
-Scenario: Como usuario me registro y creo un post con una imagen aleatoria dentro un set de imagenes definidas
+Scenario: Como usuario me registro intento crear un post con una imagen adjunta que es invalida
   Given I navigate to page "http://34.170.53.250/ghost/#/setup"
   And I wait for 1 seconds
   When I enter to the setup page "<SETUP_VALUES_REMOTE>" and take a screenshot for version "v5.82" feature "crear-post" scenario "3" step "1"
