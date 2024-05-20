@@ -1,6 +1,6 @@
 Feature: Crear page
 
-    @run @pages
+    @run @pages @data_gen
     Scenario: escenario_1 - Crear una page con un título y un audio con archivo .mp3
         Given inicio la aplicación
         And inicio sesión si es necesario
@@ -13,7 +13,7 @@ Feature: Crear page
         And la página debe existir en la lista
         And el audio "si" se agregó correctamente
 
-    @run @pages
+    @run @pages @data_gen
     Scenario: escenario_14 - Crear una page con un título y un audio con archivo .csv
         Given inicio la aplicación
         And inicio sesión si es necesario
@@ -26,7 +26,7 @@ Feature: Crear page
         And la página debe existir en la lista
         And el audio "no" se agregó correctamente
 
-    @run @pages
+    @run @pages @data_gen
     Scenario: escenario_15 - Crear una page con un título y un audio con archivo .mp4
         Given inicio la aplicación
         And inicio sesión si es necesario
@@ -39,7 +39,7 @@ Feature: Crear page
         And la página debe existir en la lista
         And el audio "no" se agregó correctamente
 
-    @run @pages
+    @run @pages @data_gen
     Scenario: escenario_16 - Crear una page con un título y un audio con archivo .wav
         Given inicio la aplicación
         And inicio sesión si es necesario
@@ -52,7 +52,7 @@ Feature: Crear page
         And la página debe existir en la lista
         And el audio "si" se agregó correctamente
 
-    @run @pages
+    @run @pages @data_gen
     Scenario: escenario_17 - Crear una page con un título y un audio con archivo .ogg
         Given inicio la aplicación
         And inicio sesión si es necesario
@@ -65,7 +65,7 @@ Feature: Crear page
         And la página debe existir en la lista
         And el audio "si" se agregó correctamente
 
-    @run @pages
+    @run @pages @data_gen
     Scenario: escenario_18 - Crear una page con un título y un audio con archivo inesxistene .mp3
         Given inicio la aplicación
         And inicio sesión si es necesario
@@ -78,7 +78,7 @@ Feature: Crear page
         And la página debe existir en la lista
         And el audio "no" se agregó correctamente
 
-    @run @pages
+    @run @pages @data_gen
     Scenario: escenario_19 - Crear una page con un título y un audio con archivo inesxistene .mp3
         Given inicio la aplicación
         And inicio sesión si es necesario
@@ -91,7 +91,7 @@ Feature: Crear page
         And la página debe existir en la lista
         And el audio "no" se agregó correctamente
 
-    @run @pages @v5
+    @run @pages @data_gen @v5
     Scenario: escenario_3 - Crear una page básica con una URL definida (slug)
         Given inicio la aplicación
         And inicio sesión si es necesario
@@ -106,7 +106,7 @@ Feature: Crear page
         And la página debe existir en la lista
         And "si" puedo navegar a la URL con el slug asignado
 
-    @run @pages @v5
+    @run @pages @data_gen @v5
     Scenario: escenario_20 - Crear una page básica con una URL definida (slug) con caracteres especiales
         Given inicio la aplicación
         And inicio sesión si es necesario
@@ -122,7 +122,7 @@ Feature: Crear page
         And el slug "no" se agregó correctamente
         And "no" puedo navegar a la URL con el slug asignado
 
-    @run @pages @v5
+    @run @pages @data_gen @v5
     Scenario: escenario_21 - Crear una page básica con una URL definida (slug) con caracteres especiales y cotidianos
         Given inicio la aplicación
         And inicio sesión si es necesario
@@ -138,7 +138,7 @@ Feature: Crear page
         And el slug "no" se agregó correctamente
         And "no" puedo navegar a la URL con el slug asignado
 
-    @run @pages @v5
+    @run @pages @data_gen @v5
     Scenario: escenario_22 - Crear una page básica con una URL definida (slug) con una oracións
         Given inicio la aplicación
         And inicio sesión si es necesario
@@ -154,7 +154,7 @@ Feature: Crear page
         And el slug "no" se agregó correctamente
         And "no" puedo navegar a la URL con el slug asignado
 
-    @run @pages @v5
+    @run @pages @data_gen @v5
     Scenario: escenario_23 - Crear una page básica con una URL definida (slug) con 100 caracteres
         Given inicio la aplicación
         And inicio sesión si es necesario
@@ -170,7 +170,7 @@ Feature: Crear page
         And el slug "si" se agregó correctamente
         And "si" puedo navegar a la URL con el slug asignado
 
-    @run @pages @v5
+    @run @pages @data_gen @v5
     Scenario: escenario_24 - Crear una page básica con una URL definida (slug) con 150 caracteres
         Given inicio la aplicación
         And inicio sesión si es necesario
@@ -186,7 +186,7 @@ Feature: Crear page
         And el slug "si" se agregó correctamente
         And "si" puedo navegar a la URL con el slug asignado
 
-    @run @pages @v5
+    @run @pages @data_gen @v5
     Scenario: escenario_25 - Crear una page básica con una URL definida (slug) con palabra reservada
         Given inicio la aplicación
         And inicio sesión si es necesario
@@ -202,7 +202,7 @@ Feature: Crear page
         And el slug "si" se agregó correctamente
         And "si" puedo navegar a la URL con el slug asignado
 
-    @run @pages @v5
+    @run @pages @data_gen @v5
     Scenario: escenario_4 - Crear una page básica, previsualizarla y dejarla en borrador
         Given inicio la aplicación
         And inicio sesión si es necesario
@@ -217,7 +217,7 @@ Feature: Crear page
         Then la página debe existir en la lista
         And la página debe tener el estado "Draft"
 
-    @run @pages @v5
+    @run @pages @data_gen @v5
     Scenario: escenario_26 - Crear una page básica, previsualizarla y publicarla
         Given inicio la aplicación
         And inicio sesión si es necesario
@@ -232,7 +232,7 @@ Feature: Crear page
         Then abro la sección de "Pages"
         And la página debe existir en la lista
 
-    @run @pages @v5
+    @run @pages @data_gen @v5
     Scenario: escenario_27 - Crear una page básica, previsualizarla y ver el título en la previsualizacion
         Given inicio la aplicación
         And inicio sesión si es necesario
@@ -248,7 +248,7 @@ Feature: Crear page
         Then abro la sección de "Pages"
         And la página debe existir en la lista
 
-    @run @pages @v5
+    @run @pages @data_gen @v5
     Scenario: escenario_28 - Crear una page básica,ingreso un título invalido y previsualizo la página
         Given inicio la aplicación
         And inicio sesión si es necesario
@@ -262,7 +262,7 @@ Feature: Crear page
         And "no" veo el título en la previsualización
         And salgo de la previsualización
 
-    @run @pages @v5
+    @run @pages @data_gen @v5
     Scenario: escenario_2 - Crear una page con un título, un párrafo y un video embebido de YouTube
         Given inicio la aplicación
         And inicio sesión si es necesario
@@ -276,7 +276,7 @@ Feature: Crear page
         And la página debe existir en la lista
         And el video "si" se agregó correctamente
 
-    @run @pages @v5
+    @run @pages @data_gen @v5
     Scenario: escenario_5 - Crear una page con un título, un párrafo y un video embebido de YouTube usando una cadena alfanumerica aleatoria
         Given inicio la aplicación
         And inicio sesión si es necesario
@@ -290,7 +290,7 @@ Feature: Crear page
         And la página debe existir en la lista
         And el video "no" se agregó correctamente
 
-    @run @pages @v5
+    @run @pages @data_gen @v5
     Scenario: escenario_6 - Crear una page con un título, un párrafo y un video embebido de YouTube usando un link incompleto
         Given inicio la aplicación
         And inicio sesión si es necesario
@@ -304,7 +304,7 @@ Feature: Crear page
         And la página debe existir en la lista
         And el video "no" se agregó correctamente
 
-    @run @pages @v5
+    @run @pages @data_gen @v5
     Scenario: escenario_7 - Crear una page con un título, un párrafo y un video embebido de YouTube usando un link de la página principal de YT
         Given inicio la aplicación
         And inicio sesión si es necesario
@@ -318,7 +318,7 @@ Feature: Crear page
         And la página debe existir en la lista
         And el video "no" se agregó correctamente
 
-    @run @pages @v5
+    @run @pages @data_gen @v5
     Scenario: escenario_8 - Crear una page con un título, un párrafo y un video embebido de YouTube usando un link aleatorio
         Given inicio la aplicación
         And inicio sesión si es necesario
@@ -332,7 +332,7 @@ Feature: Crear page
         And la página debe existir en la lista
         And el video "no" se agregó correctamente
 
-    @run @pages @v5
+    @run @pages @data_gen @v5
     Scenario: escenario_9 - Crear una page con un título, un párrafo y un video embebido de YouTube usando una cadena vacía
         Given inicio la aplicación
         And inicio sesión si es necesario
@@ -346,7 +346,7 @@ Feature: Crear page
         And la página debe existir en la lista
         And el video "no" se agregó correctamente
 
-    @run @pages @v5
+    @run @pages @data_gen @v5
     Scenario: escenario_10 - Crear una page con un título, un párrafo y un video embebido de YouTube usando un link de video de FaceBook
         Given inicio la aplicación
         And inicio sesión si es necesario
@@ -360,7 +360,7 @@ Feature: Crear page
         And la página debe existir en la lista
         And el video "no" se agregó correctamente
 
-    @run @pages @v5
+    @run @pages @data_gen @v5
     Scenario: escenario_11 - Crear una page con un título, un párrafo básico
         Given inicio la aplicación
         And inicio sesión si es necesario
@@ -372,7 +372,7 @@ Feature: Crear page
         Then abro la sección de "Pages"
         And la página debe existir en la lista
 
-    @run @pages @v5
+    @run @pages @data_gen @v5
     Scenario: escenario_12 - Crear una page con un título de mas de 255
         Given inicio la aplicación
         And inicio sesión si es necesario
@@ -382,7 +382,7 @@ Feature: Crear page
         When publico la página
         Then la página no se publico
 
-    @run @pages @v5
+    @run @pages @data_gen @v5
     Scenario: escenario_13 - Crear una page con un título sencillo y luego reescribir con de mas de 255 caracteres
         Given inicio la aplicación
         And inicio sesión si es necesario
@@ -394,7 +394,7 @@ Feature: Crear page
         When publico la página
         Then la página no se publico
 
-    @run @pages @v5 @debug
+    @run @pages @data_gen @v5
     Scenario: escenario_29 - Crear una page con y reescribir un título de mas de 255
         Given inicio la aplicación
         And inicio sesión si es necesario

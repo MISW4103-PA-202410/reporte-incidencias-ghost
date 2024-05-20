@@ -145,7 +145,7 @@ class ProfilePage {
         let input = inputs[6];
         await this.clearInput(input);
         await input.type(twitter);
-        await (await this.page.$$('input.peer'))[4].click();
+        await inputs[5].click();
     }
     
     async getFacebook() {
