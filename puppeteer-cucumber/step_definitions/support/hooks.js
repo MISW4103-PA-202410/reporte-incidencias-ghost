@@ -208,7 +208,7 @@ AfterStep(async function({pickle, pickleStep, gherkinDocument, result, testCaseS
   }
 
   //Screenshot
-  //const screenshot = await scope.page.screenshot({path: fullPath, fullPage: true});
+  const screenshot = await scope.page.screenshot({path: fullPath, fullPage: true});
 
 })
 
@@ -267,7 +267,7 @@ async function createPageObjects(page) {
 }
 
 async function deleteContent() {
-  console.log("Eliminando contenido...");
+  console.log("\nEliminando contenido...");
 
     scope.page = await scope.browser.newPage();
     createPageObjects(scope.page);
@@ -281,7 +281,7 @@ async function deleteContent() {
 
     await scope.page.close();
 
-    console.log("Contenido eliminado");
+    console.log("\nContenido eliminado");
   }
 
 function generateDinamicDataPool(){

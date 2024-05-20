@@ -6,6 +6,14 @@ const constants = require('./support/constants')
 const _ = require('lodash')
 const chai = require('chai')
 
+async function reloadProfilePage() {
+    await Promise.all([
+        scope.page.waitForNavigation({ waitUntil: 'networkidle0'}),
+        scope.pages.principal.navigateToSite()
+    ]);
+    await scope.pages.principal.navigateToProfile();
+    await new Promise(r => setTimeout(r, 1000));
+}
 
 Given('abro el diálogo de cambio de contraseña', async () => {
     await scope.pages.profile.openChangePassword();
@@ -19,11 +27,12 @@ Given('ingreso la contraseña antigua', async () => {
 
 Given('ingreso {string} como contraseña nueva', async (newPassword) => {
     scope.variables.newPassword = newPassword;
+    console.log("\nProbando contraseña: " + newPassword);
     await scope.pages.profile.fillPassword("", newPassword);
 });
 
 When('guardo el cambio de contraseña', async () => {
-    await scope.pages.profile.saveChangePassword();
+    scope.variables.passwordResult = await scope.pages.profile.saveChangePassword();
     await new Promise(r => setTimeout(r, 1000));
 });
 
@@ -32,25 +41,35 @@ Then('ingreso las contraseñas para restablecer', async () => {
     await scope.pages.profile.fillPassword(newPassword, oldPassword);
 });
 
-// Write the steps for
-// And cambio mi nombre a "Equipo 20 - 2024"
-//         And cambio mi correo a "equipo2024@misw4103.com"
-//         When guardo mi perfil
-//         Then abro la sección de "Profile"
-//         And el nombre debe corresponder al nuevo
-//         And el correo debe corresponder al nuevo
-//         And cambio el nombre y el correo a los originales
-//         And guardo mi perfil
+Then('se muestra error al cambiar la contraseña', async () => {
+    let error;
+    try {
+        error = await scope.pages.profile.getPasswordError();
+        console.log("\nPassword Error: " + error);
+
+    } catch (e) {
+        // Password may be changed successfully, so we should restore it
+        const { oldPassword, newPassword } = scope.variables;
+        await new Promise(r => setTimeout(r, 2000));
+        await scope.pages.profile.openChangePassword();
+        await scope.pages.profile.fillPassword(newPassword, "PRUEBAS12345");
+        await scope.pages.profile.saveChangePassword();
+    }
+
+    chai.assert(error, 'No se muestra el error al cambiar la contraseña');
+});
 
 Given('cambio mi nombre a {string}', async (newName) => {
     scope.variables.newName = newName;
     scope.variables.oldName = await scope.pages.profile.getProfileName();
+    console.log("\nProbando nombre: " + newName);
     await scope.pages.profile.changeName(newName);
 });
 
 Given('cambio mi correo a {string}', async (newEmail) => {
     scope.variables.newEmail = newEmail;
     scope.variables.oldEmail = await scope.pages.profile.getProfileEmail();
+    console.log("\nProbando correo: " + newEmail);
     await scope.pages.profile.changeEmail(newEmail);
 });
 
@@ -77,16 +96,62 @@ Then('el nombre debe corresponder al nuevo', async () => {
     chai.assert(name === newName, 'El nombre no corresponde al nuevo');
 });
 
+Then('el nombre debe corresponder al original', async () => {
+    const { oldName } = scope.variables;
+    const name = await scope.pages.profile.getProfileName();
+    chai.assert(name === oldName, 'El nombre no corresponde al original');
+});
+
+Then('se muestra error al cambiar el nombre', async () => {
+    let error;
+    try {
+        error = await scope.pages.profile.getNameError();
+        console.log("\nName Error: " + error);
+    } catch (e) {
+        console.log("\nNo error found. Restoring original values.");
+    
+        await reloadProfilePage();
+        const { oldName } = scope.variables;
+        await scope.pages.profile.changeName(oldName || "Equipo 20");
+        await new Promise(r => setTimeout(r, 300));
+        await scope.pages.profile.saveProfile();
+    }
+    chai.assert(error, 'No se muestra el error al cambiar el nombre');
+});
+
 Then('el correo debe corresponder al nuevo', async () => {
     const { newEmail } = scope.variables;
     const email = await scope.pages.profile.getProfileEmail();
     chai.assert(email === newEmail, 'El correo no corresponde al nuevo');
 });
 
+Then('el correo debe corresponder al original', async () => {
+    const { oldEmail } = scope.variables;
+    const email = await scope.pages.profile.getProfileEmail();
+    chai.assert(email === oldEmail, 'El correo no corresponde al original');
+});
+
+Then('se muestra error al cambiar el correo', async () => {
+    let error;
+    try {
+        error = await scope.pages.profile.getEmailError();
+        console.log("\nEmail Error: " + error);
+    } catch (e) {
+        console.log("\nNo error found. Restoring original values.");
+        await reloadProfilePage();
+
+        const { oldEmail } = scope.variables;
+        await scope.pages.profile.changeEmail(oldEmail || "equipo20@misw4103.com");
+        await new Promise(r => setTimeout(r, 300));
+        await scope.pages.profile.saveProfile();
+    }
+    chai.assert(error, 'No se muestra el error al cambiar el correo');
+});
+
 Then('cambio el nombre y el correo a los originales', async () => {
     const { oldName, oldEmail } = scope.variables;
-    await scope.pages.profile.changeName(oldName);
-    await scope.pages.profile.changeEmail(oldEmail);
+    await scope.pages.profile.changeName(oldName || "Equipo 20");
+    await scope.pages.profile.changeEmail("equipo20@misw4103.com");
     await new Promise(r => setTimeout(r, 300));
 });
 
@@ -114,22 +179,15 @@ Then('existe al menos una actividad', async () => {
     chai.assert(activities.length > 0, 'No hay actividades');
 });
 
-// Write the steps for
-// And cambio mi usuario de Facebook a "Equipo20"
-// And cambio mi usuario de Twitter a "TwEquipo20"
-// Then abro la sección de "Profile"
-// And el usuario de Facebook debe corresponder al nuevo
-// And el usuario de Twitter debe corresponder al nuevo
-// And vacio mi usuario de Facebook
-// And vacio mi usuario de Twitter
-
 Given('cambio mi usuario de Facebook a {string}', async (facebook) => {
     scope.variables.newFacebook = facebook;
+    scope.variables.oldFacebook = await scope.pages.profile.getFacebook();
     await scope.pages.profile.changeFacebook(facebook);
 });
 
 Given('cambio mi usuario de Twitter a {string}', async (twitter) => {
     scope.variables.newTwitter = twitter;
+    scope.variables.oldTwitter = await scope.pages.profile.getTwitter();
     await scope.pages.profile.changeTwitter(twitter);
 });
 
@@ -145,10 +203,38 @@ Then('el usuario de Twitter debe corresponder al nuevo', async () => {
     chai.assert(("https://twitter.com/" + newTwitter) === twitter, 'El usuario de Twitter no corresponde al nuevo');
 });
 
+Then('se muestra error al cambiar el usuario de Facebook o Twitter', async () => {
+    let errors;
+    try {
+        errors = await scope.pages.profile.getFBorTwitterErrors();
+        console.log("\nSocial Errors: " + error);
+    } catch (e) {
+        console.log("\nNo error found. Cleaning values.");
+        await reloadProfilePage();
+        await scope.pages.profile.changeFacebook("");
+        await scope.pages.profile.changeTwitter("");
+        await new Promise(r => setTimeout(r, 300));
+        await scope.pages.profile.saveProfile();
+    }
+    chai.assert(errors && errors.length > 0, 'No se muestra el error al cambiar el usuario de Facebook o Twitter');
+});
+
 Then('vacio mi usuario de Facebook', async () => {
     await scope.pages.profile.changeFacebook("");
 });
 
 Then('vacio mi usuario de Twitter', async () => {
     await scope.pages.profile.changeTwitter("");
+});
+
+Then('el usuario de Facebook debe corresponder al orignal', async () => {
+    const { oldFacebook } = scope.variables;
+    const facebook = await scope.pages.profile.getFacebook();
+    chai.assert(("https://www.facebook.com/" + oldFacebook) === facebook, 'El usuario de Facebook no corresponde al original');
+});
+
+Then('el usuario de Twitter debe corresponder al original', async () => {
+    const { oldTwitter } = scope.variables;
+    const twitter = await scope.pages.profile.getTwitter();
+    chai.assert(("https://twitter.com/" + oldTwitter) === twitter, 'El usuario de Twitter no corresponde al original');
 });
