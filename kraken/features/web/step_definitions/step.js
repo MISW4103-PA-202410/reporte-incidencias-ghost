@@ -807,26 +807,33 @@ When("I verify the random color in the tag", async function () {
   assert.equal(color, randomColor.color);
 });
 
-When("I fill with a random name the tag name", async function () {
-  const randomTagName = faker.lorem.word();
+When("I fill with a random name the tag name {kraken-string}", async function (int) {
+  // Generar un nombre de etiqueta aleatorio y único
+  const randomTagName = this.generateRandomTagName(int);
 
+  // Seleccionar el elemento del DOM con el ID "tag-name"
   let element = await this.driver.$("#tag-name");
-
+  
+  // Establecer el valor del elemento con el nombre de etiqueta único
   await element.setValue(randomTagName);
-
-  this.randomTagName = randomTagName;
 });
 
 When("I click the random name tag created", async function () {
-  let element = await this.driver.$$(
-    '.view-container.content-list > ol > li > a:first-of-type > h3[class="gh-tag-list-name"]'
+  // Seleccionar todos los elementos de etiqueta
+  let elements = await this.driver.$$(
+    '.view-container.content-list > ol > li > a:first-of-type > h3.gh-tag-list-name'
   );
-  for (let i = 0; i < element.length; i++) {
-    let tagName = await element[i].getText();
+  
+  // Iterar a través de los elementos para encontrar el que coincide con el nombre de etiqueta aleatorio
+  for (let i = 0; i < elements.length; i++) {
+    let tagName = await elements[i].getText();
     if (tagName === this.randomTagName) {
-      return await element[i].click();
+      await elements[i].click();
+      return;
     }
   }
+
+  throw new Error(`Tag with name ${this.randomTagName} not found`);
 });
 
 When("I delete the tag created", async function () {
@@ -885,21 +892,6 @@ When("I fill the tag with basic random information", async function () {
   await color.setValue(randomColor);
 });
 
-When(
-  "I verify that there is no tag with the name {kraken-string}",
-  async function (values) {
-    let element = await this.driver.$$(
-      '.view-container.content-list > ol > li > a:first-of-type > h3[class="gh-tag-list-name"]'
-    );
-
-    for (let i = 0; i < element.length; i++) {
-      let tagName = await element[i].getText();
-      if (tagName === values) {
-        throw new Error();
-      }
-    }
-  }
-);
 
 When("I cancel the tag creation", async function () {
   let element = await this.driver.$("button[data-test-leave-button]");
@@ -1106,33 +1098,6 @@ When("I fill the X image with a random one", async function () {
   }
 });
 
-When("I fill the tag description in x with 126 characters", async function () {
-  let elements = await this.driver.$$(
-    "div.gh-expandable-block > div.gh-expandable-header"
-  );
-  for (let i = 0; i < elements.length; i++) {
-    let text = await elements[i].$("div > h4.gh-expandable-title");
-    if ((await text.getText()) === "X card") {
-      let button = await elements[i].$("button.gh-btn.gh-btn-expand");
-      await button.click();
-      const dataPath = path.join(
-        __dirname,
-        "../../web/resources",
-        "realisticDescriptionsForX.json"
-      );
-      const realisticDescription = JSON.parse(fs.readFileSync(dataPath));
-      let randomDescription =
-        realisticDescription[
-          Math.floor(Math.random() * realisticDescription.length)
-        ];
-      
-      let limitedDescription = randomDescription.substring(0, 140);
-
-      let descripcion = await this.driver.$('textarea[name="twitterDescription"]');
-      await descripcion.setValue(limitedDescription);
-    }
-  }
-});
 
 
 When("I choose a color for the tag {kraken-string}", async function (values) {
