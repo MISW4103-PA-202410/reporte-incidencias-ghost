@@ -87,6 +87,7 @@ Feature: Editar perfil
         Examples:
         | password      |
         | {data_pool(password_invalid_too_short)}    |
+        | {data_pool(password_invalid_spaces)}    |
         | {data_pool(password_invalid_just_special)}    |
         | {data_pool(password_invalid_just_numbers)}    |
         | {data_pool(password_invalid_just_letters)}    |
@@ -116,7 +117,7 @@ Feature: Editar perfil
         | OtraContrasena123# |
         | {data_pool(password)} |
 
-    @run @profile @date_gen
+    @run @profile @data_gen
     Scenario Outline: escenario 8 - Cambiar correo casos válidos
         Given inicio la aplicación
         And inicio sesión si es necesario
@@ -137,7 +138,7 @@ Feature: Editar perfil
             | {data_pool(email)} |
             | {faker(email)} |
 
-    @run @profile @date_gen
+    @run @profile @data_gen
     Scenario Outline: escenario 9 - Cambiar correo casos inválidos
         Given inicio la aplicación
         And inicio sesión si es necesario
@@ -156,7 +157,7 @@ Feature: Editar perfil
             | {data_pool(email_invalid_no_user)} |
             | {data_pool(email_invalid_2_@)} |
 
-    @run @profile @date_gen
+    @run @profile @data_gen
     Scenario Outline: escenario 10 - Cambiar nombre casos válidos
         Given inicio la aplicación
         And inicio sesión si es necesario
@@ -177,7 +178,7 @@ Feature: Editar perfil
             | {data_pool(name)} |
             | {faker(name)} |
 
-    @run @profile @date_gen
+    @run @profile @data_gen
     Scenario Outline: escenario 11 - Cambiar nombre casos inválidos
         Given inicio la aplicación
         And inicio sesión si es necesario
@@ -196,19 +197,55 @@ Feature: Editar perfil
             | {data_pool(name_invalid_email)} |
             | {data_pool(name_invalid_special)} |
 
-    @run @profile @date_gen @debug
-    Scenario Outline: escenario 12 - Cambiar redes casos válidos
+    @run @profile @data_gen
+    Scenario Outline: escenario 12 - Cambiar facebook casos válidos
         Given inicio la aplicación
         And inicio sesión si es necesario
         And abro la sección de "Profile"
         And cambio mi usuario de Facebook a "<username>"
-        And cambio mi usuario de Twitter a "<username>"
         When guardo mi perfil
         Then navego a Home
         And abro la sección de "Profile"
         And el usuario de Facebook debe corresponder al nuevo
-        And el usuario de Twitter debe corresponder al nuevo
         And vacio mi usuario de Facebook
+        And guardo mi perfil
+
+        Examples:
+            | username           |
+            | ja.vos    |
+            | {data_pool(social_user)} |
+            | {faker(username)} |
+
+    @run @profile @data_gen
+    Scenario Outline: escenario 13 - Cambiar facebook inválidos
+        Given inicio la aplicación
+        And inicio sesión si es necesario
+        And abro la sección de "Profile"
+        And cambio mi usuario de Facebook a "<username>"
+        When guardo mi perfil
+        Then se muestra error al cambiar el usuario de Facebook o Twitter
+        And navego a Home
+        And abro la sección de "Profile"
+        And el usuario de Facebook debe corresponder al orignal
+
+        Examples:
+            | username           |
+            | https://www.google.com    |
+            | {data_pool(social_user_invalid)} |
+            | {data_pool(social_user_invalid_url)} |
+            | {data_pool(social_user_invalid_spaces)} |
+            | {data_pool(social_user_invalid_100)} |
+
+    @run @profile @data_gen
+    Scenario Outline: escenario 14 - Cambiar twitter casos válidos
+        Given inicio la aplicación
+        And inicio sesión si es necesario
+        And abro la sección de "Profile"
+        And cambio mi usuario de Twitter a "<username>"
+        When guardo mi perfil
+        Then navego a Home
+        And abro la sección de "Profile"
+        And el usuario de Twitter debe corresponder al nuevo
         And vacio mi usuario de Twitter
         And guardo mi perfil
 
@@ -218,18 +255,16 @@ Feature: Editar perfil
             | {data_pool(social_user)} |
             | {faker(username)} |
 
-    @run @profile @date_gen
-    Scenario Outline: escenario 12 - Cambiar redes casos inválidos
+    @run @profile @data_gen
+    Scenario Outline: escenario 15 - Cambiar twitter inválidos
         Given inicio la aplicación
         And inicio sesión si es necesario
         And abro la sección de "Profile"
-        And cambio mi usuario de Facebook a "<username>"
         And cambio mi usuario de Twitter a "<username>"
         When guardo mi perfil
         Then se muestra error al cambiar el usuario de Facebook o Twitter
         And navego a Home
         And abro la sección de "Profile"
-        And el usuario de Facebook debe corresponder al orignal
         And el usuario de Twitter debe corresponder al original
 
         Examples:
