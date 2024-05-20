@@ -20,7 +20,7 @@ que serán necesarias para ejecutar tanto kraken como backstop.
 4. Ejecutar el comando nvm `nvm use v18.17.0`
 5. Instalar las dependencias con el comando `npm i`
 
-En la carpeta kraken/features/web/tests_5.82/tag  se encuentran los escenarios en formato .feature para tag (agrupados en 5 aproximadamente en cada archivo para mayor comodidad corriendo los tests) tambien se tiene uno llamado tag_5_issue.feature que contiene 2 escenarios que fallan y están documentados en las issues del proyecto puesto que se trata de un error del aplicativo. La manera apropiada de correrlos es la siguiente:
+En la carpeta kraken/features/web/tests_5.82/tag se encuentran los escenarios en formato .feature para tag (agrupados en 5 aproximadamente en cada archivo para mayor comodidad corriendo los tests) y para post se tiene kraken/features/web/tests_5.82/post tambien se tiene uno llamado tag_5_issue.feature que contiene 2 escenarios que fallan y están documentados en las issues del proyecto puesto que se trata de un error del aplicativo. La manera apropiada de correrlos es la siguiente:
 
 1. Mover el `escenario.feature` a probar a dos niveles arriba, en la carpeta `Kraken/features`.
 2. Cerciorarse de que únicamente haya un archivo `.feature` en dicha carpeta. Si hay más de un archivo, es indispensable mover a la carpeta tests_5.82 todos aquellos que no se deseen ejecutar.
