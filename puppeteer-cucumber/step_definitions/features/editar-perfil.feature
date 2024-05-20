@@ -73,7 +73,7 @@ Feature: Editar perfil
         And puedo ver las actividades que he realizado en Ghost
         And existe al menos una actividad
 
-    @run @profile @data_gen 
+    @run @profile @data_gen
     Scenario Outline: escenario_6 - Cambiar contraseña casos inválidos
         Given inicio la aplicación
         And inicio sesión si es necesario
@@ -86,8 +86,11 @@ Feature: Editar perfil
 
         Examples:
         | password      |
-        | 1234567890    |
-        | 12345678    |
+        | {data_pool(password_invalid_too_short)}    |
+        | {data_pool(password_invalid_just_special)}    |
+        | {data_pool(password_invalid_just_numbers)}    |
+        | {data_pool(password_invalid_just_letters)}    |
+        | {data_pool(password_invalid_too_long)}    |
 
     @run @profile @data_gen
     Scenario Outline: escenario_7 - Cambiar contraseña casos válidos
@@ -111,6 +114,7 @@ Feature: Editar perfil
         | PRUEBAS12345678    |
         | Pruebas1234567!    |
         | OtraContrasena123# |
+        | {data_pool(password)} |
 
     @run @profile @date_gen
     Scenario Outline: escenario 8 - Cambiar correo casos válidos
@@ -130,6 +134,8 @@ Feature: Editar perfil
             | test@gmail.com    |
             | test2@ghost.com    |
             | es.tudiante@uniandes.edu.co |
+            | {data_pool(email)} |
+            | {faker(email)} |
 
     @run @profile @date_gen
     Scenario Outline: escenario 9 - Cambiar correo casos inválidos
@@ -145,9 +151,10 @@ Feature: Editar perfil
 
         Examples:
             | email           |
-            | test@gmail    |
-            | test2@ghost.    |
-            | es.tudianteuniandes.edu.co |
+            | {data_pool(email_invalid_no_dot_end)} |
+            | {data_pool(email_invalid_no_end)} |
+            | {data_pool(email_invalid_no_user)} |
+            | {data_pool(email_invalid_2_@)} |
 
     @run @profile @date_gen
     Scenario Outline: escenario 10 - Cambiar nombre casos válidos
@@ -167,6 +174,8 @@ Feature: Editar perfil
             | Juan    |
             | Paula    |
             | Santiago Arboleda Garzón |
+            | {data_pool(name)} |
+            | {faker(name)} |
 
     @run @profile @date_gen
     Scenario Outline: escenario 11 - Cambiar nombre casos inválidos
@@ -183,8 +192,11 @@ Feature: Editar perfil
         Examples:
             | name           |
             | 123456789123456879    |
+            | {data_pool(name_invalid)} |
+            | {data_pool(name_invalid_email)} |
+            | {data_pool(name_invalid_special)} |
 
-    @run @profile @date_gen
+    @run @profile @date_gen @debug
     Scenario Outline: escenario 12 - Cambiar redes casos válidos
         Given inicio la aplicación
         And inicio sesión si es necesario
@@ -203,8 +215,10 @@ Feature: Editar perfil
         Examples:
             | username           |
             | ja.vos    |
+            | {data_pool(social_user)} |
+            | {faker(username)} |
 
-    @run @profile @date_gen @debug
+    @run @profile @date_gen
     Scenario Outline: escenario 12 - Cambiar redes casos inválidos
         Given inicio la aplicación
         And inicio sesión si es necesario
@@ -221,3 +235,7 @@ Feature: Editar perfil
         Examples:
             | username           |
             | https://www.google.com    |
+            | {data_pool(social_user_invalid)} |
+            | {data_pool(social_user_invalid_url)} |
+            | {data_pool(social_user_invalid_spaces)} |
+            | {data_pool(social_user_invalid_100)} |

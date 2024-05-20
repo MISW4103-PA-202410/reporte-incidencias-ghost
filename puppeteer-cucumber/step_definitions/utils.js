@@ -41,11 +41,11 @@ function fakerPool(attribute) {
     }
     else if (attribute === 'name')
     {
-        return faker.person.fullName();
+        return faker.name.findName();
     }
     else if (attribute === 'username')
     {
-        return faker.internet.displayName();
+        return faker.internet.userName();
     }
 }
 
