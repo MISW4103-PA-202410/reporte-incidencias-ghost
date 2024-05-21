@@ -27,6 +27,13 @@ class ProfilePage {
         const oldPasswordInput = passwordInputs[0];
         const newPasswordInput = passwordInputs[1];
         const newPasswordVerificationInput = passwordInputs[2];
+        if (oldPassword) {
+            await this.clearInput(oldPasswordInput);
+        }
+        if (newPassword) {
+            await this.clearInput(newPasswordInput);
+            await this.clearInput(newPasswordVerificationInput);
+        }
         await oldPasswordInput.type(oldPassword);
         await newPasswordInput.type(newPassword);
         await newPasswordVerificationInput.type(newPassword);
@@ -37,6 +44,11 @@ class ProfilePage {
             [...document.querySelectorAll('span')].find(span => span.innerText === "Change password").click();
         });
         await new Promise(r => setTimeout(r, 500));
+    }
+
+    async getPasswordError() {
+        const errorElement = await this.page.$('span.text-red.order-3');
+        return await errorElement.evaluate((el) => el.innerText);
     }
 
     async addImage(filePath) {
@@ -109,6 +121,16 @@ class ProfilePage {
         return await emailInput.evaluate((el) => el.value);
     }
 
+    async getEmailError() {
+        const errorElement = await this.page.$('span.text-red.order-3');
+        return await errorElement.evaluate((el) => el.innerText);
+    }
+
+    async getNameError() {
+        const errorElement = await this.page.$('span.text-red.order-3');
+        return await errorElement.evaluate((el) => el.innerText);
+    }
+    
     async changeFacebook(facebook) {
         let inputs = await this.page.$$('input.peer');
         // Facebook is the sixth input
@@ -116,24 +138,29 @@ class ProfilePage {
         await this.clearInput(input);
         await input.type(facebook);
     }
-
+    
     async changeTwitter(twitter) {
         let inputs = await this.page.$$('input.peer');
         // Twitter is the seventh input
         let input = inputs[6];
         await this.clearInput(input);
         await input.type(twitter);
-        await (await this.page.$$('input.peer'))[4].click();
+        await inputs[5].click();
     }
-
+    
     async getFacebook() {
         let fbInput = (await this.page.$$('input.peer'))[5];
         return await fbInput.evaluate((el) => el.value);
     }
-
+    
     async getTwitter() {
         let twInput = (await this.page.$$('input.peer'))[6];
         return await twInput.evaluate((el) => el.value);
+    }
+    
+    async getFBorTwitterErrors() {
+        const errorElements = await this.page.$$('span.text-red.order-3');
+        return await Promise.all(errorElements.map(async (el) => await el.evaluate((el) => el.innerText)));
     }
 
     async openActions() {

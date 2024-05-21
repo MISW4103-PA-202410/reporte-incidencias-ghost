@@ -10,7 +10,9 @@ en caso de no tener las versiones de node instalarlas con este comando:"
 
 que serán necesarias para ejecutar tanto kraken como backstop.
 
-#### Instalación y Configuración
+
+
+#### Instalación y Configuración (Entrega semana 7)
 
 1. Clonar el repositorio
 2. Ejecutar el comando `cd reporte-incidencias-ghost`
@@ -18,12 +20,10 @@ que serán necesarias para ejecutar tanto kraken como backstop.
 4. Ejecutar el comando nvm `nvm use v18.17.0`
 5. Instalar las dependencias con el comando `npm i`
 
-En la carpeta kraken/features/tests_5.82 se encuentran los escenarios en formato .feature a ejecutar para la versión de 5.82 de GHOST, la manera apropiada de correrlos es la siguiente:
+En la carpeta kraken/features/web/tests_5.82/tag se encuentran los escenarios en formato .feature para tag (agrupados en 5 aproximadamente en cada archivo para mayor comodidad corriendo los tests) y para post se tiene kraken/features/web/tests_5.82/post tambien se tiene uno llamado tag_5_issue.feature que contiene 2 escenarios que fallan y están documentados en las issues del proyecto puesto que se trata de un error del aplicativo. La manera apropiada de correrlos es la siguiente:
 
 1. Mover el `escenario.feature` a probar a dos niveles arriba, en la carpeta `Kraken/features`.
 2. Cerciorarse de que únicamente haya un archivo `.feature` en dicha carpeta. Si hay más de un archivo, es indispensable mover a la carpeta tests_5.82 todos aquellos que no se deseen ejecutar.
-
-Lo mismo se aplica para Kraken/features/tests_3.42, donde se encuentran los archivos .feature para la versión 3.42 de Ghost.
 
 Para correr la feature seleccionada, que movimos a nuestra carpeta /kraken/features/, es necesario correr el siguiente comando:
 

@@ -157,6 +157,7 @@ BeforeAll(async () => {
         const jsonData = JSON.parse(data);
         // Guardar los datos en scope.data_pool
         scope.dataPool.page = jsonData.page;
+        scope.dataPool.profile = jsonData.profile;
     } catch (error) {
         console.error('Error al parsear el JSON:', error);
         return;
@@ -208,7 +209,7 @@ AfterStep(async function({pickle, pickleStep, gherkinDocument, result, testCaseS
   }
 
   //Screenshot
-  //const screenshot = await scope.page.screenshot({path: fullPath, fullPage: true});
+  const screenshot = await scope.page.screenshot({path: fullPath, fullPage: true});
 
 })
 
@@ -244,7 +245,11 @@ After(async function (scenario) {
 })
 
 AfterAll(async () => {
-  await deleteContent();
+  try {
+    await deleteContent();
+  } catch (error) {
+    console.error('Error al eliminar contenido:', error);
+  }
   if (scope.browser) {
     // close the browser at end of run
     await scope.browser.close()
@@ -267,7 +272,7 @@ async function createPageObjects(page) {
 }
 
 async function deleteContent() {
-  console.log("Eliminando contenido...");
+  console.log("\nEliminando contenido...");
 
     scope.page = await scope.browser.newPage();
     createPageObjects(scope.page);
@@ -281,7 +286,7 @@ async function deleteContent() {
 
     await scope.page.close();
 
-    console.log("Contenido eliminado");
+    console.log("\nContenido eliminado");
   }
 
 function generateDinamicDataPool(){

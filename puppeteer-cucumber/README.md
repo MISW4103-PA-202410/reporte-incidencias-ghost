@@ -27,6 +27,12 @@ Ejecute el siguiente comando para hacer las pruebas E2E de los 20 escenarios des
 
 `npx cucumber-js --config config/cucumber.json -p ghost-5 --tags=@run`
 
+### 60 escenarios en la versión 5.82 de Ghost
+
+Ejecute el siguiente comando para hacer las pruebas E2E basado en diferentes estrategias de pool de datos de los 60 escenarios descritos en la wiki en la versión 5.82 de Ghost.
+
+`npx cucumber-js --config config/cucumber.json -p ghost-5 --tags=@data_gen`
+
 ### Escenarios escogidos y adaptados con puppeteer para comparación entre versiones
 1. Crear página
     - Página con título, contenido y video embebido de YouTube.
