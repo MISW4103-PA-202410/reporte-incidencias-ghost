@@ -559,118 +559,38 @@ When(
  *
  */
 
-When(
-  "I click in the tags menu button and take a screenshot for version {kraken-string} feature {string} scenario {string} step {string}",
-  async function (version, feature, scenario, step) {
-    let element = await this.driver.$('a[href="#/tags/"].ember-view');
+When("I click in the tags menu button", async function () {
+  let element = await this.driver.$('a[href="#/tags/"].ember-view');
+  await element.click();
+});
 
-    await element.click();
+When("I click in the new tag button", async function () {
+  let element = await this.driver.$(
+    'a[href="#/tags/new/"].ember-view.gh-btn.gh-btn-primary'
+  );
+  await element.click();
+});
 
-    const screenshot = await this.driver.takeScreenshot();
+When("I fill the tag name {kraken-string}", async function () {
+  let element = await this.driver.$("#tag-name ");
+  await element.setValue(values);
+});
 
-    const screenshotsBasePath = path.resolve(
-      __dirname,
-      `../../../../screenshots/kraken/${version}/${feature}/escenario_${scenario}`
-    );
+When("I verify the tag name created is {kraken-string}", async function () {
+  let element = await this.driver.$(
+    '.view-container.content-list > ol > li:last-of-type > a:first-of-type > h3[class="gh-tag-list-name"]'
+  );
 
-    fs.mkdirSync(screenshotsBasePath, { recursive: true });
+  let tagName = await element.getText();
+  assert.equal(tagName, values);
 
-    const screenshotFilename = `paso_${step}.png`;
-    const screenshotPath = path.join(screenshotsBasePath, screenshotFilename);
+  return await element.click();
+});
 
-    fs.writeFileSync(screenshotPath, screenshot, "base64");
-  }
-);
-
-When(
-  "I click in the new tag button and take a screenshot for version {kraken-string} feature {string} scenario {string} step {string}",
-  async function (version, feature, scenario, step) {
-    let element = await this.driver.$(
-      'a[href="#/tags/new/"].ember-view.gh-btn.gh-btn-primary'
-    );
-    await element.click();
-
-    const screenshot = await this.driver.takeScreenshot();
-
-    const screenshotsBasePath = path.resolve(
-      __dirname,
-      `../../../../screenshots/kraken/${version}/${feature}/escenario_${scenario}`
-    );
-
-    fs.mkdirSync(screenshotsBasePath, { recursive: true });
-
-    const screenshotFilename = `paso_${step}.png`;
-    const screenshotPath = path.join(screenshotsBasePath, screenshotFilename);
-
-    fs.writeFileSync(screenshotPath, screenshot, "base64");
-  }
-);
-
-When(
-  "I fill the tag name {kraken-string} and take a screenshot for version {kraken-string} feature {string} scenario {string} step {string}",
-  async function (values, version, feature, scenario, step) {
-    let element = await this.driver.$("#tag-name ");
-    await element.setValue(values);
-
-    const screenshot = await this.driver.takeScreenshot();
-
-    const screenshotsBasePath = path.resolve(
-      __dirname,
-      `../../../../screenshots/kraken/${version}/${feature}/escenario_${scenario}`
-    );
-
-    fs.mkdirSync(screenshotsBasePath, { recursive: true });
-
-    const screenshotFilename = `paso_${step}.png`;
-    const screenshotPath = path.join(screenshotsBasePath, screenshotFilename);
-
-    fs.writeFileSync(screenshotPath, screenshot, "base64");
-  }
-);
-
-When(
-  "I verify the tag name created is {kraken-string} and take a screenshot for version {kraken-string} feature {string} scenario {string} step {string}",
-  async function (values, version, feature, scenario, step) {
-    let element = await this.driver.$(
-      '.view-container.content-list > ol > li:last-of-type > a:first-of-type > h3[class="gh-tag-list-name"]'
-    );
-
-    let tagName = await element.getText();
-    assert.equal(tagName, values);
-
-    const screenshot = await this.driver.takeScreenshot();
-    const screenshotsBasePath = path.resolve(
-      __dirname,
-      `../../../../screenshots/kraken/${version}/${feature}/escenario_${scenario}`
-    );
-    fs.mkdirSync(screenshotsBasePath, { recursive: true });
-
-    const screenshotFilename = `paso_${step}.png`;
-    const screenshotPath = path.join(screenshotsBasePath, screenshotFilename);
-    fs.writeFileSync(screenshotPath, screenshot, "base64");
-
-    return await element.click();
-  }
-);
-
-When(
-  "I click the save tag button and take a screenshot for version {kraken-string} feature {string} scenario {string} step {string}",
-  async function (version, feature, scenario, step) {
-    let element = await this.driver.$('button[data-test-button="save"]');
-    await element.click();
-
-    const screenshot = await this.driver.takeScreenshot();
-    const screenshotsBasePath = path.resolve(
-      __dirname,
-      `../../../../screenshots/kraken/${version}/${feature}/escenario_${scenario}`
-    );
-    fs.mkdirSync(screenshotsBasePath, { recursive: true });
-
-    const screenshotFilename = `paso_${step}.png`;
-    const screenshotPath = path.join(screenshotsBasePath, screenshotFilename);
-    fs.writeFileSync(screenshotPath, screenshot, "base64");
-  }
-);
+When("I click the save tag button", async function () {
+  let element = await this.driver.$('button[data-test-button="save"]');
+  await element.click();
+});
 
 When("I see the tag has been saved", async function () {
   let element = await this.driver.$(
@@ -687,78 +607,35 @@ When("I check the slug has been changed", async function () {
   throw new Error();
 });
 
-When(
-  "I click in the add image to tag and take a screenshot for version {kraken-string} feature {string} scenario {string} step {string}",
-  async function (version, feature, scenario, step) {
-    let element = await this.driver.$(
-      "span.x-file-input > label > div.gh-btn.gh-btn-white"
-    );
-    await element.click();
-    let fileInput = await this.driver.$('input[type="file"]');
+When("I click in the add image to tag", async function () {
+  let element = await this.driver.$(
+    "span.x-file-input > label > div.gh-btn.gh-btn-white"
+  );
+  let fileInput = await this.driver.$('input[type="file"]');
 
-    // Set the file path to the file input element
-    await fileInput.setValue(
-      path.resolve("../kraken/features/web/resources/image_feature.jpeg")
-    );
+  // Set the file path to the file input element
+  await fileInput.setValue(
+    path.resolve("../kraken/features/web/resources/image_feature.jpeg")
+  );
+});
 
-    const screenshot = await this.driver.takeScreenshot();
-    const screenshotsBasePath = path.resolve(
-      __dirname,
-      `../../../../screenshots/kraken/${version}/${feature}/escenario_${scenario}`
-    );
-    fs.mkdirSync(screenshotsBasePath, { recursive: true });
+When("I fill the meta data {kraken-string}", async function (values) {
+  const setupValues = values.split(";");
 
-    const screenshotFilename = `paso_${step}.png`;
-    const screenshotPath = path.join(screenshotsBasePath, screenshotFilename);
-    fs.writeFileSync(screenshotPath, screenshot, "base64");
-  }
-);
+  let element = await this.driver.$("#meta-title");
+  await element.setValue(setupValues[0]);
+  element = await this.driver.$("#meta-description");
+  await element.setValue(setupValues[1]);
+  element = await this.driver.$("#canonical-url");
+  await element.setValue(setupValues[2]);
 
-When(
-  "I fill the meta data {kraken-string} and take a screenshot for version {kraken-string} feature {string} scenario {string} step {string}",
-  async function (values, version, feature, scenario, step) {
-    const setupValues = values.split(";");
+  return await element.click();
+});
 
-    let element = await this.driver.$("#meta-title");
-    await element.setValue(setupValues[0]);
-    element = await this.driver.$("#meta-description");
-    await element.setValue(setupValues[1]);
-    element = await this.driver.$("#canonical-url");
-    await element.setValue(setupValues[2]);
-
-    const screenshot = await this.driver.takeScreenshot();
-    const screenshotsBasePath = path.resolve(
-      __dirname,
-      `../../../../screenshots/kraken/${version}/${feature}/escenario_${scenario}`
-    );
-    fs.mkdirSync(screenshotsBasePath, { recursive: true });
-
-    const screenshotFilename = `paso_${step}.png`;
-    const screenshotPath = path.join(screenshotsBasePath, screenshotFilename);
-    fs.writeFileSync(screenshotPath, screenshot, "base64");
-
-    return await element.click(); // assuming you want to click the last element set
-  }
-);
-
-When(
-  "I click in the expand meta data button and take a screenshot for version {kraken-string} feature {string} scenario {string} step {string}",
-  async function (version, feature, scenario, step) {
-    let element = await this.driver.$("button.gh-btn.gh-btn-expand > span");
-    await element.click();
-
-    const screenshot = await this.driver.takeScreenshot();
-    const screenshotsBasePath = path.resolve(
-      __dirname,
-      `../../../../screenshots/kraken/${version}/${feature}/escenario_${scenario}`
-    );
-    fs.mkdirSync(screenshotsBasePath, { recursive: true });
-
-    const screenshotFilename = `paso_${step}.png`;
-    const screenshotPath = path.join(screenshotsBasePath, screenshotFilename);
-    fs.writeFileSync(screenshotPath, screenshot, "base64");
-  }
-);
+When("I click in the expand meta data button", async function () {
+  let element = await this.driver.$("button.gh-btn.gh-btn-expand > span");
+  await element.click();
+});
 
 When("I verify the error message {kraken-string}", async function (values) {
   let element = await this.driver.$("span.error");
@@ -807,23 +684,26 @@ When("I verify the random color in the tag", async function () {
   assert.equal(color, randomColor.color);
 });
 
-When("I fill with a random name the tag name {kraken-string}", async function (int) {
-  // Generar un nombre de etiqueta aleatorio y único
-  const randomTagName = this.generateRandomTagName(int);
+When(
+  "I fill with a random name the tag name {kraken-string}",
+  async function (int) {
+    // Generar un nombre de etiqueta aleatorio y único
+    const randomTagName = this.generateRandomTagName(int);
 
-  // Seleccionar el elemento del DOM con el ID "tag-name"
-  let element = await this.driver.$("#tag-name");
-  
-  // Establecer el valor del elemento con el nombre de etiqueta único
-  await element.setValue(randomTagName);
-});
+    // Seleccionar el elemento del DOM con el ID "tag-name"
+    let element = await this.driver.$("#tag-name");
+
+    // Establecer el valor del elemento con el nombre de etiqueta único
+    await element.setValue(randomTagName);
+  }
+);
 
 When("I click the random name tag created", async function () {
   // Seleccionar todos los elementos de etiqueta
   let elements = await this.driver.$$(
-    '.view-container.content-list > ol > li > a:first-of-type > h3.gh-tag-list-name'
+    ".view-container.content-list > ol > li > a:first-of-type > h3.gh-tag-list-name"
   );
-  
+
   // Iterar a través de los elementos para encontrar el que coincide con el nombre de etiqueta aleatorio
   for (let i = 0; i < elements.length; i++) {
     let tagName = await elements[i].getText();
@@ -891,7 +771,6 @@ When("I fill the tag with basic random information", async function () {
   await descripcion.setValue(randomDescription);
   await color.setValue(randomColor);
 });
-
 
 When("I cancel the tag creation", async function () {
   let element = await this.driver.$("button[data-test-leave-button]");
@@ -1098,21 +977,24 @@ When("I fill the X image with a random one", async function () {
   }
 });
 
-
-
 When("I choose a color for the tag {kraken-string}", async function (values) {
   let element = await this.driver.$('input[data-test-input="accentColor"]');
   await element.click();
   await element.setValue(values);
 });
 
-When("I fill the description with random text with length {int}", async function (length) {
-  let element = await this.driver.$('textarea[name="description"]');
-  await element.setValue(generateRandomText(length, length));
-});
+When(
+  "I fill the description with random text with length {int}",
+  async function (length) {
+    let element = await this.driver.$('textarea[name="description"]');
+    await element.setValue(generateRandomText(length, length));
+  }
+);
 
 When("I verify the error message for description", async function () {
-  let element = await this.driver.$('div.gh-main-section > section > div > div:nth-child(1) > div.form-group.no-margin.error > p.response');
+  let element = await this.driver.$(
+    "div.gh-main-section > section > div > div:nth-child(1) > div.form-group.no-margin.error > p.response"
+  );
   message = await element.getText();
   console.log(message);
   assert.equal(message, "Description cannot be longer than 500 characters.");
@@ -1150,7 +1032,6 @@ When("I fill the Facebook image with a random one", async function () {
   }
 });
 
-
 When(
   "I fill all facebook fields with random values with length between {int} and {int} characters",
   async function (minLength, maxLength) {
@@ -1181,7 +1062,7 @@ When(
             let fileInput = await possibleInput[j].$("input.x-file--input");
             await fileInput.setValue(imagePath);
           }
-      }
+        }
 
         let title = await this.driver.$('input[name="ogTitle"]');
         let descripcion = await this.driver.$('textarea[name="ogDescription"]');
@@ -1194,11 +1075,10 @@ When(
 );
 
 When(
-  "I fill the metadata title with {int} random characters", 
+  "I fill the metadata title with {int} random characters",
   async function (values) {
     let element = await this.driver.$("#meta-title");
-    await element.setValue(generateRandomText(values,values));
-
+    await element.setValue(generateRandomText(values, values));
   }
 );
 
@@ -1232,10 +1112,12 @@ When(
             let fileInput = await possibleInput[j].$("input.x-file--input");
             await fileInput.setValue(imagePath);
           }
-      }
+        }
 
         let title = await this.driver.$('input[name="twitterTitle"]');
-        let descripcion = await this.driver.$('textarea[name="twitterDescription"]');
+        let descripcion = await this.driver.$(
+          'textarea[name="twitterDescription"]'
+        );
 
         await title.setValue(generateRandomText(minLength, maxLength));
         await descripcion.setValue(generateRandomText(minLength, maxLength));
@@ -1262,16 +1144,15 @@ When(
   }
 );
 
-When(
-  "I fill the metadata URL canonic with invalid URL", 
-  async function () {
-    let element = await this.driver.$('input[name="canonicalUrl"]');
-    await element.setValue("invalidURL");
-  }
-);
+When("I fill the metadata URL canonic with invalid URL", async function () {
+  let element = await this.driver.$('input[name="canonicalUrl"]');
+  await element.setValue("invalidURL");
+});
 
 When("I verify that the metadata URL canonic is invalid", async function () {
-  let element = await this.driver.$('div.gh-seo-settings-left.flex-basis-1-2-m.flex-basis-2-3-l > div.form-group.error > p.response');
+  let element = await this.driver.$(
+    "div.gh-seo-settings-left.flex-basis-1-2-m.flex-basis-2-3-l > div.form-group.error > p.response"
+  );
   let url = await element.getText();
   console.log(url);
   assert.equal(url, "The url should be a valid url");
@@ -1291,10 +1172,21 @@ When("I fill the X title with {int} characters", async function (values) {
     }
   }
 });
-  
 
-
-
+When(
+  "I take a screenshot for version {kraken-string} feature {string} scenario {string} step {string})",
+  async function (version, feature, scenario, step) {
+    const screenshot = await this.driver.takeScreenshot();
+    const screenshotsBasePath = path.resolve(
+      __dirname,
+      `../../../../screenshots/kraken/${version}/${feature}/escenario_${scenario}`
+    );
+    fs.mkdirSync(screenshotsBasePath, { recursive: true });
+    const screenshotFilename = `paso_${step}.png`;
+    const screenshotPath = path.join(screenshotsBasePath, screenshotFilename);
+    fs.writeFileSync(screenshotPath, screenshot, "base64");
+  }
+);
 
 /**
  *

@@ -1,215 +1,168 @@
+Pruebas exitosas para: view_1.feature
+Successful tests:
+1 scenario (1 passed)
+20 steps (20 passed)
+0m20.455s (executing steps: 0m20.411s
+
+Pruebas exitosas para: view_2.feature
+Successful tests:
+1 scenario (1 passed)
+23 steps (23 passed)
+0m22.775s (executing steps: 0m22.728s
+
+Pruebas exitosas para: view_3.feature
+Successful tests:
+1 scenario (1 passed)
+27 steps (27 passed)
+0m25.538s (executing steps: 0m25.490s
+
+Pruebas exitosas para: edit_profile.feature
+Successful tests:
+1 scenario (1 passed)
+37 steps (37 passed)
+0m35.239s (executing steps: 0m35.195s
+
+Pruebas exitosas para: edit_profile2.feature
+Successful tests:
+1 scenario (1 passed)
+22 steps (22 passed)
+0m24.499s (executing steps: 0m24.457s
+
+Pruebas exitosas para: edit_profile3.feature
+Successful tests:
+1 scenario (1 passed)
+28 steps (28 passed)
+0m31.010s (executing steps: 0m30.960s
+
+Pruebas exitosas para: edit_profile4.feature
+Successful tests:
+1 scenario (1 passed)
+12 steps (12 passed)
+0m16.985s (executing steps: 0m16.954s
+
+Pruebas exitosas para: edit_profile5.feature
+Successful tests:
+1 scenario (1 passed)
+14 steps (14 passed)
+0m20.030s (executing steps: 0m19.997s
+
 Pruebas exitosas para: tag_1.feature
 Successful tests:
 1 scenario (1 passed)
+19 steps (19 passed)
+0m18.651s (executing steps: 0m18.616s
+
+1 scenario (1 passed)
+16 steps (16 passed)
+0m24.375s (executing steps: 0m24.333s
+
+1 scenario (1 passed)
 17 steps (17 passed)
-0m17.556s (executing steps: 0m17.523s
+0m29.600s (executing steps: 0m29.559s
 
 Pruebas exitosas para: tag_10.feature
 Successful tests:
 1 scenario (1 passed)
-14 steps (14 passed)
-0m15.161s (executing steps: 0m15.133s
+19 steps (19 passed)
+0m34.167s (executing steps: 0m34.129s
 
-Pruebas exitosas para: tag_11.feature
-Successful tests:
 1 scenario (1 passed)
-20 steps (20 passed)
-0m27.452s (executing steps: 0m27.413s
+18 steps (18 passed)
+0m29.296s (executing steps: 0m29.253s
 
-Fallaron las pruebas para: tag_12.feature
-Failed tests:
-1 scenario (1 failed)
-19 steps (1 failed, 8 skipped, 10 passed)
-0m43.529s (executing steps: 0m43.496s)
-
-Detailed failure steps:
-Failures:
-
-1) Scenario: Como usuario me registro y creo un nuevo tag con footer pseudo-aleatorio # features\tag_12.feature:4
-   √ Before # features\web\support\hooks.js:63
-   √ Given I navigate to page "http://34.170.53.250/ghost/#/setup" # node_modules\kraken-node\lib\steps\web.js:41
-       Attachment (image/png)
-   √ And I wait for 2 seconds # node_modules\kraken-node\lib\steps\both.js:73
-       Attachment (image/png)
-   √ When I enter to the setup page "<SETUP_VALUES_REMOTE>" and take a screenshot for version "v5.82" feature "crear-tag" scenario "3" step "1" # features\web\step_definitions\step.js:37
-       Attachment (image/png)
-   √ And I wait for 2 seconds # node_modules\kraken-node\lib\steps\both.js:73
-       Attachment (image/png)
-   √ And I click in the tags menu button and take a screenshot for version "v5.82" feature "crear-tag" scenario "3" step "1" # features\web\step_definitions\step.js:562
-       Attachment (image/png)
-   √ And I wait for 1 seconds # node_modules\kraken-node\lib\steps\both.js:73
-       Attachment (image/png)
-   √ And I click in the new tag button and take a screenshot for version "v5.82" feature "crear-tag" scenario "3" step "2" # features\web\step_definitions\step.js:585
-       Attachment (image/png)
-   √ And I wait for 1 seconds # node_modules\kraken-node\lib\steps\both.js:73
-       Attachment (image/png)
-   √ And I fill with a random name the tag name "12" # features\web\step_definitions\step.js:810
-       Attachment (image/png)
-   √ And I wait for 1 seconds # node_modules\kraken-node\lib\steps\both.js:73
-       Attachment (image/png)
-   × And I fill the footer with random text # features\web\step_definitions\step.js:931
-       Attachment (image/png)
-       Error: function timed out, ensure the promise resolves within 30000 milliseconds
-           at Timeout._onTimeout (C:\Users\brall\OneDrive\Escritorio\reporte-incidencias-ghost\kraken\node_modules\@cucumber\cucumber\lib\user_code_runner.js:63:28)
-           at listOnTimeout (node:internal/timers:559:17)
-           at processTimers (node:internal/timers:502:7)
-   - And I wait for 1 seconds # node_modules\kraken-node\lib\steps\both.js:73
-   - And I click the save tag button and take a screenshot for version "v5.82" feature "crear-tag" scenario "3" step "5" # features\web\step_definitions\step.js:656
-   - And I wait for 1 seconds # node_modules\kraken-node\lib\steps\both.js:73
-   - And I click in the tags menu button and take a screenshot for version "v5.82" feature "crear-tag" scenario "3" step "6" # features\web\step_definitions\step.js:562
-   - And I wait for 1 seconds # node_modules\kraken-node\lib\steps\both.js:73
-   - And I click the random name tag created # features\web\step_definitions\step.js:821
-   - And I delete the tag created # features\web\step_definitions\step.js:839
-   - And I wait for 1 seconds # node_modules\kraken-node\lib\steps\both.js:73
-   √ After
+1 scenario (1 passed)
+14 steps (14 passed)
+0m40.808s (executing steps: 0m40.771s
 
 Pruebas exitosas para: tag_13.feature
 Successful tests:
 1 scenario (1 passed)
-19 steps (19 passed)
-0m23.961s (executing steps: 0m23.922s
+18 steps (18 passed)
+0m28.795s (executing steps: 0m28.752s
+
+1 scenario (1 passed)
+18 steps (18 passed)
+0m23.660s (executing steps: 0m23.621s
+
+Pruebas exitosas para: tag_14.feature
+Successful tests:
+1 scenario (1 passed)
+18 steps (18 passed)
+0m18.659s (executing steps: 0m18.625s
 
 Fallaron las pruebas para: tag_15_issue.feature
 Failed tests:
 1 scenario (1 failed)
 18 steps (1 failed, 1 skipped, 16 passed)
-0m19.667s (executing steps: 0m19.634s)
-
-Detailed failure steps:
-Failures:
-
-1) Scenario: Como usuario me registro y creo un nuevo tag con descripción de Facebook aleatoria entre 500 y 1000 carácteres - Falla documentada con ISSUE: # features\tag_15_issue.feature:4
-   √ Before # features\web\support\hooks.js:63
-   √ Given I navigate to page "http://34.170.53.250/ghost/#/setup" # node_modules\kraken-node\lib\steps\web.js:41
-       Attachment (image/png)
-   √ And I wait for 2 seconds # node_modules\kraken-node\lib\steps\both.js:73
-       Attachment (image/png)
-   √ When I enter to the setup page "<SETUP_VALUES_REMOTE>" and take a screenshot for version "v5.82" feature "crear-tag" scenario "3" step "1" # features\web\step_definitions\step.js:37
-       Attachment (image/png)
-   √ And I wait for 2 seconds # node_modules\kraken-node\lib\steps\both.js:73
-       Attachment (image/png)
-   √ And I click in the tags menu button and take a screenshot for version "v5.82" feature "crear-tag" scenario "3" step "1" # features\web\step_definitions\step.js:562
-       Attachment (image/png)
-   √ And I wait for 1 seconds # node_modules\kraken-node\lib\steps\both.js:73
-       Attachment (image/png)
-   √ And I click in the new tag button and take a screenshot for version "v5.82" feature "crear-tag" scenario "3" step "2" # features\web\step_definitions\step.js:585
-       Attachment (image/png)
-   √ And I wait for 1 seconds # node_modules\kraken-node\lib\steps\both.js:73
-       Attachment (image/png)
-   √ And I fill with a random name the tag name "15" # features\web\step_definitions\step.js:810
-       Attachment (image/png)
-   √ And I wait for 1 seconds # node_modules\kraken-node\lib\steps\both.js:73
-       Attachment (image/png)
-   √ And I fill the facebook description with a random length between 500 and 1000 characters # features\web\step_definitions\step.js:988
-       Attachment (image/png)
-   √ And I wait for 1 seconds # node_modules\kraken-node\lib\steps\both.js:73
-       Attachment (image/png)
-   √ And I click the save tag button and take a screenshot for version "v5.82" feature "crear-tag" scenario "3" step "5" # features\web\step_definitions\step.js:656
-       Attachment (image/png)
-   √ And I wait for 1 seconds # node_modules\kraken-node\lib\steps\both.js:73
-       Attachment (image/png)
-   √ And I click in the tags menu button and take a screenshot for version "v5.82" feature "crear-tag" scenario "3" step "6" # features\web\step_definitions\step.js:562
-       Attachment (image/png)
-   √ And I wait for 1 seconds # node_modules\kraken-node\lib\steps\both.js:73
-       Attachment (image/png)
-   × And I click the random name tag created # features\web\step_definitions\step.js:821
-       Attachment (image/png)
-       Error: Tag with name deprimo151716533794598 not found
-           at KrakenWorld.<anonymous> (C:\Users\brall\OneDrive\Escritorio\reporte-incidencias-ghost\kraken\features\web\step_definitions\step.js:836:9)
-           at runMicrotasks (<anonymous>)
-           at processTicksAndRejections (node:internal/process/task_queues:96:5)
-   - And I delete the tag created # features\web\step_definitions\step.js:839
-   √ After
+0m20.686s (executing steps: 0m20.655s)
 
 Pruebas exitosas para: tag_16.feature
 Successful tests:
 1 scenario (1 passed)
-27 steps (27 passed)
-0m24.172s (executing steps: 0m24.141s
+26 steps (26 passed)
+0m33.438s (executing steps: 0m33.392s
 
-Pruebas exitosas para: tag_17.feature
-Successful tests:
+1 scenario (1 passed)
+19 steps (19 passed)
+0m23.656s (executing steps: 0m23.617s
+
 1 scenario (1 passed)
 22 steps (22 passed)
-0m20.822s (executing steps: 0m20.788s
-
-Pruebas exitosas para: tag_18.feature
-Successful tests:
-1 scenario (1 passed)
-20 steps (20 passed)
-0m16.795s (executing steps: 0m16.753s
+0m29.044s (executing steps: 0m29.001s
 
 Pruebas exitosas para: tag_19.feature
 Successful tests:
 1 scenario (1 passed)
 19 steps (19 passed)
-0m26.563s (executing steps: 0m26.527s
+0m36.652s (executing steps: 0m36.611s
 
-Pruebas exitosas para: tag_2.feature
-Successful tests:
-1 scenario (1 passed)
-16 steps (16 passed)
-0m18.236s (executing steps: 0m18.207s
-
-Pruebas exitosas para: tag_20.feature
-Successful tests:
-1 scenario (1 passed)
-19 steps (19 passed)
-0m26.500s (executing steps: 0m26.450s
-
-Pruebas exitosas para: tag_21.feature
-Successful tests:
 1 scenario (1 passed)
 12 steps (12 passed)
-0m13.800s (executing steps: 0m13.772s
+0m26.952s (executing steps: 0m26.912s
+
+1 scenario (1 passed)
+19 steps (19 passed)
+0m32.410s (executing steps: 0m32.376s
 
 Pruebas exitosas para: tag_22.feature
 Successful tests:
 1 scenario (1 passed)
-13 steps (13 passed)
-0m16.704s (executing steps: 0m16.673s
+19 steps (19 passed)
+0m25.641s (executing steps: 0m25.605s
 
-Pruebas exitosas para: tag_23.feature
-Successful tests:
 1 scenario (1 passed)
 18 steps (18 passed)
-0m24.435s (executing steps: 0m24.405s
+0m31.341s (executing steps: 0m31.301s
 
-Pruebas exitosas para: tag_24.feature
-Successful tests:
 1 scenario (1 passed)
-19 steps (19 passed)
-0m26.540s (executing steps: 0m26.508s
+13 steps (13 passed)
+0m37.428s (executing steps: 0m37.387s
 
 Pruebas exitosas para: tag_25.feature
 Successful tests:
 1 scenario (1 passed)
 19 steps (19 passed)
-0m26.121s (executing steps: 0m26.088s
+0m36.739s (executing steps: 0m36.697s
 
-Pruebas exitosas para: tag_26.feature
-Successful tests:
-1 scenario (1 passed)
-23 steps (23 passed)
-0m26.219s (executing steps: 0m26.186s
-
-Pruebas exitosas para: tag_27.feature
-Successful tests:
 1 scenario (1 passed)
 20 steps (20 passed)
-0m23.194s (executing steps: 0m23.157s
+0m26.609s (executing steps: 0m26.564s
+
+1 scenario (1 passed)
+23 steps (23 passed)
+0m32.190s (executing steps: 0m32.142s
 
 Pruebas exitosas para: tag_28.feature
 Successful tests:
 1 scenario (1 passed)
 19 steps (19 passed)
-0m21.198s (executing steps: 0m21.162s
+0m19.899s (executing steps: 0m19.862s
 
 Fallaron las pruebas para: tag_29_issue.feature
 Failed tests:
 1 scenario (1 failed)
 19 steps (1 failed, 2 skipped, 16 passed)
-0m20.335s (executing steps: 0m20.305s)
+0m20.626s (executing steps: 0m20.581s)
 
 Detailed failure steps:
 Failures:
@@ -220,88 +173,74 @@ Failures:
        Attachment (image/png)
    √ And I wait for 2 seconds # node_modules\kraken-node\lib\steps\both.js:73
        Attachment (image/png)
-   √ When I enter to the setup page "<SETUP_VALUES_REMOTE>" and take a screenshot for version "v5.82" feature "crear-tag" scenario "3" step "1" # features\web\step_definitions\step.js:37
+   √ When I enter to the setup page "<SETUP_VALUES_REMOTE>" # features\web\step_definitions\step.js:10
        Attachment (image/png)
-   √ And I wait for 3 seconds # node_modules\kraken-node\lib\steps\both.js:73
+   √ And I wait for 2 seconds # node_modules\kraken-node\lib\steps\both.js:73
        Attachment (image/png)
-   √ And I click in the tags menu button and take a screenshot for version "v5.82" feature "crear-tag" scenario "3" step "1" # features\web\step_definitions\step.js:562
-       Attachment (image/png)
-   √ And I wait for 1 seconds # node_modules\kraken-node\lib\steps\both.js:73
-       Attachment (image/png)
-   √ And I click in the new tag button and take a screenshot for version "v5.82" feature "crear-tag" scenario "3" step "2" # features\web\step_definitions\step.js:585
+   √ And I click in the tags menu button # features\web\step_definitions\step.js:562
        Attachment (image/png)
    √ And I wait for 1 seconds # node_modules\kraken-node\lib\steps\both.js:73
        Attachment (image/png)
-   √ And I fill with a random name the tag name "29" # features\web\step_definitions\step.js:810
+   √ And I click in the new tag button # features\web\step_definitions\step.js:567
        Attachment (image/png)
    √ And I wait for 1 seconds # node_modules\kraken-node\lib\steps\both.js:73
        Attachment (image/png)
-   √ And I fill the tag description in x with 500 characters # features\web\step_definitions\step.js:1247
+   √ And I fill with a random name the tag name "29" # features\web\step_definitions\step.js:687
        Attachment (image/png)
    √ And I wait for 1 seconds # node_modules\kraken-node\lib\steps\both.js:73
        Attachment (image/png)
-   √ And I click the save tag button and take a screenshot for version "v5.82" feature "crear-tag" scenario "3" step "5" # features\web\step_definitions\step.js:656
+   √ And I fill the tag description in x with 500 characters # features\web\step_definitions\step.js:1129
        Attachment (image/png)
    √ And I wait for 1 seconds # node_modules\kraken-node\lib\steps\both.js:73
        Attachment (image/png)
-   √ And I click in the tags menu button and take a screenshot for version "v5.82" feature "crear-tag" scenario "3" step "6" # features\web\step_definitions\step.js:562
+   √ And I click the save tag button # features\web\step_definitions\step.js:590
        Attachment (image/png)
    √ And I wait for 1 seconds # node_modules\kraken-node\lib\steps\both.js:73
        Attachment (image/png)
-   × And I click the random name tag created # features\web\step_definitions\step.js:821
+   √ And I click in the tags menu button # features\web\step_definitions\step.js:562
        Attachment (image/png)
-       Error: Tag with name utrum291716534213736 not found
-           at KrakenWorld.<anonymous> (C:\Users\brall\OneDrive\Escritorio\reporte-incidencias-ghost\kraken\features\web\step_definitions\step.js:836:9)
+   √ And I wait for 1 seconds # node_modules\kraken-node\lib\steps\both.js:73
+       Attachment (image/png)
+   × And I click the random name tag created # features\web\step_definitions\step.js:701
+       Attachment (image/png)
+       Error: Tag with name communis291716587249002 not found
+           at KrakenWorld.<anonymous> (C:\Users\brall\OneDrive\Escritorio\reporte-incidencias-ghost\kraken\features\web\step_definitions\step.js:716:9)
            at runMicrotasks (<anonymous>)
            at processTicksAndRejections (node:internal/process/task_queues:96:5)
-   - And I delete the tag created # features\web\step_definitions\step.js:839
+   - And I delete the tag created # features\web\step_definitions\step.js:719
    - And I wait for 1 seconds # node_modules\kraken-node\lib\steps\both.js:73
    √ After
-
-Pruebas exitosas para: tag_3.feature
-Successful tests:
-1 scenario (1 passed)
-19 steps (19 passed)
-0m20.929s (executing steps: 0m20.899s
 
 Pruebas exitosas para: tag_30.feature
 Successful tests:
 1 scenario (1 passed)
 15 steps (15 passed)
-0m16.114s (executing steps: 0m16.081s
+0m15.019s (executing steps: 0m14.986s
 
 Pruebas exitosas para: tag_4.feature
 Successful tests:
 1 scenario (1 passed)
-22 steps (22 passed)
-0m22.542s (executing steps: 0m22.501s
-
-Pruebas exitosas para: tag_5.feature
-Successful tests:
-1 scenario (1 passed)
-12 steps (12 passed)
-0m14.484s (executing steps: 0m14.456s
-
-Pruebas exitosas para: tag_6.feature
-Successful tests:
-1 scenario (1 passed)
 20 steps (20 passed)
-0m20.940s (executing steps: 0m20.906s
+0m29.391s (executing steps: 0m29.357s
+
+1 scenario (1 passed)
+19 steps (19 passed)
+0m19.689s (executing steps: 0m19.653s
+
+1 scenario (1 passed)
+11 steps (11 passed)
+0m25.226s (executing steps: 0m25.194s
 
 Pruebas exitosas para: tag_7.feature
 Successful tests:
 1 scenario (1 passed)
 18 steps (18 passed)
-0m17.434s (executing steps: 0m17.405s
+0m21.506s (executing steps: 0m21.474s
 
-Pruebas exitosas para: tag_8.feature
-Successful tests:
 1 scenario (1 passed)
-20 steps (20 passed)
-0m21.512s (executing steps: 0m21.483s
+19 steps (19 passed)
+0m26.762s (executing steps: 0m26.719s
 
-Pruebas exitosas para: tag_9.feature
-Successful tests:
 1 scenario (1 passed)
 18 steps (18 passed)
-0m20.172s (executing steps: 0m20.138s
+0m32.677s (executing steps: 0m32.637s

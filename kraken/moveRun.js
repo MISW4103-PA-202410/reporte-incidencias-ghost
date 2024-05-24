@@ -2,8 +2,13 @@ const fs = require('fs-extra');
 const { spawn } = require('child_process');
 const path = require('path');
 
-// Directorios
-const sourceDir = path.join(__dirname, './features/web/tests_5.82/tag/');
+// Lista de directorios base
+const sourceDirs = [
+  path.join(__dirname, './features/web/e2e/view'),
+  path.join(__dirname, './features/web/e2e/edit_profile'),
+  path.join(__dirname, './features/web/tests_60_5.82_validación/tag'),
+  path.join(__dirname, './features/web/tests_60_5.82_validación/post'),
+];
 const destDir = path.join(__dirname, './features/');
 const reportFilePath = path.join(__dirname, 'test_report.txt');
 const logFilePath = path.join(__dirname, 'execution_log.txt');
@@ -80,47 +85,110 @@ function filterOutput(output) {
   return result.trim() || 'No se encontraron resultados relevantes';
 }
 
+// Función para copiar imágenes para cada paso en cada escenario
+function copyImagesForSteps(tool, feature, scenario) {
+  const sourceDirectoryBase = directoriesBase[tool];
+  const scenarioDirectory = path.join(sourceDirectoryBase, feature, scenario);
+  fs.readdir(scenarioDirectory, (err, files) => {
+    if (err) {
+      console.error(`Error leyendo el directorio ${scenarioDirectory}:`, err);
+      return;
+    }
+
+    // Filtrar solo archivos PNG
+    files.filter(file => file.endsWith('.png')).forEach((file, index) => {
+      const originalImagePath = path.join(scenarioDirectory, file);
+      const pasoNumber = index + 1; // Calcula el número de paso basado en el índice
+      const targetFileName = `backstop_default_${tool}_${feature}_${scenario}_Paso_${pasoNumber}_0_document_0_default.png`;
+      const targetImagePath = path.join(targetDirectory, targetFileName);
+
+      fs.copyFile(originalImagePath, targetImagePath, err => {
+        if (err) {
+          console.error('Error al mover la imagen:', err);
+        } else {
+          console.log(`Imagen movida exitosamente a ${targetImagePath}`);
+        }
+      });
+    });
+  });
+}
+
+// Define las características y sus escenarios para Kraken y Puppeteer
+let features = {
+  "kraken": {
+    "crear-tag": ["escenario_2"],
+    "crear-post": ["escenario_1", "escenario_2", "escenario_3", "escenario_4"]
+  },
+  "puppeteer": {
+    "crear-tag": ["escenario_1","escenario_4"],
+    "crear-page": ["escenario_2", "escenario_3", "escenario_4"]
+  }
+};
+
+// Directores base para Kraken y Puppeteer
+const directoriesBase = {
+  "kraken": '../screenshots/kraken/v3.42/',
+  "puppeteer": '../screenshots/puppeteer/v3.42/'
+};
+
+const targetDirectory = path.join(__dirname, 'backstop_data/bitmaps_reference');
+
+// Asegúrate de que el directorio objetivo existe
+if (!fs.existsSync(targetDirectory)) {
+  fs.mkdirSync(targetDirectory, { recursive: true });
+}
+
 // Función principal
 async function main() {
   const report = [];
   const log = [];
   try {
-    const files = await fs.readdir(sourceDir); // Lee los archivos en la carpeta de origen
-    const sortedFiles = files.sort(); // Ordena los archivos alfabéticamente
+    for (const sourceDir of sourceDirs) {
+      report.push(`\n=== Analizando la carpeta: ${sourceDir} ===\n`);
+      log.push(`\n=== Analizando la carpeta: ${sourceDir} ===\n`);
 
-    for (const file of sortedFiles) {
-      console.log(`Ejecutando pruebas del archivo: ${file}`);
-      log.push(`Ejecutando pruebas del archivo: ${file}`);
+      const files = await fs.readdir(sourceDir); // Lee los archivos en la carpeta de origen
+      const sortedFiles = files.sort(); // Ordena los archivos alfabéticamente
 
-      // Mover cualquier archivo .feature de vuelta a la carpeta de origen antes de mover el nuevo archivo
-      const existingFiles = await fs.readdir(destDir);
-      for (const existingFile of existingFiles) {
-        if (path.extname(existingFile) === '.feature') {
-          await moveFile(existingFile, destDir, sourceDir);
-          console.log(`Archivo existente retornado a su ubicación original: ${existingFile}`);
-          log.push(`Archivo existente retornado a su ubicación original: ${existingFile}`);
+      for (const file of sortedFiles) {
+        console.log(`Ejecutando pruebas del archivo: ${file} en el directorio: ${sourceDir}`);
+        log.push(`=== Ejecutando pruebas del archivo: ${file} en el directorio: ${sourceDir} ===`);
+
+        // Mover cualquier archivo .feature de vuelta a la carpeta de origen antes de mover el nuevo archivo
+        const existingFiles = await fs.readdir(destDir);
+        for (const existingFile of existingFiles) {
+          if (path.extname(existingFile) === '.feature') {
+            await moveFile(existingFile, destDir, sourceDir);
+            console.log(`Archivo existente retornado a su ubicación original: ${existingFile}`);
+            log.push(`Archivo existente retornado a su ubicación original: ${existingFile}`);
+          }
         }
+
+        const destFilePath = await moveFile(file, sourceDir, destDir); // Mueve el archivo a la carpeta de destino
+
+        try {
+          const result = await runScript(destFilePath); // Ejecuta el script por cada archivo movido
+          log.push(`Resultado de ejecución para ${file}:\n${result}`);
+          const filteredResult = filterOutput(result);
+          console.log(`Pruebas exitosas para: ${file}`);
+          log.push(`Pruebas exitosas para: ${file}`);
+          report.push(`Pruebas exitosas para: ${file}\n${filteredResult}`);
+        } catch (err) {
+          const filteredError = filterOutput(err.message);
+          console.error(`Fallaron las pruebas para: ${file}`);
+          log.push(`Fallaron las pruebas para: ${file}\n${err.message}`);
+          report.push(`Fallaron las pruebas para: ${file}\n${filteredError}`);
+        } finally {
+          await moveFile(file, destDir, sourceDir); // Mueve el archivo de vuelta a la carpeta de origen
+          console.log(`Archivo retornado a su ubicación original: ${file}`);
+          log.push(`Archivo retornado a su ubicación original: ${file}`);
+        }
+
+        log.push(`=== Fin de pruebas para el archivo: ${file} en el directorio: ${sourceDir} ===\n`);
       }
 
-      const destFilePath = await moveFile(file, sourceDir, destDir); // Mueve el archivo a la carpeta de destino
-
-      try {
-        const result = await runScript(destFilePath); // Ejecuta el script por cada archivo movido
-        log.push(`Resultado de ejecución para ${file}:\n${result}`);
-        const filteredResult = filterOutput(result);
-        console.log(`Pruebas exitosas para: ${file}`);
-        log.push(`Pruebas exitosas para: ${file}`);
-        report.push(`Pruebas exitosas para: ${file}\n${filteredResult}`);
-      } catch (err) {
-        const filteredError = filterOutput(err.message);
-        console.error(`Fallaron las pruebas para: ${file}`);
-        log.push(`Fallaron las pruebas para: ${file}\n${err.message}`);
-        report.push(`Fallaron las pruebas para: ${file}\n${filteredError}`);
-      } finally {
-        await moveFile(file, destDir, sourceDir); // Mueve el archivo de vuelta a la carpeta de origen
-        console.log(`Archivo retornado a su ubicación original: ${file}`);
-        log.push(`Archivo retornado a su ubicación original: ${file}`);
-      }
+      report.push(`\n=== Fin del análisis de la carpeta: ${sourceDir} ===\n`);
+      log.push(`\n=== Fin del análisis de la carpeta: ${sourceDir} ===\n`);
     }
   } catch (err) {
     console.error('Error en el proceso:', err);
@@ -134,6 +202,15 @@ async function main() {
     // Escribir el log completo en un archivo de texto
     await fs.writeFile(logFilePath, log.join('\n\n'), 'utf8');
     console.log(`Log de ejecución guardado en: ${logFilePath}`);
+
+    // Ejecución adicional al final de todas las pruebas
+    Object.entries(features).forEach(([tool, featuresByTool]) => {
+      Object.entries(featuresByTool).forEach(([feature, scenarios]) => {
+        scenarios.forEach(scenario => {
+          copyImagesForSteps(tool, feature, scenario);
+        });
+      });
+    });
   }
 }
 
