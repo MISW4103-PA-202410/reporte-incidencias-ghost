@@ -1,8 +1,8 @@
 Feature: Tags
 
-@user1 @web
-Scenario: Como usuario me registro y creo un nuevo tag
-  Given I navigate to page "http://34.170.53.250/ghost/#/setup"
+@user7 @web
+Scenario: Como usuario me registro y creo un nuevo tag con nombre aleatorio
+ Given I navigate to page "http://34.170.53.250/ghost/#/setup"
   And I wait for 2 seconds
   When I enter to the setup page "<SETUP_VALUES_REMOTE>" and take a screenshot for version "v5.82" feature "crear-tag" scenario "1" step "1"
   And I wait for 2 seconds
@@ -10,7 +10,7 @@ Scenario: Como usuario me registro y creo un nuevo tag
   And I wait for 1 seconds
   And I click in the new tag button and take a screenshot for version "v5.82" feature "crear-tag" scenario "1" step "3"
   And I wait for 1 seconds
-  And I fill with a random name the tag name "1"
+  And I fill with a random name the tag name "7"
   And I wait for 1 seconds
   And I click the save tag button and take a screenshot for version "v5.82" feature "crear-tag" scenario "1" step "5"
   And I wait for 1 seconds
@@ -18,4 +18,5 @@ Scenario: Como usuario me registro y creo un nuevo tag
   And I wait for 1 seconds
   And I click the random name tag created
   And I wait for 1 seconds
+  And I verify the tag name created is the same as the random name
   And I delete the tag created

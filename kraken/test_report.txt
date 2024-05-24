@@ -1,0 +1,307 @@
+Pruebas exitosas para: tag_1.feature
+Successful tests:
+1 scenario (1 passed)
+17 steps (17 passed)
+0m17.556s (executing steps: 0m17.523s
+
+Pruebas exitosas para: tag_10.feature
+Successful tests:
+1 scenario (1 passed)
+14 steps (14 passed)
+0m15.161s (executing steps: 0m15.133s
+
+Pruebas exitosas para: tag_11.feature
+Successful tests:
+1 scenario (1 passed)
+20 steps (20 passed)
+0m27.452s (executing steps: 0m27.413s
+
+Fallaron las pruebas para: tag_12.feature
+Failed tests:
+1 scenario (1 failed)
+19 steps (1 failed, 8 skipped, 10 passed)
+0m43.529s (executing steps: 0m43.496s)
+
+Detailed failure steps:
+Failures:
+
+1) Scenario: Como usuario me registro y creo un nuevo tag con footer pseudo-aleatorio # features\tag_12.feature:4
+   √ Before # features\web\support\hooks.js:63
+   √ Given I navigate to page "http://34.170.53.250/ghost/#/setup" # node_modules\kraken-node\lib\steps\web.js:41
+       Attachment (image/png)
+   √ And I wait for 2 seconds # node_modules\kraken-node\lib\steps\both.js:73
+       Attachment (image/png)
+   √ When I enter to the setup page "<SETUP_VALUES_REMOTE>" and take a screenshot for version "v5.82" feature "crear-tag" scenario "3" step "1" # features\web\step_definitions\step.js:37
+       Attachment (image/png)
+   √ And I wait for 2 seconds # node_modules\kraken-node\lib\steps\both.js:73
+       Attachment (image/png)
+   √ And I click in the tags menu button and take a screenshot for version "v5.82" feature "crear-tag" scenario "3" step "1" # features\web\step_definitions\step.js:562
+       Attachment (image/png)
+   √ And I wait for 1 seconds # node_modules\kraken-node\lib\steps\both.js:73
+       Attachment (image/png)
+   √ And I click in the new tag button and take a screenshot for version "v5.82" feature "crear-tag" scenario "3" step "2" # features\web\step_definitions\step.js:585
+       Attachment (image/png)
+   √ And I wait for 1 seconds # node_modules\kraken-node\lib\steps\both.js:73
+       Attachment (image/png)
+   √ And I fill with a random name the tag name "12" # features\web\step_definitions\step.js:810
+       Attachment (image/png)
+   √ And I wait for 1 seconds # node_modules\kraken-node\lib\steps\both.js:73
+       Attachment (image/png)
+   × And I fill the footer with random text # features\web\step_definitions\step.js:931
+       Attachment (image/png)
+       Error: function timed out, ensure the promise resolves within 30000 milliseconds
+           at Timeout._onTimeout (C:\Users\brall\OneDrive\Escritorio\reporte-incidencias-ghost\kraken\node_modules\@cucumber\cucumber\lib\user_code_runner.js:63:28)
+           at listOnTimeout (node:internal/timers:559:17)
+           at processTimers (node:internal/timers:502:7)
+   - And I wait for 1 seconds # node_modules\kraken-node\lib\steps\both.js:73
+   - And I click the save tag button and take a screenshot for version "v5.82" feature "crear-tag" scenario "3" step "5" # features\web\step_definitions\step.js:656
+   - And I wait for 1 seconds # node_modules\kraken-node\lib\steps\both.js:73
+   - And I click in the tags menu button and take a screenshot for version "v5.82" feature "crear-tag" scenario "3" step "6" # features\web\step_definitions\step.js:562
+   - And I wait for 1 seconds # node_modules\kraken-node\lib\steps\both.js:73
+   - And I click the random name tag created # features\web\step_definitions\step.js:821
+   - And I delete the tag created # features\web\step_definitions\step.js:839
+   - And I wait for 1 seconds # node_modules\kraken-node\lib\steps\both.js:73
+   √ After
+
+Pruebas exitosas para: tag_13.feature
+Successful tests:
+1 scenario (1 passed)
+19 steps (19 passed)
+0m23.961s (executing steps: 0m23.922s
+
+Fallaron las pruebas para: tag_15_issue.feature
+Failed tests:
+1 scenario (1 failed)
+18 steps (1 failed, 1 skipped, 16 passed)
+0m19.667s (executing steps: 0m19.634s)
+
+Detailed failure steps:
+Failures:
+
+1) Scenario: Como usuario me registro y creo un nuevo tag con descripción de Facebook aleatoria entre 500 y 1000 carácteres - Falla documentada con ISSUE: # features\tag_15_issue.feature:4
+   √ Before # features\web\support\hooks.js:63
+   √ Given I navigate to page "http://34.170.53.250/ghost/#/setup" # node_modules\kraken-node\lib\steps\web.js:41
+       Attachment (image/png)
+   √ And I wait for 2 seconds # node_modules\kraken-node\lib\steps\both.js:73
+       Attachment (image/png)
+   √ When I enter to the setup page "<SETUP_VALUES_REMOTE>" and take a screenshot for version "v5.82" feature "crear-tag" scenario "3" step "1" # features\web\step_definitions\step.js:37
+       Attachment (image/png)
+   √ And I wait for 2 seconds # node_modules\kraken-node\lib\steps\both.js:73
+       Attachment (image/png)
+   √ And I click in the tags menu button and take a screenshot for version "v5.82" feature "crear-tag" scenario "3" step "1" # features\web\step_definitions\step.js:562
+       Attachment (image/png)
+   √ And I wait for 1 seconds # node_modules\kraken-node\lib\steps\both.js:73
+       Attachment (image/png)
+   √ And I click in the new tag button and take a screenshot for version "v5.82" feature "crear-tag" scenario "3" step "2" # features\web\step_definitions\step.js:585
+       Attachment (image/png)
+   √ And I wait for 1 seconds # node_modules\kraken-node\lib\steps\both.js:73
+       Attachment (image/png)
+   √ And I fill with a random name the tag name "15" # features\web\step_definitions\step.js:810
+       Attachment (image/png)
+   √ And I wait for 1 seconds # node_modules\kraken-node\lib\steps\both.js:73
+       Attachment (image/png)
+   √ And I fill the facebook description with a random length between 500 and 1000 characters # features\web\step_definitions\step.js:988
+       Attachment (image/png)
+   √ And I wait for 1 seconds # node_modules\kraken-node\lib\steps\both.js:73
+       Attachment (image/png)
+   √ And I click the save tag button and take a screenshot for version "v5.82" feature "crear-tag" scenario "3" step "5" # features\web\step_definitions\step.js:656
+       Attachment (image/png)
+   √ And I wait for 1 seconds # node_modules\kraken-node\lib\steps\both.js:73
+       Attachment (image/png)
+   √ And I click in the tags menu button and take a screenshot for version "v5.82" feature "crear-tag" scenario "3" step "6" # features\web\step_definitions\step.js:562
+       Attachment (image/png)
+   √ And I wait for 1 seconds # node_modules\kraken-node\lib\steps\both.js:73
+       Attachment (image/png)
+   × And I click the random name tag created # features\web\step_definitions\step.js:821
+       Attachment (image/png)
+       Error: Tag with name deprimo151716533794598 not found
+           at KrakenWorld.<anonymous> (C:\Users\brall\OneDrive\Escritorio\reporte-incidencias-ghost\kraken\features\web\step_definitions\step.js:836:9)
+           at runMicrotasks (<anonymous>)
+           at processTicksAndRejections (node:internal/process/task_queues:96:5)
+   - And I delete the tag created # features\web\step_definitions\step.js:839
+   √ After
+
+Pruebas exitosas para: tag_16.feature
+Successful tests:
+1 scenario (1 passed)
+27 steps (27 passed)
+0m24.172s (executing steps: 0m24.141s
+
+Pruebas exitosas para: tag_17.feature
+Successful tests:
+1 scenario (1 passed)
+22 steps (22 passed)
+0m20.822s (executing steps: 0m20.788s
+
+Pruebas exitosas para: tag_18.feature
+Successful tests:
+1 scenario (1 passed)
+20 steps (20 passed)
+0m16.795s (executing steps: 0m16.753s
+
+Pruebas exitosas para: tag_19.feature
+Successful tests:
+1 scenario (1 passed)
+19 steps (19 passed)
+0m26.563s (executing steps: 0m26.527s
+
+Pruebas exitosas para: tag_2.feature
+Successful tests:
+1 scenario (1 passed)
+16 steps (16 passed)
+0m18.236s (executing steps: 0m18.207s
+
+Pruebas exitosas para: tag_20.feature
+Successful tests:
+1 scenario (1 passed)
+19 steps (19 passed)
+0m26.500s (executing steps: 0m26.450s
+
+Pruebas exitosas para: tag_21.feature
+Successful tests:
+1 scenario (1 passed)
+12 steps (12 passed)
+0m13.800s (executing steps: 0m13.772s
+
+Pruebas exitosas para: tag_22.feature
+Successful tests:
+1 scenario (1 passed)
+13 steps (13 passed)
+0m16.704s (executing steps: 0m16.673s
+
+Pruebas exitosas para: tag_23.feature
+Successful tests:
+1 scenario (1 passed)
+18 steps (18 passed)
+0m24.435s (executing steps: 0m24.405s
+
+Pruebas exitosas para: tag_24.feature
+Successful tests:
+1 scenario (1 passed)
+19 steps (19 passed)
+0m26.540s (executing steps: 0m26.508s
+
+Pruebas exitosas para: tag_25.feature
+Successful tests:
+1 scenario (1 passed)
+19 steps (19 passed)
+0m26.121s (executing steps: 0m26.088s
+
+Pruebas exitosas para: tag_26.feature
+Successful tests:
+1 scenario (1 passed)
+23 steps (23 passed)
+0m26.219s (executing steps: 0m26.186s
+
+Pruebas exitosas para: tag_27.feature
+Successful tests:
+1 scenario (1 passed)
+20 steps (20 passed)
+0m23.194s (executing steps: 0m23.157s
+
+Pruebas exitosas para: tag_28.feature
+Successful tests:
+1 scenario (1 passed)
+19 steps (19 passed)
+0m21.198s (executing steps: 0m21.162s
+
+Fallaron las pruebas para: tag_29_issue.feature
+Failed tests:
+1 scenario (1 failed)
+19 steps (1 failed, 2 skipped, 16 passed)
+0m20.335s (executing steps: 0m20.305s)
+
+Detailed failure steps:
+Failures:
+
+1) Scenario: Como usuario me registro y creo un nuevo tag con una descripción en X de 500 caracteres - ISSUE reportada, no muestra cantidad máxima de caracteres y solo manda error # features\tag_29_issue.feature:4
+   √ Before # features\web\support\hooks.js:63
+   √ Given I navigate to page "http://34.170.53.250/ghost/#/setup" # node_modules\kraken-node\lib\steps\web.js:41
+       Attachment (image/png)
+   √ And I wait for 2 seconds # node_modules\kraken-node\lib\steps\both.js:73
+       Attachment (image/png)
+   √ When I enter to the setup page "<SETUP_VALUES_REMOTE>" and take a screenshot for version "v5.82" feature "crear-tag" scenario "3" step "1" # features\web\step_definitions\step.js:37
+       Attachment (image/png)
+   √ And I wait for 3 seconds # node_modules\kraken-node\lib\steps\both.js:73
+       Attachment (image/png)
+   √ And I click in the tags menu button and take a screenshot for version "v5.82" feature "crear-tag" scenario "3" step "1" # features\web\step_definitions\step.js:562
+       Attachment (image/png)
+   √ And I wait for 1 seconds # node_modules\kraken-node\lib\steps\both.js:73
+       Attachment (image/png)
+   √ And I click in the new tag button and take a screenshot for version "v5.82" feature "crear-tag" scenario "3" step "2" # features\web\step_definitions\step.js:585
+       Attachment (image/png)
+   √ And I wait for 1 seconds # node_modules\kraken-node\lib\steps\both.js:73
+       Attachment (image/png)
+   √ And I fill with a random name the tag name "29" # features\web\step_definitions\step.js:810
+       Attachment (image/png)
+   √ And I wait for 1 seconds # node_modules\kraken-node\lib\steps\both.js:73
+       Attachment (image/png)
+   √ And I fill the tag description in x with 500 characters # features\web\step_definitions\step.js:1247
+       Attachment (image/png)
+   √ And I wait for 1 seconds # node_modules\kraken-node\lib\steps\both.js:73
+       Attachment (image/png)
+   √ And I click the save tag button and take a screenshot for version "v5.82" feature "crear-tag" scenario "3" step "5" # features\web\step_definitions\step.js:656
+       Attachment (image/png)
+   √ And I wait for 1 seconds # node_modules\kraken-node\lib\steps\both.js:73
+       Attachment (image/png)
+   √ And I click in the tags menu button and take a screenshot for version "v5.82" feature "crear-tag" scenario "3" step "6" # features\web\step_definitions\step.js:562
+       Attachment (image/png)
+   √ And I wait for 1 seconds # node_modules\kraken-node\lib\steps\both.js:73
+       Attachment (image/png)
+   × And I click the random name tag created # features\web\step_definitions\step.js:821
+       Attachment (image/png)
+       Error: Tag with name utrum291716534213736 not found
+           at KrakenWorld.<anonymous> (C:\Users\brall\OneDrive\Escritorio\reporte-incidencias-ghost\kraken\features\web\step_definitions\step.js:836:9)
+           at runMicrotasks (<anonymous>)
+           at processTicksAndRejections (node:internal/process/task_queues:96:5)
+   - And I delete the tag created # features\web\step_definitions\step.js:839
+   - And I wait for 1 seconds # node_modules\kraken-node\lib\steps\both.js:73
+   √ After
+
+Pruebas exitosas para: tag_3.feature
+Successful tests:
+1 scenario (1 passed)
+19 steps (19 passed)
+0m20.929s (executing steps: 0m20.899s
+
+Pruebas exitosas para: tag_30.feature
+Successful tests:
+1 scenario (1 passed)
+15 steps (15 passed)
+0m16.114s (executing steps: 0m16.081s
+
+Pruebas exitosas para: tag_4.feature
+Successful tests:
+1 scenario (1 passed)
+22 steps (22 passed)
+0m22.542s (executing steps: 0m22.501s
+
+Pruebas exitosas para: tag_5.feature
+Successful tests:
+1 scenario (1 passed)
+12 steps (12 passed)
+0m14.484s (executing steps: 0m14.456s
+
+Pruebas exitosas para: tag_6.feature
+Successful tests:
+1 scenario (1 passed)
+20 steps (20 passed)
+0m20.940s (executing steps: 0m20.906s
+
+Pruebas exitosas para: tag_7.feature
+Successful tests:
+1 scenario (1 passed)
+18 steps (18 passed)
+0m17.434s (executing steps: 0m17.405s
+
+Pruebas exitosas para: tag_8.feature
+Successful tests:
+1 scenario (1 passed)
+20 steps (20 passed)
+0m21.512s (executing steps: 0m21.483s
+
+Pruebas exitosas para: tag_9.feature
+Successful tests:
+1 scenario (1 passed)
+18 steps (18 passed)
+0m20.172s (executing steps: 0m20.138s

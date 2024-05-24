@@ -6,7 +6,7 @@
 
 en caso de no tener las versiones de node instalarlas con este comando:"
 
-`nvm install v18.17.0`
+`nvm install v16.17.0`
 
 que serán necesarias para ejecutar tanto kraken como backstop.
 
@@ -17,7 +17,7 @@ que serán necesarias para ejecutar tanto kraken como backstop.
 1. Clonar el repositorio
 2. Ejecutar el comando `cd reporte-incidencias-ghost`
 3. Ejecutar el comando `cd kraken`
-4. Ejecutar el comando nvm `nvm use v18.17.0`
+4. Ejecutar el comando nvm `nvm use v16.17.0`
 5. Instalar las dependencias con el comando `npm i`
 
 En la carpeta kraken/features/web/tests_5.82/tag se encuentran los escenarios en formato .feature para tag (agrupados en 5 aproximadamente en cada archivo para mayor comodidad corriendo los tests) y para post se tiene kraken/features/web/tests_5.82/post tambien se tiene uno llamado tag_5_issue.feature que contiene 2 escenarios que fallan y están documentados en las issues del proyecto puesto que se trata de un error del aplicativo. La manera apropiada de correrlos es la siguiente:
